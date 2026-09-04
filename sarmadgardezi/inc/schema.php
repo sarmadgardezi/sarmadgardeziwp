@@ -82,10 +82,11 @@ function sarmadgardezi_output_schema_jsonld() {
     if (empty($nav_items)) {
         $default_links = array(
             array('name' => __('Home', 'sarmadgardezi'), 'url' => home_url('/')),
-            array('name' => __('About', 'sarmadgardezi'), 'url' => home_url('/#about')),
-            array('name' => __('Projects', 'sarmadgardezi'), 'url' => home_url('/#projects')),
-            array('name' => __('Case Studies', 'sarmadgardezi'), 'url' => home_url('/#case-studies')),
-            array('name' => __('Contact', 'sarmadgardezi'), 'url' => home_url('/#contact')),
+            array('name' => __('About', 'sarmadgardezi'), 'url' => home_url('/about')),
+            array('name' => __('Services', 'sarmadgardezi'), 'url' => home_url('/services')),
+            array('name' => __('Portfolio', 'sarmadgardezi'), 'url' => home_url('/work')),
+            array('name' => __('Projects', 'sarmadgardezi'), 'url' => home_url('/projects')),
+            array('name' => __('Blog', 'sarmadgardezi'), 'url' => home_url('/blog')),
         );
 
         $position = 1;

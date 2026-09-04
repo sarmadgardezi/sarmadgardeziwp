@@ -50,3 +50,85 @@ function sarmadgardezi_get_icon($icon, $class = 'icon') {
 
     return isset($icons[$icon]) ? $icons[$icon] : '';
 }
+
+/**
+ * Retrieve primary navigation items, whether from WordPress registered menu
+ * or fallback to default links, with active state and Schema.org metadata.
+ *
+ * @return array List of nav item arrays: array('title', 'url', 'target', 'active').
+ */
+function sarmadgardezi_get_nav_items() {
+    $menu_items = array();
+    $locations  = get_nav_menu_locations();
+
+    if (isset($locations['primary']) && $locations['primary']) {
+        $wp_menu = wp_get_nav_menu_object($locations['primary']);
+        if ($wp_menu) {
+            $raw_items = wp_get_nav_menu_items($wp_menu->term_id);
+            if (!empty($raw_items)) {
+                $current_url = trailingslashit((is_ssl() ? 'https://' : 'http://') . ($_SERVER['HTTP_HOST'] ?? '') . strtok($_SERVER['REQUEST_URI'] ?? '/', '?'));
+                $home_url    = trailingslashit(home_url('/'));
+
+                foreach ($raw_items as $item) {
+                    // Only top-level items for the pill bar
+                    if (!empty($item->menu_item_parent)) {
+                        continue;
+                    }
+
+                    $item_url  = trailingslashit($item->url);
+                    $is_active = false;
+
+                    if (is_front_page()) {
+                        $is_active = ($item_url === $home_url);
+                    } else {
+                        $is_active = ($item_url === $current_url) || !empty($item->current);
+                    }
+
+                    $menu_items[] = array(
+                        'title'  => $item->title,
+                        'url'    => $item->url,
+                        'target' => !empty($item->target) ? $item->target : '_self',
+                        'active' => $is_active,
+                    );
+                }
+            }
+        }
+    }
+
+    // Default fallback matching exact custom specification
+    if (empty($menu_items)) {
+        $req_path = strtok($_SERVER['REQUEST_URI'] ?? '/', '?');
+        $clean_path = '/' . trim($req_path, '/');
+        if ($clean_path === '//') {
+            $clean_path = '/';
+        }
+
+        $defaults = array(
+            array('title' => __('Home', 'sarmadgardezi'), 'url' => home_url('/'), 'path' => '/'),
+            array('title' => __('About', 'sarmadgardezi'), 'url' => home_url('/about'), 'path' => '/about'),
+            array('title' => __('Services', 'sarmadgardezi'), 'url' => home_url('/services'), 'path' => '/services'),
+            array('title' => __('Portfolio', 'sarmadgardezi'), 'url' => home_url('/work'), 'path' => '/work'),
+            array('title' => __('Projects', 'sarmadgardezi'), 'url' => home_url('/projects'), 'path' => '/projects'),
+            array('title' => __('Blog', 'sarmadgardezi'), 'url' => home_url('/blog'), 'path' => '/blog'),
+        );
+
+        foreach ($defaults as $def) {
+            $is_active = false;
+            if ($def['path'] === '/') {
+                $is_active = is_front_page();
+            } else {
+                $is_active = (strpos($clean_path, $def['path']) === 0);
+            }
+
+            $menu_items[] = array(
+                'title'  => $def['title'],
+                'url'    => $def['url'],
+                'target' => '_self',
+                'active' => $is_active,
+            );
+        }
+    }
+
+    return $menu_items;
+}
+

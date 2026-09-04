@@ -18,12 +18,24 @@
   flex-direction: column;
   align-items: center;
   gap: 2.75rem;
-  max-width: 1120px;
+  max-width: 64rem; // 1024px (max-w-5xl), matching header width precisely
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @include respond-to('sm') {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 
   @include respond-to('md') {
     flex-direction: row;
     align-items: center;
     gap: 4.25rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 
   @include respond-to('lg') {
