@@ -1,86 +1,122 @@
 // ==========================================================================
-// SCSS Layout: Header (Clean & Minimal)
+// SCSS Layout: Floating Dark Pill Header
 // ==========================================================================
 
-.site-header {
-  position: sticky;
-  top: 0;
+.site-header-floating {
+  position: fixed;
+  top: 1.25rem;
   left: 0;
   right: 0;
   z-index: 1000;
-  background: #ffffff;
-  border-bottom: 1px solid $color-border;
-  padding: 1.1rem 0;
-  transition: box-shadow $transition-base;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  padding: 0 1rem;
+  transition: transform 0.25s ease, opacity 0.25s ease;
 
-  &.is-scrolled {
-    box-shadow: $shadow-sm;
-  }
-
-  .header-inner {
+  .header-pill {
+    pointer-events: auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 1.75rem;
+    background: #0f172a; // Deep dark container
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 9999px;
+    padding: 0.45rem 0.55rem 0.45rem 1.35rem;
+    box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.25), 0 4px 12px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    @include respond-to('md') {
+      gap: 2.75rem;
+      padding: 0.45rem 0.55rem 0.45rem 1.6rem;
+    }
+
+    &:hover {
+      box-shadow: 0 20px 40px -4px rgba(0, 0, 0, 0.3), 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
   }
 
   .site-branding {
-    .brand-link {
-      display: flex;
+    display: flex;
+    align-items: center;
+
+    .brand-monogram-link {
+      display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
+      text-decoration: none;
 
-      .brand-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: $color-primary;
-      }
-
-      .brand-name {
-        font-weight: $font-weight-bold;
+      .brand-monogram {
+        font-family: var(--framer-font-family-bold, 'Google Sans Flex', sans-serif);
+        font-weight: 800;
         font-size: 1.15rem;
-        letter-spacing: -0.02em;
-        color: $color-text;
-      }
+        letter-spacing: -0.03em;
+        color: #ffffff;
 
-      .brand-tag {
-        display: none;
-        font-size: 0.75rem;
-        padding: 0.2rem 0.6rem;
-        background: $color-bg-alt;
-        border: 1px solid $color-border;
-        border-radius: $radius-full;
-        color: $color-text-muted;
-
-        @include respond-to('sm') {
-          display: inline-block;
+        .brand-accent {
+          color: #818cf8;
         }
       }
+    }
+
+    .custom-logo-link img {
+      max-height: 28px;
+      width: auto;
     }
   }
 
   .header-actions {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.75rem;
+  }
+
+  .nav-pill-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 1.05rem;
+    border-radius: 9999px;
+    background: rgba(99, 102, 241, 0.14);
+    color: #818cf8;
+    border: 1px solid rgba(99, 102, 241, 0.25);
+    font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+    .nav-btn-icon {
+      flex-shrink: 0;
+    }
+
+    &:hover {
+      background: rgba(99, 102, 241, 0.25);
+      color: #ffffff;
+      border-color: rgba(99, 102, 241, 0.5);
+      transform: translateY(-1px);
+    }
   }
 
   .menu-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: $radius-md;
-    background: $color-bg-alt;
-    border: 1px solid $color-border;
+    width: 36px;
+    height: 36px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    cursor: pointer;
 
     @include respond-to('md') {
       display: none;
     }
 
     .hamburger-box {
-      width: 18px;
+      width: 16px;
       height: 12px;
       position: relative;
       display: inline-block;
@@ -93,9 +129,9 @@
       &,
       &::before,
       &::after {
-        width: 18px;
+        width: 16px;
         height: 2px;
-        background-color: $color-text;
+        background-color: #ffffff;
         border-radius: 2px;
         position: absolute;
         transition: transform 0.2s ease;
@@ -116,19 +152,17 @@
       }
     }
 
-    &[aria-expanded="true"] {
-      .hamburger-inner {
-        transform: rotate(45deg);
+    &[aria-expanded="true"] .hamburger-inner {
+      transform: rotate(45deg);
 
-        &::before {
-          top: 0;
-          opacity: 0;
-        }
+      &::before {
+        top: 0;
+        opacity: 0;
+      }
 
-        &::after {
-          bottom: 0;
-          transform: rotate(-90deg);
-        }
+      &::after {
+        bottom: 0;
+        transform: rotate(-90deg);
       }
     }
   }
