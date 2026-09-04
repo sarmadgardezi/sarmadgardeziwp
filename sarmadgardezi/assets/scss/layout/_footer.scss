@@ -1,122 +1,256 @@
 // ==========================================================================
-// SCSS Layout: Footer (Clean & Minimal)
+// SCSS Layout: Footer (Exact Custom Specification matching Reference Design)
 // ==========================================================================
 
 .site-footer {
-  background: $color-bg-alt;
-  border-top: 1px solid $color-border;
-  padding: 3.5rem 0 2rem;
+  background-color: #141413;
+  color: #ffffff;
+  padding: 4.5rem 0 2.5rem;
   margin-top: auto;
+  border-top: none;
 
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    margin-bottom: 2.5rem;
+  .footer-inner-container {
+    max-width: 64rem; // 1024px (max-w-5xl)
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    @include respond-to('sm') {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
 
     @include respond-to('md') {
-      grid-template-columns: 2fr 1fr 1.5fr;
-      gap: 3rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
     }
   }
 
-  .footer-brand {
-    .brand-link {
+  // Top Bar: Monogram & Buttons
+  .footer-top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 3.5rem;
+
+    .footer-brand {
       display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
-      margin-bottom: 1rem;
+      text-decoration: none;
+      user-select: none;
 
-      .brand-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: $color-primary;
+      .footer-logo-brackets {
+        color: #e4e4e7;
+        font-family: monospace, Courier, monospace;
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-right: 0.65rem;
       }
 
-      .brand-name {
-        font-weight: $font-weight-bold;
-        font-size: 1.15rem;
-        color: $color-text;
-      }
-    }
-
-    .footer-bio {
-      font-size: 0.9rem;
-      line-height: 1.6;
-      margin-bottom: 1.25rem;
-      max-width: 380px;
-      color: $color-text-muted;
-    }
-  }
-
-  .footer-heading {
-    font-size: 0.95rem;
-    font-weight: $font-weight-bold;
-    color: $color-text;
-    margin-bottom: 1rem;
-  }
-
-  .footer-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-
-    li a {
-      font-size: 0.9rem;
-      color: $color-text-muted;
-      transition: color $transition-fast;
-
-      &:hover {
-        color: $color-text;
-      }
-    }
-  }
-
-  .footer-contact-prompt {
-    font-size: 0.9rem;
-    color: $color-text-muted;
-    margin-bottom: 1rem;
-  }
-
-  .social-links {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-
-    .social-link {
-      @include flex-center;
-      width: 36px;
-      height: 36px;
-      border-radius: $radius-md;
-      background: #ffffff;
-      border: 1px solid $color-border;
-      color: $color-text-muted;
-      transition: all $transition-fast;
-
-      &:hover {
-        background: $color-primary;
+      .footer-logo-name {
         color: #ffffff;
-        border-color: $color-primary;
+        font-family: var(--framer-font-family-bold, 'Google Sans Flex', sans-serif);
+        font-size: 1.6rem;
+        font-weight: 700;
+        letter-spacing: -0.025em;
+      }
+
+      .footer-logo-sub {
+        color: #a1a1aa;
+        font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+        font-size: 1.6rem;
+        font-weight: 400;
+        margin-left: 0.45rem;
+      }
+    }
+
+    .footer-top-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+
+      .footer-btn-talks {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        color: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 8px;
+        padding: 0.55rem 1.25rem;
+        font-family: var(--framer-font-family-bold, 'Google Sans Flex', sans-serif);
+        font-size: 0.725rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: all 0.2s ease;
+
+        &:hover {
+          border-color: #ffffff;
+          background-color: rgba(255, 255, 255, 0.06);
+        }
+      }
+
+      .footer-btn-consultation {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        color: #ffffff;
+        padding: 0.55rem 0.5rem;
+        font-family: var(--framer-font-family-bold, 'Google Sans Flex', sans-serif);
+        font-size: 0.725rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: #a3e635;
+        }
       }
     }
   }
 
-  .footer-bottom {
-    padding-top: 1.5rem;
-    border-top: 1px solid $color-border;
+  // 5 Columns Grid
+  .footer-columns-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 1.5rem;
+    margin-bottom: 3.5rem;
+
+    @include respond-to('sm') {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem 2rem;
+    }
+
+    @include respond-to('md') {
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.5rem;
+    }
+
+    .footer-col-title {
+      font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin: 0 0 1.5rem 0;
+    }
+
+    .footer-col-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+
+      li a {
+        font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+        font-size: 0.85rem;
+        font-weight: 400;
+        color: #8e8e93;
+        text-decoration: none;
+        line-height: 1.4;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: #ffffff;
+        }
+      }
+    }
+  }
+
+  // Rounded Sub-bar
+  .footer-pill-bar {
+    background-color: #1c1c1b;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    align-items: center;
-    text-align: center;
-    font-size: 0.85rem;
-    color: $color-text-dim;
+    gap: 1.25rem;
+    align-items: flex-start;
+    justify-content: space-between;
 
     @include respond-to('md') {
       flex-direction: row;
-      justify-content: space-between;
-      text-align: left;
+      align-items: center;
+      padding: 1.1rem 2rem;
     }
+
+    .footer-legal-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.75rem;
+
+      a {
+        font-family: var(--framer-font-family-bold, 'Google Sans Flex', sans-serif);
+        font-size: 0.8125rem;
+        font-weight: 600;
+        color: #e4e4e7;
+        text-decoration: none;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: #ffffff;
+        }
+      }
+    }
+
+    .footer-social-icons {
+      display: flex;
+      align-items: center;
+      gap: 1.35rem;
+
+      a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #a1a1aa;
+        text-decoration: none;
+        transition: color 0.2s ease, transform 0.2s ease;
+
+        &:hover {
+          color: #ffffff;
+          transform: translateY(-1px);
+        }
+
+        svg {
+          width: 18px;
+          height: 18px;
+          stroke: currentColor;
+          fill: none;
+        }
+      }
+    }
+  }
+
+  // Technical Architecture Note
+  .footer-tech-note {
+    margin: 1.75rem 0 0 0;
+    font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+    font-size: 0.715rem;
+    line-height: 1.68;
+    color: #55555c;
+    max-width: 100%;
+  }
+
+  // Bottom Copyright
+  .footer-copyright {
+    margin: 2.25rem 0 0.5rem 0;
+    text-align: center;
+    font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+    font-size: 0.75rem;
+    color: #71717a;
   }
 }
