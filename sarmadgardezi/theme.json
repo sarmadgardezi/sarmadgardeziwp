@@ -44,8 +44,8 @@
     "typography": {
       "fontFamilies": [
         {
-          "fontFamily": "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-          "name": "Sans",
+          "fontFamily": "\"Google Sans Flex\", \"Google Sans Flex Placeholder\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+          "name": "Google Sans Flex",
           "slug": "sans"
         },
         {
