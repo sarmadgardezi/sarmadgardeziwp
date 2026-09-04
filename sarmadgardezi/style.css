@@ -2,7 +2,16 @@
 Theme Name: Sarmad Gardezi
 Theme URI: https://sarmadgardezi.com
 Author: Sarmad Gardezi
-Description: Custom portfolio, blog and case study theme for Sarmad Gardezi.
+Author URI: https://sarmadgardezi.com
+Description: Custom high-performance portfolio, blog, and case study theme for Sarmad Gardezi.
 Version: 1.0.0
+Requires at least: 6.2
+Requires PHP: 8.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: sarmadgardezi
+Tags: portfolio, blog, dark-mode, custom-header, custom-menu, featured-images, full-site-editing
+
+This file is used for WordPress theme identification.
+Compiled styles are loaded from assets/css/main.min.css.
 */

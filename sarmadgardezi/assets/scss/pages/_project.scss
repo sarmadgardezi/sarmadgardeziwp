@@ -1,0 +1,28 @@
+// ==========================================================================
+// SCSS Pages: Projects
+// ==========================================================================
+
+.single-project-hero {
+  padding: 9rem 0 4rem;
+
+  .project-hero-badge {
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+
+  .project-hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 1.5rem;
+  }
+}
+
+.project-details-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-top: 3rem;
+
+  @include respond-to('md') {
+    grid-template-columns: 2fr 1fr;
+  }
+}

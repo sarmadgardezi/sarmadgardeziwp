@@ -1,0 +1,32 @@
+// ==========================================================================
+// Sarmad Gardezi Theme Master SCSS
+// Architecture: 7-1 Pattern
+// ==========================================================================
+
+// 1. Abstracts
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/breakpoints';
+
+// 2. Base
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/global';
+
+// 3. Components
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/badges';
+@import 'components/forms';
+
+// 4. Layout
+@import 'layout/container';
+@import 'layout/header';
+@import 'layout/navigation';
+@import 'layout/footer';
+
+// 5. Pages
+@import 'pages/home';
+@import 'pages/blog';
+@import 'pages/project';
+@import 'pages/case-study';

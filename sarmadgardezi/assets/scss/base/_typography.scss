@@ -1,0 +1,67 @@
+// ==========================================================================
+// SCSS Base: Typography
+// ==========================================================================
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-sans;
+  font-weight: $font-weight-bold;
+  line-height: 1.2;
+  color: $color-text;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: $font-weight-extrabold;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+p {
+  color: $color-text-muted;
+  line-height: 1.7;
+}
+
+.lead-paragraph {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: $color-text;
+}
+
+code, pre {
+  font-family: $font-mono;
+}
+
+pre {
+  background: $color-surface;
+  padding: 1rem 1.25rem;
+  border-radius: $radius-md;
+  overflow-x: auto;
+}
+
+.gradient-text {
+  @include gradient-text($grad-primary);
+}
+
+.text-cyan {
+  color: $color-cyan;
+}
+
+.text-purple {
+  color: $color-purple;
+}
+
+.text-muted {
+  color: $color-text-muted;
+}

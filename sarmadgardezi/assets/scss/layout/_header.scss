@@ -1,0 +1,138 @@
+// ==========================================================================
+// SCSS Layout: Header
+// ==========================================================================
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1.25rem 0;
+  @include transition(all, $transition-base);
+
+  &.is-scrolled {
+    padding: 0.85rem 0;
+    @include glassmorphism(20px, rgba(7, 9, 14, 0.85), rgba(255, 255, 255, 0.08));
+    box-shadow: $shadow-md;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .site-branding {
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+
+      .brand-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: $color-cyan;
+        box-shadow: 0 0 12px $color-cyan;
+      }
+
+      .brand-name {
+        font-weight: $font-weight-extrabold;
+        font-size: 1.15rem;
+        letter-spacing: -0.02em;
+        color: #ffffff;
+      }
+
+      .brand-tag {
+        display: none;
+        font-size: 0.75rem;
+        padding: 0.2rem 0.6rem;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: $radius-full;
+        color: $color-text-muted;
+
+        @include respond-to('sm') {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: $radius-md;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    @include respond-to('md') {
+      display: none;
+    }
+
+    .hamburger-box {
+      width: 20px;
+      height: 14px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .hamburger-inner {
+      top: 50%;
+      margin-top: -1px;
+
+      &,
+      &::before,
+      &::after {
+        width: 20px;
+        height: 2px;
+        background-color: #ffffff;
+        border-radius: 2px;
+        position: absolute;
+        transition-property: transform;
+        transition-duration: 0.2s;
+        transition-timing-function: ease;
+      }
+
+      &::before,
+      &::after {
+        content: '';
+        display: block;
+      }
+
+      &::before {
+        top: -6px;
+      }
+
+      &::after {
+        bottom: -6px;
+      }
+    }
+
+    &[aria-expanded="true"] {
+      .hamburger-inner {
+        transform: rotate(45deg);
+
+        &::before {
+          top: 0;
+          opacity: 0;
+        }
+
+        &::after {
+          bottom: 0;
+          transform: rotate(-90deg);
+        }
+      }
+    }
+  }
+}

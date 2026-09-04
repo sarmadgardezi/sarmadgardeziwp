@@ -1,0 +1,71 @@
+// ==========================================================================
+// SCSS Layout: Containers & Grids
+// ==========================================================================
+
+.site-container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $container-padding;
+  padding-right: $container-padding;
+}
+
+.site-container-wide {
+  max-width: $container-wide-width;
+}
+
+.home-section {
+  padding: 6rem 0;
+  position: relative;
+
+  @include respond-to('md') {
+    padding: 7.5rem 0;
+  }
+}
+
+.section-header {
+  margin-bottom: 3.5rem;
+  max-width: 680px;
+
+  .section-subtitle {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: $font-weight-semibold;
+    color: $color-cyan;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-weight: $font-weight-extrabold;
+  }
+}
+
+.section-header-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+
+  @include respond-to('md') {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .section-subtitle {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: $font-weight-semibold;
+    color: $color-cyan;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-weight: $font-weight-extrabold;
+  }
+}

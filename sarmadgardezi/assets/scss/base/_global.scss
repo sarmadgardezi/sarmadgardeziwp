@@ -1,0 +1,56 @@
+// ==========================================================================
+// SCSS Base: Global
+// ==========================================================================
+
+:root {
+  --color-bg: #{$color-bg};
+  --color-surface: #{$color-surface};
+  --color-primary: #{$color-primary};
+  --color-cyan: #{$color-cyan};
+  --color-purple: #{$color-purple};
+  --color-text: #{$color-text};
+  --color-text-muted: #{$color-text-muted};
+  --color-border: #{$color-border};
+}
+
+.site {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.site-content {
+  flex: 1 0 auto;
+}
+
+.screen-reader-text {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+
+  &:focus {
+    position: fixed !important;
+    top: 1rem !important;
+    left: 1rem !important;
+    z-index: 99999 !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 0.75rem 1.5rem !important;
+    background: $color-primary !important;
+    color: #ffffff !important;
+    border-radius: $radius-md !important;
+    clip: auto !important;
+  }
+}
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}

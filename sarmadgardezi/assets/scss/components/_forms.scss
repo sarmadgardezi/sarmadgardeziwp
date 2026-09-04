@@ -1,0 +1,39 @@
+// ==========================================================================
+// SCSS Components: Forms
+// ==========================================================================
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+textarea {
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  background: rgba(17, 23, 38, 0.7);
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  color: $color-text;
+  font-family: $font-sans;
+  font-size: 0.95rem;
+  @include transition(all, $transition-fast);
+
+  &:focus {
+    outline: none;
+    border-color: $color-cyan;
+    box-shadow: 0 0 0 3px rgba(0, 240, 255, 0.15);
+  }
+
+  &::placeholder {
+    color: $color-text-dim;
+  }
+}
+
+.search-form {
+  display: flex;
+  gap: 0.5rem;
+  max-width: 480px;
+
+  .search-submit {
+    @extend .btn, .btn-primary;
+  }
+}

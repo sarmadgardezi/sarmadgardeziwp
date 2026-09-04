@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111726"/>
+      <stop offset="100%" stop-color="#07090e"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#00f0ff" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#grad)"/>
+  <rect x="20" y="20" width="760" height="410" rx="16" fill="url(#glow)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <circle cx="400" cy="200" r="48" fill="rgba(0, 240, 255, 0.1)" stroke="#00f0ff" stroke-width="2"/>
+  <polyline points="385,200 415,200" stroke="#00f0ff" stroke-width="3" stroke-linecap="round"/>
+  <polyline points="400,185 400,215" stroke="#00f0ff" stroke-width="3" stroke-linecap="round"/>
+  <text x="400" y="280" text-anchor="middle" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="600" letter-spacing="1">SARMAD GARDEZI</text>
+</svg>

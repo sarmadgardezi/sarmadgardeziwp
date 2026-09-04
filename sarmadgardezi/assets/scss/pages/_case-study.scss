@@ -1,0 +1,20 @@
+// ==========================================================================
+// SCSS Pages: Case Studies
+// ==========================================================================
+
+.single-case-study-hero {
+  padding: 9rem 0 4rem;
+
+  .case-study-badge {
+    color: $color-purple;
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+}
+
+.case-study-metric-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem 0;
+}

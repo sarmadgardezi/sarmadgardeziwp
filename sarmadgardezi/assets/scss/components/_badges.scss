@@ -1,0 +1,87 @@
+// ==========================================================================
+// SCSS Components: Badges
+// ==========================================================================
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: $font-weight-medium;
+  border-radius: $radius-full;
+  line-height: 1;
+
+  &-subtle {
+    background: rgba(255, 255, 255, 0.05);
+    color: $color-text-muted;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  &-pill {
+    background: rgba(0, 240, 255, 0.08);
+    color: $color-cyan;
+    border: 1px solid rgba(0, 240, 255, 0.2);
+  }
+}
+
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: $color-text-muted;
+  margin-bottom: 0.75rem;
+
+  .status-pulse {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #22c55e;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: rgba(34, 197, 94, 0.4);
+      animation: pulse 2s infinite ease-out;
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+.metric-pill {
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: $radius-md;
+
+  .metric-val {
+    font-size: 1.25rem;
+    font-weight: $font-weight-bold;
+    color: $color-cyan;
+  }
+
+  .metric-lbl {
+    font-size: 0.75rem;
+    color: $color-text-dim;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+}

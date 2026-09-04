@@ -1,0 +1,93 @@
+// ==========================================================================
+// SCSS Components: Buttons
+// ==========================================================================
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: $font-weight-semibold;
+  font-size: 0.95rem;
+  border-radius: $radius-full;
+  cursor: pointer;
+  white-space: nowrap;
+  @include transition(all, $transition-base);
+  border: 1px solid transparent;
+
+  .btn-icon {
+    @include transition(transform, $transition-fast);
+  }
+
+  &:hover .btn-icon {
+    transform: translateX(4px);
+  }
+}
+
+.btn-primary {
+  background: $grad-primary;
+  color: #07090e;
+  font-weight: $font-weight-bold;
+  box-shadow: $shadow-glow-cyan;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 35px rgba(0, 240, 255, 0.45);
+  }
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: $color-text;
+  border-color: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+  }
+}
+
+.btn-ghost {
+  background: transparent;
+  color: $color-cyan;
+  padding: 0.5rem 0;
+
+  &:hover {
+    color: #ffffff;
+  }
+}
+
+.btn-sm {
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+}
+
+.btn-lg {
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+}
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: $color-cyan;
+  font-weight: $font-weight-medium;
+  font-size: 0.95rem;
+  @include transition(all, $transition-fast);
+
+  svg {
+    @include transition(transform, $transition-fast);
+  }
+
+  &:hover {
+    color: #ffffff;
+
+    svg {
+      transform: translateX(4px);
+    }
+  }
+}

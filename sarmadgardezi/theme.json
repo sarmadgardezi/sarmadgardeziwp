@@ -1,0 +1,116 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "appearanceTools": true,
+    "layout": {
+      "contentSize": "1200px",
+      "wideSize": "1400px"
+    },
+    "color": {
+      "palette": [
+        {
+          "slug": "background",
+          "color": "#0a0d14",
+          "name": "Background"
+        },
+        {
+          "slug": "surface",
+          "color": "#111622",
+          "name": "Surface"
+        },
+        {
+          "slug": "surface-card",
+          "color": "#171e2e",
+          "name": "Surface Card"
+        },
+        {
+          "slug": "primary",
+          "color": "#6366f1",
+          "name": "Primary Indigo"
+        },
+        {
+          "slug": "cyan",
+          "color": "#00f0ff",
+          "name": "Electric Cyan"
+        },
+        {
+          "slug": "purple",
+          "color": "#a855f7",
+          "name": "Vibrant Purple"
+        },
+        {
+          "slug": "text",
+          "color": "#f8fafc",
+          "name": "Text Main"
+        },
+        {
+          "slug": "text-muted",
+          "color": "#94a3b8",
+          "name": "Text Muted"
+        },
+        {
+          "slug": "border",
+          "color": "#1e293b",
+          "name": "Border Dark"
+        }
+      ]
+    },
+    "typography": {
+      "fontFamilies": [
+        {
+          "fontFamily": "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+          "name": "Sans",
+          "slug": "sans"
+        },
+        {
+          "fontFamily": "'JetBrains Mono', 'Fira Code', monospace",
+          "name": "Mono",
+          "slug": "mono"
+        }
+      ],
+      "fontSizes": [
+        {
+          "size": "0.875rem",
+          "slug": "small",
+          "name": "Small"
+        },
+        {
+          "size": "1rem",
+          "slug": "medium",
+          "name": "Regular"
+        },
+        {
+          "size": "1.25rem",
+          "slug": "large",
+          "name": "Large"
+        },
+        {
+          "size": "1.75rem",
+          "slug": "x-large",
+          "name": "Extra Large"
+        },
+        {
+          "size": "2.5rem",
+          "slug": "2x-large",
+          "name": "2X Large"
+        },
+        {
+          "size": "3.5rem",
+          "slug": "3x-large",
+          "name": "3X Large"
+        }
+      ]
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "var(--wp--preset--color--background)",
+      "text": "var(--wp--preset--color--text)"
+    },
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--sans)",
+      "lineHeight": "1.6"
+    }
+  }
+}
