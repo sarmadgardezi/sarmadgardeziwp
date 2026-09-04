@@ -6,7 +6,7 @@
   .nav-menu {
     display: none;
     align-items: center;
-    gap: 1.75rem;
+    gap: 1.45rem; // Balanced spacing between menu items
     list-style: none;
     margin: 0;
     padding: 0;
@@ -47,12 +47,14 @@
     }
   }
 
-  // Mobile Dropdown Drawer
+  // Mobile Dropdown Drawer (aligned to container width)
   @include max-screen('md') {
     position: fixed;
-    top: 4.75rem;
-    left: 1.25rem;
-    right: 1.25rem;
+    top: 4.5rem;
+    left: 1rem;
+    right: 1rem;
+    max-width: calc(1120px - 2rem);
+    margin: 0 auto;
     background: #0f172a;
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 20px;
