@@ -40,6 +40,11 @@ function sarmadgardezi_output_schema_jsonld() {
         '@type'       => 'Person',
         '@id'         => $site_url . '#person',
         'name'        => 'Sarmad Gardezi',
+        'jobTitle'    => 'Software Engineer',
+        'affiliation' => array(
+            '@type' => 'Organization',
+            'name'  => 'Google Developer Groups Cloud Islamabad',
+        ),
         'url'         => $site_url,
         'sameAs'      => array(
             'https://github.com/sarmadgardezi',

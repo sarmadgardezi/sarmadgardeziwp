@@ -1,33 +1,158 @@
 // ==========================================================================
-// SCSS Pages: Home (Simple Clean Section)
+// SCSS Pages: Home (Boxed Hero Design with Portrait Card & Google Sans Flex)
 // ==========================================================================
 
-.home-intro-section {
-  min-height: 72vh;
+.hero-boxed-section {
+  padding: 5.5rem 0 4.5rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 6rem 0;
+  min-height: 75vh;
 
-  .intro-container {
-    max-width: 800px;
+  @include respond-to('md') {
+    padding: 7.5rem 0 6rem;
+  }
+}
+
+.hero-boxed-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.75rem;
+  max-width: 1120px;
+
+  @include respond-to('md') {
+    flex-direction: row;
+    align-items: center;
+    gap: 4.25rem;
   }
 
-  .intro-name {
-    font-size: clamp(2.75rem, 6vw, 4.5rem);
-    font-weight: $font-weight-extrabold;
-    color: $color-text;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-    margin-bottom: 1.25rem;
+  @include respond-to('lg') {
+    gap: 5.25rem;
+  }
+}
+
+.hero-portrait-col {
+  flex-shrink: 0;
+}
+
+.hero-portrait-card {
+  width: 280px;
+  height: 390px;
+  border-radius: 28px;
+  overflow: hidden;
+  background-color: #f1f5f9;
+  box-shadow: 0 10px 32px -6px rgba(15, 23, 42, 0.08);
+  transition: transform $transition-base, box-shadow $transition-base;
+
+  @include respond-to('sm') {
+    width: 320px;
+    height: 440px;
+    border-radius: 32px;
   }
 
-  .intro-tagline {
-    font-size: 1.25rem;
-    color: $color-text-muted;
-    line-height: 1.6;
-    max-width: 580px;
-    margin: 0 auto;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px -8px rgba(15, 23, 42, 0.12);
+  }
+
+  .hero-portrait-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+}
+
+.hero-content-col {
+  flex: 1;
+}
+
+.hero-boxed-headline {
+  font-family: var(--framer-font-family-bold, 'Google Sans Flex', sans-serif);
+  font-size: clamp(2.35rem, 4.4vw, 3.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  color: #111827;
+  margin-bottom: 1.75rem;
+
+  span {
+    display: block;
+  }
+}
+
+.hero-boxed-bio {
+  font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+  font-size: clamp(1.05rem, 1.8vw, 1.225rem);
+  line-height: 1.62;
+  color: #64748b;
+  max-width: 620px;
+  margin-bottom: 2.25rem;
+
+  strong {
+    color: #111827;
+    font-weight: 600;
+  }
+
+  .bio-line-break {
+    display: none;
+
+    @include respond-to('md') {
+      display: block;
+    }
+  }
+}
+
+.hero-boxed-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.35rem;
+  border-radius: 9999px;
+  font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+  font-size: 0.925rem;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+  .pill-icon {
+    display: inline-block;
+    vertical-align: middle;
+    transition: transform 0.15s ease;
+  }
+
+  &-dark {
+    background: #1e293b;
+    color: #ffffff;
+    border: 1px solid #1e293b;
+
+    &:hover {
+      background: #0f172a;
+      border-color: #0f172a;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
+    }
+  }
+
+  &-outline {
+    background: #ffffff;
+    color: #1e293b;
+    border: 1px solid #cbd5e1;
+
+    &:hover {
+      background: #f8fafc;
+      border-color: #94a3b8;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
   }
 }
