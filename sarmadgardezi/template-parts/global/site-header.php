@@ -22,7 +22,7 @@ defined('ABSPATH') || exit;
             <?php endif; ?>
         </div><!-- .site-branding -->
 
-        <nav id="site-navigation" class="main-navigation" aria-label="<?php esc_attr_e('Primary Menu', 'sarmadgardezi'); ?>">
+        <nav id="site-navigation" class="main-navigation" itemscope itemtype="https://schema.org/SiteNavigationElement" aria-label="<?php esc_attr_e('Primary Menu', 'sarmadgardezi'); ?>">
             <?php
             if (has_nav_menu('primary')) :
                 wp_nav_menu(array(
@@ -35,11 +35,11 @@ defined('ABSPATH') || exit;
             else :
                 ?>
                 <ul id="primary-menu" class="nav-menu">
-                    <li><a href="<?php echo esc_url(home_url('/#about')); ?>"><?php esc_html_e('About', 'sarmadgardezi'); ?></a></li>
-                    <li><a href="<?php echo esc_url(home_url('/#expertise')); ?>"><?php esc_html_e('Expertise', 'sarmadgardezi'); ?></a></li>
-                    <li><a href="<?php echo esc_url(home_url('/#projects')); ?>"><?php esc_html_e('Projects', 'sarmadgardezi'); ?></a></li>
-                    <li><a href="<?php echo esc_url(home_url('/#case-studies')); ?>"><?php esc_html_e('Case Studies', 'sarmadgardezi'); ?></a></li>
-                    <li><a href="<?php echo esc_url(home_url('/#posts')); ?>"><?php esc_html_e('Blog', 'sarmadgardezi'); ?></a></li>
+                    <li><a href="<?php echo esc_url(home_url('/')); ?>" itemprop="url"><span itemprop="name"><?php esc_html_e('Home', 'sarmadgardezi'); ?></span></a></li>
+                    <li><a href="<?php echo esc_url(home_url('/#about')); ?>" itemprop="url"><span itemprop="name"><?php esc_html_e('About', 'sarmadgardezi'); ?></span></a></li>
+                    <li><a href="<?php echo esc_url(home_url('/#projects')); ?>" itemprop="url"><span itemprop="name"><?php esc_html_e('Projects', 'sarmadgardezi'); ?></span></a></li>
+                    <li><a href="<?php echo esc_url(home_url('/#case-studies')); ?>" itemprop="url"><span itemprop="name"><?php esc_html_e('Case Studies', 'sarmadgardezi'); ?></span></a></li>
+                    <li><a href="<?php echo esc_url(home_url('/#contact')); ?>" itemprop="url"><span itemprop="name"><?php esc_html_e('Contact', 'sarmadgardezi'); ?></span></a></li>
                 </ul>
             <?php endif; ?>
         </nav><!-- #site-navigation -->

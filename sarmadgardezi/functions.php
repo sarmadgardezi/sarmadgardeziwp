@@ -19,6 +19,7 @@ define('SARMADGARDEZI_URI', get_template_directory_uri());
 require_once SARMADGARDEZI_DIR . '/inc/setup.php';
 require_once SARMADGARDEZI_DIR . '/inc/enqueue.php';
 require_once SARMADGARDEZI_DIR . '/inc/helpers.php';
+require_once SARMADGARDEZI_DIR . '/inc/schema.php';
 
 // Optional modules loaded when created.
 if (file_exists(SARMADGARDEZI_DIR . '/inc/security.php')) {
@@ -29,9 +30,6 @@ if (file_exists(SARMADGARDEZI_DIR . '/inc/performance.php')) {
     require_once SARMADGARDEZI_DIR . '/inc/performance.php';
 }
 
-if (file_exists(SARMADGARDEZI_DIR . '/inc/schema.php')) {
-    require_once SARMADGARDEZI_DIR . '/inc/schema.php';
-}
 
 // Custom post types & taxonomies.
 if (file_exists(SARMADGARDEZI_DIR . '/inc/post-types/projects.php')) {

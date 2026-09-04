@@ -1,20 +1,20 @@
 // ==========================================================================
-// SCSS Layout: Header
+// SCSS Layout: Header (Clean & Minimal)
 // ==========================================================================
 
 .site-header {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 1.25rem 0;
-  @include transition(all, $transition-base);
+  background: #ffffff;
+  border-bottom: 1px solid $color-border;
+  padding: 1.1rem 0;
+  transition: box-shadow $transition-base;
 
   &.is-scrolled {
-    padding: 0.85rem 0;
-    @include glassmorphism(20px, rgba(7, 9, 14, 0.85), rgba(255, 255, 255, 0.08));
-    box-shadow: $shadow-md;
+    box-shadow: $shadow-sm;
   }
 
   .header-inner {
@@ -27,29 +27,28 @@
     .brand-link {
       display: flex;
       align-items: center;
-      gap: 0.65rem;
+      gap: 0.6rem;
 
       .brand-dot {
-        width: 10px;
-        height: 10px;
+        width: 8px;
+        height: 8px;
         border-radius: 50%;
-        background: $color-cyan;
-        box-shadow: 0 0 12px $color-cyan;
+        background: $color-primary;
       }
 
       .brand-name {
-        font-weight: $font-weight-extrabold;
+        font-weight: $font-weight-bold;
         font-size: 1.15rem;
         letter-spacing: -0.02em;
-        color: #ffffff;
+        color: $color-text;
       }
 
       .brand-tag {
         display: none;
         font-size: 0.75rem;
         padding: 0.2rem 0.6rem;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: $color-bg-alt;
+        border: 1px solid $color-border;
         border-radius: $radius-full;
         color: $color-text-muted;
 
@@ -70,19 +69,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
     border-radius: $radius-md;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: $color-bg-alt;
+    border: 1px solid $color-border;
 
     @include respond-to('md') {
       display: none;
     }
 
     .hamburger-box {
-      width: 20px;
-      height: 14px;
+      width: 18px;
+      height: 12px;
       position: relative;
       display: inline-block;
     }
@@ -94,14 +93,12 @@
       &,
       &::before,
       &::after {
-        width: 20px;
+        width: 18px;
         height: 2px;
-        background-color: #ffffff;
+        background-color: $color-text;
         border-radius: 2px;
         position: absolute;
-        transition-property: transform;
-        transition-duration: 0.2s;
-        transition-timing-function: ease;
+        transition: transform 0.2s ease;
       }
 
       &::before,
@@ -111,11 +108,11 @@
       }
 
       &::before {
-        top: -6px;
+        top: -5px;
       }
 
       &::after {
-        bottom: -6px;
+        bottom: -5px;
       }
     }
 

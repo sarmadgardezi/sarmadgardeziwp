@@ -1,5 +1,5 @@
 // ==========================================================================
-// SCSS Layout: Navigation
+// SCSS Layout: Navigation (Clean & Minimal)
 // ==========================================================================
 
 .main-navigation {
@@ -9,7 +9,7 @@
     @include respond-to('md') {
       display: flex;
       align-items: center;
-      gap: 2rem;
+      gap: 1.75rem;
     }
 
     li {
@@ -19,17 +19,18 @@
         font-size: 0.95rem;
         font-weight: $font-weight-medium;
         color: $color-text-muted;
-        @include transition(color, $transition-fast);
+        transition: color $transition-fast;
         padding: 0.5rem 0;
 
         &:hover,
         &:focus {
-          color: #ffffff;
+          color: $color-text;
         }
       }
 
       &.current-menu-item > a {
-        color: $color-cyan;
+        color: $color-text;
+        font-weight: $font-weight-semibold;
       }
     }
   }
@@ -37,41 +38,28 @@
   // Mobile Drawer
   @include max-screen('md') {
     position: fixed;
-    top: 70px;
+    top: 65px;
     left: 0;
     right: 0;
-    background: rgba(7, 9, 14, 0.96);
-    backdrop-filter: blur(20px);
+    background: #ffffff;
     border-bottom: 1px solid $color-border;
-    padding: 2rem 1.5rem;
+    padding: 1.5rem;
     display: none;
-    box-shadow: $shadow-lg;
+    box-shadow: $shadow-md;
 
     &.is-active {
       display: block;
-      animation: fadeInDown 0.25s ease-out forwards;
     }
 
     .nav-menu {
       display: flex;
       flex-direction: column;
-      gap: 1.25rem;
+      gap: 1rem;
 
       li a {
-        font-size: 1.2rem;
-        font-weight: $font-weight-semibold;
+        font-size: 1.1rem;
+        font-weight: $font-weight-medium;
       }
     }
-  }
-}
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
