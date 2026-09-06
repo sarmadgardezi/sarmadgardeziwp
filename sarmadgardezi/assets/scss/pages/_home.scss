@@ -397,3 +397,193 @@
     transform: translateX(-50%);
   }
 }
+
+// --------------------------------------------------------------------------
+// 3. About / Philosophy Section (Statement Headline, Photo Card & Narrative)
+// --------------------------------------------------------------------------
+
+.about-philosophy-section {
+  padding: 5rem 0 6rem;
+  background-color: $color-bg;
+  position: relative;
+
+  @include respond-to('md') {
+    padding: 7rem 0 8.5rem;
+  }
+}
+
+.about-philosophy-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+// Big Statement Headline
+.about-statement-header {
+  margin-bottom: 3.5rem;
+
+  @include respond-to('md') {
+    margin-bottom: 4.5rem;
+  }
+}
+
+.about-statement-title {
+  font-family: var(--framer-font-family-bold, #{$font-sans});
+  font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  margin: 0;
+
+  .title-lead {
+    display: block;
+    color: #64748b; // Elegant muted gray matching reference screenshot
+  }
+
+  .title-accent {
+    display: block;
+    color: $color-blue-primary; // User's requested Light Blue primary color
+  }
+}
+
+// Two-Column Grid: Photo & Details on Left, Narrative on Right
+.about-editorial-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  @include respond-to('md') {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 3.5rem;
+    align-items: flex-start;
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: 360px 1fr;
+    gap: 4.5rem;
+  }
+}
+
+// Left Column: Photo Card
+.about-profile-col {
+  display: flex;
+  flex-direction: column;
+  max-width: 380px;
+}
+
+.about-photo-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 4.6;
+  border-radius: 24px;
+  overflow: hidden;
+  background-color: #e5e3db;
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 50px -10px rgba(0, 0, 0, 0.16), 0 8px 20px rgba(0, 0, 0, 0.06);
+  }
+
+  .about-photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 15%;
+    display: block;
+  }
+}
+
+// Floating Social Media Pill inside Photo
+.about-card-socials {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 9999px;
+  background: rgba(15, 23, 42, 0.68);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 5;
+}
+
+.social-icon-bubble {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #f1f5f9;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.1);
+  transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    background: $color-blue-primary; // Light Blue hover
+    color: #ffffff;
+    transform: scale(1.1);
+  }
+
+  svg {
+    display: block;
+  }
+}
+
+// Profile Info under Photo
+.about-profile-meta {
+  margin-top: 1.25rem;
+}
+
+.about-profile-name {
+  font-family: var(--framer-font-family-bold, #{$font-sans});
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: $color-blue-primary; // User's requested Light Blue primary color
+  margin: 0 0 0.35rem 0;
+  letter-spacing: -0.02em;
+}
+
+.about-profile-role {
+  font-family: $font-sans;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #64748b; // Muted dark gray
+  margin: 0;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+
+// Right Column: Editorial Narrative
+.about-narrative-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  @include respond-to('md') {
+    gap: 2.25rem;
+    padding-top: 0.5rem;
+  }
+}
+
+.about-narrative-paragraph {
+  font-family: $font-sans;
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  line-height: 1.65;
+  color: #374151;
+  margin: 0;
+  letter-spacing: -0.01em;
+
+  .highlight-accent {
+    color: $color-blue-primary; // User's requested Light Blue primary color
+    font-weight: 600;
+  }
+}
+

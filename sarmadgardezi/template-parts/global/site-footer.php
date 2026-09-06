@@ -122,7 +122,7 @@ defined('ABSPATH') || exit;
 
         <!-- Technical Architecture Disclaimer Note -->
         <p class="footer-tech-note">
-            <?php esc_html_e('Technical Architecture: Every cloud ecosystem and Agentic AI solution is architected with a focus on scalability and cost-efficiency using Google Cloud and Firebase. Implementation results may vary based on specific business logic, data processing requirements, and external API usage. As a Google Developer Expert, I ensure the highest standards of security and performance in every deployment. Clients are encouraged to review full technical specifications for their specific project.', 'sarmadgardezi'); ?>
+            <?php esc_html_e('Technical Architecture: Every cloud ecosystem and Agentic AI solution is architected with a focus on scalability and cost-efficiency using Google Cloud and Firebase. Implementation results may vary based on specific business logic, data processing requirements, and external API usage. As a Google Cloud Expert, I ensure the highest standards of security and performance in every deployment. Clients are encouraged to review full technical specifications for their specific project.', 'sarmadgardezi'); ?>
         </p>
 
         <!-- Copyright Line -->

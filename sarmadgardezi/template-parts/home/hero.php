@@ -31,7 +31,7 @@ if (has_post_thumbnail()) {
                 <div class="hero-inner-image Hero-module__RrIjAW__innerImage">
                     <img 
                         src="<?php echo esc_url($portrait_url); ?>" 
-                        alt="<?php esc_attr_e('Sarmad Gardezi - Software Engineer and GDE', 'sarmadgardezi'); ?>"
+                        alt="<?php esc_attr_e('Sarmad Gardezi - Software Engineer and Google Cloud Expert', 'sarmadgardezi'); ?>"
                         width="140"
                         height="140"
                         loading="eager"
@@ -55,7 +55,7 @@ if (has_post_thumbnail()) {
 
         <!-- Description -->
         <p class="hero-description Hero-module__RrIjAW__description">
-            <?php esc_html_e('Sarmad Gardezi is a Senior Software Engineer and Google Developer Expert (GDE) specializing in Agentic AI, Firebase, and Cloud Architecture.', 'sarmadgardezi'); ?>
+            <?php esc_html_e('Sarmad Gardezi is a Senior Software Engineer and Google Cloud Expert specializing in Agentic AI, Firebase, and Cloud Architecture.', 'sarmadgardezi'); ?>
         </p>
 
         <!-- Socials Row -->

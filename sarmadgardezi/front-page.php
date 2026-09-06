@@ -13,6 +13,7 @@ get_header();
 <main id="main-content" class="site-main site-home-main">
     <?php get_template_part('template-parts/home/hero'); ?>
     <?php get_template_part('template-parts/home/brands'); ?>
+    <?php get_template_part('template-parts/home/about'); ?>
 </main>
 
 <?php
