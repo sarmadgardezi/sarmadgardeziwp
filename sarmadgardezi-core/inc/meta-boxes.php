@@ -10,36 +10,38 @@
 
 defined('ABSPATH') || exit;
 
-/**
- * Universal field accessor with ACF fallback.
- *
- * @param string   $field_name Key of the field (e.g., 'project_live_url').
- * @param int|null $post_id    Post ID or current post if null.
- * @return mixed
- */
-function sarmad_get_field($field_name, $post_id = null) {
-    if (!$post_id) {
-        $post_id = get_the_ID();
-    }
-    if (!$post_id) {
-        return '';
-    }
-
-    // 1. If ACF is active and field returns a value, use it.
-    if (function_exists('get_field')) {
-        $acf_val = get_field($field_name, $post_id);
-        if ($acf_val !== null && $acf_val !== '' && $acf_val !== false) {
-            return $acf_val;
+if (!function_exists('sarmad_get_field')) {
+    /**
+     * Universal field accessor with ACF fallback.
+     *
+     * @param string   $field_name Key of the field (e.g., 'project_live_url').
+     * @param int|null $post_id    Post ID or current post if null.
+     * @return mixed
+     */
+    function sarmad_get_field($field_name, $post_id = null) {
+        if (!$post_id) {
+            $post_id = get_the_ID();
         }
-    }
+        if (!$post_id) {
+            return '';
+        }
 
-    // 2. Fall back to standard post meta with underscore prefix or direct key.
-    $meta_val = get_post_meta($post_id, '_' . $field_name, true);
-    if ($meta_val !== '') {
-        return $meta_val;
-    }
+        // 1. If ACF is active and field returns a value, use it.
+        if (function_exists('get_field')) {
+            $acf_val = get_field($field_name, $post_id);
+            if ($acf_val !== null && $acf_val !== '' && $acf_val !== false) {
+                return $acf_val;
+            }
+        }
 
-    return get_post_meta($post_id, $field_name, true);
+        // 2. Fall back to standard post meta with underscore prefix or direct key.
+        $meta_val = get_post_meta($post_id, '_' . $field_name, true);
+        if ($meta_val !== '') {
+            return $meta_val;
+        }
+
+        return get_post_meta($post_id, $field_name, true);
+    }
 }
 
 /**

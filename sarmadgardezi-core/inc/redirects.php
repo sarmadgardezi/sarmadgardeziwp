@@ -10,6 +10,7 @@
 
 defined('ABSPATH') || exit;
 
+if (!function_exists('sarmadgardezi_core_handle_seo_redirects')) :
 /**
  * Handle legacy Next.js URL aliases and SEO redirects.
  */
@@ -18,8 +19,8 @@ function sarmadgardezi_core_handle_seo_redirects() {
         return;
     }
 
-    $request_uri = $_SERVER['REQUEST_URI'] ?? '';
-    $path        = trim(strtok($request_uri, '?'), '/');
+    $request_uri = !empty($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
+    $path        = trim((string) parse_url($request_uri, PHP_URL_PATH), '/');
 
     // 1. Next.js Legacy Sitemap & Feed routes
     if ('sitemap-dynamic.xml' === $path || 'news-sitemap.xml' === $path) {
@@ -63,7 +64,7 @@ function sarmadgardezi_core_handle_seo_redirects() {
     // 5. Attachment pages: redirect media pages to their post or home
     if (is_attachment()) {
         global $post;
-        if (!empty($post->post_parent)) {
+        if (!empty($post) && !empty($post->post_parent)) {
             wp_safe_redirect(get_permalink($post->post_parent), 301);
         } else {
             wp_safe_redirect(home_url('/'), 301);
@@ -71,8 +72,10 @@ function sarmadgardezi_core_handle_seo_redirects() {
         exit;
     }
 }
+endif;
 add_action('template_redirect', 'sarmadgardezi_core_handle_seo_redirects');
 
+if (!function_exists('sarmadgardezi_core_yoast_sitemap_taxonomies')) :
 /**
  * Filter Yoast SEO sitemap to exclude thin/empty taxonomies if desired.
  */
@@ -80,4 +83,5 @@ function sarmadgardezi_core_yoast_sitemap_taxonomies($taxonomies) {
     // Keep standard sitemap clean
     return $taxonomies;
 }
+endif;
 add_filter('wpseo_sitemap_taxonomies', 'sarmadgardezi_core_yoast_sitemap_taxonomies');

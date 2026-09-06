@@ -16,32 +16,46 @@
 
 defined('ABSPATH') || exit;
 
-define('SARMADGARDEZI_CORE_VERSION', '1.0.0');
-define('SARMADGARDEZI_CORE_DIR', plugin_dir_path(__FILE__));
-define('SARMADGARDEZI_CORE_URI', plugin_dir_url(__FILE__));
+if (!defined('SARMADGARDEZI_CORE_VERSION')) {
+    define('SARMADGARDEZI_CORE_VERSION', '1.0.0');
+}
+if (!defined('SARMADGARDEZI_CORE_DIR')) {
+    define('SARMADGARDEZI_CORE_DIR', plugin_dir_path(__FILE__));
+}
+if (!defined('SARMADGARDEZI_CORE_URI')) {
+    define('SARMADGARDEZI_CORE_URI', plugin_dir_url(__FILE__));
+}
 
 /**
  * Load core plugin modules.
  */
-require_once SARMADGARDEZI_CORE_DIR . 'inc/post-types.php';
 require_once SARMADGARDEZI_CORE_DIR . 'inc/taxonomies.php';
+require_once SARMADGARDEZI_CORE_DIR . 'inc/post-types.php';
 require_once SARMADGARDEZI_CORE_DIR . 'inc/meta-boxes.php';
 require_once SARMADGARDEZI_CORE_DIR . 'inc/redirects.php';
 
 /**
  * Flush rewrite rules on plugin activation.
  */
-function sarmadgardezi_core_activate() {
-    sarmadgardezi_core_register_post_types();
-    sarmadgardezi_core_register_taxonomies();
-    flush_rewrite_rules();
+if (!function_exists('sarmadgardezi_core_activate')) {
+    function sarmadgardezi_core_activate() {
+        if (function_exists('sarmadgardezi_core_register_taxonomies')) {
+            sarmadgardezi_core_register_taxonomies();
+        }
+        if (function_exists('sarmadgardezi_core_register_post_types')) {
+            sarmadgardezi_core_register_post_types();
+        }
+        flush_rewrite_rules();
+    }
 }
 register_activation_hook(__FILE__, 'sarmadgardezi_core_activate');
 
 /**
  * Flush rewrite rules on plugin deactivation.
  */
-function sarmadgardezi_core_deactivate() {
-    flush_rewrite_rules();
+if (!function_exists('sarmadgardezi_core_deactivate')) {
+    function sarmadgardezi_core_deactivate() {
+        flush_rewrite_rules();
+    }
 }
 register_deactivation_hook(__FILE__, 'sarmadgardezi_core_deactivate');

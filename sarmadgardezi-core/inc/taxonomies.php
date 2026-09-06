@@ -9,6 +9,7 @@
 
 defined('ABSPATH') || exit;
 
+if (!function_exists('sarmadgardezi_core_register_taxonomies')) :
 /**
  * Register custom taxonomies.
  */
@@ -82,4 +83,5 @@ function sarmadgardezi_core_register_taxonomies() {
     );
     register_taxonomy('project-category', array('project'), $cat_args);
 }
+endif;
 add_action('init', 'sarmadgardezi_core_register_taxonomies', 0);

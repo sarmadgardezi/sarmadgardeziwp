@@ -10,6 +10,7 @@
 
 defined('ABSPATH') || exit;
 
+if (!function_exists('sarmadgardezi_core_register_post_types')) :
 /**
  * Register custom post types.
  */
@@ -165,4 +166,5 @@ function sarmadgardezi_core_register_post_types() {
     );
     register_post_type('case-study', $case_args);
 }
+endif;
 add_action('init', 'sarmadgardezi_core_register_post_types', 0);
