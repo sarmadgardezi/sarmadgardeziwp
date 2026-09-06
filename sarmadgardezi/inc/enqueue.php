@@ -11,10 +11,10 @@ defined('ABSPATH') || exit;
  * Enqueue scripts and styles.
  */
 function sarmadgardezi_scripts() {
-    // Google Fonts (Newsreader serif, Plus Jakarta Sans, & JetBrains Mono)
+    // Google Fonts (Plus Jakarta Sans & JetBrains Mono)
     wp_enqueue_style(
         'sarmadgardezi-fonts',
-        'https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap',
+        'https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap',
         array(),
         null
     );

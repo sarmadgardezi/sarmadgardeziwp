@@ -21,12 +21,7 @@ if (has_post_thumbnail()) {
 
         <!-- Centered Headline with Floating Avatar Speech Bubble -->
         <div class="hero-headline-wrapper">
-            <h1 class="hero-editorial-title">
-                <span class="title-line"><?php esc_html_e('Building the Future', 'sarmadgardezi'); ?></span>
-                <span class="title-line"><?php esc_html_e('with Agentic AI', 'sarmadgardezi'); ?></span>
-            </h1>
-
-            <!-- Floating Speech Bubble Avatar positioned top-right of headline -->
+            <!-- Floating Speech Bubble Avatar (Top on mobile, above 'e' on desktop) -->
             <div class="hero-speech-avatar" aria-hidden="true">
                 <div class="speech-avatar-circle">
                     <img 
@@ -35,15 +30,20 @@ if (has_post_thumbnail()) {
                         class="speech-avatar-img"
                         loading="eager"
                         fetchpriority="high"
-                        width="96"
-                        height="96"
+                        width="92"
+                        height="92"
                     />
                 </div>
-                <!-- Speech Bubble Tail pointing down-left -->
+                <!-- Speech Bubble Tail pointing down-left toward 'e' -->
                 <svg class="speech-bubble-tail" width="18" height="18" viewBox="0 0 18 18" fill="none">
                     <path d="M18 0C18 0 14 10 0 16C10 16 17 12 18 6V0Z" fill="#ffffff"/>
                 </svg>
             </div>
+
+            <h1 class="hero-editorial-title">
+                <span class="title-line"><?php esc_html_e('Building the Future', 'sarmadgardezi'); ?></span>
+                <span class="title-line"><?php esc_html_e('with Agentic AI', 'sarmadgardezi'); ?></span>
+            </h1>
         </div>
 
         <!-- Tagline -->
