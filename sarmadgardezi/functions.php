@@ -20,6 +20,7 @@ require_once SARMADGARDEZI_DIR . '/inc/setup.php';
 require_once SARMADGARDEZI_DIR . '/inc/enqueue.php';
 require_once SARMADGARDEZI_DIR . '/inc/helpers.php';
 require_once SARMADGARDEZI_DIR . '/inc/yoast.php';
+require_once SARMADGARDEZI_DIR . '/inc/acf-fields.php';
 
 // Optional modules loaded when created.
 if (file_exists(SARMADGARDEZI_DIR . '/inc/security.php')) {

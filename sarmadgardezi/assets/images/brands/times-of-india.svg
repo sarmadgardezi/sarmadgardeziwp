@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" fill="#4b5563" height="32">
+  <g transform="translate(60, 14) scale(0.65)">
+    <circle cx="0" cy="0" r="14" fill="none" stroke="#4b5563" stroke-width="2"/>
+    <path d="M-8 0h16M0 -8v16" stroke="#4b5563" stroke-width="1.5"/>
+    <path d="M-18 -2c0 8 8 12 18 12s18 -4 18 -12" fill="none" stroke="#4b5563" stroke-width="1.5"/>
+  </g>
+  <text x="60" y="34" font-family="Georgia, serif" font-size="9" font-weight="700" letter-spacing="1.5" text-anchor="middle" fill="#4b5563">THE TIMES OF INDIA</text>
+</svg>

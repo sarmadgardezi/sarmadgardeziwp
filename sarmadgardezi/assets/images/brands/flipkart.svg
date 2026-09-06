@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 38" fill="#4b5563" height="32">
+  <text x="5" y="27" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="700" font-style="italic" letter-spacing="-0.5" fill="#374151">Flipkart</text>
+  <g transform="translate(100, 6)">
+    <rect x="0" y="4" width="22" height="22" rx="4" fill="#9ca3af"/>
+    <path d="M7 4V2a4 4 0 0 1 8 0v2" fill="none" stroke="#6b7280" stroke-width="2"/>
+    <text x="11" y="20" font-family="Georgia, serif" font-size="16" font-weight="900" font-style="italic" fill="#ffffff" text-anchor="middle">f</text>
+  </g>
+</svg>

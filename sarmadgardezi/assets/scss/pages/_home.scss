@@ -1,211 +1,251 @@
 // ==========================================================================
-// SCSS Pages: Home (Editorial Hero with Speech Bubble Avatar & Social Stats)
+// SCSS Pages: Home (Editorial Hero matching Next.js + Brands Marquee)
 // ==========================================================================
 
-.hero-editorial-section {
-  padding: 4.5rem 1rem 5.5rem;
+// --------------------------------------------------------------------------
+// 1. Hero Section
+// --------------------------------------------------------------------------
+
+.hero-section,
+.hero-editorial-section,
+.Hero-module__RrIjAW__heroSection {
   background-color: $color-bg;
-  display: flex;
-  align-items: center;
+  text-align: center;
+  flex-direction: column;
   justify-content: center;
-  min-height: 72vh;
+  align-items: center;
+  width: 100%;
+  padding: 4.5rem 1rem 3.5rem;
+  display: flex;
+  position: relative;
+  overflow: hidden;
 
   @include respond-to('md') {
-    padding: 6rem 1.5rem 6.5rem;
+    padding: 7rem 1.5rem 4.5rem;
+  }
+
+  @include respond-to('lg') {
+    padding: 8rem 2rem 5rem;
   }
 }
 
-.hero-editorial-container {
+.hero-content-wrapper,
+.hero-editorial-container,
+.Hero-module__RrIjAW__contentWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  max-width: 880px;
+  width: 100%;
+  max-width: 80rem;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
+  position: relative;
 }
 
-// Headline + Avatar Bubble Wrapper
-.hero-headline-wrapper {
+// Title Block with Floating Image Bubble
+.hero-title-block,
+.hero-headline-wrapper,
+.Hero-module__RrIjAW__titleBlock {
+  max-width: 900px;
+  margin-bottom: 1.5rem;
+  display: inline-block;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 0.75rem;
+  text-align: center;
 
   @include respond-to('md') {
-    display: inline-block;
-    padding-top: 72px; // Dedicated headroom for avatar above line 1
+    padding-top: 52px; // Dedicated headroom so bubble floats cleanly above 'e' with a bit of gap
   }
 
   @include respond-to('lg') {
-    padding-top: 80px;
+    padding-top: 60px;
   }
 }
 
-.hero-editorial-title {
-  font-family: var(--framer-font-family-bold, #{$font-sans});
-  font-size: clamp(2.35rem, 5.2vw, 4.25rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.035em;
-  color: #111827;
-  margin: 0;
-
-  .title-line {
-    display: block;
-  }
-}
-
-// Floating Speech Bubble Avatar
-.hero-speech-avatar {
-  // Mobile: neatly centered on top of the headline
-  position: relative;
+// Floating Image Bubble (Next.js architecture with speech-bubble tail)
+.hero-image-bubble,
+.hero-speech-avatar,
+.Hero-module__RrIjAW__imageBubble {
+  z-index: 10;
+  background-color: #ffffff;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 110px;
+  height: 110px;
+  padding: 5px;
+  display: flex;
   margin: 0 auto 1.75rem auto;
-  display: inline-block;
+  position: relative;
+  top: auto;
+  right: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
 
-  // Desktop: positioned directly above the 'e' of "Future" with a clean vertical gap
+  &:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 14px 45px rgba(0, 0, 0, 0.14);
+  }
+
+  // Mobile: tail hidden
+  &::before {
+    display: none;
+  }
+
+  // Tablet: position above 'e' with a bit of gap
   @include respond-to('md') {
     position: absolute;
-    top: -18px;
-    right: -16px;
+    width: 120px;
+    height: 120px;
+    padding: 5px;
+    top: -85px;
+    right: -25px;
     margin: 0;
+
+    &::before {
+      content: "";
+      display: block;
+      z-index: 1;
+      background-color: #ffffff;
+      border-radius: 2px;
+      width: 22px;
+      height: 22px;
+      position: absolute;
+      bottom: 5px;
+      left: 18px;
+      transform: rotate(45deg);
+      box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.04);
+    }
   }
 
+  // Desktop: position above 'e' with a bit of gap
   @include respond-to('lg') {
-    top: -20px;
-    right: -20px;
+    width: 135px;
+    height: 135px;
+    padding: 6px;
+    top: -95px;
+    right: -35px;
+
+    &::before {
+      width: 24px;
+      height: 24px;
+      bottom: 6px;
+      left: 20px;
+    }
   }
 
-  .speech-avatar-circle {
-    width: 86px;
-    height: 86px;
+  .hero-inner-image,
+  .speech-avatar-circle,
+  .Hero-module__RrIjAW__innerImage {
+    z-index: 2;
+    background-color: #f7f9fb;
     border-radius: 50%;
-    border: 4.5px solid #ffffff;
+    width: 100%;
+    height: 100%;
+    position: relative;
     overflow: hidden;
-    background: #181818;
-    box-shadow: 
-      0 16px 36px -6px rgba(35, 25, 15, 0.18),
-      0 6px 16px -2px rgba(35, 25, 15, 0.08),
-      0 0 0 1px rgba(255, 255, 255, 0.6);
-    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
-
-    @include respond-to('sm') {
-      width: 92px;
-      height: 92px;
-      border-width: 5px;
-    }
-
-    &:hover {
-      transform: translateY(-4px) scale(1.05);
-      box-shadow: 
-        0 22px 42px -6px rgba(35, 25, 15, 0.24),
-        0 8px 20px -2px rgba(35, 25, 15, 0.1),
-        0 0 0 1px rgba(255, 255, 255, 0.9);
-    }
   }
 
+  img,
   .speech-avatar-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center 20%;
+    object-fit: contain;
     display: block;
   }
+}
 
-  // The small white speech-bubble wedge/tail pointing down-left toward 'e'
-  .speech-bubble-tail {
-    position: absolute;
-    bottom: -5px;
-    right: 24px;
-    filter: drop-shadow(-1px 3px 2px rgba(35, 25, 15, 0.09));
-    pointer-events: none;
+// Main Heading
+.hero-main-heading,
+.hero-editorial-title,
+.Hero-module__RrIjAW__mainHeading {
+  font-family: var(--framer-font-family-bold, #{$font-sans});
+  font-size: clamp(2.35rem, 5.2vw, 4.4rem);
+  line-height: 1.1;
+  color: #1c1917;
+  word-spacing: 0.15rem;
+  letter-spacing: -0.035em;
+  margin: 0;
+  font-weight: 800;
+
+  span {
+    display: inline-block;
   }
 }
 
-// Tagline
-.hero-editorial-tagline {
-  font-family: $font-sans;
+// Subtitle
+.hero-subtitle,
+.hero-editorial-tagline,
+.Hero-module__RrIjAW__subtitle {
+  font-family: var(--framer-font-family-bold, #{$font-sans});
+  color: #1c1917;
+  opacity: 0.9;
+  margin-top: 1.5rem;
+  margin-bottom: 1.25rem;
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
   font-weight: 500;
-  font-size: clamp(1.05rem, 1.8vw, 1.15rem);
-  color: #262626;
-  margin: 1.75rem 0 0.85rem;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 }
 
-// Bio Paragraph
-.hero-editorial-bio {
-  font-family: $font-sans;
-  font-size: clamp(0.975rem, 1.6vw, 1.0625rem);
-  line-height: 1.65;
-  color: #4b5563;
+// Description
+.hero-description,
+.hero-editorial-bio,
+.Hero-module__RrIjAW__description {
   max-width: 680px;
-  margin: 0 auto 2.25rem;
-  letter-spacing: -0.005em;
+  color: #4b5563;
+  opacity: 0.85;
+  font-size: clamp(1rem, 1.6vw, 1.1rem);
+  line-height: 1.7;
+  font-family: $font-sans;
+  margin: 0 auto 2.25rem auto;
 }
 
-// Social Stats Proof Badges Row
-.hero-social-stats-row {
+// Socials Row
+.hero-socials-row,
+.hero-social-stats-row,
+.Hero-module__RrIjAW__socialsRow {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2.25rem;
 
   @include respond-to('sm') {
-    gap: 1.25rem;
+    gap: 2rem;
   }
 }
 
-.social-stat-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 1rem;
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.85);
-  box-shadow: 
-    0 4px 12px -2px rgba(40, 30, 20, 0.06),
-    0 1px 3px rgba(40, 30, 20, 0.04);
+.hero-social-item,
+.social-stat-badge,
+.Hero-module__RrIjAW__socialItem {
   color: #1c1917;
   font-family: $font-sans;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
   font-weight: 600;
-  font-size: 0.9375rem;
   text-decoration: none;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-
-  .stat-badge-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .stat-badge-count {
-    color: #1a1a1a;
-    letter-spacing: -0.01em;
-  }
+  transition: opacity 0.2s, transform 0.2s;
+  display: flex;
 
   &:hover {
-    background: #ffffff;
-    transform: translateY(-2px);
-    box-shadow: 
-      0 8px 22px -3px rgba(40, 30, 20, 0.12),
-      0 3px 8px rgba(40, 30, 20, 0.05);
-    border-color: #ffffff;
+    opacity: 0.7;
+    transform: translateY(-1px);
+  }
+
+  svg {
+    flex-shrink: 0;
   }
 }
 
-// Offerings Checklist Row
-.hero-offerings-row {
+// Badges Row
+.hero-badges-row,
+.hero-offerings-row,
+.Hero-module__RrIjAW__badgesRow {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 1.5rem;
 
   @include respond-to('sm') {
@@ -213,29 +253,147 @@
   }
 }
 
-.offering-chip {
-  display: inline-flex;
+.hero-badge-item,
+.offering-chip,
+.Hero-module__RrIjAW__badgeItem {
+  color: #64748b;
+  font-family: $font-sans;
   align-items: center;
   gap: 0.45rem;
-  font-family: $font-sans;
-  font-size: 0.9375rem;
+  font-size: 0.95rem;
   font-weight: 500;
-  color: #4b5563;
-  text-decoration: none;
-  transition: all 0.2s ease;
+  display: flex;
 
-  .offering-check-icon {
-    stroke: #4b5563;
-    transition: stroke 0.2s ease, transform 0.2s ease;
+  svg {
+    stroke: #64748b;
+    flex-shrink: 0;
   }
+}
+
+
+// --------------------------------------------------------------------------
+// 2. Brands / Teams Marquee Section (White background, full width, hover pause)
+// --------------------------------------------------------------------------
+
+.hero-brands-section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 3.5rem 0 4rem;
+  overflow: hidden;
+  position: relative;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+
+  @include respond-to('md') {
+    padding: 4.5rem 0 5rem;
+  }
+}
+
+.brands-inner-wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.brands-header-title {
+  text-align: center;
+  font-family: var(--framer-font-family-bold, "Google Sans Flex", sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #8e8e93;
+  margin: 0 0 2.5rem 0;
+  padding: 0 1rem;
+}
+
+.brands-marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  display: flex;
+}
+
+.brands-marquee-track {
+  display: flex;
+  width: max-content;
+  flex-shrink: 0;
+  animation: scrollBrandsMarquee 30s linear infinite;
 
   &:hover {
-    color: #1c1917;
-    transform: translateY(-1px);
+    animation-play-state: paused;
+  }
+}
 
-    .offering-check-icon {
-      stroke: #1c1917;
-      transform: scale(1.1);
-    }
+.brands-marquee-wrapper:hover .brands-marquee-track {
+  animation-play-state: paused;
+}
+
+.brands-group {
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+  padding-right: 3.5rem;
+  flex-shrink: 0;
+
+  @include respond-to('md') {
+    gap: 4.5rem;
+    padding-right: 4.5rem;
+  }
+
+  @include respond-to('lg') {
+    gap: 5.5rem;
+    padding-right: 5.5rem;
+  }
+}
+
+.brand-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  opacity: 0.68;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  filter: grayscale(100%);
+
+  &:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.04);
+  }
+}
+
+.brand-logo-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.brand-logo-img-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-logo-img {
+  height: 32px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  display: block;
+
+  @include respond-to('md') {
+    height: 36px;
+  }
+}
+
+@keyframes scrollBrandsMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
