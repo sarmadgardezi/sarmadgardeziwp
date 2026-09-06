@@ -14,7 +14,7 @@ defined('ABSPATH') || exit;
  */
 add_action('acf/init', 'sarmadgardezi_register_acf_options_page');
 function sarmadgardezi_register_acf_options_page() {
-    if (function_exists('acf_add_options_page')) {
+    if (function_exists('acf_add_options_sub_page')) {
         acf_add_options_sub_page(array(
             'page_title'  => __('Brands & Teams Marquee', 'sarmadgardezi'),
             'menu_title'  => __('Brands Marquee', 'sarmadgardezi'),

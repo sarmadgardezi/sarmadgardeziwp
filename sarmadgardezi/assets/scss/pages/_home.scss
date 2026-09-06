@@ -15,17 +15,17 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 4.5rem 1rem 3.5rem;
+  padding: 3rem 1rem 3.5rem;
   display: flex;
   position: relative;
-  overflow: hidden;
+  overflow: visible; // Never clip the floating avatar bubble
 
   @include respond-to('md') {
-    padding: 7rem 1.5rem 4.5rem;
+    padding: 5.5rem 1.5rem 4.5rem;
   }
 
   @include respond-to('lg') {
-    padding: 8rem 2rem 5rem;
+    padding: 6.5rem 2rem 5rem;
   }
 }
 
@@ -40,28 +40,29 @@
   margin-left: auto;
   margin-right: auto;
   position: relative;
+  padding-top: 1rem;
+
+  @include respond-to('md') {
+    padding-top: 4.5rem; // Dedicated headroom for floating image bubble
+  }
+
+  @include respond-to('lg') {
+    padding-top: 5.5rem;
+  }
 }
 
 // Title Block with Floating Image Bubble
 .hero-title-block,
 .hero-headline-wrapper,
 .Hero-module__RrIjAW__titleBlock {
-  max-width: 900px;
+  max-width: 920px;
   margin-bottom: 1.5rem;
   display: inline-block;
   position: relative;
   text-align: center;
-
-  @include respond-to('md') {
-    padding-top: 52px; // Dedicated headroom so bubble floats cleanly above 'e' with a bit of gap
-  }
-
-  @include respond-to('lg') {
-    padding-top: 60px;
-  }
 }
 
-// Floating Image Bubble (Next.js architecture with speech-bubble tail)
+// Floating Image Bubble (Exact Next.js geometry)
 .hero-image-bubble,
 .hero-speech-avatar,
 .Hero-module__RrIjAW__imageBubble {
@@ -70,20 +71,20 @@
   border-radius: 50%;
   justify-content: center;
   align-items: center;
-  width: 110px;
-  height: 110px;
-  padding: 5px;
+  width: 120px;
+  height: 120px;
+  padding: 6px;
   display: flex;
   margin: 0 auto 1.75rem auto;
   position: relative;
   top: auto;
   right: auto;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
   transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
 
   &:hover {
     transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 14px 45px rgba(0, 0, 0, 0.14);
+    box-shadow: 0 14px 45px rgba(0, 0, 0, 0.16);
   }
 
   // Mobile: tail hidden
@@ -91,13 +92,13 @@
     display: none;
   }
 
-  // Tablet: position above 'e' with a bit of gap
+  // Tablet & Desktop: position above 'e' with a bit of gap
   @include respond-to('md') {
     position: absolute;
     width: 120px;
     height: 120px;
-    padding: 5px;
-    top: -85px;
+    padding: 6px;
+    top: -95px;
     right: -25px;
     margin: 0;
 
@@ -117,18 +118,17 @@
     }
   }
 
-  // Desktop: position above 'e' with a bit of gap
   @include respond-to('lg') {
-    width: 135px;
-    height: 135px;
+    width: 140px;
+    height: 140px;
     padding: 6px;
-    top: -95px;
+    top: -115px;
     right: -35px;
 
     &::before {
       width: 24px;
       height: 24px;
-      bottom: 6px;
+      bottom: 5px;
       left: 20px;
     }
   }

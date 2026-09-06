@@ -164,3 +164,17 @@ if (!function_exists('sarmad_get_field')) {
     }
 }
 
+if (!function_exists('sarmadgardezi_get_field')) {
+    /**
+     * Safe accessor alias for custom fields.
+     *
+     * @param string   $field_name Field name / key.
+     * @param int|null $post_id    Post ID.
+     * @return mixed
+     */
+    function sarmadgardezi_get_field($field_name, $post_id = null) {
+        return sarmad_get_field($field_name, $post_id);
+    }
+}
+
+

@@ -11,10 +11,19 @@
 defined('ABSPATH') || exit;
 
 // Retrieve Section Heading Title (from front page or options)
-$section_title = sarmadgardezi_get_field('brands_section_title');
+$section_title = '';
+if (function_exists('sarmadgardezi_get_field')) {
+    $section_title = sarmadgardezi_get_field('brands_section_title');
+} elseif (function_exists('sarmad_get_field')) {
+    $section_title = sarmad_get_field('brands_section_title');
+} elseif (function_exists('get_field')) {
+    $section_title = get_field('brands_section_title');
+}
+
 if (empty($section_title) && function_exists('get_field')) {
     $section_title = get_field('brands_section_title', 'option');
 }
+
 if (empty($section_title)) {
     $section_title = __('I HAVE WORKED WITH TEAMS AT', 'sarmadgardezi');
 }
@@ -22,81 +31,88 @@ if (empty($section_title)) {
 // Retrieve Brand Logos from ACF
 $brand_items = array();
 
-// 1. Try ACF repeater from current page / front page
-$acf_brands = function_exists('get_field') ? get_field('brand_logos') : null;
+if (function_exists('get_field')) {
+    // 1. Try ACF repeater from current page / front page
+    $acf_brands = get_field('brand_logos');
 
-// 2. Try ACF repeater from options page
-if (empty($acf_brands) && function_exists('get_field')) {
-    $acf_brands = get_field('brand_logos', 'option');
-}
+    // 2. Try ACF repeater from options page
+    if (empty($acf_brands)) {
+        $acf_brands = get_field('brand_logos', 'option');
+    }
 
-if (!empty($acf_brands) && is_array($acf_brands)) {
-    foreach ($acf_brands as $brand) {
-        $logo_url = '';
-        $alt_text = !empty($brand['brand_name']) ? $brand['brand_name'] : '';
-        $link_url = !empty($brand['brand_url']) ? $brand['brand_url'] : '';
+    if (!empty($acf_brands) && is_array($acf_brands)) {
+        foreach ($acf_brands as $brand) {
+            $logo_url = '';
+            $alt_text = !empty($brand['brand_name']) ? $brand['brand_name'] : '';
+            $link_url = !empty($brand['brand_url']) ? $brand['brand_url'] : '';
 
-        if (!empty($brand['brand_logo'])) {
-            if (is_array($brand['brand_logo']) && !empty($brand['brand_logo']['url'])) {
-                $logo_url = $brand['brand_logo']['url'];
-                if (empty($alt_text) && !empty($brand['brand_logo']['alt'])) {
-                    $alt_text = $brand['brand_logo']['alt'];
+            if (!empty($brand['brand_logo'])) {
+                if (is_array($brand['brand_logo']) && !empty($brand['brand_logo']['url'])) {
+                    $logo_url = $brand['brand_logo']['url'];
+                    if (empty($alt_text) && !empty($brand['brand_logo']['alt'])) {
+                        $alt_text = $brand['brand_logo']['alt'];
+                    }
+                } elseif (is_numeric($brand['brand_logo'])) {
+                    $img_src = wp_get_attachment_image_src($brand['brand_logo'], 'full');
+                    if ($img_src && !empty($img_src[0])) {
+                        $logo_url = $img_src[0];
+                    }
+                } elseif (is_string($brand['brand_logo'])) {
+                    $logo_url = $brand['brand_logo'];
                 }
-            } elseif (is_numeric($brand['brand_logo'])) {
-                $img_src = wp_get_attachment_image_src($brand['brand_logo'], 'full');
-                if ($img_src) {
-                    $logo_url = $img_src[0];
-                }
-            } elseif (is_string($brand['brand_logo'])) {
-                $logo_url = $brand['brand_logo'];
             }
-        }
 
-        if (!empty($logo_url)) {
-            $brand_items[] = array(
-                'url'  => $logo_url,
-                'name' => $alt_text,
-                'link' => $link_url,
-            );
+            if (!empty($logo_url)) {
+                $brand_items[] = array(
+                    'url'  => $logo_url,
+                    'name' => $alt_text,
+                    'link' => $link_url,
+                );
+            }
         }
     }
 }
+
+// Helper for asset URL
+$asset_base = function_exists('sarmadgardezi_asset') 
+    ? sarmadgardezi_asset('') 
+    : get_template_directory_uri() . '/assets/';
 
 // 3. Fallback to default high-fidelity brands from reference design if none uploaded yet
 if (empty($brand_items)) {
     $brand_items = array(
         array(
-            'url'  => sarmadgardezi_asset('images/brands/rediff.svg'),
+            'url'  => rtrim($asset_base, '/') . '/images/brands/rediff.svg',
             'name' => 'Rediff.com',
             'link' => '',
         ),
         array(
-            'url'  => sarmadgardezi_asset('images/brands/sony.svg'),
+            'url'  => rtrim($asset_base, '/') . '/images/brands/sony.svg',
             'name' => 'Sony Pictures',
             'link' => '',
         ),
         array(
-            'url'  => sarmadgardezi_asset('images/brands/times-of-india.svg'),
+            'url'  => rtrim($asset_base, '/') . '/images/brands/times-of-india.svg',
             'name' => 'The Times of India',
             'link' => '',
         ),
         array(
-            'url'  => sarmadgardezi_asset('images/brands/stayzilla.svg'),
+            'url'  => rtrim($asset_base, '/') . '/images/brands/stayzilla.svg',
             'name' => 'Stayzilla',
             'link' => '',
         ),
         array(
-            'url'  => sarmadgardezi_asset('images/brands/pharmeasy.svg'),
+            'url'  => rtrim($asset_base, '/') . '/images/brands/pharmeasy.svg',
             'name' => 'PharmEasy',
             'link' => '',
         ),
         array(
-            'url'  => sarmadgardezi_asset('images/brands/spire.svg'),
+            'url'  => rtrim($asset_base, '/') . '/images/brands/spire.svg',
             'name' => 'SPIRE',
             'link' => '',
         ),
         array(
-            'url'  => sarmadgardezi_asset('images/brands/flipkart.svg'),
+            'url'  => rtrim($asset_base, '/') . '/images/brands/flipkart.svg',
             'name' => 'Flipkart',
             'link' => '',
         ),
