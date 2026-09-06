@@ -1,4 +1,4 @@
-name: Deploy WordPress Theme & Core Plugin
+name: Deploy WordPress Theme
 
 on:
   push:
@@ -6,7 +6,6 @@ on:
       - main
     paths:
       - "sarmadgardezi/**"
-      - "sarmadgardezi-core/**"
       - ".github/workflows/deploy.yml"
 
   workflow_dispatch:
@@ -38,14 +37,8 @@ jobs:
             ./sarmadgardezi/ \
             "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/var/www/sarmadgardezi.com/wp-content/themes/sarmadgardezi/"
 
-      - name: Deploy companion plugin
-        run: |
-          rsync -az --delete \
-            ./sarmadgardezi-core/ \
-            "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/var/www/sarmadgardezi.com/wp-content/plugins/sarmadgardezi-core/"
-
       - name: Verify deployment
         run: |
           ssh -o BatchMode=yes \
             "${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}" \
-            "ls -lah /var/www/sarmadgardezi.com/wp-content/themes/sarmadgardezi/ && ls -lah /var/www/sarmadgardezi.com/wp-content/plugins/sarmadgardezi-core/"
+            "ls -lah /var/www/sarmadgardezi.com/wp-content/themes/sarmadgardezi/"
