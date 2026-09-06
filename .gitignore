@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# Node / npm
+node_modules/
+package-lock.json
+
+# Archives
+*.zip
