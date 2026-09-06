@@ -11,16 +11,18 @@ defined('ABSPATH') || exit;
 <article id="post-<?php the_ID(); ?>" <?php post_class('glass-card post-card'); ?>>
     <?php if (has_post_thumbnail()) : ?>
         <div class="post-card-thumb">
-            <a href="<?php the_permalink(); ?>">
-                <?php the_post_thumbnail('sarmadgardezi-card'); ?>
+            <a href="<?php the_permalink(); ?>" aria-label="<?php echo esc_attr(sprintf(__('Read %s', 'sarmadgardezi'), get_the_title())); ?>" tabindex="-1">
+                <?php the_post_thumbnail('sarmadgardezi-card', array('loading' => 'lazy')); ?>
             </a>
         </div>
     <?php endif; ?>
 
     <div class="post-card-body">
         <div class="post-card-meta">
-            <span class="post-date"><?php echo esc_html(get_the_date('M j, Y')); ?></span>
-            <span class="meta-dot">&bull;</span>
+            <time class="post-date" datetime="<?php echo esc_attr(get_the_date('c')); ?>">
+                <?php echo esc_html(get_the_date('M j, Y')); ?>
+            </time>
+            <span class="meta-dot" aria-hidden="true">&bull;</span>
             <span class="post-read-time"><?php echo esc_html(sarmadgardezi_reading_time(get_the_ID())); ?></span>
         </div>
 
@@ -32,7 +34,7 @@ defined('ABSPATH') || exit;
             <?php the_excerpt(); ?>
         </div>
 
-        <a href="<?php the_permalink(); ?>" class="post-card-link">
+        <a href="<?php the_permalink(); ?>" class="post-card-link" aria-label="<?php echo esc_attr(sprintf(__('Read full article: %s', 'sarmadgardezi'), get_the_title())); ?>">
             <span><?php esc_html_e('Read Article', 'sarmadgardezi'); ?></span>
             <?php echo sarmadgardezi_get_icon('arrow-right'); ?>
         </a>

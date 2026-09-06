@@ -10,7 +10,7 @@ defined('ABSPATH') || exit;
 get_header();
 ?>
 
-<main id="primary" class="site-main site-home-main">
+<main id="main-content" class="site-main site-home-main">
     <?php get_template_part('template-parts/home/hero'); ?>
 </main>
 

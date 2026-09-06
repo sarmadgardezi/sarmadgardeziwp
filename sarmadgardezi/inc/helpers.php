@@ -132,3 +132,35 @@ function sarmadgardezi_get_nav_items() {
     return $menu_items;
 }
 
+if (!function_exists('sarmad_get_field')) {
+    /**
+     * Safe accessor for custom fields, checking ACF first with fallback to post meta.
+     *
+     * @param string   $field_name Field name / key.
+     * @param int|null $post_id    Post ID.
+     * @return mixed
+     */
+    function sarmad_get_field($field_name, $post_id = null) {
+        if (!$post_id) {
+            $post_id = get_the_ID();
+        }
+        if (!$post_id) {
+            return '';
+        }
+
+        if (function_exists('get_field')) {
+            $acf_val = get_field($field_name, $post_id);
+            if ($acf_val !== null && $acf_val !== '' && $acf_val !== false) {
+                return $acf_val;
+            }
+        }
+
+        $val = get_post_meta($post_id, '_' . $field_name, true);
+        if ($val !== '') {
+            return $val;
+        }
+
+        return get_post_meta($post_id, $field_name, true);
+    }
+}
+

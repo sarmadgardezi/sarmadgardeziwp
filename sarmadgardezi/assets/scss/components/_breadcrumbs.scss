@@ -1,0 +1,48 @@
+// ==========================================================================
+// SCSS Components: Breadcrumbs
+// ==========================================================================
+
+.site-breadcrumbs {
+  padding: 1.25rem 0;
+  margin-bottom: 2rem;
+  font-size: 0.875rem;
+  color: $color-text-muted;
+
+  .breadcrumbs-list,
+  span {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  a {
+    color: $color-text-muted;
+    text-decoration: none;
+    @include transition(color, $transition-fast);
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  .breadcrumb-separator,
+  .breadcrumb_last {
+    color: $color-text-dim;
+  }
+
+  .breadcrumb_last,
+  [aria-current="page"] {
+    color: $color-text;
+    font-weight: $font-weight-medium;
+  }
+}

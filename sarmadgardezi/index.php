@@ -13,7 +13,7 @@ defined('ABSPATH') || exit;
 get_header();
 ?>
 
-<main id="primary" class="site-main site-fallback-main">
+<main id="main-content" class="site-main site-fallback-main">
     <div class="site-container">
         <?php if (have_posts()) : ?>
             <header class="page-header">

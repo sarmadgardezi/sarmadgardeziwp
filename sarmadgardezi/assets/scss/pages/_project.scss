@@ -1,28 +1,265 @@
 // ==========================================================================
-// SCSS Pages: Projects
+// SCSS Pages: Projects Catalog & Single Project
 // ==========================================================================
 
-.single-project-hero {
-  padding: 9rem 0 4rem;
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
 
-  .project-hero-badge {
-    display: inline-block;
-    margin-bottom: 1rem;
+  @include respond-to('md') {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .project-hero-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    margin-bottom: 1.5rem;
+  @include respond-to('lg') {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-.project-details-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
-  margin-top: 3rem;
+.project-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #ffffff;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  padding: 0;
+  @include transition(all, $transition-base);
 
-  @include respond-to('md') {
-    grid-template-columns: 2fr 1fr;
+  &:hover {
+    border-color: $color-border-hover;
+    box-shadow: $shadow-md;
+    transform: translateY(-2px);
+  }
+
+  .project-card-thumb {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: $color-surface-hover;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      @include transition(transform, $transition-slow);
+    }
+
+    &:hover img {
+      transform: scale(1.04);
+    }
+  }
+
+  .project-card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 1.5rem;
+  }
+
+  .project-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    color: $color-text-dim;
+    margin-bottom: 0.75rem;
+
+    .meta-dot {
+      opacity: 0.5;
+    }
+  }
+
+  .project-card-title {
+    font-size: 1.25rem;
+    line-height: 1.35;
+    margin-bottom: 0.75rem;
+    font-weight: $font-weight-bold;
+
+    a {
+      color: $color-text;
+      text-decoration: none;
+      @include transition(color, $transition-fast);
+
+      &:hover {
+        color: #000000;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .project-card-excerpt {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: $color-text-muted;
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .project-tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid $color-border;
+  }
+}
+
+.tech-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: $font-weight-medium;
+  padding: 0.2rem 0.55rem;
+  border-radius: $radius-full;
+  background: $color-surface-hover;
+  color: $color-text-muted;
+  border: 1px solid $color-border;
+}
+
+// Single Project View
+.single-project-article {
+  max-width: 960px;
+  margin: 0 auto;
+
+  .project-header {
+    margin-bottom: 3rem;
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.8125rem;
+      font-weight: $font-weight-semibold;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: $color-text-muted;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-title {
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      font-weight: $font-weight-extrabold;
+      line-height: 1.15;
+      color: $color-text;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .project-lead {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      color: $color-text-muted;
+      margin-bottom: 2rem;
+    }
+
+    .project-meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      border-radius: $radius-lg;
+      background: $color-surface-hover;
+      border: 1px solid $color-border;
+
+      .meta-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+
+        .meta-label {
+          font-size: 0.75rem;
+          font-weight: $font-weight-semibold;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          color: $color-text-dim;
+        }
+
+        .meta-value {
+          font-size: 0.9375rem;
+          font-weight: $font-weight-semibold;
+          color: $color-text;
+        }
+
+        &.meta-item-tech .tech-tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.35rem;
+        }
+
+        &.meta-actions {
+          flex-direction: row;
+          align-items: center;
+          gap: 0.75rem;
+        }
+      }
+    }
+  }
+
+  .project-featured-visual {
+    margin: 0 0 3rem;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    border: 1px solid $color-border;
+
+    img {
+      width: 100%;
+      height: auto;
+      max-height: 550px;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  .project-content {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: #1e293b;
+    margin-bottom: 4rem;
+
+    p { margin-bottom: 1.5rem; }
+    h2 { font-size: 1.875rem; font-weight: $font-weight-bold; margin: 2.5rem 0 1rem; color: $color-text; }
+    h3 { font-size: 1.4rem; font-weight: $font-weight-bold; margin: 2rem 0 0.75rem; color: $color-text; }
+    ul, ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+  }
+
+  .project-footer {
+    padding-top: 2rem;
+    border-top: 1px solid $color-border;
+
+    .project-cta {
+      margin-top: 3rem;
+      padding: 2.5rem;
+      border-radius: $radius-lg;
+      background: $color-surface-hover;
+      border: 1px solid $color-border;
+      text-align: center;
+
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: 1.05rem;
+        color: $color-text-muted;
+        margin-bottom: 1.5rem;
+        max-width: 540px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
   }
 }

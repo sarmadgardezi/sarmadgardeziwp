@@ -1,0 +1,15 @@
+{
+  "name": "sarmadgardeziwp",
+  "version": "1.0.0",
+  "description": "Custom Classic WordPress Theme and Companion Plugin for sarmadgardezi.com",
+  "private": true,
+  "scripts": {
+    "build:css": "sass sarmadgardezi/assets/scss/main.scss sarmadgardezi/assets/css/main.min.css --style=compressed --no-source-map",
+    "watch:css": "sass --watch sarmadgardezi/assets/scss/main.scss:sarmadgardezi/assets/css/main.min.css --style=compressed"
+  },
+  "devDependencies": {
+    "sass": "^1.83.0"
+  },
+  "author": "Sarmad Gardezi <sarmad@sarmadgardezi.com>",
+  "license": "GPL-2.0-or-later"
+}

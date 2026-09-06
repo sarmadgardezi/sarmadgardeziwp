@@ -18,6 +18,8 @@
 @import 'components/cards';
 @import 'components/badges';
 @import 'components/forms';
+@import 'components/breadcrumbs';
+@import 'components/pagination';
 
 // 4. Layout
 @import 'layout/container';
@@ -29,4 +31,7 @@
 @import 'pages/home';
 @import 'pages/blog';
 @import 'pages/project';
+@import 'pages/talk';
 @import 'pages/case-study';
+@import 'pages/page';
+

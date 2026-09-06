@@ -18,7 +18,7 @@ defined('ABSPATH') || exit;
 <?php wp_body_open(); ?>
 
 <div id="page" class="site">
-    <a class="skip-link screen-reader-text" href="#primary">
+    <a class="skip-link screen-reader-text" href="#main-content">
         <?php esc_html_e('Skip to content', 'sarmadgardezi'); ?>
     </a>
 
