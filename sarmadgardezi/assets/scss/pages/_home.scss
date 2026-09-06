@@ -404,8 +404,9 @@
 
 .about-philosophy-section {
   padding: 5rem 0 6rem;
-  background-color: $color-bg;
+  background-color: #ffffff;
   position: relative;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 
   @include respond-to('md') {
     padding: 7rem 0 8.5rem;
@@ -438,12 +439,12 @@
 
   .title-lead {
     display: block;
-    color: #64748b; // Elegant muted gray matching reference screenshot
+    color: #71717a; // Elegant muted gray matching reference screenshot
   }
 
   .title-accent {
     display: block;
-    color: $color-blue-primary; // User's requested Light Blue primary color
+    color: #111827; // Crisp dark black commanding emphasis
   }
 }
 
@@ -479,13 +480,14 @@
   aspect-ratio: 4 / 4.6;
   border-radius: 24px;
   overflow: hidden;
-  background-color: #e5e3db;
-  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.05);
+  background-color: #f3f4f6;
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 22px 50px -10px rgba(0, 0, 0, 0.16), 0 8px 20px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 22px 50px -10px rgba(0, 0, 0, 0.12), 0 8px 20px rgba(0, 0, 0, 0.04);
   }
 
   .about-photo-img {
@@ -507,10 +509,10 @@
   gap: 8px;
   padding: 6px 8px;
   border-radius: 9999px;
-  background: rgba(15, 23, 42, 0.68);
+  background: rgba(15, 23, 42, 0.72);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   z-index: 5;
 }
 
@@ -523,11 +525,11 @@
   justify-content: center;
   color: #f1f5f9;
   text-decoration: none;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
   transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease;
 
   &:hover {
-    background: $color-blue-primary; // Light Blue hover
+    background: #0ea5e9; // Subtle light blue on hover
     color: #ffffff;
     transform: scale(1.1);
   }
@@ -546,7 +548,7 @@
   font-family: var(--framer-font-family-bold, #{$font-sans});
   font-size: 1.4rem;
   font-weight: 700;
-  color: $color-blue-primary; // User's requested Light Blue primary color
+  color: #111827; // Crisp dark black
   margin: 0 0 0.35rem 0;
   letter-spacing: -0.02em;
 }
@@ -555,7 +557,7 @@
   font-family: $font-sans;
   font-size: 0.9375rem;
   font-weight: 600;
-  color: #64748b; // Muted dark gray
+  color: #64748b; // Muted dark slate
   margin: 0;
   letter-spacing: -0.01em;
   line-height: 1.4;
@@ -577,13 +579,13 @@
   font-family: $font-sans;
   font-size: clamp(1.1rem, 1.8vw, 1.35rem);
   line-height: 1.65;
-  color: #374151;
+  color: #4b5563; // Clean readable slate
   margin: 0;
   letter-spacing: -0.01em;
 
   .highlight-accent {
-    color: $color-blue-primary; // User's requested Light Blue primary color
-    font-weight: 600;
+    color: #111827; // Rich deep black emphasis instead of blue
+    font-weight: 700;
   }
 }
 
