@@ -40,7 +40,7 @@ if (!function_exists('sarmadgardezi_setup')) :
 
         // Set up the WordPress core custom background feature.
         add_theme_support('custom-background', array(
-            'default-color' => '0a0d14',
+            'default-color' => 'efede5',
         ));
 
         // Add theme support for selective refresh for widgets.
