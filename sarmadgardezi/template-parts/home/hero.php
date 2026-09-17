@@ -15,8 +15,8 @@
 
 defined('ABSPATH') || exit;
 
-// Image path pointing to user's logo avatar
-$portrait_url = sarmadgardezi_asset('images/sarmadgardezilogo.webp');
+// Image path pointing to user's hero avatar
+$portrait_url = content_url('uploads/2026/09/me-removebg-preview.png');
 if (has_post_thumbnail()) {
     $portrait_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
 }
