@@ -58,49 +58,50 @@
   letter-spacing: -0.01em;
 }
 
-// Headline & Right Photo Block
+// Headline & Title Block
 .hero-title-block {
   position: relative;
   width: 100%;
   max-width: 1020px;
   margin: 0 auto 1.25rem;
-  display: inline-block;
+  display: block;
   text-align: center;
 }
 
-// Photo on Right Side (Floats gracefully in the upper right corner without overlapping text)
+// Photo on Top Right Side (Anchored to hero container top right)
+.hero-photo-top-right,
 .hero-photo-right {
   position: absolute;
   z-index: 5;
   border-radius: 50%;
   background-color: #ffffff;
   padding: 4px;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-  width: 65px;
-  height: 65px;
-  top: -26px;
-  right: -4px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  width: 60px;
+  height: 60px;
+  top: -10px;
+  right: 5px;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 
   @include respond-to('sm') {
-    width: 80px;
-    height: 80px;
-    right: -12px;
-    top: -38px;
+    width: 75px;
+    height: 75px;
+    right: 15px;
+    top: -15px;
   }
 
   @include respond-to('md') {
     width: 95px;
     height: 95px;
-    right: -24px;
-    top: -46px;
+    right: 20px;
+    top: -20px;
   }
 
   @include respond-to('lg') {
-    width: 105px;
-    height: 105px;
-    right: -32px;
-    top: -52px;
+    width: 110px;
+    height: 110px;
+    right: 10px;
+    top: -25px;
   }
 
   &:hover {
@@ -257,6 +258,124 @@
     font-weight: 600;
     font-size: 0.9375rem;
     line-height: 1;
+  }
+}
+
+// Social Pills Row (FB, GitHub, Twitter/X, Instagram, YouTube)
+.hero-social-pills-wrap {
+  margin-top: 2.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+
+  @include respond-to('md') {
+    margin-top: 3.25rem;
+  }
+}
+
+.hero-social-pills-label {
+  font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #4b5563;
+  margin: 0 0 1rem;
+  letter-spacing: -0.01em;
+
+  @include respond-to('md') {
+    font-size: 1rem;
+    margin-bottom: 1.15rem;
+  }
+}
+
+.hero-social-pills-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+
+  @include respond-to('sm') {
+    gap: 0.85rem;
+  }
+}
+
+.social-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background-color: #f0f0f2;
+  border-radius: 9999px;
+  padding: 4px 16px 4px 5px;
+  height: 38px;
+  text-decoration: none;
+  font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #111827;
+  letter-spacing: -0.01em;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  white-space: nowrap;
+
+  @include respond-to('md') {
+    padding: 5px 18px 5px 6px;
+    height: 40px;
+    font-size: 0.90625rem;
+  }
+
+  .social-pill-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #ffffff;
+    transition: transform 0.22s ease;
+
+    &.icon-fb {
+      background-color: #1877F2;
+    }
+
+    &.icon-github {
+      background-color: #181717;
+    }
+
+    &.icon-x {
+      background-color: #000000;
+    }
+
+    &.icon-instagram {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    }
+
+    &.icon-youtube {
+      background-color: #FF0000;
+    }
+  }
+
+  .social-pill-text {
+    color: #111827;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  &:hover {
+    background-color: #e5e7eb;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+
+    .social-pill-icon {
+      transform: scale(1.08);
+    }
+  }
+
+  &:active {
+    transform: scale(0.97);
   }
 }
 
