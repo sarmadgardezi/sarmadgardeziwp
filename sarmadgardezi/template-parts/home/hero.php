@@ -33,9 +33,9 @@ $portrait_url = '/wp-content/uploads/2026/09/me-removebg-preview.png';
                 
                 <!-- Pointing Arrow -->
                 <div class="hero-photo-arrow" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 5 Q 16 5 16 18"></path>
-                        <polyline points="10 13 16 19 22 13"></polyline>
+                    <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 5 Q 8 5 8 18"></path>
+                        <polyline points="2 13 8 19 14 13"></polyline>
                     </svg>
                 </div>
             </div>

@@ -70,17 +70,17 @@
   // Floating Arrow pointing to the pill
   .hero-photo-arrow {
     position: absolute;
-    bottom: -22px;
-    right: -25px; // Arrow on the right side of the photo
-    color: #94a3b8; // Subtle gray-blue
-    transform: rotate(25deg); // Tilt slightly to point directly at the pill
+    bottom: -20px;
+    right: 5px; // Positioned right under the right side of the photo
+    color: #1877F2; // Use theme blue to make it pop
+    transform: rotate(0deg); // Straight down-left
     pointer-events: none;
     z-index: 20; // Ensure it sits above
     
     @include respond-to('md') {
-      bottom: -26px;
-      right: -28px;
-      transform: scale(1.1) rotate(25deg);
+      bottom: -22px;
+      right: 10px;
+      transform: rotate(5deg);
     }
   }
 
