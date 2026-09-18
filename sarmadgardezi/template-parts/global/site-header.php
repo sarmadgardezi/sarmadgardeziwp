@@ -95,7 +95,7 @@ $book_call_url = apply_filters('sarmadgardezi_book_a_call_url', home_url('/conta
             <!-- Large Boxed Dark Card -->
             <div class="header-boxed-card">
                 
-                <!-- Main Bold Navigation Links -->
+                <!-- Main Navigation Links (Clean & Small) -->
                 <nav class="boxed-nav-list" itemscope itemtype="https://schema.org/SiteNavigationElement" aria-label="<?php esc_attr_e('Primary Menu', 'sarmadgardezi'); ?>">
                     <?php foreach ($nav_items as $index => $item) : 
                         $is_active = !empty($item['active']);
@@ -106,35 +106,6 @@ $book_call_url = apply_filters('sarmadgardezi_book_a_call_url', home_url('/conta
                         </a>
                     <?php endforeach; ?>
                 </nav>
-
-                <!-- Thin Horizontal Divider -->
-                <div class="boxed-menu-divider"></div>
-
-                <!-- Social Follow Section -->
-                <div class="boxed-social-section">
-                    <p class="boxed-social-heading"><?php esc_html_e('Follow us on:', 'sarmadgardezi'); ?></p>
-                    <div class="boxed-social-icons">
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="boxed-social-chip" aria-label="Instagram">
-                            <?php echo sarmadgardezi_get_icon('instagram'); ?>
-                        </a>
-                        <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="boxed-social-chip" aria-label="X (Twitter)">
-                            <?php echo sarmadgardezi_get_icon('x'); ?>
-                        </a>
-                        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="boxed-social-chip" aria-label="YouTube">
-                            <?php echo sarmadgardezi_get_icon('youtube'); ?>
-                        </a>
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="boxed-social-chip" aria-label="Facebook">
-                            <?php echo sarmadgardezi_get_icon('facebook'); ?>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Footer Credits -->
-                <div class="boxed-menu-footer">
-                    <p class="boxed-credits-text">
-                        <?php esc_html_e('Designed by', 'sarmadgardezi'); ?> <strong>Webestica</strong>, <?php esc_html_e('Powered by', 'sarmadgardezi'); ?> <strong>Webflow</strong>
-                    </p>
-                </div>
 
             </div>
         </div>
