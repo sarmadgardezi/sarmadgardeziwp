@@ -8,13 +8,7 @@
 defined('ABSPATH') || exit;
 
 // Image path pointing to user's hero avatar
-$portrait_url = sarmadgardezi_asset('images/sarmad.png');
-if (file_exists(SARMADGARDEZI_DIR . '/assets/images/sarmad.png')) {
-    $portrait_url = sarmadgardezi_asset('images/sarmad.png');
-}
-if (has_post_thumbnail()) {
-    $portrait_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
-}
+$portrait_url = '/wp-content/uploads/2026/09/me-removebg-preview.png';
 ?>
 
 <section id="hero" class="hero-section hero-agentic-future">
@@ -48,19 +42,19 @@ if (has_post_thumbnail()) {
 
         <!-- Headline Block -->
         <div class="hero-title-block">
-            <!-- Big Impact Headline: ENGINEERING THE FUTURE OF AGENTIC AI. -->
+            <!-- Big Impact Headline -->
             <h1 class="hero-main-heading">
-                <span class="hero-heading-line line-1"><?php esc_html_e('BUILDING SCALABLE', 'sarmadgardezi'); ?></span>
+                <span class="hero-heading-line line-1"><?php esc_html_e('SHAPING THE FUTURE', 'sarmadgardezi'); ?></span>
                 <span class="hero-heading-line line-2">
-                    <span class="word-agentic"><?php esc_html_e('AI SOLUTIONS', 'sarmadgardezi'); ?></span>
-                    <span class="hero-purple-pill"><?php esc_html_e('FOR YOU.', 'sarmadgardezi'); ?></span>
+                    <span class="word-agentic"><?php esc_html_e('WITH', 'sarmadgardezi'); ?></span>
+                    <span class="hero-purple-pill"><?php esc_html_e('AGENTIC AI.', 'sarmadgardezi'); ?></span>
                 </span>
             </h1>
         </div>
 
         <!-- Tagline -->
         <p class="hero-tagline">
-            <?php esc_html_e('AI Consultant · Systems Architect · Tech Partner', 'sarmadgardezi'); ?>
+            <?php esc_html_e('AI Consultant · Speaker & Googler', 'sarmadgardezi'); ?>
         </p>
 
         <!-- Description Subtitle -->
