@@ -20,27 +20,27 @@ if (has_post_thumbnail()) {
 <section id="hero" class="hero-section hero-agentic-future">
     <div class="hero-boxed-container">
 
-        <!-- Photo on Top Right Side -->
-        <div class="hero-image-bubble hero-photo-top-right">
-            <div class="hero-inner-image">
-                <img 
-                    src="<?php echo esc_url($portrait_url); ?>" 
-                    alt="<?php esc_attr_e('Sarmad Gardezi - Senior Software Engineer & AI Architect', 'sarmadgardezi'); ?>"
-                    width="120"
-                    height="120"
-                    loading="eager"
-                    fetchpriority="high"
-                    decoding="async"
-                    class="speech-avatar-img"
-                />
-            </div>
-        </div>
-
-        <!-- Top Tag / Pill Badge -->
+        <!-- Top Tag / Pill Badge with Photo on its Middle-Right-Top -->
         <div class="hero-badge-pill-wrap">
             <span class="hero-badge-pill">
                 <?php esc_html_e('Senior Software Engineer · Cloud Architect · Agentic AI', 'sarmadgardezi'); ?>
             </span>
+
+            <!-- Photo Bubble positioned on top-right of the badge line -->
+            <div class="hero-image-bubble hero-photo-badge-right">
+                <div class="hero-inner-image">
+                    <img 
+                        src="<?php echo esc_url($portrait_url); ?>" 
+                        alt="<?php esc_attr_e('Sarmad Gardezi - Senior Software Engineer & AI Architect', 'sarmadgardezi'); ?>"
+                        width="120"
+                        height="120"
+                        loading="eager"
+                        fetchpriority="high"
+                        decoding="async"
+                        class="speech-avatar-img"
+                    />
+                </div>
+            </div>
         </div>
 
         <!-- Headline Block -->
