@@ -805,8 +805,8 @@ textarea::placeholder {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  background-color: #e4e4e6;
-  color: #111111;
+  background-color: #1877F2;
+  color: #ffffff;
   border-radius: 9999px;
   padding: 4px 18px 4px 5px;
   height: 38px;
@@ -815,7 +815,7 @@ textarea::placeholder {
   font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: -0.01em;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 14px rgba(24, 119, 242, 0.25);
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   user-select: none;
   white-space: nowrap;
@@ -824,31 +824,37 @@ textarea::placeholder {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background-color: #111111;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #1877F2;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: transform 0.25s ease;
+  transition: all 0.25s ease;
 }
 .site-header-custom .btn-book-call .btn-book-call-icon svg {
   width: 13px;
   height: 13px;
 }
 .site-header-custom .btn-book-call .btn-book-call-text {
-  color: #111111;
+  color: #ffffff;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1;
+  transition: color 0.25s ease;
 }
 .site-header-custom .btn-book-call:hover {
-  background-color: #dadadd;
+  background-color: #ffffff;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.09);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+.site-header-custom .btn-book-call:hover .btn-book-call-text {
+  color: #111111;
 }
 .site-header-custom .btn-book-call:hover .btn-book-call-icon {
   transform: scale(1.06);
+  background-color: #111111;
+  color: #ffffff;
 }
 .site-header-custom .btn-book-call:active {
   transform: scale(0.97);
@@ -1409,9 +1415,10 @@ textarea::placeholder {
 .hero-profile-photo {
   position: relative;
   z-index: 10;
-  width: 96px;
-  height: 96px;
-  margin-bottom: 1.5rem;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 0.5rem;
+  margin-left: -20px;
   border-radius: 50%;
   background-color: #ffffff;
   padding: 4px;
@@ -1420,13 +1427,30 @@ textarea::placeholder {
 }
 @media (min-width: 768px) {
   .hero-profile-photo {
-    width: 112px;
-    height: 112px;
-    margin-bottom: 2rem;
+    width: 90px;
+    height: 90px;
+    margin-bottom: 0.75rem;
+    margin-left: -40px;
+  }
+}
+.hero-profile-photo .hero-photo-arrow {
+  position: absolute;
+  bottom: -22px;
+  right: -25px;
+  color: #94a3b8;
+  transform: rotate(25deg);
+  pointer-events: none;
+  z-index: 20;
+}
+@media (min-width: 768px) {
+  .hero-profile-photo .hero-photo-arrow {
+    bottom: -26px;
+    right: -28px;
+    transform: scale(1.1) rotate(25deg);
   }
 }
 .hero-profile-photo:hover {
-  transform: scale(1.05) rotate(2deg);
+  transform: scale(1.05) rotate(2deg) translateX(-5px);
 }
 .hero-profile-photo .hero-inner-image {
   width: 100%;
