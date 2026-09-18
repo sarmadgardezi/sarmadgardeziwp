@@ -4,8 +4,8 @@
   "description": "Custom Classic WordPress Theme and Companion Plugin for sarmadgardezi.com",
   "private": true,
   "scripts": {
-    "build:css": "sass sarmadgardezi/assets/scss/main.scss sarmadgardezi/assets/css/main.min.css --style=compressed --no-source-map",
-    "watch:css": "sass --watch sarmadgardezi/assets/scss/main.scss:sarmadgardezi/assets/css/main.min.css --style=compressed"
+    "build:css": "sass sarmadgardezi/assets/scss/main.scss sarmadgardezi/assets/css/main.min.css --style=expanded",
+    "watch:css": "sass --watch sarmadgardezi/assets/scss/main.scss:sarmadgardezi/assets/css/main.min.css --style=expanded"
   },
   "devDependencies": {
     "sass": "^1.83.0"
