@@ -30,6 +30,14 @@ $portrait_url = '/wp-content/uploads/2026/09/me-removebg-preview.png';
                         class="speech-avatar-img"
                     />
                 </div>
+                
+                <!-- Pointing Arrow -->
+                <div class="hero-photo-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 5 Q 16 5 16 18"></path>
+                        <polyline points="10 13 16 19 22 13"></polyline>
+                    </svg>
+                </div>
             </div>
 
             <!-- Top Tag / Pill Badge -->
@@ -59,7 +67,7 @@ $portrait_url = '/wp-content/uploads/2026/09/me-removebg-preview.png';
 
         <!-- Description Subtitle -->
         <p class="hero-description">
-            <?php esc_html_e('Sarmad Gardezi helps businesses scale by architecting cutting-edge Agentic AI workflows and high-performance cloud solutions that drive real growth.', 'sarmadgardezi'); ?>
+            <?php esc_html_e("I'm helping businesses scale by architecting cutting-edge Agentic AI workflows and high-performance cloud solutions that drive real growth.", 'sarmadgardezi'); ?>
         </p>
 
         <!-- CTA Button: Let's Build Together -->

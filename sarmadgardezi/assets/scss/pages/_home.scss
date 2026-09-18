@@ -50,9 +50,9 @@
 .hero-profile-photo {
   position: relative;
   z-index: 10;
-  width: 96px; // Increased size
-  height: 96px; // Increased size
-  margin-bottom: 1.5rem; // Increased bottom spacing
+  width: 80px; // Adjusted size
+  height: 80px; // Adjusted size
+  margin-bottom: 1.25rem; // Reduced spacing to keep arrow close
   border-radius: 50%;
   background-color: #ffffff;
   padding: 4px;
@@ -60,9 +60,26 @@
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 
   @include respond-to('md') {
-    width: 112px; // Increased size for desktop
-    height: 112px; // Increased size for desktop
-    margin-bottom: 2rem; // Increased bottom spacing for desktop
+    width: 90px;
+    height: 90px;
+    margin-bottom: 1.5rem;
+  }
+
+  // Floating Arrow pointing to the pill
+  .hero-photo-arrow {
+    position: absolute;
+    bottom: -18px;
+    right: -28px;
+    color: #94a3b8; // Subtle gray-blue
+    transform: rotate(10deg); // Tilt slightly
+    pointer-events: none;
+    z-index: -1;
+    
+    @include respond-to('md') {
+      bottom: -20px;
+      right: -32px;
+      transform: scale(1.1) rotate(10deg);
+    }
   }
 
   &:hover {
