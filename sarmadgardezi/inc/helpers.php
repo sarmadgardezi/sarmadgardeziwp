@@ -46,6 +46,10 @@ function sarmadgardezi_get_icon($icon, $class = 'icon') {
         'external-link' => '<svg class="' . esc_attr($class) . '" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>',
         'terminal' => '<svg class="' . esc_attr($class) . '" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>',
         'mail' => '<svg class="' . esc_attr($class) . '" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>',
+        'instagram' => '<svg class="' . esc_attr($class) . '" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>',
+        'x' => '<svg class="' . esc_attr($class) . '" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>',
+        'youtube' => '<svg class="' . esc_attr($class) . '" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>',
+        'facebook' => '<svg class="' . esc_attr($class) . '" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>',
     );
 
     return isset($icons[$icon]) ? $icons[$icon] : '';
@@ -70,7 +74,7 @@ function sarmadgardezi_get_nav_items() {
                 $home_url    = trailingslashit(home_url('/'));
 
                 foreach ($raw_items as $item) {
-                    // Only top-level items for the pill bar
+                    // Only top-level items for the navigation
                     if (!empty($item->menu_item_parent)) {
                         continue;
                     }
@@ -95,7 +99,7 @@ function sarmadgardezi_get_nav_items() {
         }
     }
 
-    // Default fallback matching exact custom specification
+    // Default fallback matching exact custom specification (HOME, ABOUT, CASE STUDIES, BLOG, FAQS, CONTACT)
     if (empty($menu_items)) {
         $req_path = strtok($_SERVER['REQUEST_URI'] ?? '/', '?');
         $clean_path = '/' . trim($req_path, '/');
@@ -106,10 +110,10 @@ function sarmadgardezi_get_nav_items() {
         $defaults = array(
             array('title' => __('Home', 'sarmadgardezi'), 'url' => home_url('/'), 'path' => '/'),
             array('title' => __('About', 'sarmadgardezi'), 'url' => home_url('/about'), 'path' => '/about'),
-            array('title' => __('Services', 'sarmadgardezi'), 'url' => home_url('/services'), 'path' => '/services'),
-            array('title' => __('Portfolio', 'sarmadgardezi'), 'url' => home_url('/work'), 'path' => '/work'),
-            array('title' => __('Projects', 'sarmadgardezi'), 'url' => home_url('/projects'), 'path' => '/projects'),
+            array('title' => __('Case Studies', 'sarmadgardezi'), 'url' => home_url('/case-studies'), 'path' => '/case-studies'),
             array('title' => __('Blog', 'sarmadgardezi'), 'url' => home_url('/blog'), 'path' => '/blog'),
+            array('title' => __('FAQs', 'sarmadgardezi'), 'url' => home_url('/faqs'), 'path' => '/faqs'),
+            array('title' => __('Contact', 'sarmadgardezi'), 'url' => home_url('/contact'), 'path' => '/contact'),
         );
 
         foreach ($defaults as $def) {

@@ -1,5 +1,5 @@
 /**
- * Navigation and Header Interactions
+ * Navigation and Header Modal Interactions
  *
  * @package SarmadGardezi
  */
@@ -9,26 +9,36 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     var menuToggle = document.getElementById('menu-toggle');
-    var menuPanel = document.getElementById('header-menu-panel');
+    var menuModal = document.getElementById('header-menu-modal');
     var menuBackdrop = document.getElementById('header-menu-backdrop');
+    var modalCloseTrigger = document.getElementById('modal-close-trigger');
 
     function openMenu() {
-      if (!menuToggle || !menuPanel) return;
-      menuToggle.setAttribute('aria-expanded', 'true');
-      menuPanel.classList.remove('hidden');
+      if (!menuModal) return;
+      if (menuToggle) menuToggle.setAttribute('aria-expanded', 'true');
+      menuModal.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
+      
+      // Focus first link or close button for accessibility
+      var firstLink = menuModal.querySelector('.boxed-nav-link');
+      if (firstLink) {
+        firstLink.focus();
+      }
     }
 
     function closeMenu() {
-      if (!menuToggle || !menuPanel) return;
-      menuToggle.setAttribute('aria-expanded', 'false');
-      menuPanel.classList.add('hidden');
+      if (!menuModal) return;
+      if (menuToggle) {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.focus();
+      }
+      menuModal.classList.add('hidden');
       document.body.style.overflow = '';
     }
 
     function toggleMenu(e) {
       if (e) e.stopPropagation();
-      var isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      var isExpanded = menuToggle && menuToggle.getAttribute('aria-expanded') === 'true';
       if (isExpanded) {
         closeMenu();
       } else {
@@ -36,55 +46,46 @@
       }
     }
 
-    if (menuToggle && menuPanel) {
+    if (menuToggle && menuModal) {
       menuToggle.addEventListener('click', toggleMenu);
 
       if (menuBackdrop) {
         menuBackdrop.addEventListener('click', closeMenu);
       }
 
-      // Close on clicking outside the dropdown container
-      document.addEventListener('click', function (e) {
-        if (
-          !menuPanel.classList.contains('hidden') &&
-          !menuPanel.querySelector('.header-menu-dropdown-inner').contains(e.target) &&
-          !menuToggle.contains(e.target)
-        ) {
+      if (modalCloseTrigger) {
+        modalCloseTrigger.addEventListener('click', closeMenu);
+      }
+
+      // Close on clicking outside card
+      menuModal.addEventListener('click', function (e) {
+        var card = menuModal.querySelector('.header-boxed-card');
+        var closeNotch = menuModal.querySelector('.header-modal-close-notch');
+        if (card && !card.contains(e.target) && (!closeNotch || !closeNotch.contains(e.target))) {
           closeMenu();
         }
       });
 
       // Close on Escape key press
       document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && !menuPanel.classList.contains('hidden')) {
+        if (e.key === 'Escape' && !menuModal.classList.contains('hidden')) {
           closeMenu();
-          menuToggle.focus();
         }
       });
     }
 
-    // Dynamic active state handler for nav links
-    var allNavLinks = document.querySelectorAll('.header-nav-item');
-    if (allNavLinks.length > 0) {
-      allNavLinks.forEach(function (link) {
+    // Nav link click handling
+    var boxedNavLinks = document.querySelectorAll('.boxed-nav-link');
+    if (boxedNavLinks.length > 0) {
+      boxedNavLinks.forEach(function (link) {
         link.addEventListener('click', function () {
           var href = this.getAttribute('href') || '';
           if (href.indexOf('#') !== -1) {
-            allNavLinks.forEach(function (other) {
-              other.classList.remove('active', 'current-menu-item');
-              var dot = other.querySelector('.nav-active-dot');
-              if (dot) dot.remove();
+            boxedNavLinks.forEach(function (other) {
+              other.classList.remove('is-active', 'active', 'current-menu-item');
             });
-
-            this.classList.add('active', 'current-menu-item');
-            if (!this.querySelector('.nav-active-dot')) {
-              var dot = document.createElement('span');
-              dot.className = 'nav-active-dot';
-              dot.setAttribute('aria-hidden', 'true');
-              this.appendChild(dot);
-            }
+            this.classList.add('is-active', 'active', 'current-menu-item');
           }
-
           closeMenu();
         });
       });
