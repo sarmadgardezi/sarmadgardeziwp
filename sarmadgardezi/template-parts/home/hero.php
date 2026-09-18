@@ -2,38 +2,42 @@
 /**
  * Template part for displaying the Hero section
  *
- * Faithfully matches the Next.js architecture, styling, and responsiveness:
- * - Content wrapper with title block
- * - Circular image bubble with speech tail
- * - Main heading with theme font
- * - Subtitle & description
- * - Social proof stats row
- * - Offerings badge row
- *
  * @package SarmadGardezi
  */
 
 defined('ABSPATH') || exit;
 
 // Image path pointing to user's hero avatar
-$portrait_url = content_url('uploads/2026/09/me-removebg-preview.png');
+$portrait_url = sarmadgardezi_asset('images/sarmad.png');
+if (file_exists(SARMADGARDEZI_DIR . '/assets/images/sarmad.png')) {
+    $portrait_url = sarmadgardezi_asset('images/sarmad.png');
+}
 if (has_post_thumbnail()) {
     $portrait_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
 }
 ?>
 
-<section id="hero" class="hero-section Hero-module__RrIjAW__heroSection">
-    <div class="hero-content-wrapper Hero-module__RrIjAW__contentWrapper">
+<section id="hero" class="hero-section hero-content-that-stops">
+    <div class="hero-boxed-container">
 
-        <!-- Title Block with Floating Image Bubble -->
-        <div class="hero-title-block Hero-module__RrIjAW__titleBlock">
-            <div class="hero-image-bubble Hero-module__RrIjAW__imageBubble">
-                <div class="hero-inner-image Hero-module__RrIjAW__innerImage">
+        <!-- Top Tag / Pill Badge -->
+        <div class="hero-badge-pill-wrap">
+            <span class="hero-badge-pill">
+                <?php esc_html_e('UGC · Short form · Creator marketing', 'sarmadgardezi'); ?>
+            </span>
+        </div>
+
+        <!-- Headline & Right Photo Block -->
+        <div class="hero-title-block">
+            
+            <!-- Photo on Right Side -->
+            <div class="hero-image-bubble hero-photo-right">
+                <div class="hero-inner-image">
                     <img 
                         src="<?php echo esc_url($portrait_url); ?>" 
-                        alt="<?php esc_attr_e('Sarmad Gardezi - Software Engineer and Google Cloud Expert', 'sarmadgardezi'); ?>"
-                        width="140"
-                        height="140"
+                        alt="<?php esc_attr_e('Sarmad Gardezi', 'sarmadgardezi'); ?>"
+                        width="110"
+                        height="110"
                         loading="eager"
                         fetchpriority="high"
                         decoding="async"
@@ -42,23 +46,45 @@ if (has_post_thumbnail()) {
                 </div>
             </div>
 
-            <h1 class="hero-main-heading Hero-module__RrIjAW__mainHeading">
-                <?php esc_html_e('Building  the  Future', 'sarmadgardezi'); ?><br>
-                <span><?php esc_html_e('with Agentic AI', 'sarmadgardezi'); ?></span>
+            <!-- Big Impact Headline: CONTENT THAT STOPS THE SCROLL. -->
+            <h1 class="hero-main-heading">
+                <span class="hero-heading-line line-1"><?php esc_html_e('CONTENT THAT', 'sarmadgardezi'); ?></span>
+                <span class="hero-heading-line line-2">
+                    <span class="word-stops">
+                        ST<span class="char-slashed-o" aria-hidden="true">
+                            <svg width="0.82em" height="0.82em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="9"/>
+                                <line x1="5.6" y1="5.6" x2="18.4" y2="18.4"/>
+                            </svg>
+                        </span>PS
+                    </span>
+                    <span class="word-the"><?php esc_html_e('THE', 'sarmadgardezi'); ?></span>
+                    <span class="hero-purple-pill"><?php esc_html_e('SCROLL.', 'sarmadgardezi'); ?></span>
+                </span>
             </h1>
+
         </div>
 
-        <!-- Subtitle -->
-        <h2 class="hero-subtitle Hero-module__RrIjAW__subtitle">
-            <?php esc_html_e('Entrepreneur. Speaker. Googler.', 'sarmadgardezi'); ?>
-        </h2>
-
-        <!-- Description -->
-        <p class="hero-description Hero-module__RrIjAW__description">
-            <?php esc_html_e('Sarmad Gardezi is a Senior Software Engineer and Google Cloud Expert specializing in Agentic AI, Firebase, and Cloud Architecture.', 'sarmadgardezi'); ?>
+        <!-- Description Subtitle -->
+        <p class="hero-description">
+            <?php esc_html_e('We turn real people into your best sales team. Authentic UGC that stops the scroll, earns trust, and converts built on data, not gut feelings.', 'sarmadgardezi'); ?>
         </p>
 
-        <!-- Socials Row -->
+        <!-- CTA Button: Start Growing -->
+        <div class="hero-cta-wrap">
+            <a href="<?php echo esc_url(home_url('/contact')); ?>" class="hero-start-cta">
+                <span class="cta-arrow-circle" aria-hidden="true">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </span>
+                <span class="cta-text"><?php esc_html_e('Start growing', 'sarmadgardezi'); ?></span>
+            </a>
+        </div>
+
+        <?php /*
+        <!-- Socials Row (Commented out per request) -->
         <div class="hero-socials-row Hero-module__RrIjAW__socialsRow">
             <a href="https://youtube.com/c/sarmadgardezi" target="_blank" rel="me noopener noreferrer" class="hero-social-item Hero-module__RrIjAW__socialItem">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="#E24A4A" aria-hidden="true">
@@ -82,7 +108,7 @@ if (has_post_thumbnail()) {
             </a>
         </div>
 
-        <!-- Badges Row -->
+        <!-- Badges Row (Commented out per request) -->
         <div class="hero-badges-row Hero-module__RrIjAW__badgesRow">
             <div class="hero-badge-item Hero-module__RrIjAW__badgeItem">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -99,6 +125,7 @@ if (has_post_thumbnail()) {
                 <span><?php esc_html_e('Get product feedback', 'sarmadgardezi'); ?></span>
             </div>
         </div>
+        */ ?>
 
     </div>
 </section>
