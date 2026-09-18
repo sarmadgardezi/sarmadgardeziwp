@@ -14,23 +14,14 @@ $book_call_url = apply_filters('sarmadgardezi_book_a_call_url', home_url('/conta
 <header class="site-header-custom" id="masthead">
     <div class="site-header-inner">
         
-        <!-- Left: Brand Logo (Matches exact REELS / site branding) -->
+        <!-- Left: Brand Logo (Sarmad) -->
         <div class="header-left">
             <a class="brand-link" href="<?php echo esc_url(home_url('/')); ?>" rel="home">
                 <?php if (has_custom_logo()) : ?>
                     <?php the_custom_logo(); ?>
                 <?php else : ?>
-                    <span class="brand-logo-badge" aria-hidden="true">
-                        <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="32" height="32" rx="7" fill="#0d0d0d"/>
-                            <rect x="5.5" y="7.5" width="21" height="17" rx="3.5" stroke="white" stroke-width="1.8"/>
-                            <line x1="5.5" y1="12.5" x2="26.5" y2="12.5" stroke="white" stroke-width="1.8"/>
-                            <path d="M9 7.5L7.5 12.5M14 7.5L12.5 12.5M19 7.5L17.5 12.5M24 7.5L22.5 12.5" stroke="white" stroke-width="1.4"/>
-                            <polygon points="14 15 19 18 14 21" fill="white"/>
-                        </svg>
-                    </span>
                     <span class="brand-logo-text">
-                        <span class="brand-char">R</span><span class="brand-char brand-orange">3</span><span class="brand-char">ELS</span>
+                        <span class="brand-name">Sarmad</span><span class="brand-dot">.</span>
                     </span>
                 <?php endif; ?>
             </a>
