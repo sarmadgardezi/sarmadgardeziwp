@@ -124,22 +124,26 @@
     color: #ffffff;
     border: none;
     border-top: none;
-    border-bottom-left-radius: 22px;
-    border-bottom-right-radius: 22px;
-    padding: 10px 28px 12px;
+    border-bottom-left-radius: 28px;
+    border-bottom-right-radius: 28px;
+    padding: 16px 36px 19px;
+    min-height: 60px;
     cursor: pointer;
     font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
-    font-size: 0.9375rem;
+    font-size: 0.98rem;
     font-weight: 600;
     letter-spacing: -0.01em;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s ease, box-shadow 0.2s ease;
     user-select: none;
     outline: none;
 
     @include respond-to('md') {
-      padding: 11px 32px 13px;
-      font-size: 0.95rem;
+      padding: 19px 44px 23px;
+      min-height: 68px;
+      font-size: 1.05rem;
+      border-bottom-left-radius: 32px;
+      border-bottom-right-radius: 32px;
     }
 
     // Outer concave wings seamlessly joining the top ceiling
@@ -148,33 +152,33 @@
       content: '';
       position: absolute;
       top: 0;
-      width: 20px;
-      height: 20px;
+      width: 28px;
+      height: 28px;
       background: transparent;
       pointer-events: none;
     }
 
     &::before {
-      left: -20px;
-      border-top-right-radius: 20px;
-      box-shadow: 8px -8px 0 8px #0d0d0d;
+      left: -28px;
+      border-top-right-radius: 28px;
+      box-shadow: 12px -12px 0 12px #0d0d0d;
     }
 
     &::after {
-      right: -20px;
-      border-top-left-radius: 20px;
-      box-shadow: -8px -8px 0 8px #0d0d0d;
+      right: -28px;
+      border-top-left-radius: 28px;
+      box-shadow: -12px -12px 0 12px #0d0d0d;
     }
 
     &:hover {
       background-color: #1a1a1a;
-      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.38);
 
       &::before {
-        box-shadow: 8px -8px 0 8px #1a1a1a;
+        box-shadow: 12px -12px 0 12px #1a1a1a;
       }
       &::after {
-        box-shadow: -8px -8px 0 8px #1a1a1a;
+        box-shadow: -12px -12px 0 12px #1a1a1a;
       }
     }
 
@@ -185,35 +189,39 @@
     .menu-state-closed {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 9px;
     }
 
     .menu-state-open {
       display: none;
       align-items: center;
-      gap: 8px;
+      gap: 9px;
     }
 
     .menu-dots-icon {
       display: block;
       color: #ffffff;
       flex-shrink: 0;
-      width: 14px;
-      height: 14px;
+      width: 15px;
+      height: 15px;
     }
 
     .menu-sparkle-icon {
       color: #ffffff;
       flex-shrink: 0;
-      width: 14px;
-      height: 14px;
+      width: 15px;
+      height: 15px;
     }
 
     .menu-notch-text {
       color: #ffffff;
       font-weight: 600;
-      font-size: 0.9375rem;
+      font-size: 0.95rem;
       line-height: 1;
+
+      @include respond-to('md') {
+        font-size: 1rem;
+      }
     }
 
     // When open
@@ -235,7 +243,7 @@
 
     @include respond-to('md') {
       pointer-events: auto;
-      padding-top: 12px;
+      padding-top: 14px;
       display: flex;
       align-items: center;
       justify-content: flex-end;
@@ -364,21 +372,25 @@
     color: #ffffff;
     border: none;
     border-top: none;
-    border-bottom-left-radius: 22px;
-    border-bottom-right-radius: 22px;
-    padding: 10px 28px 12px;
+    border-bottom-left-radius: 28px;
+    border-bottom-right-radius: 28px;
+    padding: 16px 36px 19px;
+    min-height: 60px;
     cursor: pointer;
     font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
-    font-size: 0.9375rem;
+    font-size: 0.98rem;
     font-weight: 600;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
     transition: all 0.2s ease;
     user-select: none;
     outline: none;
 
     @include respond-to('md') {
-      padding: 11px 32px 13px;
-      font-size: 0.95rem;
+      padding: 19px 44px 23px;
+      min-height: 68px;
+      font-size: 1.05rem;
+      border-bottom-left-radius: 32px;
+      border-bottom-right-radius: 32px;
     }
 
     &::before,
@@ -386,22 +398,22 @@
       content: '';
       position: absolute;
       top: 0;
-      width: 20px;
-      height: 20px;
+      width: 28px;
+      height: 28px;
       background: transparent;
       pointer-events: none;
     }
 
     &::before {
-      left: -20px;
-      border-top-right-radius: 20px;
-      box-shadow: 8px -8px 0 8px #0d0d0d;
+      left: -28px;
+      border-top-right-radius: 28px;
+      box-shadow: 12px -12px 0 12px #0d0d0d;
     }
 
     &::after {
-      right: -20px;
-      border-top-left-radius: 20px;
-      box-shadow: -8px -8px 0 8px #0d0d0d;
+      right: -28px;
+      border-top-left-radius: 28px;
+      box-shadow: -12px -12px 0 12px #0d0d0d;
     }
 
     &:hover {
@@ -409,10 +421,10 @@
       transform: translateY(1px);
 
       &::before {
-        box-shadow: 8px -8px 0 8px #1a1a1a;
+        box-shadow: 12px -12px 0 12px #1a1a1a;
       }
       &::after {
-        box-shadow: -8px -8px 0 8px #1a1a1a;
+        box-shadow: -12px -12px 0 12px #1a1a1a;
       }
     }
 

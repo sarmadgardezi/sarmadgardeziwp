@@ -17,13 +17,13 @@ if (has_post_thumbnail()) {
 }
 ?>
 
-<section id="hero" class="hero-section hero-content-that-stops">
+<section id="hero" class="hero-section hero-agentic-future">
     <div class="hero-boxed-container">
 
         <!-- Top Tag / Pill Badge -->
         <div class="hero-badge-pill-wrap">
             <span class="hero-badge-pill">
-                <?php esc_html_e('UGC · Short form · Creator marketing', 'sarmadgardezi'); ?>
+                <?php esc_html_e('Google Developer Expert · Cloud Architect · Agentic AI', 'sarmadgardezi'); ?>
             </span>
         </div>
 
@@ -35,9 +35,9 @@ if (has_post_thumbnail()) {
                 <div class="hero-inner-image">
                     <img 
                         src="<?php echo esc_url($portrait_url); ?>" 
-                        alt="<?php esc_attr_e('Sarmad Gardezi', 'sarmadgardezi'); ?>"
-                        width="110"
-                        height="110"
+                        alt="<?php esc_attr_e('Sarmad Gardezi - Software Engineer & GDE', 'sarmadgardezi'); ?>"
+                        width="120"
+                        height="120"
                         loading="eager"
                         fetchpriority="high"
                         decoding="async"
@@ -46,31 +46,29 @@ if (has_post_thumbnail()) {
                 </div>
             </div>
 
-            <!-- Big Impact Headline: CONTENT THAT STOPS THE SCROLL. -->
+            <!-- Big Impact Headline: ENGINEERING THE FUTURE OF AGENTIC AI. -->
             <h1 class="hero-main-heading">
-                <span class="hero-heading-line line-1"><?php esc_html_e('CONTENT THAT', 'sarmadgardezi'); ?></span>
+                <span class="hero-heading-line line-1"><?php esc_html_e('ENGINEERING THE FUTURE', 'sarmadgardezi'); ?></span>
                 <span class="hero-heading-line line-2">
-                    <span class="word-stops">
-                        ST<span class="char-slashed-o" aria-hidden="true">
-                            <svg width="0.82em" height="0.82em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="9"/>
-                                <line x1="5.6" y1="5.6" x2="18.4" y2="18.4"/>
-                            </svg>
-                        </span>PS
-                    </span>
-                    <span class="word-the"><?php esc_html_e('THE', 'sarmadgardezi'); ?></span>
-                    <span class="hero-purple-pill"><?php esc_html_e('SCROLL.', 'sarmadgardezi'); ?></span>
+                    <span class="word-of"><?php esc_html_e('OF', 'sarmadgardezi'); ?></span>
+                    <span class="word-agentic"><?php esc_html_e('AGENTIC', 'sarmadgardezi'); ?></span>
+                    <span class="hero-purple-pill"><?php esc_html_e('AI.', 'sarmadgardezi'); ?></span>
                 </span>
             </h1>
 
         </div>
 
-        <!-- Description Subtitle -->
-        <p class="hero-description">
-            <?php esc_html_e('We turn real people into your best sales team. Authentic UGC that stops the scroll, earns trust, and converts built on data, not gut feelings.', 'sarmadgardezi'); ?>
+        <!-- Tagline -->
+        <p class="hero-tagline">
+            <?php esc_html_e('Google Developer Expert (GDE) · AI Systems Architect · Speaker', 'sarmadgardezi'); ?>
         </p>
 
-        <!-- CTA Button: Start Growing -->
+        <!-- Description Subtitle -->
+        <p class="hero-description">
+            <?php esc_html_e('Sarmad Gardezi is a Senior Software Engineer and Google Developer Expert (GDE) engineering cutting-edge Agentic AI workflows, autonomous systems, and high-performance cloud architectures that scale.', 'sarmadgardezi'); ?>
+        </p>
+
+        <!-- CTA Button: Let's Build Together -->
         <div class="hero-cta-wrap">
             <a href="<?php echo esc_url(home_url('/contact')); ?>" class="hero-start-cta">
                 <span class="cta-arrow-circle" aria-hidden="true">
@@ -79,7 +77,7 @@ if (has_post_thumbnail()) {
                         <polyline points="12 5 19 12 12 19"></polyline>
                     </svg>
                 </span>
-                <span class="cta-text"><?php esc_html_e('Start growing', 'sarmadgardezi'); ?></span>
+                <span class="cta-text"><?php esc_html_e("Let's build together", 'sarmadgardezi'); ?></span>
             </a>
         </div>
 
