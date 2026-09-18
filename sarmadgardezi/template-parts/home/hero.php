@@ -47,23 +47,22 @@ if (has_post_thumbnail()) {
         <div class="hero-title-block">
             <!-- Big Impact Headline: ENGINEERING THE FUTURE OF AGENTIC AI. -->
             <h1 class="hero-main-heading">
-                <span class="hero-heading-line line-1"><?php esc_html_e('ENGINEERING THE FUTURE', 'sarmadgardezi'); ?></span>
+                <span class="hero-heading-line line-1"><?php esc_html_e('BUILDING SCALABLE', 'sarmadgardezi'); ?></span>
                 <span class="hero-heading-line line-2">
-                    <span class="word-of"><?php esc_html_e('OF', 'sarmadgardezi'); ?></span>
-                    <span class="word-agentic"><?php esc_html_e('AGENTIC', 'sarmadgardezi'); ?></span>
-                    <span class="hero-purple-pill"><?php esc_html_e('AI.', 'sarmadgardezi'); ?></span>
+                    <span class="word-agentic"><?php esc_html_e('AI SOLUTIONS', 'sarmadgardezi'); ?></span>
+                    <span class="hero-purple-pill"><?php esc_html_e('FOR YOU.', 'sarmadgardezi'); ?></span>
                 </span>
             </h1>
         </div>
 
         <!-- Tagline -->
         <p class="hero-tagline">
-            <?php esc_html_e('Senior Software Engineer · AI Systems Architect · Speaker', 'sarmadgardezi'); ?>
+            <?php esc_html_e('AI Consultant · Systems Architect · Tech Partner', 'sarmadgardezi'); ?>
         </p>
 
         <!-- Description Subtitle -->
         <p class="hero-description">
-            <?php esc_html_e('Sarmad Gardezi is a Senior Software Engineer specializing in cutting-edge Agentic AI workflows, autonomous systems, and high-performance cloud architectures that scale.', 'sarmadgardezi'); ?>
+            <?php esc_html_e('Sarmad Gardezi helps businesses scale by architecting cutting-edge Agentic AI workflows and high-performance cloud solutions that drive real growth.', 'sarmadgardezi'); ?>
         </p>
 
         <!-- CTA Button: Let's Build Together -->

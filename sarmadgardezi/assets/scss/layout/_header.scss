@@ -491,16 +491,16 @@
     }
 
     &:hover {
-      color: #38bdf8; // Google Light Blue
-      background-color: rgba(56, 189, 248, 0.09);
+      color: #1877F2; // Primary Brand Color
+      background-color: rgba(24, 119, 242, 0.09);
       transform: translateY(-1px);
     }
 
     &.is-active,
     &.active,
     &.current-menu-item {
-      color: #38bdf8; // Google Light Blue
-      background-color: rgba(56, 189, 248, 0.14);
+      color: #1877F2; // Primary Brand Color
+      background-color: rgba(24, 119, 242, 0.14);
       font-weight: 700;
     }
   }

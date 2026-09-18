@@ -40,7 +40,7 @@
   z-index: 10;
   width: 86px;
   height: 86px;
-  margin-top: 1rem;
+  margin-top: 2.5rem;
   margin-bottom: 1.5rem;
   border-radius: 50%;
   background-color: #ffffff;
@@ -56,7 +56,7 @@
   @include respond-to('md') {
     width: 110px;
     height: 110px;
-    margin-top: 2rem;
+    margin-top: 4rem;
     margin-bottom: 2rem;
   }
 
@@ -170,12 +170,12 @@
   }
 
   .hero-purple-pill {
-    background-color: #8054ff;
+    background-color: #1877F2;
     color: #ffffff;
     border-radius: 9999px;
     padding: 0.05em 0.38em 0.1em;
     display: inline-block;
-    box-shadow: 0 8px 24px rgba(128, 84, 255, 0.32);
+    box-shadow: 0 8px 24px rgba(24, 119, 242, 0.32);
   }
 }
 
