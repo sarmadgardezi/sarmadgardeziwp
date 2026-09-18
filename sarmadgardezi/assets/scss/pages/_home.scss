@@ -1278,4 +1278,294 @@
   }
 }
 
+// --------------------------------------------------------------------------
+// Mission Showcase Section (Double Visuals + Floating Badges + Narrative)
+// --------------------------------------------------------------------------
 
+.mission-showcase-section {
+  padding: 5rem 1.5rem 5.5rem;
+  background-color: #f3f4f6;
+  position: relative;
+  overflow: visible;
+
+  @include respond-to('md') {
+    padding: 6.5rem 2rem 7rem;
+  }
+
+  .mission-showcase-container {
+    width: 100%;
+    max-width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    align-items: center;
+
+    @include respond-to('lg') {
+      grid-template-columns: 1.15fr 1fr;
+      gap: 5rem;
+    }
+  }
+
+  // Left Column: Double Visual Cards with Badges
+  .mission-visuals-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+    width: 100%;
+
+    @include respond-to('sm') {
+      flex-direction: row;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+  }
+
+  .mission-card {
+    flex: 1;
+    position: relative;
+    border-radius: 28px;
+
+    @include respond-to('md') {
+      border-radius: 32px;
+    }
+
+    &.mission-card-2 {
+      @include respond-to('sm') {
+        margin-top: 2.25rem;
+      }
+    }
+  }
+
+  .mission-card-inner {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    border-radius: 28px;
+    overflow: hidden;
+    background-color: #e5e7eb;
+    box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.16);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+
+    @include respond-to('md') {
+      height: 430px;
+      border-radius: 32px;
+    }
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 28px 55px -12px rgba(0, 0, 0, 0.22);
+
+      .mission-card-img {
+        transform: scale(1.04);
+      }
+    }
+  }
+
+  .mission-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  // Floating Badges on Cards
+  .mission-floating-badge {
+    position: absolute;
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    border-radius: 9999px;
+    user-select: none;
+    line-height: 1;
+
+    &.badge-top-left {
+      top: -12px;
+      left: -8px;
+    }
+
+    &.badge-bottom-right {
+      bottom: 50px;
+      right: -12px;
+    }
+
+    &.badge-top-right {
+      top: -12px;
+      right: 15px;
+    }
+
+    &.badge-dark {
+      background-color: #111827;
+      color: #ffffff;
+      padding: 7px 15px;
+      font-family: var(--framer-font-family-bold, 'Google Sans Flex', sans-serif);
+      font-size: 0.875rem;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    &.badge-light {
+      background-color: #ffffff;
+      color: #0284c7;
+      padding: 7px 14px;
+      font-family: var(--framer-font-family-bold, 'Google Sans Flex', sans-serif);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    &.badge-white {
+      background-color: #ffffff;
+      color: #1e293b;
+      padding: 7px 15px;
+      font-family: var(--framer-font-family-bold, 'Google Sans Flex', sans-serif);
+      font-size: 0.875rem;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .badge-icon {
+      font-size: 0.95em;
+    }
+
+    .badge-text {
+      font-weight: 700;
+    }
+  }
+
+  // Media Control Glass Pause Button
+  .mission-media-control {
+    position: absolute;
+    bottom: 18px;
+    right: 18px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    z-index: 5;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.65);
+      transform: scale(1.08);
+    }
+  }
+
+  // Right Column: Narrative Editorial & CTA
+  .mission-content-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .mission-badge-wrap {
+    margin-bottom: 1.5rem;
+  }
+
+  .mission-badge {
+    display: inline-flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 9999px;
+    padding: 6px 18px;
+    font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: #374151;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    letter-spacing: -0.01em;
+  }
+
+  .mission-heading {
+    font-family: var(--framer-font-family-bold, 'Google Sans Flex', -apple-system, sans-serif);
+    font-size: clamp(2.15rem, 4vw, 3.25rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    line-height: 0.96;
+    color: #111111;
+    margin: 0 0 1.35rem;
+  }
+
+  .mission-description {
+    font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+    font-size: 1.05rem;
+    line-height: 1.62;
+    color: #4b5563;
+    max-width: 520px;
+    margin: 0 0 2rem;
+  }
+
+  .mission-cta-wrap {
+    display: flex;
+  }
+
+  .mission-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    background-color: #111111;
+    color: #ffffff;
+    border-radius: 9999px;
+    padding: 5px 24px 5px 6px;
+    text-decoration: none;
+    font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      background-color: #222222;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+      color: #ffffff;
+
+      .cta-arrow-circle {
+        transform: translateX(2px);
+      }
+    }
+
+    &:active {
+      transform: scale(0.97);
+    }
+
+    .cta-arrow-circle {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      color: #111111;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s ease;
+
+      svg {
+        width: 15px;
+        height: 15px;
+      }
+    }
+
+    .cta-text {
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      line-height: 1;
+    }
+  }
+}
