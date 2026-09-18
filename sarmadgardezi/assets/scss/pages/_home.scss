@@ -28,7 +28,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 960px; // Boxed Hero max width
+  max-width: 1060px; // Boxed Hero max width
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -62,45 +62,45 @@
 .hero-title-block {
   position: relative;
   width: 100%;
-  max-width: 860px;
+  max-width: 1020px;
   margin: 0 auto 1.25rem;
   display: inline-block;
   text-align: center;
 }
 
-// Photo on Right Side
+// Photo on Right Side (Floats gracefully in the upper right corner without overlapping text)
 .hero-photo-right {
   position: absolute;
   z-index: 5;
   border-radius: 50%;
   background-color: #ffffff;
-  padding: 5px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-  width: 80px;
-  height: 80px;
-  top: -24px;
-  right: -5px;
+  padding: 4px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  width: 65px;
+  height: 65px;
+  top: -26px;
+  right: -4px;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 
   @include respond-to('sm') {
-    width: 95px;
-    height: 95px;
-    right: -15px;
-    top: -30px;
-  }
-
-  @include respond-to('md') {
-    width: 110px;
-    height: 110px;
-    right: -30px;
+    width: 80px;
+    height: 80px;
+    right: -12px;
     top: -38px;
   }
 
+  @include respond-to('md') {
+    width: 95px;
+    height: 95px;
+    right: -24px;
+    top: -46px;
+  }
+
   @include respond-to('lg') {
-    width: 120px;
-    height: 120px;
-    right: -40px;
-    top: -45px;
+    width: 105px;
+    height: 105px;
+    right: -32px;
+    top: -52px;
   }
 
   &:hover {
@@ -123,31 +123,41 @@
   }
 }
 
-// Main Heading: ENGINEERING THE FUTURE OF AGENTIC AI.
+// Main Heading: Strict 2 Lines max (ENGINEERING THE FUTURE / OF AGENTIC AI.)
 .hero-main-heading {
   font-family: var(--framer-font-family-bold, 'Google Sans Flex', -apple-system, sans-serif);
-  font-size: clamp(2.65rem, 7.5vw, 5.75rem);
+  font-size: clamp(2.15rem, 5.2vw, 4.4rem);
   font-weight: 900;
   letter-spacing: -0.04em;
   text-transform: uppercase;
-  line-height: 0.95;
+  line-height: 0.98;
   color: #111111;
   margin: 0;
 
   .hero-heading-line {
     display: block;
-  }
 
-  .line-1 {
-    margin-bottom: 0.12em;
-  }
+    &.line-1 {
+      margin-bottom: 0.14em;
+      white-space: normal;
 
-  .line-2 {
-    display: inline-flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 0.22em;
+      @include respond-to('sm') {
+        white-space: nowrap;
+      }
+    }
+
+    &.line-2 {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.22em;
+      white-space: normal;
+
+      @include respond-to('sm') {
+        white-space: nowrap;
+      }
+    }
   }
 
   .word-with,
