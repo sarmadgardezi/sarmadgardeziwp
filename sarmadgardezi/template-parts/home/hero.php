@@ -20,23 +20,30 @@ if (has_post_thumbnail()) {
 <section id="hero" class="hero-section hero-agentic-future">
     <div class="hero-boxed-container">
 
-        <!-- Top Tag / Pill Badge with Inline Photo -->
-        <div class="hero-badge-pill-wrap">
-            <span class="hero-badge-pill">
-                <span class="hero-inline-photo">
+        <!-- Top Elements Wrapper (Photo + Pill) -->
+        <div class="hero-top-elements">
+            <!-- Profile Photo (Above pill, left-aligned) -->
+            <div class="hero-profile-photo">
+                <div class="hero-inner-image">
                     <img 
                         src="<?php echo esc_url($portrait_url); ?>" 
                         alt="<?php esc_attr_e('Sarmad Gardezi', 'sarmadgardezi'); ?>"
-                        width="32"
-                        height="32"
+                        width="86"
+                        height="86"
                         loading="eager"
                         fetchpriority="high"
                         decoding="async"
                         class="speech-avatar-img"
                     />
+                </div>
+            </div>
+
+            <!-- Top Tag / Pill Badge -->
+            <div class="hero-badge-pill-wrap">
+                <span class="hero-badge-pill">
+                    <?php esc_html_e('Senior Software Engineer · Cloud Architect · Agentic AI', 'sarmadgardezi'); ?>
                 </span>
-                <?php esc_html_e('Senior Software Engineer · Cloud Architect · Agentic AI', 'sarmadgardezi'); ?>
-            </span>
+            </div>
         </div>
 
         <!-- Headline Block -->
