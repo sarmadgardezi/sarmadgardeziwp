@@ -593,3 +593,321 @@
   }
 }
 
+// --------------------------------------------------------------------------
+// 4. Interactive Creator Reels Showcase Section (Tilted Fan Deck)
+// --------------------------------------------------------------------------
+
+.creator-reels-section {
+  padding: 1.5rem 0 4.5rem;
+  position: relative;
+  overflow: visible;
+  background-color: #ffffff;
+
+  @include respond-to('md') {
+    padding: 2.5rem 0 5.5rem;
+  }
+
+  .creator-reels-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 1.5rem 0.5rem;
+
+    @include respond-to('sm') {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    @include respond-to('lg') {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+
+    @include respond-to('xl') {
+      gap: 1.5rem;
+    }
+  }
+
+  // Individual Reel Card
+  .reel-card {
+    position: relative;
+    border-radius: 28px;
+    transition: transform 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, z-index 0.1s;
+    cursor: pointer;
+    will-change: transform;
+    z-index: 1;
+
+    .reel-card-inner {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      border-radius: 28px;
+      overflow: hidden;
+      background-color: #111111;
+      box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      @include respond-to('sm') {
+        height: 420px;
+      }
+
+      @include respond-to('lg') {
+        height: 460px;
+      }
+    }
+
+    // Default Fan Tilt Rotations (Applied on md & up)
+    @include respond-to('md') {
+      &.reel-card-1 {
+        transform: rotate(-5deg) translateY(8px);
+      }
+
+      &.reel-card-2 {
+        transform: rotate(-1.5deg) translateY(-6px);
+      }
+
+      &.reel-card-3,
+      &.reel-card-feature {
+        transform: rotate(2deg) translateY(-3px);
+      }
+
+      &.reel-card-4 {
+        transform: rotate(5.5deg) translateY(10px);
+      }
+    }
+
+    // ON HOVER: Smoothly straighten each card to 0deg!
+    &:hover {
+      transform: rotate(0deg) translateY(-14px) scale(1.03) !important;
+      z-index: 10;
+
+      .reel-card-inner {
+        box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.38), 0 0 0 1px rgba(0, 0, 0, 0.08);
+      }
+
+      .reel-media {
+        transform: scale(1.05);
+      }
+    }
+
+    // Media element (video or image poster)
+    .reel-media {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    // Bottom gradient overlay
+    .reel-overlay-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.3) 45%, transparent 75%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    // Bottom Bar (Creator chip & control)
+    .reel-card-bottom {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.125rem;
+      width: 100%;
+    }
+
+    .reel-creator-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background-color: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 9999px;
+      padding: 4px 10px 4px 4px;
+      color: #ffffff;
+      font-size: 0.8125rem;
+      font-weight: 600;
+
+      .reel-creator-avatar {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .reel-creator-handle {
+        font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+        font-size: 0.8125rem;
+        color: #ffffff;
+        font-weight: 600;
+        line-height: 1;
+      }
+
+      .reel-verified-badge {
+        display: inline-flex;
+        align-items: center;
+        line-height: 1;
+      }
+    }
+
+    .reel-action-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+        transform: scale(1.08);
+      }
+    }
+
+    .reel-clickable-cover {
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+    }
+  }
+
+  // Feature Card (Card 3: 1250+ Creators)
+  .reel-card-feature {
+    .feature-card-inner {
+      background: linear-gradient(150deg, #388bfd 0%, #2563eb 100%);
+      color: #ffffff;
+      padding: 1.75rem 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .feature-card-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.5rem;
+
+      .feature-avatar-cluster {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .cluster-avatar {
+          width: 34px;
+          height: 34px;
+          border-radius: 50%;
+          border: 2px solid #ffffff;
+          object-fit: cover;
+          margin-left: -8px;
+
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+      }
+
+      .feature-card-title {
+        font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #ffffff;
+        margin: 0;
+      }
+    }
+
+    .feature-card-count-wrap {
+      text-align: center;
+      margin: 0.75rem 0;
+
+      .feature-card-count {
+        font-family: var(--framer-font-family-bold, 'Google Sans Flex', -apple-system, sans-serif);
+        font-size: 3.35rem;
+        font-weight: 900;
+        letter-spacing: -0.04em;
+        color: #ffffff;
+        line-height: 1;
+
+        @include respond-to('sm') {
+          font-size: 3.65rem;
+        }
+      }
+    }
+
+    .feature-creator-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      justify-content: center;
+      align-items: center;
+
+      .feature-tag-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background-color: #ffffff;
+        color: #111111;
+        border-radius: 9999px;
+        padding: 3px 8px 3px 3px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+        font-size: 0.75rem;
+        font-weight: 600;
+        line-height: 1;
+        transition: transform 0.2s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+        }
+
+        .tag-avatar {
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        .tag-handle {
+          font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+          color: #111111;
+        }
+
+        .tag-verified {
+          display: inline-flex;
+          align-items: center;
+        }
+
+        .tag-dot {
+          color: #9ca3af;
+          font-size: 0.65rem;
+        }
+
+        .tag-stat {
+          color: #6b7280;
+          font-size: 0.7rem;
+        }
+      }
+    }
+  }
+}
+
+
