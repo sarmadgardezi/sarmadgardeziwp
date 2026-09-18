@@ -23,7 +23,7 @@ if (has_post_thumbnail()) {
         <!-- Top Tag / Pill Badge -->
         <div class="hero-badge-pill-wrap">
             <span class="hero-badge-pill">
-                <?php esc_html_e('Google Developer Expert · Cloud Architect · Agentic AI', 'sarmadgardezi'); ?>
+                <?php esc_html_e('Senior Software Engineer · Cloud Architect · Agentic AI', 'sarmadgardezi'); ?>
             </span>
         </div>
 
@@ -35,7 +35,7 @@ if (has_post_thumbnail()) {
                 <div class="hero-inner-image">
                     <img 
                         src="<?php echo esc_url($portrait_url); ?>" 
-                        alt="<?php esc_attr_e('Sarmad Gardezi - Software Engineer & GDE', 'sarmadgardezi'); ?>"
+                        alt="<?php esc_attr_e('Sarmad Gardezi - Senior Software Engineer & AI Architect', 'sarmadgardezi'); ?>"
                         width="120"
                         height="120"
                         loading="eager"
@@ -60,12 +60,12 @@ if (has_post_thumbnail()) {
 
         <!-- Tagline -->
         <p class="hero-tagline">
-            <?php esc_html_e('Google Developer Expert (GDE) · AI Systems Architect · Speaker', 'sarmadgardezi'); ?>
+            <?php esc_html_e('Senior Software Engineer · AI Systems Architect · Speaker', 'sarmadgardezi'); ?>
         </p>
 
         <!-- Description Subtitle -->
         <p class="hero-description">
-            <?php esc_html_e('Sarmad Gardezi is a Senior Software Engineer and Google Developer Expert (GDE) engineering cutting-edge Agentic AI workflows, autonomous systems, and high-performance cloud architectures that scale.', 'sarmadgardezi'); ?>
+            <?php esc_html_e('Sarmad Gardezi is a Senior Software Engineer specializing in cutting-edge Agentic AI workflows, autonomous systems, and high-performance cloud architectures that scale.', 'sarmadgardezi'); ?>
         </p>
 
         <!-- CTA Button: Let's Build Together -->
