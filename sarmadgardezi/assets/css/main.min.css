@@ -2292,6 +2292,29 @@ textarea::placeholder {
   display: inline-block;
   flex-shrink: 0;
 }
+.sound-familiar-section .sound-familiar-paragraph .inline-gdg-chip {
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #bfdbfe;
+  color: #1d4ed8;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 0.06em 0.55em;
+  margin: 0 0.15em;
+  text-decoration: none;
+  font-size: 0.9em;
+  box-shadow: 0 1px 2px rgba(37, 99, 235, 0.08);
+  vertical-align: middle;
+  transition: all 0.2s ease;
+}
+.sound-familiar-section .sound-familiar-paragraph .inline-gdg-chip:hover {
+  background-color: #eff6ff;
+  border-color: #60a5fa;
+  transform: translateY(-1px);
+  color: #1e40af;
+  box-shadow: 0 3px 6px rgba(37, 99, 235, 0.15);
+}
 .sound-familiar-section .sound-familiar-paragraph .inline-sticker-finger {
   display: inline-block;
   margin: 0 0.15em;
