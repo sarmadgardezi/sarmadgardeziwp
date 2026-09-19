@@ -11,12 +11,17 @@
 defined('ABSPATH') || exit;
 
 // Easy-to-edit configuration: place your custom video links, posters, and creator handles here!
+$sarmad_avatar = function_exists('sarmadgardezi_asset') 
+    ? sarmadgardezi_asset('images/sarmad.png') 
+    : get_template_directory_uri() . '/assets/images/sarmad.png';
+
 $reels_data = array(
     'card_1' => array(
-        'video_url' => '', // e.g. 'https://assets.mixkit.co/videos/preview/mixkit-girl-taking-a-selfie-with-a-smartphone-41480-large.mp4' or YouTube link
-        'poster'    => 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=85',
-        'avatar'    => 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80',
-        'handle'    => 'mila.creates',
+        'video_url' => '/wp-content/uploads/2026/09/sarmadgardezi-r1.mp4',
+        'link_url'  => 'https://www.instagram.com/reel/DX8lLExilGn/',
+        'poster'    => $sarmad_avatar,
+        'avatar'    => $sarmad_avatar,
+        'handle'    => 'sarmadgardezi',
         'verified'  => true,
     ),
     'card_2' => array(
@@ -57,11 +62,17 @@ $reels_data = array(
     <div class="creator-reels-container">
         <div class="creator-reels-grid" id="reels-deck">
 
-            <!-- Card 1 (Leftmost Reel) -->
+            <!-- Card 1 (Leftmost Reel - Sarmad Gardezi) -->
             <div class="reel-card reel-card-1" style="--card-index: 1;" data-tilt="-5.5">
                 <div class="reel-card-inner">
-                    <?php if (!empty($reels_data['card_1']['video_url']) && preg_match('/\.(mp4|webm|ogg)$/i', $reels_data['card_1']['video_url'])) : ?>
-                        <video class="reel-media reel-video" src="<?php echo esc_url($reels_data['card_1']['video_url']); ?>" poster="<?php echo esc_url($reels_data['card_1']['poster']); ?>" autoplay loop muted playsinline></video>
+                    <?php 
+                    $c1_url = !empty($reels_data['card_1']['video_url']) ? $reels_data['card_1']['video_url'] : '';
+                    if (!empty($c1_url) && preg_match('/\.(mp4|webm|ogg)$/i', $c1_url)) : ?>
+                        <video class="reel-media reel-video" src="<?php echo esc_url($c1_url); ?>" poster="<?php echo esc_url($reels_data['card_1']['poster']); ?>" autoplay loop muted playsinline></video>
+                    <?php elseif (!empty($c1_url) && strpos($c1_url, 'instagram.com') !== false) : 
+                        $c1_embed = rtrim(preg_replace('/\?.*/', '', $c1_url), '/') . '/embed/';
+                    ?>
+                        <iframe class="reel-media reel-iframe" src="<?php echo esc_url($c1_embed); ?>" frameborder="0" scrolling="no" allowtransparency="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy"></iframe>
                     <?php else : ?>
                         <img class="reel-media reel-poster" src="<?php echo esc_url($reels_data['card_1']['poster']); ?>" alt="<?php echo esc_attr($reels_data['card_1']['handle']); ?>" loading="lazy" />
                     <?php endif; ?>
@@ -89,8 +100,10 @@ $reels_data = array(
                         </div>
                     </div>
 
-                    <?php if (!empty($reels_data['card_1']['video_url'])) : ?>
-                        <a href="<?php echo esc_url($reels_data['card_1']['video_url']); ?>" target="_blank" rel="noopener noreferrer" class="reel-clickable-cover" aria-label="<?php esc_attr_e('Watch Reel', 'sarmadgardezi'); ?>"></a>
+                    <?php 
+                    $c1_click = !empty($reels_data['card_1']['link_url']) ? $reels_data['card_1']['link_url'] : $reels_data['card_1']['video_url'];
+                    if (!empty($c1_click)) : ?>
+                        <a href="<?php echo esc_url($c1_click); ?>" target="_blank" rel="noopener noreferrer" class="reel-clickable-cover" aria-label="<?php esc_attr_e('Watch Reel', 'sarmadgardezi'); ?>"></a>
                     <?php endif; ?>
                 </div>
             </div>
@@ -98,8 +111,14 @@ $reels_data = array(
             <!-- Card 2 (Second Reel) -->
             <div class="reel-card reel-card-2" style="--card-index: 2;" data-tilt="-1.5">
                 <div class="reel-card-inner">
-                    <?php if (!empty($reels_data['card_2']['video_url']) && preg_match('/\.(mp4|webm|ogg)$/i', $reels_data['card_2']['video_url'])) : ?>
-                        <video class="reel-media reel-video" src="<?php echo esc_url($reels_data['card_2']['video_url']); ?>" poster="<?php echo esc_url($reels_data['card_2']['poster']); ?>" autoplay loop muted playsinline></video>
+                    <?php 
+                    $c2_url = !empty($reels_data['card_2']['video_url']) ? $reels_data['card_2']['video_url'] : '';
+                    if (!empty($c2_url) && preg_match('/\.(mp4|webm|ogg)$/i', $c2_url)) : ?>
+                        <video class="reel-media reel-video" src="<?php echo esc_url($c2_url); ?>" poster="<?php echo esc_url($reels_data['card_2']['poster']); ?>" autoplay loop muted playsinline></video>
+                    <?php elseif (!empty($c2_url) && strpos($c2_url, 'instagram.com') !== false) : 
+                        $c2_embed = rtrim(preg_replace('/\?.*/', '', $c2_url), '/') . '/embed/';
+                    ?>
+                        <iframe class="reel-media reel-iframe" src="<?php echo esc_url($c2_embed); ?>" frameborder="0" scrolling="no" allowtransparency="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy"></iframe>
                     <?php else : ?>
                         <img class="reel-media reel-poster" src="<?php echo esc_url($reels_data['card_2']['poster']); ?>" alt="<?php echo esc_attr($reels_data['card_2']['handle']); ?>" loading="lazy" />
                     <?php endif; ?>
@@ -177,8 +196,14 @@ $reels_data = array(
             <!-- Card 4 (Rightmost Reel) -->
             <div class="reel-card reel-card-4" style="--card-index: 4;" data-tilt="6">
                 <div class="reel-card-inner">
-                    <?php if (!empty($reels_data['card_4']['video_url']) && preg_match('/\.(mp4|webm|ogg)$/i', $reels_data['card_4']['video_url'])) : ?>
-                        <video class="reel-media reel-video" src="<?php echo esc_url($reels_data['card_4']['video_url']); ?>" poster="<?php echo esc_url($reels_data['card_4']['poster']); ?>" autoplay loop muted playsinline></video>
+                    <?php 
+                    $c4_url = !empty($reels_data['card_4']['video_url']) ? $reels_data['card_4']['video_url'] : '';
+                    if (!empty($c4_url) && preg_match('/\.(mp4|webm|ogg)$/i', $c4_url)) : ?>
+                        <video class="reel-media reel-video" src="<?php echo esc_url($c4_url); ?>" poster="<?php echo esc_url($reels_data['card_4']['poster']); ?>" autoplay loop muted playsinline></video>
+                    <?php elseif (!empty($c4_url) && strpos($c4_url, 'instagram.com') !== false) : 
+                        $c4_embed = rtrim(preg_replace('/\?.*/', '', $c4_url), '/') . '/embed/';
+                    ?>
+                        <iframe class="reel-media reel-iframe" src="<?php echo esc_url($c4_embed); ?>" frameborder="0" scrolling="no" allowtransparency="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" loading="lazy"></iframe>
                     <?php else : ?>
                         <img class="reel-media reel-poster" src="<?php echo esc_url($reels_data['card_4']['poster']); ?>" alt="<?php echo esc_attr($reels_data['card_4']['handle']); ?>" loading="lazy" />
                     <?php endif; ?>
