@@ -26,9 +26,10 @@ $reels_data = array(
     ),
     'card_2' => array(
         'video_url' => '', // e.g. your custom video link
-        'poster'    => 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=85',
-        'avatar'    => 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&q=80',
-        'handle'    => 'nikoflips',
+        'link_url'  => 'https://instagram.com/sarmadgardezi',
+        'poster'    => '/wp-content/uploads/2026/09/gdscp1-scaled.png',
+        'avatar'    => '/wp-content/uploads/2026/09/gdscp1-scaled.png',
+        'handle'    => 'sarmadgardezi',
         'verified'  => true,
     ),
     'feature_card' => array(
@@ -146,8 +147,10 @@ $reels_data = array(
                         </div>
                     </div>
 
-                    <?php if (!empty($reels_data['card_2']['video_url'])) : ?>
-                        <a href="<?php echo esc_url($reels_data['card_2']['video_url']); ?>" target="_blank" rel="noopener noreferrer" class="reel-clickable-cover" aria-label="<?php esc_attr_e('Watch Reel', 'sarmadgardezi'); ?>"></a>
+                    <?php 
+                    $c2_click = !empty($reels_data['card_2']['link_url']) ? $reels_data['card_2']['link_url'] : $reels_data['card_2']['video_url'];
+                    if (!empty($c2_click)) : ?>
+                        <a href="<?php echo esc_url($c2_click); ?>" target="_blank" rel="noopener noreferrer" class="reel-clickable-cover" aria-label="<?php esc_attr_e('Watch Reel', 'sarmadgardezi'); ?>"></a>
                     <?php endif; ?>
                 </div>
             </div>
