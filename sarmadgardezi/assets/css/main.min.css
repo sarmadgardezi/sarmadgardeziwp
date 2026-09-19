@@ -1419,7 +1419,7 @@ textarea::placeholder {
   z-index: 10;
   width: 82px;
   height: 82px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.15rem;
   margin-left: -12px;
   border-radius: 50%;
   background-color: #ffffff;
@@ -1433,27 +1433,27 @@ textarea::placeholder {
     width: 88px;
     height: 88px;
     margin-left: -20px;
-    margin-bottom: 0.65rem;
+    margin-bottom: 1.25rem;
   }
 }
 @media (min-width: 768px) {
   .hero-profile-photo {
     width: 92px;
     height: 92px;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1.4rem;
     margin-left: -32px;
   }
 }
 .hero-profile-photo .hero-photo-arrow {
   position: absolute;
-  bottom: -20px;
-  right: -10px;
+  bottom: -18px;
+  right: -14px;
   color: #557086;
   transform: rotate(0deg);
   pointer-events: none;
   z-index: 20;
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1467,10 +1467,10 @@ textarea::placeholder {
 }
 @media (min-width: 768px) {
   .hero-profile-photo .hero-photo-arrow {
-    bottom: -22px;
-    right: -12px;
-    width: 36px;
-    height: 36px;
+    bottom: -20px;
+    right: -16px;
+    width: 34px;
+    height: 34px;
     transform: rotate(0deg);
   }
 }
@@ -1478,7 +1478,7 @@ textarea::placeholder {
   transform: scale(1.05) rotate(2deg);
 }
 .hero-profile-photo:hover .hero-photo-arrow {
-  transform: rotate(-4deg) scale(1.06);
+  transform: rotate(-3deg) scale(1.05);
 }
 .hero-profile-photo .hero-inner-image {
   width: 100%;

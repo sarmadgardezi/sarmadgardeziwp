@@ -48,7 +48,7 @@ if (function_exists('get_field')) {
                 
                 <!-- Pointing Arrow -->
                 <div class="hero-photo-arrow" aria-hidden="true">
-                    <svg viewBox="0 0 28 28" width="34" height="34" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 28 28" width="32" height="32" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M6 4 C10 4 19 8 19 19"></path>
                         <polyline points="13 14 19 20 25 14"></polyline>
                     </svg>

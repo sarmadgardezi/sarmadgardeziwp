@@ -54,7 +54,7 @@
   z-index: 10;
   width: 82px;
   height: 82px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.15rem; // Proper spacing to allow arrow breathing room
   margin-left: -12px;
   border-radius: 50%;
   background-color: #ffffff;
@@ -67,27 +67,27 @@
     width: 88px;
     height: 88px;
     margin-left: -20px;
-    margin-bottom: 0.65rem;
+    margin-bottom: 1.25rem;
   }
 
   @include respond-to('md') {
     width: 92px;
     height: 92px;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1.4rem;
     margin-left: -32px;
   }
 
   // Floating Arrow pointing to the pill
   .hero-photo-arrow {
     position: absolute;
-    bottom: -20px;
-    right: -10px;
+    bottom: -18px;
+    right: -14px;
     color: #557086; // Crisp slate-blue tone matching screenshot
     transform: rotate(0deg);
     pointer-events: none;
     z-index: 20;
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -101,10 +101,10 @@
     }
     
     @include respond-to('md') {
-      bottom: -22px;
-      right: -12px;
-      width: 36px;
-      height: 36px;
+      bottom: -20px;
+      right: -16px;
+      width: 34px;
+      height: 34px;
       transform: rotate(0deg);
     }
   }
@@ -113,7 +113,7 @@
     transform: scale(1.05) rotate(2deg);
 
     .hero-photo-arrow {
-      transform: rotate(-4deg) scale(1.06);
+      transform: rotate(-3deg) scale(1.05);
     }
   }
 
