@@ -2226,35 +2226,40 @@ textarea::placeholder {
 .sound-familiar-section .sound-familiar-badge {
   display: inline-flex;
   align-items: center;
+  gap: 7px;
   background-color: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 9999px;
   padding: 6px 18px;
   font-family: var(--framer-font-family, "Google Sans Flex", sans-serif);
   font-size: 0.8125rem;
-  font-weight: 500;
+  font-weight: 600;
   color: #374151;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
   letter-spacing: -0.01em;
 }
+.sound-familiar-section .sound-familiar-badge .google-mini-icon {
+  display: inline-block;
+  flex-shrink: 0;
+}
 .sound-familiar-section .sound-familiar-content {
   display: flex;
   flex-direction: column;
-  gap: 1.85rem;
+  gap: 1.5rem;
   width: 100%;
 }
 @media (min-width: 768px) {
   .sound-familiar-section .sound-familiar-content {
-    gap: 2.25rem;
+    gap: 1.85rem;
   }
 }
 .sound-familiar-section .sound-familiar-paragraph {
   font-family: var(--framer-font-family-bold, "Google Sans Flex", -apple-system, sans-serif);
-  font-size: clamp(1.3rem, 2.6vw, 1.95rem);
-  font-weight: 600;
-  line-height: 1.45;
-  color: #1a1a1a;
-  letter-spacing: -0.025em;
+  font-size: clamp(1.05rem, 1.75vw, 1.25rem);
+  font-weight: 500;
+  line-height: 1.65;
+  color: #262626;
+  letter-spacing: -0.015em;
   margin: 0;
 }
 .sound-familiar-section .sound-familiar-paragraph .inline-chip-yellow {
@@ -2262,16 +2267,35 @@ textarea::placeholder {
   background: linear-gradient(180deg, #fcba41 0%, #f69a19 100%);
   color: #ffffff;
   font-weight: 700;
-  padding: 0.08em 0.42em;
+  padding: 0.06em 0.38em;
   border-radius: 6px;
   margin: 0 0.15em;
   vertical-align: baseline;
-  box-shadow: 0 2px 4px rgba(246, 154, 25, 0.25);
+  box-shadow: 0 2px 4px rgba(246, 154, 25, 0.2);
+}
+.sound-familiar-section .sound-familiar-paragraph .inline-google-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 9999px;
+  padding: 0.06em 0.55em;
+  margin: 0 0.2em;
+  vertical-align: middle;
+  font-weight: 700;
+  color: #1f2937;
+  font-size: 0.9em;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+.sound-familiar-section .sound-familiar-paragraph .inline-google-chip .google-g-icon {
+  display: inline-block;
+  flex-shrink: 0;
 }
 .sound-familiar-section .sound-familiar-paragraph .inline-sticker-finger {
   display: inline-block;
   margin: 0 0.15em;
-  font-size: 1.1em;
+  font-size: 1.05em;
   vertical-align: baseline;
 }
 .sound-familiar-section .sound-familiar-paragraph .inline-chip-red {
@@ -2281,53 +2305,102 @@ textarea::placeholder {
   background: linear-gradient(180deg, #fca5a5 0%, #ef4444 100%);
   color: #ffffff;
   font-weight: 700;
-  padding: 0.1em 0.55em;
+  padding: 0.08em 0.5em;
   border-radius: 9999px;
   margin: 0 0.2em;
   vertical-align: middle;
-  font-size: 0.9em;
-  box-shadow: 0 2px 6px rgba(239, 68, 68, 0.22);
+  font-size: 0.88em;
+  box-shadow: 0 2px 6px rgba(239, 68, 68, 0.2);
 }
 .sound-familiar-section .sound-familiar-paragraph .inline-chip-red .chip-ban-icon {
-  font-size: 0.95em;
+  font-size: 0.9em;
 }
 .sound-familiar-section .sound-familiar-paragraph .inline-chip-blue {
   display: inline-block;
   background-color: #dbeafe;
   color: #2563eb;
   border-left: 3px solid #3b82f6;
-  padding: 0.05em 0.35em;
+  padding: 0.04em 0.35em;
   margin: 0 0.15em;
   font-weight: 700;
   border-radius: 2px;
   vertical-align: baseline;
 }
+.sound-familiar-section .sound-familiar-paragraph .inline-chip-green {
+  display: inline-block;
+  background-color: #dcfce7;
+  color: #166534;
+  border-left: 3px solid #22c55e;
+  padding: 0.04em 0.35em;
+  margin: 0 0.15em;
+  font-weight: 700;
+  border-radius: 2px;
+  vertical-align: baseline;
+}
+.sound-familiar-section .sound-familiar-paragraph .inline-link-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: 9999px;
+  padding: 0.1em 0.58em;
+  text-decoration: none;
+  margin: 0 0.15em;
+  font-weight: 600;
+  font-size: 0.88em;
+  vertical-align: middle;
+  line-height: 1.2;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.sound-familiar-section .sound-familiar-paragraph .inline-link-chip.chip-github {
+  background-color: #0f172a;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);
+}
+.sound-familiar-section .sound-familiar-paragraph .inline-link-chip.chip-github:hover {
+  background-color: #1e293b;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(15, 23, 42, 0.25);
+}
+.sound-familiar-section .sound-familiar-paragraph .inline-link-chip.chip-youtube {
+  background-color: #ffffff;
+  color: #0f172a;
+  border: 1px solid #fecaca;
+  box-shadow: 0 1px 3px rgba(226, 74, 74, 0.12);
+}
+.sound-familiar-section .sound-familiar-paragraph .inline-link-chip.chip-youtube:hover {
+  background-color: #fef2f2;
+  border-color: #f87171;
+  color: #0f172a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(226, 74, 74, 0.2);
+}
 .sound-familiar-section .sound-familiar-paragraph .inline-avatar-stack {
   display: inline-flex;
   align-items: center;
-  margin: 0 0.3em;
+  margin: 0 0.25em;
   vertical-align: middle;
 }
 .sound-familiar-section .sound-familiar-paragraph .inline-avatar-stack .avatar-stack-item {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   border: 2px solid #ffffff;
   object-fit: cover;
   display: inline-block;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
 }
 .sound-familiar-section .sound-familiar-paragraph .inline-avatar-stack .avatar-stack-item:not(:first-child) {
-  margin-left: -9px;
+  margin-left: -8px;
 }
 .sound-familiar-section .sound-familiar-paragraph .inline-wing-phrase {
   display: inline-flex;
   align-items: center;
-  gap: 0.15em;
-  margin: 0 0.15em;
+  gap: 0.12em;
+  margin: 0 0.12em;
 }
 .sound-familiar-section .sound-familiar-paragraph .inline-wing-phrase .wing-icon {
-  font-size: 1.15em;
+  font-size: 1.1em;
   display: inline-block;
 }
 .sound-familiar-section .sound-familiar-paragraph .inline-wing-phrase .wing-text {
