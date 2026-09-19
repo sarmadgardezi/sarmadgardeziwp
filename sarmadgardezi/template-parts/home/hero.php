@@ -7,8 +7,23 @@
 
 defined('ABSPATH') || exit;
 
-// Image path pointing to user's hero avatar
+// Image path pointing to user's hero avatar (me-removebg-preview.png)
 $portrait_url = '/wp-content/uploads/2026/09/me-removebg-preview.png';
+if (function_exists('get_field')) {
+    $custom_hero_photo = get_field('hero_profile_photo');
+    if (!empty($custom_hero_photo)) {
+        if (is_array($custom_hero_photo) && !empty($custom_hero_photo['url'])) {
+            $portrait_url = $custom_hero_photo['url'];
+        } elseif (is_numeric($custom_hero_photo)) {
+            $img_src = wp_get_attachment_image_src($custom_hero_photo, 'full');
+            if ($img_src) {
+                $portrait_url = $img_src[0];
+            }
+        } elseif (is_string($custom_hero_photo)) {
+            $portrait_url = $custom_hero_photo;
+        }
+    }
+}
 ?>
 
 <section id="hero" class="hero-section hero-agentic-future">
@@ -22,8 +37,8 @@ $portrait_url = '/wp-content/uploads/2026/09/me-removebg-preview.png';
                     <img 
                         src="<?php echo esc_url($portrait_url); ?>" 
                         alt="<?php esc_attr_e('Sarmad Gardezi', 'sarmadgardezi'); ?>"
-                        width="86"
-                        height="86"
+                        width="180"
+                        height="180"
                         loading="eager"
                         fetchpriority="high"
                         decoding="async"
@@ -33,9 +48,9 @@ $portrait_url = '/wp-content/uploads/2026/09/me-removebg-preview.png';
                 
                 <!-- Pointing Arrow -->
                 <div class="hero-photo-arrow" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M19 5 Q 8 5 8 18"></path>
-                        <polyline points="2 13 8 19 14 13"></polyline>
+                    <svg viewBox="0 0 28 28" width="34" height="34" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 4 C18 4 9 8 9 19"></path>
+                        <polyline points="3 14 9 20 15 14"></polyline>
                     </svg>
                 </div>
             </div>

@@ -40,6 +40,8 @@
   flex-direction: column;
   align-items: flex-start;
   margin-bottom: 1.5rem;
+  position: relative;
+  max-width: 100%;
   
   @include respond-to('md') {
     margin-bottom: 2rem;
@@ -50,42 +52,69 @@
 .hero-profile-photo {
   position: relative;
   z-index: 10;
-  width: 80px; // Adjusted size
-  height: 80px; // Adjusted size
-  margin-bottom: 0.5rem; // Reduced spacing to keep arrow close
-  margin-left: -20px; // Shift image to the left
+  width: 82px;
+  height: 82px;
+  margin-bottom: 0.5rem;
+  margin-left: -12px;
   border-radius: 50%;
   background-color: #ffffff;
-  padding: 4px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  padding: 3px;
+  box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.12), 0 4px 8px -2px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
+
+  @include respond-to('sm') {
+    width: 88px;
+    height: 88px;
+    margin-left: -20px;
+    margin-bottom: 0.65rem;
+  }
 
   @include respond-to('md') {
-    width: 90px;
-    height: 90px;
+    width: 92px;
+    height: 92px;
     margin-bottom: 0.75rem;
-    margin-left: -40px; // Shift further left on desktop
+    margin-left: -32px;
   }
 
   // Floating Arrow pointing to the pill
   .hero-photo-arrow {
     position: absolute;
     bottom: -20px;
-    right: 5px; // Positioned right under the right side of the photo
-    color: #1877F2; // Use theme blue to make it pop
-    transform: rotate(0deg); // Straight down-left
+    right: 2px;
+    color: #557086; // Crisp slate-blue tone matching screenshot
+    transform: rotate(0deg);
     pointer-events: none;
-    z-index: 20; // Ensure it sits above
+    z-index: 20;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      overflow: visible;
+    }
     
     @include respond-to('md') {
       bottom: -22px;
-      right: 10px;
-      transform: rotate(5deg);
+      right: 6px;
+      width: 36px;
+      height: 36px;
+      transform: rotate(2deg);
     }
   }
 
   &:hover {
-    transform: scale(1.05) rotate(2deg) translateX(-5px);
+    transform: scale(1.05) rotate(2deg);
+
+    .hero-photo-arrow {
+      transform: rotate(5deg) scale(1.06);
+    }
   }
 
   .hero-inner-image {
@@ -93,14 +122,25 @@
     height: 100%;
     border-radius: 50%;
     overflow: hidden;
-    background-color: #f1f5f9;
+    background: linear-gradient(180deg, #f8fafc 0%, #edf2f7 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
   }
 
   .speech-avatar-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center bottom;
+    transform: scale(1.1) translateY(2px);
+    transform-origin: center bottom;
     display: block;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: auto;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
 }
 
@@ -110,6 +150,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
+  max-width: 100%;
 }
 
 .hero-badge-pill {
@@ -117,7 +158,7 @@
   align-items: center;
   border: 1px solid #e2e8f0;
   background-color: #ffffff;
-  padding: 6px 18px;
+  padding: 6px 16px;
   border-radius: 9999px;
   font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
   font-size: 0.8125rem;
@@ -125,6 +166,13 @@
   color: #1e293b;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   letter-spacing: -0.01em;
+  text-align: center;
+
+  @include max-screen('sm') {
+    font-size: 0.75rem;
+    padding: 5px 12px;
+    letter-spacing: -0.015em;
+  }
 }
 
 // Headline & Title Block
