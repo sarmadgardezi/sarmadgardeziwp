@@ -81,7 +81,7 @@
   .hero-photo-arrow {
     position: absolute;
     bottom: -20px;
-    right: 2px;
+    right: -10px;
     color: #557086; // Crisp slate-blue tone matching screenshot
     transform: rotate(0deg);
     pointer-events: none;
@@ -102,10 +102,10 @@
     
     @include respond-to('md') {
       bottom: -22px;
-      right: 6px;
+      right: -12px;
       width: 36px;
       height: 36px;
-      transform: rotate(2deg);
+      transform: rotate(0deg);
     }
   }
 
@@ -113,7 +113,7 @@
     transform: scale(1.05) rotate(2deg);
 
     .hero-photo-arrow {
-      transform: rotate(5deg) scale(1.06);
+      transform: rotate(-4deg) scale(1.06);
     }
   }
 

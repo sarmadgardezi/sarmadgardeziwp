@@ -1447,7 +1447,7 @@ textarea::placeholder {
 .hero-profile-photo .hero-photo-arrow {
   position: absolute;
   bottom: -20px;
-  right: 2px;
+  right: -10px;
   color: #557086;
   transform: rotate(0deg);
   pointer-events: none;
@@ -1468,17 +1468,17 @@ textarea::placeholder {
 @media (min-width: 768px) {
   .hero-profile-photo .hero-photo-arrow {
     bottom: -22px;
-    right: 6px;
+    right: -12px;
     width: 36px;
     height: 36px;
-    transform: rotate(2deg);
+    transform: rotate(0deg);
   }
 }
 .hero-profile-photo:hover {
   transform: scale(1.05) rotate(2deg);
 }
 .hero-profile-photo:hover .hero-photo-arrow {
-  transform: rotate(5deg) scale(1.06);
+  transform: rotate(-4deg) scale(1.06);
 }
 .hero-profile-photo .hero-inner-image {
   width: 100%;
