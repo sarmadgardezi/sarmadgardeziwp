@@ -90,5 +90,29 @@
         });
       });
     }
+
+    // Header On-Scroll Background Blur
+    var masthead = document.getElementById('masthead');
+    if (masthead) {
+      var ticking = false;
+      function updateHeaderScroll() {
+        if (window.scrollY > 20) {
+          masthead.classList.add('is-scrolled');
+        } else {
+          masthead.classList.remove('is-scrolled');
+        }
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          window.requestAnimationFrame(updateHeaderScroll);
+          ticking = true;
+        }
+      }, { passive: true });
+
+      // Run on initial load
+      updateHeaderScroll();
+    }
   });
 })();

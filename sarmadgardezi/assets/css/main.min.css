@@ -589,7 +589,31 @@ textarea::placeholder {
   width: 100%;
   z-index: 999;
   pointer-events: none;
-  background: transparent !important;
+  background-color: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), backdrop-filter 0.3s cubic-bezier(0.4, 0, 0.2, 1), -webkit-backdrop-filter 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.site-header-custom.is-scrolled {
+  background-color: rgba(255, 255, 255, 0.82) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.04);
+}
+.site-header-custom.is-scrolled .header-left {
+  padding-top: 9px;
+}
+@media (min-width: 768px) {
+  .site-header-custom.is-scrolled .header-left {
+    padding-top: 11px;
+  }
+}
+@media (min-width: 768px) {
+  .site-header-custom.is-scrolled .header-right {
+    padding-top: 11px;
+  }
 }
 .site-header-custom .site-header-inner {
   display: flex;
@@ -601,6 +625,7 @@ textarea::placeholder {
   margin-right: auto;
   padding: 0 1rem 0.5rem;
   position: relative;
+  transition: padding 0.3s ease;
 }
 @media (min-width: 768px) {
   .site-header-custom .site-header-inner {
