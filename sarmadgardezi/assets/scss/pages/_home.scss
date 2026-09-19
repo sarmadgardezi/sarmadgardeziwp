@@ -884,40 +884,45 @@
 
   .sound-familiar-paragraph {
     font-family: var(--framer-font-family-bold, 'Google Sans Flex', -apple-system, sans-serif);
-    font-size: clamp(1.05rem, 1.75vw, 1.25rem); // Refined smaller, elegant text size
+    font-size: clamp(1.05rem, 1.75vw, 1.25rem);
     font-weight: 500;
-    line-height: 1.65;
+    line-height: 2.25; // Generous line spacing so lines, chips and highlights never touch or merge
     color: #262626;
     letter-spacing: -0.015em;
     margin: 0;
 
+    @include respond-to('md') {
+      line-height: 2.45; // Clean, elegant spacing across all screen sizes
+    }
+
     // 1. Yellow Boxed Tag: "working"
     .inline-chip-yellow {
-      display: inline-block;
-      background: linear-gradient(180deg, #fcba41 0%, #f69a19 100%);
-      color: #ffffff;
+      display: inline;
+      background: #fed7aa;
+      color: #9a3412;
       font-weight: 700;
-      padding: 0.06em 0.38em;
-      border-radius: 6px;
-      margin: 0 0.15em;
-      vertical-align: baseline;
-      box-shadow: 0 2px 4px rgba(246, 154, 25, 0.2);
+      padding: 1px 5px;
+      border-radius: 3px;
+      margin: 0 0.1em;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
     }
 
     // 2. Google Year Chip: Google G + 2017
     .inline-google-chip {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
+      gap: 4px;
       background: #ffffff;
       border: 1px solid #e5e7eb;
       border-radius: 9999px;
-      padding: 0.06em 0.55em;
-      margin: 0 0.2em;
+      padding: 1px 7px;
+      margin: 0 0.15em;
       vertical-align: middle;
       font-weight: 700;
       color: #1f2937;
-      font-size: 0.9em;
+      font-size: 0.85em;
+      line-height: 1.25;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 
       .google-g-icon {
@@ -935,10 +940,11 @@
       color: #1d4ed8;
       font-weight: 700;
       border-radius: 9999px;
-      padding: 0.06em 0.55em;
+      padding: 1px 8px;
       margin: 0 0.15em;
       text-decoration: none;
-      font-size: 0.9em;
+      font-size: 0.85em;
+      line-height: 1.25;
       box-shadow: 0 1px 2px rgba(37, 99, 235, 0.08);
       vertical-align: middle;
       transition: all 0.2s ease;
@@ -955,82 +961,82 @@
     // 4. Sticker Emoji Finger: 👈
     .inline-sticker-finger {
       display: inline-block;
-      margin: 0 0.15em;
+      margin: 0 0.1em;
       font-size: 1.05em;
       vertical-align: baseline;
     }
 
-    // 4. Red Pill Badge: "🚫no ROI."
+    // 5. Red Pill Badge: "🚫no ROI."
     .inline-chip-red {
       display: inline-flex;
       align-items: center;
       gap: 0.2em;
-      background: linear-gradient(180deg, #fca5a5 0%, #ef4444 100%);
-      color: #ffffff;
+      background: #fee2e2;
+      color: #b91c1c;
       font-weight: 700;
-      padding: 0.08em 0.5em;
+      padding: 1px 7px;
       border-radius: 9999px;
-      margin: 0 0.2em;
+      margin: 0 0.15em;
       vertical-align: middle;
-      font-size: 0.88em;
-      box-shadow: 0 2px 6px rgba(239, 68, 68, 0.2);
+      font-size: 0.85em;
+      line-height: 1.25;
 
       .chip-ban-icon {
         font-size: 0.9em;
       }
     }
 
-    // 5. Blue Underline / Box Highlight: "Agentic AI"
+    // 6. Blue Highlight: "Google Cloud" & "Agentic AI" (Clean reduced height inline highlight)
     .inline-chip-blue {
-      display: inline-block;
+      display: inline;
       background-color: #dbeafe;
-      color: #2563eb;
-      border-left: 3px solid #3b82f6;
-      padding: 0.04em 0.35em;
-      margin: 0 0.15em;
+      color: #1d4ed8;
+      padding: 1px 5px;
+      margin: 0 0.1em;
       font-weight: 700;
-      border-radius: 2px;
-      vertical-align: baseline;
+      border-radius: 3px;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
     }
 
-    // 6. Green Highlight: "resilient system design"
+    // 7. Green Highlight: "solid system design"
     .inline-chip-green {
-      display: inline-block;
+      display: inline;
       background-color: #dcfce7;
-      color: #166534;
-      border-left: 3px solid #22c55e;
-      padding: 0.04em 0.35em;
-      margin: 0 0.15em;
+      color: #15803d;
+      padding: 1px 5px;
+      margin: 0 0.1em;
       font-weight: 700;
-      border-radius: 2px;
-      vertical-align: baseline;
+      border-radius: 3px;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
     }
 
-    // 7. Social / External Link Chips: GitHub & YouTube
+    // 8. Social / External Link Chips: GitHub & YouTube
     .inline-link-chip {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
+      gap: 4px;
       border-radius: 9999px;
-      padding: 0.1em 0.58em;
+      padding: 1px 8px;
       text-decoration: none;
       margin: 0 0.15em;
       font-weight: 600;
-      font-size: 0.88em;
+      font-size: 0.85em;
       vertical-align: middle;
-      line-height: 1.2;
+      line-height: 1.25;
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
       &.chip-github {
         background-color: #0f172a;
         color: #ffffff;
-        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.18);
 
         &:hover {
           background-color: #1e293b;
           color: #ffffff;
           transform: translateY(-1px);
-          box-shadow: 0 4px 8px rgba(15, 23, 42, 0.25);
+          box-shadow: 0 3px 6px rgba(15, 23, 42, 0.25);
         }
       }
 
@@ -1038,49 +1044,49 @@
         background-color: #ffffff;
         color: #0f172a;
         border: 1px solid #fecaca;
-        box-shadow: 0 1px 3px rgba(226, 74, 74, 0.12);
+        box-shadow: 0 1px 2px rgba(226, 74, 74, 0.1);
 
         &:hover {
           background-color: #fef2f2;
           border-color: #f87171;
           color: #0f172a;
           transform: translateY(-1px);
-          box-shadow: 0 4px 8px rgba(226, 74, 74, 0.2);
+          box-shadow: 0 3px 6px rgba(226, 74, 74, 0.18);
         }
       }
     }
 
-    // 8. Competitor Overlapping Avatar Stack
+    // 9. Competitor Overlapping Avatar Stack
     .inline-avatar-stack {
       display: inline-flex;
       align-items: center;
-      margin: 0 0.25em;
+      margin: 0 0.2em;
       vertical-align: middle;
 
       .avatar-stack-item {
-        width: 24px;
-        height: 24px;
+        width: 22px;
+        height: 22px;
         border-radius: 50%;
         border: 2px solid #ffffff;
         object-fit: cover;
         display: inline-block;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 
         &:not(:first-child) {
-          margin-left: -8px;
+          margin-left: -7px;
         }
       }
     }
 
-    // 9. Winged Phrase: 🪽winging🪽
+    // 10. Winged Phrase: 🪽winging🪽
     .inline-wing-phrase {
       display: inline-flex;
       align-items: center;
-      gap: 0.12em;
-      margin: 0 0.12em;
+      gap: 0.1em;
+      margin: 0 0.1em;
 
       .wing-icon {
-        font-size: 1.1em;
+        font-size: 1.05em;
         display: inline-block;
       }
 
