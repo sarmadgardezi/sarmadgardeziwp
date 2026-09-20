@@ -88,31 +88,71 @@ function sarmadgardezi_core_project_meta_callback($post) {
     $role       = get_post_meta($post->ID, '_project_role', true);
     $timeline   = get_post_meta($post->ID, '_project_timeline', true);
     $featured   = get_post_meta($post->ID, '_project_featured', true);
+    $card_color = get_post_meta($post->ID, '_project_card_color', true);
+    if (empty($card_color)) {
+        $card_color = 'blue';
+    }
+    $metric_val = get_post_meta($post->ID, '_project_metric_val', true);
+    $metric_lbl = get_post_meta($post->ID, '_project_metric_lbl', true);
+    $pills      = get_post_meta($post->ID, '_project_pills', true);
+    $card_icon  = get_post_meta($post->ID, '_project_icon', true);
     ?>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 10px 0;">
         <div>
+            <label style="display:block; font-weight:600; margin-bottom:4px;" for="project_card_color"><?php esc_html_e('Card Color Theme (Google Colors)', 'sarmadgardezi-core'); ?></label>
+            <select id="project_card_color" name="project_card_color" style="width: 100%;">
+                <option value="blue" <?php selected($card_color, 'blue'); ?>><?php esc_html_e('Google Blue (#4D96FF)', 'sarmadgardezi-core'); ?></option>
+                <option value="pink" <?php selected($card_color, 'pink'); ?>><?php esc_html_e('Google Pink / Coral (#FB7299)', 'sarmadgardezi-core'); ?></option>
+                <option value="green" <?php selected($card_color, 'green'); ?>><?php esc_html_e('Google Green (#34A853)', 'sarmadgardezi-core'); ?></option>
+                <option value="yellow" <?php selected($card_color, 'yellow'); ?>><?php esc_html_e('Google Yellow / Amber (#FBBC05)', 'sarmadgardezi-core'); ?></option>
+                <option value="purple" <?php selected($card_color, 'purple'); ?>><?php esc_html_e('Google Purple (#8B5CF6)', 'sarmadgardezi-core'); ?></option>
+                <option value="dark" <?php selected($card_color, 'dark'); ?>><?php esc_html_e('Dark Obsidian (#111827)', 'sarmadgardezi-core'); ?></option>
+            </select>
+        </div>
+        <div>
+            <label style="display:block; font-weight:600; margin-bottom:4px;" for="project_icon"><?php esc_html_e('Top Corner Icon', 'sarmadgardezi-core'); ?></label>
+            <select id="project_icon" name="project_icon" style="width: 100%;">
+                <option value="video" <?php selected($card_icon, 'video'); ?>><?php esc_html_e('Video Camera (UGC / Video)', 'sarmadgardezi-core'); ?></option>
+                <option value="user" <?php selected($card_icon, 'user'); ?>><?php esc_html_e('User / Community (Strategy)', 'sarmadgardezi-core'); ?></option>
+                <option value="chart" <?php selected($card_icon, 'chart'); ?>><?php esc_html_e('Chart / Analytics (Scaling)', 'sarmadgardezi-core'); ?></option>
+                <option value="cloud" <?php selected($card_icon, 'cloud'); ?>><?php esc_html_e('Cloud / Architecture', 'sarmadgardezi-core'); ?></option>
+                <option value="spark" <?php selected($card_icon, 'spark'); ?>><?php esc_html_e('Sparkle / AI Multimodal', 'sarmadgardezi-core'); ?></option>
+                <option value="code" <?php selected($card_icon, 'code'); ?>><?php esc_html_e('Code / Terminal', 'sarmadgardezi-core'); ?></option>
+            </select>
+        </div>
+        <div>
+            <label style="display:block; font-weight:600; margin-bottom:4px;" for="project_metric_val"><?php esc_html_e('Big Metric Value Callout', 'sarmadgardezi-core'); ?></label>
+            <input type="text" id="project_metric_val" name="project_metric_val" value="<?php echo esc_attr($metric_val); ?>" style="width: 100%;" placeholder="e.g. 1,200+ or 50M+ or 4.8x" />
+        </div>
+        <div>
+            <label style="display:block; font-weight:600; margin-bottom:4px;" for="project_metric_lbl"><?php esc_html_e('Metric Label', 'sarmadgardezi-core'); ?></label>
+            <input type="text" id="project_metric_lbl" name="project_metric_lbl" value="<?php echo esc_attr($metric_lbl); ?>" style="width: 100%;" placeholder="e.g. Videos delivered / Organic views" />
+        </div>
+        <div style="grid-column: 1 / -1;">
+            <label style="display:block; font-weight:600; margin-bottom:4px;" for="project_pills"><?php esc_html_e('Feature Checkmark Pills (comma separated or one per line)', 'sarmadgardezi-core'); ?></label>
+            <textarea id="project_pills" name="project_pills" rows="2" style="width: 100%;" placeholder="Creator sourcing, Full brief included, Unlimited revisions"><?php echo esc_textarea($pills); ?></textarea>
+        </div>
+        <div>
             <label style="display:block; font-weight:600; margin-bottom:4px;" for="project_live_url"><?php esc_html_e('Live Project URL', 'sarmadgardezi-core'); ?></label>
             <input type="url" id="project_live_url" name="project_live_url" value="<?php echo esc_url($live_url); ?>" style="width: 100%;" placeholder="https://example.com" />
-            <p class="description"><?php esc_html_e('Link to the production website or application.', 'sarmadgardezi-core'); ?></p>
         </div>
         <div>
             <label style="display:block; font-weight:600; margin-bottom:4px;" for="project_github_url"><?php esc_html_e('GitHub Repository URL', 'sarmadgardezi-core'); ?></label>
             <input type="url" id="project_github_url" name="project_github_url" value="<?php echo esc_url($github_url); ?>" style="width: 100%;" placeholder="https://github.com/username/repo" />
-            <p class="description"><?php esc_html_e('Link to source code repository (if public).', 'sarmadgardezi-core'); ?></p>
         </div>
         <div>
             <label style="display:block; font-weight:600; margin-bottom:4px;" for="project_role"><?php esc_html_e('Your Role', 'sarmadgardezi-core'); ?></label>
-            <input type="text" id="project_role" name="project_role" value="<?php echo esc_attr($role); ?>" style="width: 100%;" placeholder="e.g. Lead Software Engineer / Architect" />
+            <input type="text" id="project_role" name="project_role" value="<?php echo esc_attr($role); ?>" style="width: 100%;" placeholder="e.g. Lead AI Architect / Full Stack" />
         </div>
         <div>
             <label style="display:block; font-weight:600; margin-bottom:4px;" for="project_timeline"><?php esc_html_e('Timeline / Year', 'sarmadgardezi-core'); ?></label>
-            <input type="text" id="project_timeline" name="project_timeline" value="<?php echo esc_attr($timeline); ?>" style="width: 100%;" placeholder="e.g. 2024 - 2025" />
+            <input type="text" id="project_timeline" name="project_timeline" value="<?php echo esc_attr($timeline); ?>" style="width: 100%;" placeholder="e.g. 2025" />
         </div>
     </div>
     <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #ddd;">
         <label style="font-weight:600;">
             <input type="checkbox" name="project_featured" value="1" <?php checked($featured, '1'); ?> />
-            <?php esc_html_e('Feature this project on the homepage', 'sarmadgardezi-core'); ?>
+            <?php esc_html_e('Feature this project in the Homepage Stacking Portfolio Section (Max 3)', 'sarmadgardezi-core'); ?>
         </label>
     </div>
     <?php
@@ -219,6 +259,11 @@ function sarmadgardezi_core_save_meta_boxes($post_id) {
         update_post_meta($post_id, '_project_role', sanitize_text_field($_POST['project_role'] ?? ''));
         update_post_meta($post_id, '_project_timeline', sanitize_text_field($_POST['project_timeline'] ?? ''));
         update_post_meta($post_id, '_project_featured', !empty($_POST['project_featured']) ? '1' : '0');
+        update_post_meta($post_id, '_project_card_color', sanitize_text_field($_POST['project_card_color'] ?? 'blue'));
+        update_post_meta($post_id, '_project_metric_val', sanitize_text_field($_POST['project_metric_val'] ?? ''));
+        update_post_meta($post_id, '_project_metric_lbl', sanitize_text_field($_POST['project_metric_lbl'] ?? ''));
+        update_post_meta($post_id, '_project_pills', sanitize_textarea_field($_POST['project_pills'] ?? ''));
+        update_post_meta($post_id, '_project_icon', sanitize_text_field($_POST['project_icon'] ?? 'video'));
     }
 
     // Save Talk meta

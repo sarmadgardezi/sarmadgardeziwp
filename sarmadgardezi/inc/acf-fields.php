@@ -460,4 +460,108 @@ function sarmadgardezi_register_brands_acf_fields() {
         'position' => 'normal',
         'style' => 'default',
     ));
+
+    // Register ACF fields for Projects (Stacking Portfolio Card Customization)
+    acf_add_local_field_group(array(
+        'key' => 'group_sarmadgardezi_project_details',
+        'title' => __('Portfolio Card & Project Settings', 'sarmadgardezi'),
+        'fields' => array(
+            array(
+                'key' => 'field_project_featured',
+                'label' => __('Feature in Homepage Portfolio Stack (Max 3)', 'sarmadgardezi'),
+                'name' => 'project_featured',
+                'type' => 'true_false',
+                'ui' => 1,
+                'default_value' => 1,
+            ),
+            array(
+                'key' => 'field_project_card_color',
+                'label' => __('Card Color Theme (Google Colors)', 'sarmadgardezi'),
+                'name' => 'project_card_color',
+                'type' => 'select',
+                'choices' => array(
+                    'blue'   => 'Google Blue (#4D96FF)',
+                    'pink'   => 'Google Pink / Coral (#FB7299)',
+                    'green'  => 'Google Green (#34A853)',
+                    'yellow' => 'Google Yellow / Amber (#FBBC05)',
+                    'purple' => 'Google Purple (#8B5CF6)',
+                    'dark'   => 'Dark Obsidian (#111827)',
+                ),
+                'default_value' => 'blue',
+            ),
+            array(
+                'key' => 'field_project_icon',
+                'label' => __('Top Corner Icon', 'sarmadgardezi'),
+                'name' => 'project_icon',
+                'type' => 'select',
+                'choices' => array(
+                    'video' => 'Video Camera (UGC / Media)',
+                    'user'  => 'User / Community (Strategy)',
+                    'chart' => 'Chart / Growth (Scaling)',
+                    'cloud' => 'Cloud / Architecture',
+                    'spark' => 'Sparkle / AI Multimodal',
+                    'code'  => 'Code / Terminal',
+                ),
+                'default_value' => 'video',
+            ),
+            array(
+                'key' => 'field_project_metric_val',
+                'label' => __('Big Metric Callout (e.g. 1,200+ or 50M+ or 4.8x)', 'sarmadgardezi'),
+                'name' => 'project_metric_val',
+                'type' => 'text',
+                'placeholder' => '1,200+',
+            ),
+            array(
+                'key' => 'field_project_metric_lbl',
+                'label' => __('Metric Label (e.g. Videos delivered / Organic views)', 'sarmadgardezi'),
+                'name' => 'project_metric_lbl',
+                'type' => 'text',
+                'placeholder' => 'Videos delivered',
+            ),
+            array(
+                'key' => 'field_project_pills',
+                'label' => __('Feature Checkmark Pills (comma separated or one per line)', 'sarmadgardezi'),
+                'name' => 'project_pills',
+                'type' => 'textarea',
+                'rows' => 2,
+                'placeholder' => 'Creator sourcing, Full brief included, Unlimited revisions',
+            ),
+            array(
+                'key' => 'field_project_live_url',
+                'label' => __('Live Project URL', 'sarmadgardezi'),
+                'name' => 'project_live_url',
+                'type' => 'url',
+            ),
+            array(
+                'key' => 'field_project_github_url',
+                'label' => __('GitHub URL', 'sarmadgardezi'),
+                'name' => 'project_github_url',
+                'type' => 'url',
+            ),
+            array(
+                'key' => 'field_project_role',
+                'label' => __('Role', 'sarmadgardezi'),
+                'name' => 'project_role',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_project_timeline',
+                'label' => __('Timeline', 'sarmadgardezi'),
+                'name' => 'project_timeline',
+                'type' => 'text',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'project',
+                ),
+            ),
+        ),
+        'menu_order' => 10,
+        'position' => 'normal',
+        'style' => 'default',
+    ));
 }

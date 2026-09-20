@@ -16,6 +16,7 @@ get_header();
     <?php get_template_part('template-parts/home/brands'); ?>
     <?php get_template_part('template-parts/home/problem'); ?>
     <?php get_template_part('template-parts/home/mission'); ?>
+    <?php get_template_part('template-parts/home/featured-projects'); ?>
     <?php get_template_part('template-parts/home/about'); ?>
 </main>
 

@@ -1789,3 +1789,357 @@
     }
   }
 }
+
+// --------------------------------------------------------------------------
+// Stacking Portfolio / "HOW WE GROW YOU" Section (Google Colors + Sticky Scroll)
+// --------------------------------------------------------------------------
+
+.portfolio-stack-section {
+  padding: 5rem 0 8rem;
+  background-color: #f8fafc;
+  position: relative;
+  overflow: visible;
+
+  @include respond-to('md') {
+    padding: 6.5rem 0 10rem;
+  }
+}
+
+.portfolio-stack-wrap {
+  width: 100%;
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  box-sizing: border-box;
+
+  @include respond-to('md') {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.portfolio-stack-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+
+  @include respond-to('md') {
+    margin-bottom: 4.5rem;
+  }
+}
+
+.portfolio-main-title {
+  font-family: var(--framer-font-family-bold, 'Google Sans Flex', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+  color: #111111;
+  margin: 0;
+}
+
+.portfolio-cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  position: relative;
+  width: 100%;
+}
+
+.portfolio-stack-card {
+  position: sticky;
+  top: calc(90px + (var(--card-index, 0) * 22px));
+  z-index: calc(10 + var(--card-index, 0));
+  border-radius: 24px;
+  padding: 2.25rem 1.75rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.16), 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+
+  @include respond-to('sm') {
+    border-radius: 28px;
+    padding: 3rem 2.5rem;
+  }
+
+  @include respond-to('md') {
+    border-radius: 32px;
+    padding: 3.5rem 3.5rem;
+  }
+
+  // Google Colors Colorways
+  &.card-color-blue {
+    background-color: #549dfb;
+    color: #111111;
+
+    .stack-card-title,
+    .metric-number {
+      color: #0f172a;
+    }
+    .stack-card-desc,
+    .metric-label {
+      color: #1e293b;
+    }
+  }
+
+  &.card-color-pink {
+    background-color: #ff85a2;
+    color: #111111;
+
+    .stack-card-title,
+    .metric-number {
+      color: #111827;
+    }
+    .stack-card-desc,
+    .metric-label {
+      color: #1f2937;
+    }
+  }
+
+  &.card-color-green {
+    background-color: #4ade80;
+    color: #111111;
+
+    .stack-card-title,
+    .metric-number {
+      color: #064e3b;
+    }
+    .stack-card-desc,
+    .metric-label {
+      color: #065f46;
+    }
+  }
+
+  &.card-color-yellow {
+    background-color: #fcd34d;
+    color: #111111;
+
+    .stack-card-title,
+    .metric-number {
+      color: #78350f;
+    }
+    .stack-card-desc,
+    .metric-label {
+      color: #92400e;
+    }
+  }
+
+  &.card-color-purple {
+    background-color: #a78bfa;
+    color: #111111;
+
+    .stack-card-title,
+    .metric-number {
+      color: #2e1065;
+    }
+    .stack-card-desc,
+    .metric-label {
+      color: #3b0764;
+    }
+  }
+
+  &.card-color-dark {
+    background-color: #111827;
+    color: #ffffff;
+
+    .stack-card-title,
+    .metric-number {
+      color: #ffffff;
+    }
+    .stack-card-desc,
+    .metric-label {
+      color: #94a3b8;
+    }
+  }
+}
+
+// Top Right Dark Icon Badge
+.stack-card-icon-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #111111;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+  z-index: 5;
+
+  @include respond-to('md') {
+    top: 2.25rem;
+    right: 2.5rem;
+    width: 48px;
+    height: 48px;
+  }
+
+  svg {
+    display: block;
+  }
+}
+
+// Card Grid
+.stack-card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+
+  @include respond-to('md') {
+    grid-template-columns: 1.15fr 1fr;
+    gap: 3rem;
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3.5rem;
+  }
+}
+
+// Left Details Column
+.stack-card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.stack-card-title {
+  font-family: var(--framer-font-family-bold, 'Google Sans Flex', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: clamp(1.75rem, 3.2vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 0 0 1rem;
+  line-height: 1.12;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.82;
+      text-decoration: underline;
+    }
+  }
+}
+
+.stack-card-desc {
+  font-family: var(--framer-font-family, 'Google Sans Flex', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 0.96875rem;
+  line-height: 1.62;
+  margin-bottom: 1.75rem;
+  max-width: 490px;
+
+  p {
+    margin: 0;
+  }
+
+  @include respond-to('md') {
+    font-size: 1.03125rem;
+    margin-bottom: 2rem;
+  }
+}
+
+// Checkmark Pills
+.stack-card-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 2.25rem;
+
+  @include respond-to('md') {
+    gap: 0.75rem;
+    margin-bottom: 2.75rem;
+  }
+}
+
+.stack-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background-color: #ffffff;
+  color: #111827;
+  font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  user-select: none;
+  letter-spacing: -0.01em;
+
+  @include respond-to('md') {
+    font-size: 0.875rem;
+    padding: 7px 16px;
+  }
+
+  .pill-check {
+    stroke: #111827;
+    flex-shrink: 0;
+  }
+}
+
+// Metric Number & Label
+.stack-card-metric {
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-number {
+  font-family: var(--framer-font-family-bold, 'Google Sans Flex', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+
+.metric-label {
+  font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-top: 0.45rem;
+  letter-spacing: -0.01em;
+
+  @include respond-to('md') {
+    font-size: 0.9375rem;
+  }
+}
+
+// Right Visual Image Column
+.stack-card-visual-wrap {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.22);
+  background-color: rgba(0, 0, 0, 0.05);
+
+  @include respond-to('sm') {
+    border-radius: 20px;
+  }
+}
+
+.stack-card-visual-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+
+.stack-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: scale(1.04);
+  }
+}
