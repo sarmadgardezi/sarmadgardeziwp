@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 42" fill="none" height="36">
+  <!-- Isometric 3D Cube Icon -->
+  <g stroke="#111827" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(2, 2)">
+    <!-- Outer hexagon -->
+    <path d="M18 4 L33 12.5 L33 29.5 L18 38 L3 29.5 L3 12.5 Z" />
+    <!-- Inner Y axes -->
+    <path d="M18 4 L18 21" />
+    <path d="M3 12.5 L18 21" />
+    <path d="M33 12.5 L18 21" />
+    <!-- Center core box for high-tech cuebe feel -->
+    <path d="M18 21 L18 38" />
+    <circle cx="18" cy="21" r="2.5" fill="#111827" />
+  </g>
+  <!-- Stacked Wordmark: DESIGN / CUEBE -->
+  <text x="44" y="16" font-family="-apple-system, BlinkMacSystemFont, 'Google Sans Flex', 'Inter', sans-serif" font-size="8.5" font-weight="800" fill="#111827" letter-spacing="1.8">DESIGN</text>
+  <text x="43" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Google Sans Flex', 'Inter', sans-serif" font-size="18.5" font-weight="900" fill="#111827" letter-spacing="-0.5">CUEBE</text>
+</svg>

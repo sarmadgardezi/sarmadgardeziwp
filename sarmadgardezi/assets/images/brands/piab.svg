@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 42" fill="none" height="36">
+  <!-- Piab Symbol -->
+  <g fill="#111827" transform="translate(4, 5)">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M15.5 0C6.94 0 0 6.94 0 15.5C0 24.06 6.94 31 15.5 31C22.65 31 28.66 26.15 30.4 19.5C29.6 20.3 27.8 21.6 25.1 21.6C19.8 21.6 15.5 17.3 15.5 12C15.5 8.2 17.7 4.9 20.9 3.3C19.3 1.2 16.8 0 15.5 0ZM15.5 5.5C11.91 5.5 9 8.41 9 12C9 15.59 11.91 18.5 15.5 18.5C18.26 18.5 20.64 16.78 21.57 14.36C20.67 15.06 19.51 15.5 18.25 15.5C16.32 15.5 14.75 13.93 14.75 12C14.75 10.07 16.32 8.5 18.25 8.5C19.16 8.5 20 8.85 20.64 9.42C19.78 7.08 17.84 5.5 15.5 5.5Z" />
+  </g>
+  <!-- Piab Wordmark -->
+  <text x="42" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Google Sans Flex', 'Inter', 'Segoe UI', Roboto, sans-serif" font-size="26" font-weight="900" fill="#111827" letter-spacing="-0.8">piab</text>
+</svg>

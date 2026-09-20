@@ -503,14 +503,14 @@
 .hero-brands-section {
   width: 100%;
   background-color: #ffffff;
-  padding: 3.5rem 0 4rem;
+  padding: 3rem 0 3.5rem;
   overflow: hidden;
   position: relative;
-  border-top: 1px solid rgba(0, 0, 0, 0.04);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 
   @include respond-to('md') {
-    padding: 4.5rem 0 5rem;
+    padding: 3.75rem 0 4.25rem;
   }
 }
 
@@ -521,70 +521,88 @@
 
 .brands-header-title {
   text-align: center;
-  font-family: var(--framer-font-family-bold, "Google Sans Flex", sans-serif);
-  font-size: 0.8125rem;
+  font-family: var(--framer-font-family, "Google Sans Flex", -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: 1.0625rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: #8e8e93;
-  margin: 0 0 2.5rem 0;
-  padding: 0 1rem;
+  letter-spacing: -0.015em;
+  color: #111827;
+  margin: 0 0 2.25rem 0;
+  padding: 0 1.25rem;
+  line-height: 1.35;
+
+  @include respond-to('md') {
+    font-size: 1.1875rem;
+    margin-bottom: 2.75rem;
+  }
 }
 
 .brands-marquee-wrapper {
   width: 100%;
   overflow: hidden;
   position: relative;
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
   display: flex;
+  cursor: default;
+
+  &:hover .brands-marquee-track {
+    animation-play-state: paused;
+  }
 }
 
 .brands-marquee-track {
   display: flex;
   width: max-content;
   flex-shrink: 0;
-  animation: scrollBrandsMarquee 30s linear infinite;
+  animation: scrollBrandsMarquee 42s linear infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
 
   &:hover {
     animation-play-state: paused;
   }
 }
 
-.brands-marquee-wrapper:hover .brands-marquee-track {
-  animation-play-state: paused;
-}
-
 .brands-group {
   display: flex;
   align-items: center;
-  gap: 3.5rem;
-  padding-right: 3.5rem;
   flex-shrink: 0;
-
-  @include respond-to('md') {
-    gap: 4.5rem;
-    padding-right: 4.5rem;
-  }
-
-  @include respond-to('lg') {
-    gap: 5.5rem;
-    padding-right: 5.5rem;
-  }
 }
 
 .brand-logo-item {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  opacity: 0.68;
+  flex: 0 0 190px;
+  width: 190px;
+  min-width: 190px;
+  max-width: 190px;
+  height: 52px;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+  position: relative;
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+  opacity: 0.88;
   transition: opacity 0.25s ease, transform 0.25s ease;
-  filter: grayscale(100%);
+
+  @include respond-to('md') {
+    flex: 0 0 250px;
+    width: 250px;
+    min-width: 250px;
+    max-width: 250px;
+    height: 60px;
+    padding: 0 2rem;
+  }
+
+  @include respond-to('lg') {
+    flex: 0 0 270px;
+    width: 270px;
+    min-width: 270px;
+    max-width: 270px;
+  }
 
   &:hover {
     opacity: 1;
-    filter: grayscale(0%);
     transform: scale(1.04);
   }
 }
@@ -593,6 +611,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: 100%;
   text-decoration: none;
 }
 
@@ -600,27 +620,34 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .brand-logo-img {
-  height: 32px;
+  max-height: 28px;
+  max-width: 130px;
   width: auto;
-  max-width: 160px;
+  height: auto;
   object-fit: contain;
   display: block;
+  user-select: none;
+  pointer-events: none;
+  transition: transform 0.25s ease;
 
   @include respond-to('md') {
-    height: 36px;
+    max-height: 34px;
+    max-width: 155px;
   }
 }
 
 @keyframes scrollBrandsMarquee {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 
   100% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 

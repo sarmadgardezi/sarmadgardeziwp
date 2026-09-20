@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 42" fill="none" height="36">
+  <!-- Clickl Icon -->
+  <g fill="#111827">
+    <path d="M14 6 C7.373 6 2 11.373 2 18 L2 36 L12 36 L12 20 C12 15.582 15.582 12 20 12 L24 12 C24 8.686 21.314 6 18 6 Z" />
+    <rect x="18" y="18" width="8" height="18" rx="4" />
+  </g>
+  <!-- Clickl Wordmark -->
+  <text x="36" y="29" font-family="-apple-system, BlinkMacSystemFont, 'Google Sans Flex', 'Inter', 'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="800" fill="#111827" letter-spacing="-0.6">Clickl</text>
+</svg>

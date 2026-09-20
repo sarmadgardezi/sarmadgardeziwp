@@ -25,7 +25,7 @@ if (empty($section_title) && function_exists('get_field')) {
 }
 
 if (empty($section_title)) {
-    $section_title = __('I HAVE WORKED WITH TEAMS AT', 'sarmadgardezi');
+    $section_title = __('Trusted by these amazing companies', 'sarmadgardezi');
 }
 
 // Retrieve Brand Logos from ACF
@@ -82,38 +82,23 @@ $asset_base = function_exists('sarmadgardezi_asset')
 if (empty($brand_items)) {
     $brand_items = array(
         array(
-            'url'  => rtrim($asset_base, '/') . '/images/brands/rediff.svg',
-            'name' => 'Rediff.com',
+            'url'  => rtrim($asset_base, '/') . '/images/brands/clickl.svg',
+            'name' => 'Clickl',
             'link' => '',
         ),
         array(
-            'url'  => rtrim($asset_base, '/') . '/images/brands/sony.svg',
-            'name' => 'Sony Pictures',
+            'url'  => rtrim($asset_base, '/') . '/images/brands/piab.svg',
+            'name' => 'piab',
             'link' => '',
         ),
         array(
-            'url'  => rtrim($asset_base, '/') . '/images/brands/times-of-india.svg',
-            'name' => 'The Times of India',
+            'url'  => rtrim($asset_base, '/') . '/images/brands/design-cuebe.svg',
+            'name' => 'DESIGN CUEBE',
             'link' => '',
         ),
         array(
-            'url'  => rtrim($asset_base, '/') . '/images/brands/stayzilla.svg',
-            'name' => 'Stayzilla',
-            'link' => '',
-        ),
-        array(
-            'url'  => rtrim($asset_base, '/') . '/images/brands/pharmeasy.svg',
-            'name' => 'PharmEasy',
-            'link' => '',
-        ),
-        array(
-            'url'  => rtrim($asset_base, '/') . '/images/brands/spire.svg',
-            'name' => 'SPIRE',
-            'link' => '',
-        ),
-        array(
-            'url'  => rtrim($asset_base, '/') . '/images/brands/flipkart.svg',
-            'name' => 'Flipkart',
+            'url'  => rtrim($asset_base, '/') . '/images/brands/ahlsell.svg',
+            'name' => 'ahlsell',
             'link' => '',
         ),
     );
@@ -122,23 +107,31 @@ if (empty($brand_items)) {
 if (empty($brand_items)) {
     return;
 }
+
+// Multiply brand items if needed so each track half has plenty of items for wide screens
+$repeated_items = $brand_items;
+while (count($repeated_items) < 8) {
+    $repeated_items = array_merge($repeated_items, $brand_items);
+}
 ?>
 
 <section class="hero-brands-section" aria-label="<?php echo esc_attr($section_title); ?>">
     <div class="brands-inner-wrapper">
-        <p class="brands-header-title">
-            <?php echo esc_html($section_title); ?>
-        </p>
+        <?php if (!empty($section_title)) : ?>
+            <p class="brands-header-title">
+                <?php echo esc_html($section_title); ?>
+            </p>
+        <?php endif; ?>
 
         <!-- Infinite Scrolling Marquee Track (Stops on Hover) -->
         <div class="brands-marquee-wrapper" tabindex="0" role="region" aria-label="<?php esc_attr_e('Partner Brands Carousel', 'sarmadgardezi'); ?>">
             <div class="brands-marquee-track">
                 <?php 
-                // Render original list + cloned list to create an seamless 360 loop
+                // Render original list + cloned list for seamless 100% infinite loop
                 for ($loop = 0; $loop < 2; $loop++) : 
                 ?>
                     <div class="brands-group" <?php echo $loop > 0 ? 'aria-hidden="true"' : ''; ?>>
-                        <?php foreach ($brand_items as $item) : ?>
+                        <?php foreach ($repeated_items as $item) : ?>
                             <div class="brand-logo-item">
                                 <?php if (!empty($item['link'])) : ?>
                                     <a href="<?php echo esc_url($item['link']); ?>" target="_blank" rel="noopener noreferrer" class="brand-logo-link" title="<?php echo esc_attr($item['name']); ?>">
