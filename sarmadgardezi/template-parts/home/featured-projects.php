@@ -11,38 +11,198 @@
 defined('ABSPATH') || exit;
 
 // Retrieve Section Heading Title (default "HOW WE GROW YOU")
-$section_title = '';
-if (function_exists('get_field')) {
+$section_title = get_option('portfolio_section_title', '');
+if (empty($section_title) && function_exists('get_field')) {
     $section_title = get_field('portfolio_section_title');
 }
 if (empty($section_title)) {
-    $section_title = get_option('portfolio_section_title', 'HOW WE GROW YOU');
+    $section_title = 'HOW WE GROW YOU';
 }
 
-// 1. Query dynamic projects from WordPress (max 3, prioritized by featured status)
-$projects_query = new WP_Query(array(
-    'post_type'      => 'project',
-    'posts_per_page' => 3,
-    'post_status'    => 'publish',
-    'meta_query'     => array(
-        'relation' => 'OR',
-        array(
-            'key'     => '_project_featured',
-            'value'   => '1',
-            'compare' => '=',
-        ),
-        array(
-            'key'     => '_project_featured',
-            'compare' => 'NOT EXISTS',
-        ),
-    ),
-    'orderby'        => array(
-        'meta_value' => 'DESC',
-        'date'       => 'DESC',
-    ),
-));
+// Check for custom cards from:
+// 1. Dedicated Portfolio Cards Admin Tab (WP Option)
+// 2. ACF Repeater on Front Page
+// 3. Published 'project' Custom Post Type entries
+$portfolio_items = array();
 
-$has_dynamic_projects = $projects_query->have_posts();
+// Source 1: WP Option from Portfolio Cards Admin Manager
+$opt_cards = get_option('portfolio_cards');
+if (!empty($opt_cards) && is_array($opt_cards)) {
+    foreach ($opt_cards as $c) {
+        $t = $c['title'] ?? '';
+        $d = $c['desc'] ?? '';
+        $img = $c['image'] ?? '';
+        if (!empty($t) || !empty($d) || !empty($img)) {
+            $raw_pills = $c['pills'] ?? '';
+            $pills_arr = array();
+            if (!empty($raw_pills)) {
+                $lines = preg_split('/[\r\n,]+/', $raw_pills);
+                foreach ($lines as $l) {
+                    $clean = trim($l);
+                    if (!empty($clean)) $pills_arr[] = $clean;
+                }
+            }
+            $portfolio_items[] = array(
+                'title'      => $t,
+                'desc'       => $d,
+                'color'      => $c['color'] ?? 'blue',
+                'icon'       => $c['icon'] ?? 'video',
+                'pills'      => $pills_arr,
+                'metric_val' => $c['metric_val'] ?? '',
+                'metric_lbl' => $c['metric_lbl'] ?? '',
+                'image'      => !empty($img) ? $img : 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=900&h=700&fit=crop',
+                'link'       => !empty($c['link']) ? $c['link'] : home_url('/projects/'),
+            );
+        }
+    }
+}
+
+// Source 2: ACF Repeater from Front page if option is empty
+if (empty($portfolio_items) && function_exists('get_field')) {
+    $acf_cards = get_field('portfolio_cards');
+    if (empty($acf_cards)) {
+        $front_id = get_option('page_on_front');
+        if ($front_id) {
+            $acf_cards = get_field('portfolio_cards', $front_id);
+        }
+    }
+    if (!empty($acf_cards) && is_array($acf_cards)) {
+        foreach ($acf_cards as $c) {
+            $t = $c['title'] ?? '';
+            $d = $c['desc'] ?? '';
+            $img = $c['image'] ?? '';
+            if (is_array($img) && !empty($img['url'])) {
+                $img = $img['url'];
+            }
+            $raw_pills = $c['pills'] ?? '';
+            $pills_arr = array();
+            if (!empty($raw_pills)) {
+                $lines = preg_split('/[\r\n,]+/', $raw_pills);
+                foreach ($lines as $l) {
+                    $clean = trim($l);
+                    if (!empty($clean)) $pills_arr[] = $clean;
+                }
+            }
+            $portfolio_items[] = array(
+                'title'      => $t,
+                'desc'       => $d,
+                'color'      => $c['color'] ?? 'blue',
+                'icon'       => $c['icon'] ?? 'video',
+                'pills'      => $pills_arr,
+                'metric_val' => $c['metric_val'] ?? '',
+                'metric_lbl' => $c['metric_lbl'] ?? '',
+                'image'      => !empty($img) ? $img : 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=900&h=700&fit=crop',
+                'link'       => !empty($c['link']) ? $c['link'] : home_url('/projects/'),
+            );
+        }
+    }
+}
+
+// Source 3: Published 'project' Custom Post Type entries if still empty
+if (empty($portfolio_items)) {
+    $projects_query = new WP_Query(array(
+        'post_type'      => 'project',
+        'posts_per_page' => 3,
+        'post_status'    => 'publish',
+        'meta_query'     => array(
+            'relation' => 'OR',
+            array(
+                'key'     => '_project_featured',
+                'value'   => '1',
+                'compare' => '=',
+            ),
+            array(
+                'key'     => '_project_featured',
+                'compare' => 'NOT EXISTS',
+            ),
+        ),
+        'orderby'        => array(
+            'meta_value' => 'DESC',
+            'date'       => 'DESC',
+        ),
+    ));
+
+    if ($projects_query->have_posts()) {
+        $idx = 0;
+        $default_colors = array('blue', 'pink', 'green');
+        while ($projects_query->have_posts()) {
+            $projects_query->the_post();
+            $pid = get_the_ID();
+            $color = get_post_meta($pid, '_project_card_color', true);
+            if (empty($color)) $color = $default_colors[$idx % 3];
+            $icon = get_post_meta($pid, '_project_icon', true);
+            if (empty($icon)) $icon = 'video';
+            $raw_pills = get_post_meta($pid, '_project_pills', true);
+            $pills_arr = array();
+            if (!empty($raw_pills)) {
+                $lines = preg_split('/[\r\n,]+/', $raw_pills);
+                foreach ($lines as $l) {
+                    $clean = trim($l);
+                    if (!empty($clean)) $pills_arr[] = $clean;
+                }
+            }
+            $img = get_the_post_thumbnail_url($pid, 'large');
+            if (empty($img)) {
+                $img = 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=900&h=700&fit=crop';
+            }
+
+            $desc = has_excerpt() ? get_the_excerpt() : wp_trim_words(get_the_content(), 28);
+
+            $portfolio_items[] = array(
+                'title'      => get_the_title(),
+                'desc'       => $desc,
+                'color'      => $color,
+                'icon'       => $icon,
+                'pills'      => $pills_arr,
+                'metric_val' => get_post_meta($pid, '_project_metric_val', true),
+                'metric_lbl' => get_post_meta($pid, '_project_metric_lbl', true),
+                'image'      => $img,
+                'link'       => get_permalink(),
+            );
+            $idx++;
+        }
+        wp_reset_postdata();
+    }
+}
+
+// Fallback: 3 High-Fidelity Default Showcase Cards
+if (empty($portfolio_items)) {
+    $portfolio_items = array(
+        array(
+            'color'      => 'blue',
+            'icon'       => 'video',
+            'title'      => __('UGC video production', 'sarmadgardezi'),
+            'desc'       => __('We source, brief, and deliver creator videos that feel native to the platform. Every video is built around your audience, not a production checklist designed to perform, not just look good.', 'sarmadgardezi'),
+            'pills'      => array(__('Creator sourcing', 'sarmadgardezi'), __('Full brief included', 'sarmadgardezi'), __('Unlimited revisions', 'sarmadgardezi')),
+            'metric_val' => '1,200+',
+            'metric_lbl' => __('Videos delivered', 'sarmadgardezi'),
+            'image'      => 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=900&h=650&fit=crop',
+            'link'       => home_url('/projects/'),
+        ),
+        array(
+            'color'      => 'pink',
+            'icon'       => 'user',
+            'title'      => __('Creator campaign strategy', 'sarmadgardezi'),
+            'desc'       => __("We don't just find creators we match them to your niche, test multiple hooks, and build storytelling frameworks that scale what works. Data drives every decision, not gut feeling.", 'sarmadgardezi'),
+            'pills'      => array(__('Niche matching', 'sarmadgardezi'), __('Hook testing', 'sarmadgardezi'), __('Weekly iteration', 'sarmadgardezi')),
+            'metric_val' => '50M+',
+            'metric_lbl' => __('Organic views', 'sarmadgardezi'),
+            'image'      => 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=900&h=650&fit=crop',
+            'link'       => home_url('/projects/'),
+        ),
+        array(
+            'color'      => 'green',
+            'icon'       => 'chart',
+            'title'      => __('Paid ad scaling & optimization', 'sarmadgardezi'),
+            'desc'       => __('High-converting creative variations deployed across TikTok, Instagram, and YouTube Shorts with continuous A/B testing, hook iteration, and algorithmic distribution.', 'sarmadgardezi'),
+            'pills'      => array(__('Multi-platform testing', 'sarmadgardezi'), __('Creative fatigue defense', 'sarmadgardezi'), __('High ROAS framework', 'sarmadgardezi')),
+            'metric_val' => '4.8x',
+            'metric_lbl' => __('Average ROAS', 'sarmadgardezi'),
+            'image'      => 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=900&h=650&fit=crop',
+            'link'       => home_url('/projects/'),
+        ),
+    );
+}
 
 // Helper to render corner icon SVG
 function sarmadgardezi_render_card_icon($icon_key) {
@@ -74,171 +234,29 @@ function sarmadgardezi_render_card_icon($icon_key) {
 
         <!-- Sticky Stacking Cards Container -->
         <div class="portfolio-cards-stack">
-            <?php
-            if ($has_dynamic_projects) :
-                $card_index = 0;
-                $default_colors = array('blue', 'pink', 'green');
+            <?php foreach ($portfolio_items as $idx => $card) : ?>
+                <article 
+                    class="portfolio-stack-card card-color-<?php echo esc_attr($card['color']); ?>"
+                    style="--card-index: <?php echo esc_attr($idx); ?>;"
+                >
+                    <!-- Top-Right Dark Icon Bubble -->
+                    <div class="stack-card-icon-badge" aria-hidden="true">
+                        <?php echo sarmadgardezi_render_card_icon($card['icon']); ?>
+                    </div>
 
-                while ($projects_query->have_posts()) :
-                    $projects_query->the_post();
-                    $post_id    = get_the_ID();
-                    $card_color = get_post_meta($post_id, '_project_card_color', true);
-                    if (empty($card_color)) {
-                        $card_color = $default_colors[$card_index % 3];
-                    }
-                    $metric_val = get_post_meta($post_id, '_project_metric_val', true);
-                    $metric_lbl = get_post_meta($post_id, '_project_metric_lbl', true);
-                    $raw_pills  = get_post_meta($post_id, '_project_pills', true);
-                    $card_icon  = get_post_meta($post_id, '_project_icon', true);
-                    if (empty($card_icon)) {
-                        $card_icon = 'video';
-                    }
+                    <!-- Card Content Grid -->
+                    <div class="stack-card-grid">
+                        <!-- Left Details Column -->
+                        <div class="stack-card-content">
+                            <h3 class="stack-card-title">
+                                <a href="<?php echo esc_url($card['link']); ?>"><?php echo esc_html($card['title']); ?></a>
+                            </h3>
 
-                    // Parse pills
-                    $pills_array = array();
-                    if (!empty($raw_pills)) {
-                        $lines = preg_split('/[\r\n,]+/', $raw_pills);
-                        foreach ($lines as $line) {
-                            $clean = trim($line);
-                            if (!empty($clean)) {
-                                $pills_array[] = $clean;
-                            }
-                        }
-                    }
-
-                    // Fallback visual thumbnail
-                    $thumb_url = get_the_post_thumbnail_url($post_id, 'large');
-                    if (empty($thumb_url)) {
-                        $thumb_url = 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=900&h=700&fit=crop';
-                    }
-                    ?>
-                    <article 
-                        class="portfolio-stack-card card-color-<?php echo esc_attr($card_color); ?>"
-                        style="--card-index: <?php echo esc_attr($card_index); ?>;"
-                    >
-                        <!-- Top-Right Dark Icon Bubble -->
-                        <div class="stack-card-icon-badge" aria-hidden="true">
-                            <?php echo sarmadgardezi_render_card_icon($card_icon); ?>
-                        </div>
-
-                        <!-- Card Content Grid -->
-                        <div class="stack-card-grid">
-                            <!-- Left Details Column -->
-                            <div class="stack-card-content">
-                                <h3 class="stack-card-title">
-                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                                </h3>
-
-                                <div class="stack-card-desc">
-                                    <?php 
-                                    if (has_excerpt()) {
-                                        the_excerpt();
-                                    } else {
-                                        echo wp_trim_words(get_the_content(), 28);
-                                    }
-                                    ?>
-                                </div>
-
-                                <?php if (!empty($pills_array)) : ?>
-                                    <div class="stack-card-pills">
-                                        <?php foreach ($pills_array as $pill) : ?>
-                                            <span class="stack-pill">
-                                                <svg class="pill-check" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                                <?php echo esc_html($pill); ?>
-                                            </span>
-                                        <?php endforeach; ?>
-                                    </div>
-                                <?php endif; ?>
-
-                                <?php if (!empty($metric_val)) : ?>
-                                    <div class="stack-card-metric">
-                                        <div class="metric-number"><?php echo esc_html($metric_val); ?></div>
-                                        <?php if (!empty($metric_lbl)) : ?>
-                                            <div class="metric-label"><?php echo esc_html($metric_lbl); ?></div>
-                                        <?php endif; ?>
-                                    </div>
-                                <?php endif; ?>
+                            <div class="stack-card-desc">
+                                <p><?php echo esc_html($card['desc']); ?></p>
                             </div>
 
-                            <!-- Right Visual Column -->
-                            <div class="stack-card-visual-wrap">
-                                <a href="<?php the_permalink(); ?>" class="stack-card-visual-link" title="<?php the_title_attribute(); ?>">
-                                    <img 
-                                        src="<?php echo esc_url($thumb_url); ?>" 
-                                        alt="<?php the_title_attribute(); ?>" 
-                                        class="stack-card-img"
-                                        loading="lazy"
-                                    />
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                    <?php
-                    $card_index++;
-                endwhile;
-                wp_reset_postdata();
-
-            else :
-                // 2. High-Fidelity Default Showcase Cards (Google Blue, Google Pink, Google Green)
-                $default_cards = array(
-                    array(
-                        'color'      => 'blue',
-                        'icon'       => 'video',
-                        'title'      => __('UGC video production', 'sarmadgardezi'),
-                        'desc'       => __('We source, brief, and deliver creator videos that feel native to the platform. Every video is built around your audience, not a production checklist designed to perform, not just look good.', 'sarmadgardezi'),
-                        'pills'      => array(__('Creator sourcing', 'sarmadgardezi'), __('Full brief included', 'sarmadgardezi'), __('Unlimited revisions', 'sarmadgardezi')),
-                        'metric_val' => '1,200+',
-                        'metric_lbl' => __('Videos delivered', 'sarmadgardezi'),
-                        'image'      => 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=900&h=650&fit=crop',
-                        'link'       => home_url('/projects/'),
-                    ),
-                    array(
-                        'color'      => 'pink',
-                        'icon'       => 'user',
-                        'title'      => __('Creator campaign strategy', 'sarmadgardezi'),
-                        'desc'       => __("We don't just find creators we match them to your niche, test multiple hooks, and build storytelling frameworks that scale what works. Data drives every decision, not gut feeling.", 'sarmadgardezi'),
-                        'pills'      => array(__('Niche matching', 'sarmadgardezi'), __('Hook testing', 'sarmadgardezi'), __('Weekly iteration', 'sarmadgardezi')),
-                        'metric_val' => '50M+',
-                        'metric_lbl' => __('Organic views', 'sarmadgardezi'),
-                        'image'      => 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=900&h=650&fit=crop',
-                        'link'       => home_url('/projects/'),
-                    ),
-                    array(
-                        'color'      => 'green',
-                        'icon'       => 'chart',
-                        'title'      => __('Paid ad scaling & optimization', 'sarmadgardezi'),
-                        'desc'       => __('High-converting creative variations deployed across TikTok, Instagram, and YouTube Shorts with continuous A/B testing, hook iteration, and algorithmic distribution.', 'sarmadgardezi'),
-                        'pills'      => array(__('Multi-platform testing', 'sarmadgardezi'), __('Creative fatigue defense', 'sarmadgardezi'), __('High ROAS framework', 'sarmadgardezi')),
-                        'metric_val' => '4.8x',
-                        'metric_lbl' => __('Average ROAS', 'sarmadgardezi'),
-                        'image'      => 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=900&h=650&fit=crop',
-                        'link'       => home_url('/projects/'),
-                    ),
-                );
-
-                foreach ($default_cards as $idx => $card) :
-                    ?>
-                    <article 
-                        class="portfolio-stack-card card-color-<?php echo esc_attr($card['color']); ?>"
-                        style="--card-index: <?php echo esc_attr($idx); ?>;"
-                    >
-                        <!-- Top-Right Dark Icon Bubble -->
-                        <div class="stack-card-icon-badge" aria-hidden="true">
-                            <?php echo sarmadgardezi_render_card_icon($card['icon']); ?>
-                        </div>
-
-                        <!-- Card Content Grid -->
-                        <div class="stack-card-grid">
-                            <!-- Left Details Column -->
-                            <div class="stack-card-content">
-                                <h3 class="stack-card-title">
-                                    <a href="<?php echo esc_url($card['link']); ?>"><?php echo esc_html($card['title']); ?></a>
-                                </h3>
-
-                                <div class="stack-card-desc">
-                                    <p><?php echo esc_html($card['desc']); ?></p>
-                                </div>
-
+                            <?php if (!empty($card['pills'])) : ?>
                                 <div class="stack-card-pills">
                                     <?php foreach ($card['pills'] as $pill) : ?>
                                         <span class="stack-pill">
@@ -247,30 +265,32 @@ function sarmadgardezi_render_card_icon($icon_key) {
                                         </span>
                                     <?php endforeach; ?>
                                 </div>
+                            <?php endif; ?>
 
+                            <?php if (!empty($card['metric_val'])) : ?>
                                 <div class="stack-card-metric">
                                     <div class="metric-number"><?php echo esc_html($card['metric_val']); ?></div>
-                                    <div class="metric-label"><?php echo esc_html($card['metric_lbl']); ?></div>
+                                    <?php if (!empty($card['metric_lbl'])) : ?>
+                                        <div class="metric-label"><?php echo esc_html($card['metric_lbl']); ?></div>
+                                    <?php endif; ?>
                                 </div>
-                            </div>
-
-                            <!-- Right Visual Column -->
-                            <div class="stack-card-visual-wrap">
-                                <a href="<?php echo esc_url($card['link']); ?>" class="stack-card-visual-link" title="<?php echo esc_attr($card['title']); ?>">
-                                    <img 
-                                        src="<?php echo esc_url($card['image']); ?>" 
-                                        alt="<?php echo esc_attr($card['title']); ?>" 
-                                        class="stack-card-img"
-                                        loading="lazy"
-                                    />
-                                </a>
-                            </div>
+                            <?php endif; ?>
                         </div>
-                    </article>
-                    <?php
-                endforeach;
-            endif;
-            ?>
+
+                        <!-- Right Visual Column -->
+                        <div class="stack-card-visual-wrap">
+                            <a href="<?php echo esc_url($card['link']); ?>" class="stack-card-visual-link" title="<?php echo esc_attr($card['title']); ?>">
+                                <img 
+                                    src="<?php echo esc_url($card['image']); ?>" 
+                                    alt="<?php echo esc_attr($card['title']); ?>" 
+                                    class="stack-card-img"
+                                    loading="lazy"
+                                />
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            <?php endforeach; ?>
         </div>
 
     </div>
