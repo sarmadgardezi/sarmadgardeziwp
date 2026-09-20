@@ -514,9 +514,19 @@
   }
 }
 
-.brands-inner-wrapper {
+.brands-boxed-container {
   width: 100%;
-  margin: 0 auto;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  box-sizing: border-box;
+
+  @include respond-to('md') {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 .brands-header-title {

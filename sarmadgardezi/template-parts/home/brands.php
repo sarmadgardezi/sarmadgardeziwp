@@ -35,7 +35,15 @@ if (function_exists('get_field')) {
     // 1. Try ACF repeater from current page / front page
     $acf_brands = get_field('brand_logos');
 
-    // 2. Try ACF repeater from options page
+    // 2. Try explicit front page ID
+    if (empty($acf_brands)) {
+        $front_page_id = get_option('page_on_front');
+        if ($front_page_id) {
+            $acf_brands = get_field('brand_logos', $front_page_id);
+        }
+    }
+
+    // 3. Try ACF repeater from options page
     if (empty($acf_brands)) {
         $acf_brands = get_field('brand_logos', 'option');
     }
@@ -57,6 +65,9 @@ if (function_exists('get_field')) {
                     if ($img_src && !empty($img_src[0])) {
                         $logo_url = $img_src[0];
                     }
+                    if (empty($alt_text)) {
+                        $alt_text = get_post_meta($brand['brand_logo'], '_wp_attachment_image_alt', true);
+                    }
                 } elseif (is_string($brand['brand_logo'])) {
                     $logo_url = $brand['brand_logo'];
                 }
@@ -65,7 +76,7 @@ if (function_exists('get_field')) {
             if (!empty($logo_url)) {
                 $brand_items[] = array(
                     'url'  => $logo_url,
-                    'name' => $alt_text,
+                    'name' => !empty($alt_text) ? $alt_text : __('Client Brand', 'sarmadgardezi'),
                     'link' => $link_url,
                 );
             }
@@ -116,7 +127,7 @@ while (count($repeated_items) < 8) {
 ?>
 
 <section class="hero-brands-section" aria-label="<?php echo esc_attr($section_title); ?>">
-    <div class="brands-inner-wrapper">
+    <div class="brands-boxed-container">
         <?php if (!empty($section_title)) : ?>
             <p class="brands-header-title">
                 <?php echo esc_html($section_title); ?>

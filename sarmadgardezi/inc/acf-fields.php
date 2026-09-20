@@ -10,17 +10,19 @@
 defined('ABSPATH') || exit;
 
 /**
- * Register ACF Options Page for Site Brands & Hero Settings if ACF Pro is active.
+ * Register ACF Options Page for Site Brands & Settings if ACF Pro is active.
  */
 add_action('acf/init', 'sarmadgardezi_register_acf_options_page');
 function sarmadgardezi_register_acf_options_page() {
-    if (function_exists('acf_add_options_sub_page')) {
-        acf_add_options_sub_page(array(
-            'page_title'  => __('Brands & Teams Marquee', 'sarmadgardezi'),
+    if (function_exists('acf_add_options_page')) {
+        acf_add_options_page(array(
+            'page_title'  => __('Brands Marquee Settings', 'sarmadgardezi'),
             'menu_title'  => __('Brands Marquee', 'sarmadgardezi'),
-            'parent_slug' => 'themes.php',
             'menu_slug'   => 'sarmadgardezi-brands',
             'capability'  => 'edit_theme_options',
+            'icon_url'    => 'dashicons-images-alt2',
+            'position'    => 58,
+            'redirect'    => false,
         ));
     }
 }
@@ -42,26 +44,62 @@ function sarmadgardezi_register_brands_acf_fields() {
     }
     $registered = true;
 
+    $front_page_id = get_option('page_on_front');
+
+    $location_rules = array(
+        array(
+            array(
+                'param' => 'page_type',
+                'operator' => '==',
+                'value' => 'front_page',
+            ),
+        ),
+        array(
+            array(
+                'param' => 'page_template',
+                'operator' => '==',
+                'value' => 'front-page.php',
+            ),
+        ),
+        array(
+            array(
+                'param' => 'options_page',
+                'operator' => '==',
+                'value' => 'sarmadgardezi-brands',
+            ),
+        ),
+    );
+
+    if ($front_page_id) {
+        $location_rules[] = array(
+            array(
+                'param' => 'post',
+                'operator' => '==',
+                'value' => (string) $front_page_id,
+            ),
+        );
+    }
+
     acf_add_local_field_group(array(
         'key' => 'group_sarmadgardezi_brands_marquee',
-        'title' => __('Front Page — Brands & Teams Marquee', 'sarmadgardezi'),
+        'title' => __('Front Page — Brands & Companies Marquee', 'sarmadgardezi'),
         'fields' => array(
             array(
                 'key' => 'field_brands_section_title',
                 'label' => __('Section Title / Heading', 'sarmadgardezi'),
                 'name' => 'brands_section_title',
                 'type' => 'text',
-                'instructions' => __('The small uppercase heading displayed above the scrolling logos.', 'sarmadgardezi'),
+                'instructions' => __('Heading displayed above the scrolling logos (leave blank for default).', 'sarmadgardezi'),
                 'required' => 0,
-                'default_value' => 'I HAVE WORKED WITH TEAMS AT',
-                'placeholder' => 'I HAVE WORKED WITH TEAMS AT',
+                'default_value' => 'Trusted by these amazing companies',
+                'placeholder' => 'Trusted by these amazing companies',
             ),
             array(
                 'key' => 'field_brand_logos',
                 'label' => __('Brand Logos', 'sarmadgardezi'),
                 'name' => 'brand_logos',
                 'type' => 'repeater',
-                'instructions' => __('Upload brand logos to display in the continuous infinite marquee. On hover, the marquee automatically pauses.', 'sarmadgardezi'),
+                'instructions' => __('Upload your custom brand logos. If left empty, default showcase logos will automatically be displayed.', 'sarmadgardezi'),
                 'required' => 0,
                 'collapsed' => 'field_brand_name',
                 'min' => 0,
@@ -74,7 +112,7 @@ function sarmadgardezi_register_brands_acf_fields() {
                         'label' => __('Logo Image', 'sarmadgardezi'),
                         'name' => 'brand_logo',
                         'type' => 'image',
-                        'instructions' => __('SVG or transparent PNG recommended (min 120px wide).', 'sarmadgardezi'),
+                        'instructions' => __('SVG or transparent PNG recommended.', 'sarmadgardezi'),
                         'required' => 1,
                         'return_format' => 'array',
                         'preview_size' => 'medium',
@@ -87,7 +125,7 @@ function sarmadgardezi_register_brands_acf_fields() {
                         'type' => 'text',
                         'instructions' => __('Used for accessibility (alt text).', 'sarmadgardezi'),
                         'required' => 0,
-                        'placeholder' => 'e.g. Google, Sony, Flipkart',
+                        'placeholder' => 'e.g. Clickl, Piab, Design Cuebe, Ahlsell',
                     ),
                     array(
                         'key' => 'field_brand_url',
@@ -101,22 +139,7 @@ function sarmadgardezi_register_brands_acf_fields() {
                 ),
             ),
         ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'page_type',
-                    'operator' => '==',
-                    'value' => 'front_page',
-                ),
-            ),
-            array(
-                array(
-                    'param' => 'options_page',
-                    'operator' => '==',
-                    'value' => 'sarmadgardezi-brands',
-                ),
-            ),
-        ),
+        'location' => $location_rules,
         'menu_order' => 5,
         'position' => 'normal',
         'style' => 'default',
