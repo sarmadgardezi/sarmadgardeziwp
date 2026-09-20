@@ -78,3 +78,30 @@ function sarmadgardezi_content_width() {
     $GLOBALS['content_width'] = apply_filters('sarmadgardezi_content_width', 1200);
 }
 add_action('after_setup_theme', 'sarmadgardezi_content_width', 0);
+
+/**
+ * Register widget sidebars.
+ */
+function sarmadgardezi_widgets_init() {
+    register_sidebar(array(
+        'name'          => esc_html__('Blog Sidebar', 'sarmadgardezi'),
+        'id'            => 'sidebar-1',
+        'description'   => esc_html__('Add widgets here to appear in your single blog posts and article pages.', 'sarmadgardezi'),
+        'before_widget' => '<section id="%1$s" class="widget %2$s glass-card">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ));
+
+    register_sidebar(array(
+        'name'          => esc_html__('Footer Widgets', 'sarmadgardezi'),
+        'id'            => 'sidebar-footer',
+        'description'   => esc_html__('Add widgets here to appear in your footer area.', 'sarmadgardezi'),
+        'before_widget' => '<div id="%1$s" class="footer-widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h4 class="footer-widget-title">',
+        'after_title'   => '</h4>',
+    ));
+}
+add_action('widgets_init', 'sarmadgardezi_widgets_init');
+
