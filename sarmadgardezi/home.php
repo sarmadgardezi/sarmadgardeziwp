@@ -19,14 +19,15 @@ get_header();
 
 // Fetch blog page settings / ACF if configured, with high-fidelity defaults
 $blog_page_id = get_option('page_for_posts');
-$eyebrow_text = 'Tech & Engineering Notes';
-$page_title   = 'Sarmad Gardezi';
-$page_desc    = 'Engineering notes, practical AI guides, and cloud architecture solutions. Writing and building since 2012.';
+$eyebrow_text = 'BLOG';
+$title_line_1 = 'Crafting Code';
+$title_line_2 = 'and Content.';
+$page_desc    = "A Senior Software Engineer's blog on Google Cloud, Firebase, AI, and practical career advice. Learn with me.";
 
-$intro_p1 = "Welcome to my technical journal. I'm Sarmad Gardezi — a Senior Software Engineer, Google Speaker, and Cloud Architect. I started blogging and sharing software tutorials back in 2012, helping developers and engineering teams build resilient, production-ready systems.";
-$intro_p2 = "Here you'll find deep dives into Agentic AI workflows, Google Cloud infrastructure, system design, high-performance web applications, and developer productivity hacks designed to help you build and scale faster.";
+$intro_p1 = "I'm a Senior Software Engineer, Google Speaker, and Cloud Architect. I started blogging and sharing software tutorials back in 2012, helping developers and engineering teams build resilient, production-ready systems.";
+$intro_p2 = "Here I share my hands-on experience with Agentic AI workflows, Google Cloud infrastructure, system design, high-performance web applications, and developer productivity hacks designed to help you build and scale faster.";
 
-$quote_text     = '"Practical and production-tested. Real engineering insights, no generic fluff. Just proven solutions and architecture patterns you can rely on."';
+$quote_text     = '"Independent, practical, and production-tested. No sponsored content, no paid hype. Just honest tech guidance and engineering solutions you can trust."';
 $author_name    = 'Sarmad Gardezi';
 $author_handle  = '@sarmadgardezi';
 $author_title   = 'Senior Software Engineer & Cloud Architect';
@@ -38,7 +39,7 @@ if (function_exists('get_field') && $blog_page_id) {
     if (!empty($custom_eyebrow)) $eyebrow_text = $custom_eyebrow;
 
     $custom_title = get_field('blog_heading', $blog_page_id);
-    if (!empty($custom_title)) $page_title = $custom_title;
+    if (!empty($custom_title)) $title_line_1 = $custom_title;
 
     $custom_desc = get_field('blog_subtitle', $blog_page_id);
     if (!empty($custom_desc)) $page_desc = $custom_desc;
@@ -55,61 +56,59 @@ if (function_exists('get_field') && $blog_page_id) {
 ?>
 
 <main id="main-content" class="site-main site-digital-blog-main">
-    
-    <!-- Top Ambient Radial Glow -->
-    <div class="blog-ambient-glow" aria-hidden="true"></div>
 
     <div class="site-container digital-blog-container">
 
-        <!-- Top Header & Editorial Intro Block -->
-        <header class="digital-blog-hero">
+        <!-- Centered Header Hero Section matching reference -->
+        <header class="blog-craft-hero">
+            <span class="blog-craft-tag"><?php echo esc_html($eyebrow_text); ?></span>
             
-            <div class="blog-hero-top">
-                <span class="blog-eyebrow-pink"><?php echo esc_html($eyebrow_text); ?></span>
-                <h1 class="blog-main-title"><?php echo esc_html($page_title); ?></h1>
-                <p class="blog-main-subtitle"><?php echo esc_html($page_desc); ?></p>
+            <h1 class="blog-craft-title">
+                <span class="title-dark"><?php echo esc_html($title_line_1); ?></span>
+                <span class="title-muted"><?php echo esc_html($title_line_2); ?></span>
+            </h1>
+
+            <p class="blog-craft-subtitle"><?php echo esc_html($page_desc); ?></p>
+        </header>
+
+        <!-- Two-Column Editorial Intro & Philosophy Quote -->
+        <div class="blog-editorial-intro-grid">
+            
+            <!-- Left Column: Narrative paragraphs in first-person -->
+            <div class="intro-text-col">
+                <p class="intro-paragraph"><?php echo esc_html($intro_p1); ?></p>
+                <p class="intro-paragraph"><?php echo esc_html($intro_p2); ?></p>
             </div>
 
-            <!-- Two-Column Editorial Intro -->
-            <div class="blog-editorial-intro-grid">
-                
-                <!-- Left Column: Narrative paragraphs -->
-                <div class="intro-text-col">
-                    <p class="intro-paragraph"><?php echo esc_html($intro_p1); ?></p>
-                    <p class="intro-paragraph"><?php echo esc_html($intro_p2); ?></p>
-                </div>
-
-                <!-- Right Column: Philosophy Quote Card -->
-                <div class="intro-quote-col">
-                    <div class="philosophy-quote-card">
-                        <blockquote class="quote-text">
-                            <?php echo esc_html($quote_text); ?>
-                        </blockquote>
-                        
-                        <div class="quote-author-row">
-                            <img 
-                                src="<?php echo esc_url($author_avatar); ?>" 
-                                alt="<?php echo esc_attr($author_name); ?>" 
-                                class="quote-avatar-img"
-                                width="44"
-                                height="44"
-                                loading="lazy"
-                                onerror="this.onerror=null;this.src='/wp-content/uploads/2026/09/sarmadgardezi-google-2026.webp';"
-                            />
-                            <div class="quote-author-info">
-                                <span class="author-name-handle">
-                                    <strong><?php echo esc_html($author_name); ?></strong>
-                                    <span class="author-handle"><?php echo esc_html($author_handle); ?></span>
-                                </span>
-                                <span class="author-role"><?php echo esc_html($author_title); ?></span>
-                            </div>
+            <!-- Right Column: Philosophy Quote Card -->
+            <div class="intro-quote-col">
+                <div class="philosophy-quote-card">
+                    <blockquote class="quote-text">
+                        <?php echo esc_html($quote_text); ?>
+                    </blockquote>
+                    
+                    <div class="quote-author-row">
+                        <img 
+                            src="<?php echo esc_url($author_avatar); ?>" 
+                            alt="<?php echo esc_attr($author_name); ?>" 
+                            class="quote-avatar-img"
+                            width="44"
+                            height="44"
+                            loading="lazy"
+                            onerror="this.onerror=null;this.src='/wp-content/uploads/2026/09/sarmadgardezi-google-2026.webp';"
+                        />
+                        <div class="quote-author-info">
+                            <span class="author-name-handle">
+                                <strong><?php echo esc_html($author_name); ?></strong>
+                                <span class="author-handle"><?php echo esc_html($author_handle); ?></span>
+                            </span>
+                            <span class="author-role"><?php echo esc_html($author_title); ?></span>
                         </div>
                     </div>
                 </div>
-
             </div>
 
-        </header>
+        </div>
 
         <!-- Divider Line -->
         <hr class="digital-blog-divider" />

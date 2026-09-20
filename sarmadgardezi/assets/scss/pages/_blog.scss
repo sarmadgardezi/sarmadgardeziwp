@@ -7,7 +7,7 @@
 // --------------------------------------------------------------------------
 
 .site-digital-blog-main {
-  background-color: #ffffff;
+  background-color: transparent;
   position: relative;
   overflow: hidden;
   padding-top: 3.5rem;
@@ -20,24 +20,6 @@
   }
 }
 
-// Top Ambient Radial Glow matching reference
-.blog-ambient-glow {
-  position: absolute;
-  top: -100px;
-  right: -80px;
-  width: 650px;
-  height: 650px;
-  background: radial-gradient(
-    circle,
-    rgba(244, 114, 182, 0.22) 0%,
-    rgba(216, 180, 254, 0.16) 35%,
-    rgba(255, 255, 255, 0) 70%
-  );
-  pointer-events: none;
-  z-index: 0;
-  filter: blur(50px);
-}
-
 .digital-blog-container {
   max-width: 980px;
   margin: 0 auto;
@@ -47,46 +29,56 @@
   z-index: 1;
 }
 
-// Top Hero Block
-.digital-blog-hero {
-  margin-bottom: 2rem;
+// Centered Hero Header ("Crafting Code and Content.")
+.blog-craft-hero {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 3rem;
 
-  .blog-hero-top {
-    margin-bottom: 2.25rem;
+  @include respond-to('md') {
+    margin: 0 auto 4rem;
+  }
 
-    @include respond-to('md') {
-      margin-bottom: 2.75rem;
+  .blog-craft-tag {
+    display: inline-block;
+    font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #71717a;
+    margin-bottom: 1.25rem;
+  }
+
+  .blog-craft-title {
+    font-family: var(--framer-font-family-bold, 'Google Sans Flex', -apple-system, sans-serif);
+    font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    margin: 0 0 1.35rem 0;
+
+    .title-dark {
+      display: block;
+      color: #111827;
+    }
+
+    .title-muted {
+      display: block;
+      color: #71717a;
+      font-weight: 800;
+      margin-top: 0.15rem;
     }
   }
 
-  .blog-eyebrow-pink {
-    display: inline-block;
-    color: #e11d48;
-    font-family: var(--framer-font-family-bold, 'Google Sans Flex', sans-serif);
-    font-size: 0.8125rem;
-    font-weight: 700;
-    margin-bottom: 0.65rem;
-    letter-spacing: -0.01em;
-  }
-
-  .blog-main-title {
-    font-family: var(--framer-font-family-bold, 'Google Sans Flex', -apple-system, sans-serif);
-    font-size: clamp(2.4rem, 5vw, 3.8rem);
-    font-weight: 900;
-    line-height: 1.08;
-    color: #111827;
-    letter-spacing: -0.04em;
-    margin: 0 0 1rem 0;
-  }
-
-  .blog-main-subtitle {
+  .blog-craft-subtitle {
     font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
-    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+    font-size: clamp(1.05rem, 1.5vw, 1.1875rem);
     font-weight: 500;
     color: #4b5563;
-    line-height: 1.5;
+    line-height: 1.6;
     max-width: 640px;
-    margin: 0;
+    margin: 0 auto;
     letter-spacing: -0.015em;
   }
 }
