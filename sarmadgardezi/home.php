@@ -19,18 +19,18 @@ get_header();
 
 // Fetch blog page settings / ACF if configured, with high-fidelity defaults
 $blog_page_id = get_option('page_for_posts');
-$eyebrow_text = 'Tech à la carte';
-$page_title   = 'Digital Inspiration';
-$page_desc    = 'Trusted tech guides and practical software tools. Helping millions work smarter since 2004.';
+$eyebrow_text = 'Tech & Engineering Notes';
+$page_title   = 'Sarmad Gardezi';
+$page_desc    = 'Engineering notes, practical AI guides, and cloud architecture solutions. Writing and building since 2012.';
 
-$intro_p1 = "Digital Inspiration is your go-to resource for mastering Google apps and modern productivity tools. Created by Google Developer Expert Amit Agarwal, we've been helping millions of users since 2004 with clear, practical guides that turn complex technology into simple solutions.";
-$intro_p2 = "Automate your workflow with Google Sheets, streamline your inbox with custom Gmail routines, build powerful no-code workflows, or master the latest tech trends. Our popular Google Apps Script solutions save you time and make you more productive.";
+$intro_p1 = "Welcome to my technical journal. I'm Sarmad Gardezi — a Senior Software Engineer, Google Speaker, and Cloud Architect. I started blogging and sharing software tutorials back in 2012, helping developers and engineering teams build resilient, production-ready systems.";
+$intro_p2 = "Here you'll find deep dives into Agentic AI workflows, Google Cloud infrastructure, system design, high-performance web applications, and developer productivity hacks designed to help you build and scale faster.";
 
-$quote_text     = '"Independent and unbiased. No sponsored content, no paid endorsements, no brand partnerships. Just honest tech guidance you can trust."';
-$author_name    = 'Amit Agarwal';
-$author_handle  = '@labnol';
-$author_title   = 'Founder, Digital Inspiration';
-$author_avatar  = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&h=120&fit=crop&crop=faces';
+$quote_text     = '"Practical and production-tested. Real engineering insights, no generic fluff. Just proven solutions and architecture patterns you can rely on."';
+$author_name    = 'Sarmad Gardezi';
+$author_handle  = '@sarmadgardezi';
+$author_title   = 'Senior Software Engineer & Cloud Architect';
+$author_avatar  = content_url('/uploads/2026/09/sarmadgardezi-google-2026.webp');
 
 // Support ACF overrides if available
 if (function_exists('get_field') && $blog_page_id) {
@@ -94,6 +94,7 @@ if (function_exists('get_field') && $blog_page_id) {
                                 width="44"
                                 height="44"
                                 loading="lazy"
+                                onerror="this.onerror=null;this.src='/wp-content/uploads/2026/09/sarmadgardezi-google-2026.webp';"
                             />
                             <div class="quote-author-info">
                                 <span class="author-name-handle">
