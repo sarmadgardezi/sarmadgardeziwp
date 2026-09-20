@@ -33,7 +33,6 @@ if (function_exists('get_field')) {
 $overlay_lines = array(
     'GOOGLE TALKS.',
     'GLOBAL HACKATHONS.',
-    'PROVEN RESULTS.',
 );
 
 // Main Metric
