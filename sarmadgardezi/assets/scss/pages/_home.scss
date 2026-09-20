@@ -662,193 +662,322 @@
 }
 
 // --------------------------------------------------------------------------
-// 3. About / Philosophy Section (Statement Headline, Photo Card & Narrative)
+// 3. Numbers & Impact Showcase Section ("By the numbers")
 // --------------------------------------------------------------------------
 
-.about-philosophy-section {
-  padding: 5rem 0 6rem;
-  background-color: #ffffff;
-  position: relative;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-
-  @include respond-to('md') {
-    padding: 7rem 0 8.5rem;
-  }
-}
-
-.about-philosophy-container {
-  max-width: 1140px;
-  margin: 0 auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
-// Big Statement Headline
-.about-statement-header {
-  margin-bottom: 3.5rem;
-
-  @include respond-to('md') {
-    margin-bottom: 4.5rem;
-  }
-}
-
-.about-statement-title {
-  font-family: var(--framer-font-family-bold, #{$font-sans});
-  font-size: clamp(2.4rem, 5.5vw, 4.4rem);
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.035em;
-  margin: 0;
-
-  .title-lead {
-    display: block;
-    color: #71717a; // Elegant muted gray matching reference screenshot
-  }
-
-  .title-accent {
-    display: block;
-    color: #111827; // Crisp dark black commanding emphasis
-  }
-}
-
-// Two-Column Grid: Photo & Details on Left, Narrative on Right
-.about-editorial-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-
-  @include respond-to('md') {
-    display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 3.5rem;
-    align-items: flex-start;
-  }
-
-  @include respond-to('lg') {
-    grid-template-columns: 360px 1fr;
-    gap: 4.5rem;
-  }
-}
-
-// Left Column: Photo Card
-.about-profile-col {
-  display: flex;
-  flex-direction: column;
-  max-width: 380px;
-}
-
-.about-photo-card {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 4.6;
-  border-radius: 24px;
-  overflow: hidden;
+.numbers-impact-section {
+  padding: 4.5rem 1.5rem 4.5rem;
   background-color: #f3f4f6;
-  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 22px 50px -10px rgba(0, 0, 0, 0.12), 0 8px 20px rgba(0, 0, 0, 0.04);
-  }
-
-  .about-photo-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 15%;
-    display: block;
-  }
-}
-
-// Floating Social Media Pill inside Photo
-.about-card-socials {
-  position: absolute;
-  bottom: 14px;
-  right: 14px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 8px;
-  border-radius: 9999px;
-  background: rgba(15, 23, 42, 0.72);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  z-index: 5;
-}
-
-.social-icon-bubble {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #f1f5f9;
-  text-decoration: none;
-  background: rgba(255, 255, 255, 0.12);
-  transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease;
-
-  &:hover {
-    background: #0ea5e9; // Subtle light blue on hover
-    color: #ffffff;
-    transform: scale(1.1);
-  }
-
-  svg {
-    display: block;
-  }
-}
-
-// Profile Info under Photo
-.about-profile-meta {
-  margin-top: 1.25rem;
-}
-
-.about-profile-name {
-  font-family: var(--framer-font-family-bold, #{$font-sans});
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #111827; // Crisp dark black
-  margin: 0 0 0.35rem 0;
-  letter-spacing: -0.02em;
-}
-
-.about-profile-role {
-  font-family: $font-sans;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: #64748b; // Muted dark slate
-  margin: 0;
-  letter-spacing: -0.01em;
-  line-height: 1.4;
-}
-
-// Right Column: Editorial Narrative
-.about-narrative-col {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  position: relative;
+  overflow: hidden;
 
   @include respond-to('md') {
-    gap: 2.25rem;
-    padding-top: 0.5rem;
+    padding: 5.5rem 2rem 5.5rem;
   }
-}
 
-.about-narrative-paragraph {
-  font-family: $font-sans;
-  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
-  line-height: 1.65;
-  color: #4b5563; // Clean readable slate
-  margin: 0;
-  letter-spacing: -0.01em;
+  .numbers-impact-container {
+    width: 100%;
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-  .highlight-accent {
-    color: #111827; // Rich deep black emphasis instead of blue
-    font-weight: 700;
+  // Two-Column Grid: Left Photo Card & Right Stats Card
+  .numbers-impact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    align-items: stretch;
+
+    @include respond-to('md') {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    @include respond-to('lg') {
+      gap: 2.5rem;
+    }
+  }
+
+  // Left Card: Photo Card with Bottom Dark Vignette & Big Bold Typography
+  .impact-photo-card {
+    position: relative;
+    width: 100%;
+    min-height: 440px;
+    border-radius: 28px;
+    overflow: hidden;
+    background-color: #1a1a1a;
+    box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.08);
+
+    @include respond-to('md') {
+      min-height: 520px;
+      border-radius: 32px;
+    }
+
+    .impact-photo-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    &:hover .impact-photo-img {
+      transform: scale(1.03);
+    }
+
+    .impact-gradient-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.82) 0%,
+        rgba(0, 0, 0, 0.45) 35%,
+        rgba(0, 0, 0, 0.1) 60%,
+        transparent 80%
+      );
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .impact-overlay-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem 1.75rem;
+      z-index: 3;
+
+      @include respond-to('md') {
+        padding: 2.75rem 2.25rem;
+      }
+    }
+
+    .impact-overlay-title {
+      font-family: var(--framer-font-family-bold, 'Google Sans Flex', -apple-system, sans-serif);
+      font-size: clamp(2rem, 3.4vw, 2.85rem);
+      font-weight: 900;
+      line-height: 1.06;
+      letter-spacing: -0.035em;
+      color: #ffffff;
+      margin: 0;
+      text-transform: uppercase;
+      text-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
+
+      .impact-title-line {
+        display: block;
+      }
+    }
+  }
+
+  // Right Card: White Numbers Card
+  .impact-numbers-card {
+    background-color: #ffffff;
+    border-radius: 28px;
+    padding: 2.25rem 1.75rem 2rem;
+    box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include respond-to('md') {
+      border-radius: 32px;
+      padding: 2.75rem 2.75rem 2.25rem;
+    }
+
+    // Top Pill Badge
+    .numbers-pill-badge-wrap {
+      text-align: center;
+      margin-bottom: 1.5rem;
+
+      @include respond-to('md') {
+        margin-bottom: 1.75rem;
+      }
+    }
+
+    .numbers-pill-badge {
+      display: inline-block;
+      background-color: #f3f4f6;
+      border: 1px solid #e5e7eb;
+      color: #374151;
+      font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      padding: 5px 16px;
+      border-radius: 9999px;
+    }
+
+    // Main Metric
+    .numbers-main-metric {
+      text-align: center;
+      margin-bottom: 2rem;
+
+      @include respond-to('md') {
+        margin-bottom: 2.5rem;
+      }
+
+      .main-metric-value {
+        font-family: var(--framer-font-family-bold, 'Google Sans Flex', -apple-system, sans-serif);
+        font-size: clamp(3.4rem, 5.2vw, 4.75rem);
+        font-weight: 900;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        color: #111827;
+
+        .metric-accent-purple {
+          color: #8b5cf6;
+          margin-left: 2px;
+        }
+      }
+
+      .main-metric-label {
+        font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+        font-size: 0.9375rem;
+        font-weight: 700;
+        color: #27272a;
+        margin: 0.75rem 0 0;
+        letter-spacing: -0.015em;
+      }
+    }
+
+    // Breakdown Rows
+    .numbers-rows-list {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    .numbers-row-item {
+      display: flex;
+      align-items: center;
+      padding: 1.125rem 0;
+      border-bottom: 1px solid #f1f5f9;
+
+      &:last-child {
+        border-bottom: none;
+        padding-bottom: 0.5rem;
+      }
+
+      .row-value-col {
+        width: 125px;
+        flex-shrink: 0;
+        font-family: var(--framer-font-family-bold, 'Google Sans Flex', -apple-system, sans-serif);
+        font-size: clamp(2rem, 2.6vw, 2.5rem);
+        font-weight: 900;
+        line-height: 1;
+        letter-spacing: -0.035em;
+        color: #111827;
+
+        @include respond-to('md') {
+          width: 140px;
+        }
+
+        .row-accent {
+          font-weight: 900;
+        }
+      }
+
+      .row-text-col {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .row-heading {
+          font-family: var(--framer-font-family-bold, 'Google Sans Flex', sans-serif);
+          font-size: 0.9375rem;
+          font-weight: 700;
+          color: #111827;
+          margin: 0 0 2px 0;
+          letter-spacing: -0.01em;
+          line-height: 1.3;
+        }
+
+        .row-subtext {
+          font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+          font-size: 0.8125rem;
+          font-weight: 500;
+          color: #6b7280;
+          margin: 0;
+          letter-spacing: -0.01em;
+          line-height: 1.35;
+        }
+      }
+    }
+  }
+
+  // Bottom Benefit Pills Row
+  .impact-pills-marquee-wrap {
+    margin-top: 2.25rem;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include respond-to('md') {
+      margin-top: 2.75rem;
+    }
+  }
+
+  .impact-pills-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+    min-width: max-content;
+
+    @include respond-to('md') {
+      min-width: 0;
+      gap: 0.75rem;
+    }
+  }
+
+  .impact-benefit-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #e5e7eb;
+    border-radius: 9999px;
+    padding: 6px 14px 6px 8px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+
+    &:hover {
+      background-color: #d1d5db;
+      transform: translateY(-1px);
+    }
+
+    .benefit-icon-circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background-color: #18181b;
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+
+      svg {
+        display: block;
+      }
+    }
+
+    .benefit-pill-text {
+      font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: #1f2937;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
   }
 }
 
