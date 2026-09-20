@@ -36,32 +36,32 @@ $overlay_lines = array(
 
 // Main Metric
 $main_badge  = 'By the numbers';
-$main_number = '50';
+$main_number = '70';
 $main_suffix = '+';
-$main_label  = 'Keynote talks, Google events & hackathons led globally.';
+$main_label  = 'Events, Google summits & buildathons organized and spoken at since 2017.';
 
 // Breakdown Rows
 $metric_rows = array(
     array(
-        'value'     => '15',
+        'value'     => '10',
         'suffix'    => '+',
         'color'     => '#3b82f6', // Google Blue
-        'title'     => __('Hackathons Won & Judged', 'sarmadgardezi'),
-        'desc'      => __('Global AI & Cloud buildathons.', 'sarmadgardezi'),
-    ),
-    array(
-        'value'     => '50',
-        'suffix'    => '+',
-        'color'     => '#eab308', // Google Yellow
-        'title'     => __('Google & Community Talks', 'sarmadgardezi'),
-        'desc'      => __('GDG Cloud, DevFests & Global Summits.', 'sarmadgardezi'),
+        'title'     => __('Keynote & Tech Talks', 'sarmadgardezi'),
+        'desc'      => __('Spoken at GDG DevFests, Cloud summits & global conferences.', 'sarmadgardezi'),
     ),
     array(
         'value'     => '25',
+        'suffix'    => '+',
+        'color'     => '#eab308', // Google Yellow
+        'title'     => __('Buildathons & Hackathons', 'sarmadgardezi'),
+        'desc'      => __('Successfully organized, mentored & judged across AI and Cloud.', 'sarmadgardezi'),
+    ),
+    array(
+        'value'     => '50',
         'suffix'    => 'K+',
         'color'     => '#10b981', // Google Green
-        'title'     => __('Engineers & Viewers Reached', 'sarmadgardezi'),
-        'desc'      => __('Tech talks, workshops & open-source.', 'sarmadgardezi'),
+        'title'     => __('Developers Guided on YouTube', 'sarmadgardezi'),
+        'desc'      => __('Hands-on tutorials, Agentic AI architectures & tech mentorship.', 'sarmadgardezi'),
     ),
 );
 
@@ -69,23 +69,23 @@ $metric_rows = array(
 $benefit_pills = array(
     array(
         'icon' => 'check',
-        'text' => __('Google Cloud Speaker & Architect', 'sarmadgardezi'),
+        'text' => __('GDG Cloud Islamabad Organizer (Since 2017)', 'sarmadgardezi'),
     ),
     array(
         'icon' => 'rocket',
-        'text' => __('GDG Cloud Islamabad Leader', 'sarmadgardezi'),
+        'text' => __('10+ Keynote & Technical Talks', 'sarmadgardezi'),
     ),
     array(
         'icon' => 'trophy',
-        'text' => __('Global Hackathon Judge & Mentor', 'sarmadgardezi'),
+        'text' => __('Successful Buildathons & Hackathons', 'sarmadgardezi'),
     ),
     array(
         'icon' => 'target',
-        'text' => __('Keynotes & Hands-on Workshops', 'sarmadgardezi'),
+        'text' => __('Guiding Tech Talent on YouTube', 'sarmadgardezi'),
     ),
     array(
         'icon' => 'bolt',
-        'text' => __('Scalable Agentic AI & Cloud Systems', 'sarmadgardezi'),
+        'text' => __('Scalable Agentic AI & Cloud Architecture', 'sarmadgardezi'),
     ),
 );
 ?>
