@@ -3489,8 +3489,14 @@ textarea::placeholder {
   transform: scale(1.04);
 }
 
+body.blog,
+body.page-template-page-blog,
 .site-digital-blog-main {
-  background-color: transparent;
+  background-color: #ffffff !important;
+}
+
+.site-digital-blog-main {
+  background-color: #ffffff;
   position: relative;
   overflow: hidden;
   padding-top: 3.5rem;
