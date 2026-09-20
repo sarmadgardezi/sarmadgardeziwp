@@ -31,8 +31,7 @@ if (function_exists('get_field')) {
 
 // Impact Overlay Lines
 $overlay_lines = array(
-    'GOOGLE TALKS.',
-    'GLOBAL HACKATHONS.',
+    'GOOGLER.',
 );
 
 // Main Metric
