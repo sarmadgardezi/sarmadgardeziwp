@@ -2,23 +2,27 @@
 /**
  * Template part for displaying the Results & Impact Showcase Section ("By the numbers")
  *
- * 100% matches the reference design:
- * - Left: Rounded photo card with bold impact overlay ("REAL GROWTH. REAL BRANDS. REAL RESULTS.")
- * - Right: "By the numbers" card featuring 1,200+ main stat & 3 rows (120+ Brands, 4.8X ROAS, 80M+ Views)
- * - Bottom: Seamless horizontal pills ticker with benefit badges
+ * Sarmad Gardezi - Google Achievements, Talks, Global Hackathons & Cloud Impact
  *
  * @package SarmadGardezi
  */
 
 defined('ABSPATH') || exit;
 
-// Dynamic / Editable content with high-fidelity defaults
-$visual_photo = 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1000&h=1000&fit=crop';
+// Photo URL with Sarmad Gardezi Google 2026 Photo default & ACF support
+$default_photo = content_url('/uploads/2026/09/sarmadgardezi-google-2026.webp');
+$visual_photo  = $default_photo;
+
 if (function_exists('get_field')) {
     $custom_photo = get_field('impact_photo');
     if (!empty($custom_photo)) {
         if (is_array($custom_photo) && !empty($custom_photo['url'])) {
             $visual_photo = $custom_photo['url'];
+        } elseif (is_numeric($custom_photo)) {
+            $img_src = wp_get_attachment_image_src($custom_photo, 'full');
+            if ($img_src) {
+                $visual_photo = $img_src[0];
+            }
         } elseif (is_string($custom_photo)) {
             $visual_photo = $custom_photo;
         }
@@ -27,39 +31,39 @@ if (function_exists('get_field')) {
 
 // Impact Overlay Lines
 $overlay_lines = array(
-    'REAL GROWTH.',
-    'REAL BRANDS.',
-    'REAL RESULTS.',
+    'GOOGLE TALKS.',
+    'GLOBAL HACKATHONS.',
+    'PROVEN RESULTS.',
 );
 
 // Main Metric
 $main_badge  = 'By the numbers';
-$main_number = '1,200';
+$main_number = '50';
 $main_suffix = '+';
-$main_label  = 'Videos delivered briefed, reviewed, approved.';
+$main_label  = 'Keynote talks, Google events & hackathons led globally.';
 
 // Breakdown Rows
 $metric_rows = array(
     array(
-        'value'     => '120',
+        'value'     => '15',
         'suffix'    => '+',
-        'color'     => '#3b82f6', // Blue
-        'title'     => __('Brands Served', 'sarmadgardezi'),
-        'desc'      => __('Every niche. Every platform.', 'sarmadgardezi'),
+        'color'     => '#3b82f6', // Google Blue
+        'title'     => __('Hackathons Won & Judged', 'sarmadgardezi'),
+        'desc'      => __('Global AI & Cloud buildathons.', 'sarmadgardezi'),
     ),
     array(
-        'value'     => '4.8',
-        'suffix'    => 'X',
-        'color'     => '#eab308', // Yellow
-        'title'     => __('Average ROAS Lift', 'sarmadgardezi'),
-        'desc'      => __('Nearly 5x return on ad spend.', 'sarmadgardezi'),
+        'value'     => '50',
+        'suffix'    => '+',
+        'color'     => '#eab308', // Google Yellow
+        'title'     => __('Google & Community Talks', 'sarmadgardezi'),
+        'desc'      => __('GDG Cloud, DevFests & Global Summits.', 'sarmadgardezi'),
     ),
     array(
-        'value'     => '80',
-        'suffix'    => 'M+',
-        'color'     => '#10b981', // Green
-        'title'     => __('Total Views Generated', 'sarmadgardezi'),
-        'desc'      => __('Organic. Zero ad spend.', 'sarmadgardezi'),
+        'value'     => '25',
+        'suffix'    => 'K+',
+        'color'     => '#10b981', // Google Green
+        'title'     => __('Engineers & Viewers Reached', 'sarmadgardezi'),
+        'desc'      => __('Tech talks, workshops & open-source.', 'sarmadgardezi'),
     ),
 );
 
@@ -67,23 +71,23 @@ $metric_rows = array(
 $benefit_pills = array(
     array(
         'icon' => 'check',
-        'text' => __('You approve every video', 'sarmadgardezi'),
+        'text' => __('Google Cloud Speaker & Architect', 'sarmadgardezi'),
     ),
     array(
         'icon' => 'rocket',
-        'text' => __('First content in 7 days', 'sarmadgardezi'),
+        'text' => __('GDG Cloud Islamabad Leader', 'sarmadgardezi'),
     ),
     array(
-        'icon' => 'refresh',
-        'text' => __('Unlimited revisions', 'sarmadgardezi'),
+        'icon' => 'trophy',
+        'text' => __('Global Hackathon Judge & Mentor', 'sarmadgardezi'),
     ),
     array(
         'icon' => 'target',
-        'text' => __('Hook testing included', 'sarmadgardezi'),
+        'text' => __('Keynotes & Hands-on Workshops', 'sarmadgardezi'),
     ),
     array(
         'icon' => 'bolt',
-        'text' => __('Performance-matched creators', 'sarmadgardezi'),
+        'text' => __('Scalable Agentic AI & Cloud Systems', 'sarmadgardezi'),
     ),
 );
 ?>
@@ -98,11 +102,12 @@ $benefit_pills = array(
             <div class="impact-photo-card">
                 <img 
                     src="<?php echo esc_url($visual_photo); ?>" 
-                    alt="<?php esc_attr_e('Real growth, real brands, real results', 'sarmadgardezi'); ?>" 
+                    alt="<?php esc_attr_e('Sarmad Gardezi - Google Talks & Hackathons', 'sarmadgardezi'); ?>" 
                     class="impact-photo-img"
                     loading="lazy"
                     width="600"
                     height="600"
+                    onerror="this.onerror=null;this.src='/wp-content/uploads/2026/09/sarmadgardezi-google-2026.webp';"
                 />
                 
                 <!-- Bottom Dark Gradient Overlay -->
@@ -163,8 +168,8 @@ $benefit_pills = array(
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                             <?php elseif ($pill['icon'] === 'rocket') : ?>
                                 <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5s-4 4.5-4 9.5c0 2.2 1.3 4.2 3 5v4l1-1 1 1v-4c1.7-.8 3-2.8 3-5 0-5-4-9.5-4-9.5z"/></svg>
-                            <?php elseif ($pill['icon'] === 'refresh') : ?>
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                            <?php elseif ($pill['icon'] === 'trophy') : ?>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94A5.01 5.01 0 0 0 11 15.9V19H8v2h8v-2h-3v-3.1c1.8-.3 3.32-1.5 3.61-3.06C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/></svg>
                             <?php elseif ($pill['icon'] === 'target') : ?>
                                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
                             <?php elseif ($pill['icon'] === 'bolt') : ?>
@@ -179,3 +184,4 @@ $benefit_pills = array(
 
     </div>
 </section>
+
