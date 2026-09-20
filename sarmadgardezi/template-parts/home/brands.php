@@ -10,14 +10,16 @@
 
 defined('ABSPATH') || exit;
 
-// Retrieve Section Heading Title (from front page or options)
-$section_title = '';
-if (function_exists('sarmadgardezi_get_field')) {
-    $section_title = sarmadgardezi_get_field('brands_section_title');
-} elseif (function_exists('sarmad_get_field')) {
-    $section_title = sarmad_get_field('brands_section_title');
-} elseif (function_exists('get_field')) {
-    $section_title = get_field('brands_section_title');
+// Retrieve Section Heading Title (from options or ACF)
+$section_title = get_option('brands_section_title', '');
+if (empty($section_title)) {
+    if (function_exists('sarmadgardezi_get_field')) {
+        $section_title = sarmadgardezi_get_field('brands_section_title');
+    } elseif (function_exists('sarmad_get_field')) {
+        $section_title = sarmad_get_field('brands_section_title');
+    } elseif (function_exists('get_field')) {
+        $section_title = get_field('brands_section_title');
+    }
 }
 
 if (empty($section_title) && function_exists('get_field')) {
@@ -28,14 +30,35 @@ if (empty($section_title)) {
     $section_title = __('Trusted by these amazing companies', 'sarmadgardezi');
 }
 
-// Retrieve Brand Logos from ACF
+// Retrieve Brand Logos (from native Brands Marquee manager or ACF)
 $brand_items = array();
 
-if (function_exists('get_field')) {
-    // 1. Try ACF repeater from current page / front page
+// 1. Try WP Option (from Brands Marquee manager)
+$opt_brands = get_option('brand_logos');
+if (!empty($opt_brands) && is_array($opt_brands)) {
+    foreach ($opt_brands as $b) {
+        $u = is_array($b) ? ($b['url'] ?? $b['brand_logo'] ?? '') : '';
+        if (is_array($u) && !empty($u['url'])) {
+            $u = $u['url'];
+        }
+        $n = is_array($b) ? ($b['name'] ?? $b['brand_name'] ?? '') : '';
+        $l = is_array($b) ? ($b['link'] ?? $b['brand_url'] ?? '') : '';
+        if (!empty($u)) {
+            $brand_items[] = array(
+                'url'  => $u,
+                'name' => !empty($n) ? $n : __('Client Brand', 'sarmadgardezi'),
+                'link' => $l,
+            );
+        }
+    }
+}
+
+// 2. If empty, try ACF / Meta fields
+if (empty($brand_items) && function_exists('get_field')) {
+    // 2a. Try ACF repeater from current page / front page
     $acf_brands = get_field('brand_logos');
 
-    // 2. Try explicit front page ID
+    // 2b. Try explicit front page ID
     if (empty($acf_brands)) {
         $front_page_id = get_option('page_on_front');
         if ($front_page_id) {
@@ -43,7 +66,7 @@ if (function_exists('get_field')) {
         }
     }
 
-    // 3. Try ACF repeater from options page
+    // 2c. Try ACF repeater from options page
     if (empty($acf_brands)) {
         $acf_brands = get_field('brand_logos', 'option');
     }
