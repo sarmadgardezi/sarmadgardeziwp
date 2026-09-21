@@ -3235,63 +3235,63 @@ textarea::placeholder {
 }
 .portfolio-stack-card.card-color-blue {
   background-color: #549dfb;
-  color: #111111;
+  color: #ffffff;
 }
 .portfolio-stack-card.card-color-blue .stack-card-title,
 .portfolio-stack-card.card-color-blue .metric-number {
-  color: #0f172a;
+  color: #ffffff;
 }
 .portfolio-stack-card.card-color-blue .stack-card-desc,
 .portfolio-stack-card.card-color-blue .metric-label {
-  color: #1e293b;
+  color: #ffffff;
 }
 .portfolio-stack-card.card-color-pink {
   background-color: #ff85a2;
-  color: #111111;
+  color: #ffffff;
 }
 .portfolio-stack-card.card-color-pink .stack-card-title,
 .portfolio-stack-card.card-color-pink .metric-number {
-  color: #111827;
+  color: #ffffff;
 }
 .portfolio-stack-card.card-color-pink .stack-card-desc,
 .portfolio-stack-card.card-color-pink .metric-label {
-  color: #1f2937;
+  color: #ffffff;
 }
 .portfolio-stack-card.card-color-green {
   background-color: #4ade80;
-  color: #111111;
+  color: #ffffff;
 }
 .portfolio-stack-card.card-color-green .stack-card-title,
 .portfolio-stack-card.card-color-green .metric-number {
-  color: #064e3b;
+  color: #ffffff;
 }
 .portfolio-stack-card.card-color-green .stack-card-desc,
 .portfolio-stack-card.card-color-green .metric-label {
-  color: #065f46;
+  color: #ffffff;
 }
 .portfolio-stack-card.card-color-yellow {
   background-color: #fcd34d;
-  color: #111111;
+  color: #ffffff;
 }
 .portfolio-stack-card.card-color-yellow .stack-card-title,
 .portfolio-stack-card.card-color-yellow .metric-number {
-  color: #78350f;
+  color: #ffffff;
 }
 .portfolio-stack-card.card-color-yellow .stack-card-desc,
 .portfolio-stack-card.card-color-yellow .metric-label {
-  color: #92400e;
+  color: #ffffff;
 }
 .portfolio-stack-card.card-color-purple {
   background-color: #a78bfa;
-  color: #111111;
+  color: #ffffff;
 }
 .portfolio-stack-card.card-color-purple .stack-card-title,
 .portfolio-stack-card.card-color-purple .metric-number {
-  color: #2e1065;
+  color: #ffffff;
 }
 .portfolio-stack-card.card-color-purple .stack-card-desc,
 .portfolio-stack-card.card-color-purple .metric-label {
-  color: #3b0764;
+  color: #ffffff;
 }
 .portfolio-stack-card.card-color-dark {
   background-color: #111827;

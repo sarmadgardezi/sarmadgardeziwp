@@ -254,7 +254,7 @@ function sarmadgardezi_render_card_icon($icon_key) {
                         <!-- Left Details Column -->
                         <div class="stack-card-content">
                             <h3 class="stack-card-title">
-                                <a href="<?php echo esc_url($card['link']); ?>"><?php echo esc_html($card['title']); ?></a>
+                                <?php echo esc_html($card['title']); ?>
                             </h3>
 
                             <div class="stack-card-desc">
@@ -292,14 +292,14 @@ function sarmadgardezi_render_card_icon($icon_key) {
 
                         <!-- Right Visual Column -->
                         <div class="stack-card-visual-wrap">
-                            <a href="<?php echo esc_url($card['link']); ?>" class="stack-card-visual-link" title="<?php echo esc_attr($card['title']); ?>">
+                            <div class="stack-card-visual-link" title="<?php echo esc_attr($card['title']); ?>">
                                 <img 
                                     src="<?php echo esc_url($card['image']); ?>" 
                                     alt="<?php echo esc_attr($card['title']); ?>" 
                                     class="stack-card-img"
                                     loading="lazy"
                                 />
-                            </a>
+                            </div>
                         </div>
                     </div>
                 </article>

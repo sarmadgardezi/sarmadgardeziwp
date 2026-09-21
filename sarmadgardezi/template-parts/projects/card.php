@@ -18,9 +18,9 @@ $terms      = get_the_terms($post_id, 'technology');
 <article id="post-<?php the_ID(); ?>" <?php post_class('glass-card project-card'); ?>>
     <?php if (has_post_thumbnail()) : ?>
         <div class="project-card-thumb">
-            <a href="<?php the_permalink(); ?>" aria-label="<?php echo esc_attr(sprintf(__('View %s project details', 'sarmadgardezi'), get_the_title())); ?>">
+            <div aria-label="<?php echo esc_attr(sprintf(__('View %s project details', 'sarmadgardezi'), get_the_title())); ?>">
                 <?php the_post_thumbnail('sarmadgardezi-card', array('loading' => 'lazy')); ?>
-            </a>
+            </div>
         </div>
     <?php endif; ?>
 
@@ -38,7 +38,7 @@ $terms      = get_the_terms($post_id, 'technology');
         </div>
 
         <h3 class="project-card-title">
-            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+            <?php the_title(); ?>
         </h3>
 
         <div class="project-card-excerpt">
@@ -54,10 +54,7 @@ $terms      = get_the_terms($post_id, 'technology');
         <?php endif; ?>
 
         <div class="project-card-actions">
-            <a href="<?php the_permalink(); ?>" class="btn btn-secondary btn-sm">
-                <span><?php esc_html_e('Case / Details', 'sarmadgardezi'); ?></span>
-                <?php echo sarmadgardezi_get_icon('arrow-right'); ?>
-            </a>
+
 
             <?php if (!empty($live_url)) : ?>
                 <a href="<?php echo esc_url($live_url); ?>" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" aria-label="<?php echo esc_attr(sprintf(__('Visit %s live website', 'sarmadgardezi'), get_the_title())); ?>">
