@@ -5124,8 +5124,6 @@ body.page-template-page-blog,
 .single-project-article .project-featured-visual img {
   width: 100%;
   height: auto;
-  max-height: 550px;
-  object-fit: cover;
   display: block;
 }
 .single-project-article .project-content {
