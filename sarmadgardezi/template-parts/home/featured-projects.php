@@ -132,13 +132,15 @@ if (empty($portfolio_items)) {
             if (empty($color)) $color = $default_colors[$idx % 3];
             $icon = get_post_meta($pid, '_project_icon', true);
             if (empty($icon)) $icon = 'video';
-            $raw_pills = get_post_meta($pid, '_project_pills', true);
+            $raw_pills = function_exists('get_field') ? get_field('project_pills', $pid) : get_post_meta($pid, '_project_pills', true);
             $pills_arr = array();
-            if (!empty($raw_pills)) {
+            if (is_array($raw_pills)) {
+                $pills_arr = $raw_pills;
+            } elseif (!empty($raw_pills)) {
                 $lines = preg_split('/[\r\n,]+/', $raw_pills);
                 foreach ($lines as $l) {
                     $clean = trim($l);
-                    if (!empty($clean)) $pills_arr[] = $clean;
+                    if (!empty($clean)) $pills_arr[] = array('text' => $clean, 'icon' => '');
                 }
             }
             $img = get_the_post_thumbnail_url($pid, 'large');
@@ -258,10 +260,18 @@ function sarmadgardezi_render_card_icon($icon_key) {
 
                             <?php if (!empty($card['pills'])) : ?>
                                 <div class="stack-card-pills">
-                                    <?php foreach ($card['pills'] as $pill) : ?>
+                                    <?php foreach ($card['pills'] as $pill) : 
+                                        $pill_text = is_array($pill) ? ($pill['text'] ?? '') : $pill;
+                                        $pill_icon = is_array($pill) ? ($pill['icon'] ?? '') : '';
+                                        if (empty($pill_text)) continue;
+                                    ?>
                                         <span class="stack-pill">
-                                            <svg class="pill-check" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                            <?php echo esc_html($pill); ?>
+                                            <?php if (!empty($pill_icon)) : ?>
+                                                <img src="<?php echo esc_url($pill_icon); ?>" alt="icon" style="width: 16px; height: 16px; object-fit: contain;">
+                                            <?php else : ?>
+                                                <svg class="pill-check" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                            <?php endif; ?>
+                                            <?php echo esc_html($pill_text); ?>
                                         </span>
                                     <?php endforeach; ?>
                                 </div>

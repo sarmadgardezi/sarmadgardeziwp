@@ -28,12 +28,14 @@ get_header();
             $terms      = get_the_terms($post_id, 'technology');
 
             $pills_array = array();
-            if (!empty($raw_pills)) {
+            if (is_array($raw_pills)) {
+                $pills_array = $raw_pills;
+            } elseif (!empty($raw_pills)) {
                 $lines = preg_split('/[\r\n,]+/', $raw_pills);
                 foreach ($lines as $line) {
                     $clean = trim($line);
                     if (!empty($clean)) {
-                        $pills_array[] = $clean;
+                        $pills_array[] = array('text' => $clean, 'icon' => '');
                     }
                 }
             }
@@ -49,10 +51,18 @@ get_header();
 
                     <?php if (!empty($pills_array)) : ?>
                         <div class="project-pills-row" style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom: 2rem;">
-                            <?php foreach ($pills_array as $p) : ?>
+                            <?php foreach ($pills_array as $p) : 
+                                $pill_text = is_array($p) ? ($p['text'] ?? '') : $p;
+                                $pill_icon = is_array($p) ? ($p['icon'] ?? '') : '';
+                                if (empty($pill_text)) continue;
+                            ?>
                                 <span class="stack-pill" style="border:1px solid #e2e8f0;">
-                                    <svg class="pill-check" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                    <?php echo esc_html($p); ?>
+                                    <?php if (!empty($pill_icon)) : ?>
+                                        <img src="<?php echo esc_url($pill_icon); ?>" alt="icon" style="width: 16px; height: 16px; object-fit: contain;">
+                                    <?php else : ?>
+                                        <svg class="pill-check" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    <?php endif; ?>
+                                    <?php echo esc_html($pill_text); ?>
                                 </span>
                             <?php endforeach; ?>
                         </div>

@@ -998,11 +998,27 @@ function sarmadgardezi_register_all_acf_field_groups() {
             ),
             array(
                 'key' => 'field_project_pills',
-                'label' => __('Feature Checkmark Pills (comma separated)', 'sarmadgardezi'),
+                'label' => __('Feature Checkmark Pills', 'sarmadgardezi'),
                 'name' => 'project_pills',
-                'type' => 'textarea',
-                'rows' => 2,
-                'placeholder' => 'Creator sourcing, Full brief included, Unlimited revisions',
+                'type' => 'repeater',
+                'layout' => 'table',
+                'button_label' => __('+ Add Feature Pill', 'sarmadgardezi'),
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_project_pill_icon',
+                        'label' => __('Icon', 'sarmadgardezi'),
+                        'name' => 'icon',
+                        'type' => 'image',
+                        'return_format' => 'url',
+                        'preview_size' => 'thumbnail',
+                    ),
+                    array(
+                        'key' => 'field_project_pill_text',
+                        'label' => __('Text', 'sarmadgardezi'),
+                        'name' => 'text',
+                        'type' => 'text',
+                    ),
+                ),
             ),
             array(
                 'key' => 'field_project_live_url',
