@@ -17,9 +17,18 @@ $idx  = isset($args['idx']) ? $args['idx'] : 0;
     class="portfolio-stack-card card-color-<?php echo esc_attr($card['color']); ?>"
     style="--card-index: <?php echo esc_attr($idx); ?>;"
 >
-    <!-- Top-Right Dark Icon Bubble -->
-    <div class="stack-card-icon-badge" aria-hidden="true">
-        <?php echo sarmadgardezi_render_card_icon($card['icon']); ?>
+    <!-- Top-Right Actions -->
+    <div class="stack-card-top-actions">
+        <?php if (!empty($card['link']) && $card['link'] !== '#') : ?>
+            <a href="<?php echo esc_url($card['link']); ?>" target="_blank" rel="noopener noreferrer" class="stack-card-btn stack-card-btn-solid stack-card-btn-small">
+                <?php esc_html_e('View Project', 'sarmadgardezi'); ?>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </a>
+        <?php endif; ?>
+        
+        <div class="stack-card-icon-badge" aria-hidden="true">
+            <?php echo sarmadgardezi_render_card_icon($card['icon']); ?>
+        </div>
     </div>
 
     <!-- Card Content Grid -->
@@ -81,15 +90,6 @@ $idx  = isset($args['idx']) ? $args['idx'] : 0;
                     <?php if (!empty($card['metric_lbl'])) : ?>
                         <div class="metric-label"><?php echo esc_html($card['metric_lbl']); ?></div>
                     <?php endif; ?>
-                </div>
-            <?php endif; ?>
-
-            <?php if (!empty($card['link']) && $card['link'] !== '#') : ?>
-                <div class="stack-card-action" style="margin-top: 2rem;">
-                    <a href="<?php echo esc_url($card['link']); ?>" target="_blank" rel="noopener noreferrer" class="stack-card-btn stack-card-btn-solid">
-                        <?php esc_html_e('View Project', 'sarmadgardezi'); ?>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                    </a>
                 </div>
             <?php endif; ?>
         </div>

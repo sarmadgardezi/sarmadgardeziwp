@@ -2111,11 +2111,25 @@
   }
 }
 
-// Top Right Dark Icon Badge
-.stack-card-icon-badge {
+// Top Right Actions Container
+.stack-card-top-actions {
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 5;
+
+  @include respond-to('md') {
+    top: 2.25rem;
+    right: 2.5rem;
+  }
+}
+
+// Top Right Dark Icon Badge
+.stack-card-icon-badge {
+  position: relative;
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -2128,8 +2142,6 @@
   z-index: 5;
 
   @include respond-to('md') {
-    top: 2.25rem;
-    right: 2.5rem;
     width: 48px;
     height: 48px;
   }
@@ -2216,6 +2228,11 @@
   .stack-card-btn-solid {
     background-color: rgba(0, 0, 0, 0.9);
     color: #ffffff;
+  }
+
+  .stack-card-btn-small {
+    padding: 8px 16px;
+    font-size: 0.8125rem;
   }
 
   @include respond-to('md') {
