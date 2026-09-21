@@ -27,7 +27,7 @@ $reels_data = array(
     'card_2' => array(
         'video_url' => '', // e.g. your custom video link
         'link_url'  => 'https://instagram.com/sarmadgardezi',
-        'poster'    => '/wp-content/uploads/2026/09/gdscp1-scaled.png',
+        'poster'    => 'https://res.cloudinary.com/dy7my4aub/image/upload/v1760290019/sarmad_gardezi_awards_izb7vb.jpg',
         'avatar'    => '/wp-content/uploads/2026/09/gdscp1-scaled.png',
         'handle'    => 'sarmadgardezi',
         'verified'  => true,
@@ -51,7 +51,7 @@ $reels_data = array(
     ),
     'card_4' => array(
         'video_url' => '', // e.g. your custom video link
-        'poster'    => 'https://images.unsplash.com/photo-1520523839898-5071282543e2?auto=format&fit=crop&w=800&q=85',
+        'poster'    => 'https://res.cloudinary.com/dy7my4aub/image/upload/v1773559191/Screenshot_2026-03-15_at_12.19.41_PM_ywjyew.png',
         'avatar'    => 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80',
         'handle'    => 'theolund.co',
         'verified'  => true,

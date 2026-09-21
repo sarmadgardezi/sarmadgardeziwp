@@ -19,8 +19,8 @@ $mission_cta_text = __('See how we do it', 'sarmadgardezi');
 $mission_cta_url = home_url('/contact');
 
 // Visual cards photos (Easy to replace)
-$photo_1 = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1000&fit=crop';
-$photo_2 = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&h=1000&fit=crop';
+$photo_1 = 'https://res.cloudinary.com/dy7my4aub/image/upload/v1773469584/Gemini_Generated_Image_p7m59zp7m59zp7m5_buse2a.png';
+$photo_2 = 'https://res.cloudinary.com/dy7my4aub/image/upload/v1773559127/Screenshot_2026-03-15_at_12.18.26_PM_bp8cpg.png';
 ?>
 
 <section class="mission-showcase-section">
