@@ -41,12 +41,12 @@ $reels_data = array(
             'https://ui-avatars.com/api/?name=W&background=4CAF50&color=fff',
         ),
         'creator_tags' => array(
-            array('handle' => 'Facebook', 'stat' => '26.2K', 'avatar' => 'https://ui-avatars.com/api/?name=F&background=1877F2&color=fff', 'verified' => true),
-            array('handle' => 'Instagram', 'stat' => '24.8K', 'avatar' => 'https://ui-avatars.com/api/?name=I&background=E1306C&color=fff', 'verified' => true),
-            array('handle' => 'GitHub', 'stat' => '389', 'avatar' => 'https://ui-avatars.com/api/?name=G&background=333333&color=fff', 'verified' => false),
-            array('handle' => 'YouTube', 'stat' => '3.9K', 'avatar' => 'https://ui-avatars.com/api/?name=Y&background=FF0000&color=fff', 'verified' => true),
-            array('handle' => 'Twitter', 'stat' => '8K', 'avatar' => 'https://ui-avatars.com/api/?name=X&background=000000&color=fff', 'verified' => true),
-            array('handle' => 'Website', 'stat' => '1.2K/mo', 'avatar' => 'https://ui-avatars.com/api/?name=W&background=4CAF50&color=fff', 'verified' => false),
+            array('handle' => 'Facebook', 'stat' => '26.2K', 'avatar' => 'https://ui-avatars.com/api/?name=F&background=1877F2&color=fff', 'verified' => true, 'url' => 'https://facebook.com/sarmadgardezi'),
+            array('handle' => 'Instagram', 'stat' => '24.8K', 'avatar' => 'https://ui-avatars.com/api/?name=I&background=E1306C&color=fff', 'verified' => true, 'url' => 'https://instagram.com/sarmadgardezi'),
+            array('handle' => 'GitHub', 'stat' => '389', 'avatar' => 'https://ui-avatars.com/api/?name=G&background=333333&color=fff', 'verified' => false, 'url' => 'https://github.com/sarmadgardezi'),
+            array('handle' => 'YouTube', 'stat' => '3.9K', 'avatar' => 'https://ui-avatars.com/api/?name=Y&background=FF0000&color=fff', 'verified' => true, 'url' => 'https://youtube.com/sarmadgardezi'),
+            array('handle' => 'Twitter', 'stat' => '8K', 'avatar' => 'https://ui-avatars.com/api/?name=X&background=000000&color=fff', 'verified' => true, 'url' => 'https://twitter.com/sarmadgardezi'),
+            array('handle' => 'Website', 'stat' => '1.2K/mo', 'avatar' => 'https://ui-avatars.com/api/?name=W&background=4CAF50&color=fff', 'verified' => false, 'url' => home_url('/')),
         ),
     ),
     'card_4' => array(
@@ -177,7 +177,8 @@ $reels_data = array(
                     <!-- Bottom Floating Creator Tags -->
                     <div class="feature-creator-tags">
                         <?php foreach ($reels_data['feature_card']['creator_tags'] as $tag) : ?>
-                            <div class="feature-tag-chip">
+                            <?php $tag_url = !empty($tag['url']) ? esc_url($tag['url']) : '#'; ?>
+                            <a href="<?php echo $tag_url; ?>" target="_blank" rel="noopener noreferrer" class="feature-tag-chip" style="text-decoration: none; color: inherit; cursor: pointer;">
                                 <img class="tag-avatar" src="<?php echo esc_url($tag['avatar']); ?>" alt="<?php echo esc_attr($tag['handle']); ?>" width="20" height="20" loading="lazy" />
                                 <span class="tag-handle"><?php echo esc_html($tag['handle']); ?></span>
                                 <?php if (!empty($tag['verified'])) : ?>
@@ -189,7 +190,7 @@ $reels_data = array(
                                 <?php endif; ?>
                                 <span class="tag-dot">•</span>
                                 <span class="tag-stat"><?php echo esc_html($tag['stat']); ?></span>
-                            </div>
+                            </a>
                         <?php endforeach; ?>
                     </div>
 
