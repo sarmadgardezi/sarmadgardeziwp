@@ -2728,7 +2728,8 @@ textarea::placeholder {
 .creator-reels-section .reel-card .reel-overlay-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 45%, transparent 75%);
+  background-color: rgba(0, 0, 0, 0.4);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 45%, transparent 75%);
   pointer-events: none;
   z-index: 2;
 }
