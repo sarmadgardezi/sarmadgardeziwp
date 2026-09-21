@@ -48,14 +48,17 @@ if (!function_exists('sarmad_get_field')) {
  * Register meta boxes for Project, Talk, and Case Study.
  */
 function sarmadgardezi_core_add_meta_boxes() {
-    add_meta_box(
-        'sarmad_project_meta',
-        __('Project Details', 'sarmadgardezi-core'),
-        'sarmadgardezi_core_project_meta_callback',
-        'project',
-        'normal',
-        'high'
-    );
+    // Only register native project meta box if ACF is NOT active (ACF provides the Project Details field group with repeater support)
+    if (!function_exists('acf_add_local_field_group')) {
+        add_meta_box(
+            'sarmad_project_meta',
+            __('Project Details', 'sarmadgardezi-core'),
+            'sarmadgardezi_core_project_meta_callback',
+            'project',
+            'normal',
+            'high'
+        );
+    }
 
     add_meta_box(
         'sarmad_talk_meta',

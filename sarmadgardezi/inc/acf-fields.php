@@ -969,18 +969,11 @@ function sarmadgardezi_register_all_acf_field_groups() {
             ),
             array(
                 'key' => 'field_project_icon',
-                'label' => __('Top Corner Icon Badge', 'sarmadgardezi'),
+                'label' => __('Top Corner Icon Badge (Upload Image/SVG)', 'sarmadgardezi'),
                 'name' => 'project_icon',
-                'type' => 'select',
-                'choices' => array(
-                    'video' => 'Video Camera (UGC / Media)',
-                    'user'  => 'User / Community (Strategy)',
-                    'chart' => 'Chart / Growth (Scaling)',
-                    'cloud' => 'Cloud / Architecture',
-                    'spark' => 'Sparkle / AI Multimodal',
-                    'code'  => 'Code / Terminal',
-                ),
-                'default_value' => 'video',
+                'type' => 'image',
+                'return_format' => 'url',
+                'preview_size' => 'thumbnail',
             ),
             array(
                 'key' => 'field_project_metric_val',
