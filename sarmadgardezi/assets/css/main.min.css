@@ -3411,6 +3411,26 @@ textarea::placeholder {
   margin: 0;
   color: inherit;
 }
+.stack-card-desc .stack-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: 99px;
+  font-family: var(--framer-font-family, "Google Sans Flex", sans-serif);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.stack-card-desc .stack-card-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+.stack-card-desc .stack-card-btn-solid {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #ffffff;
+}
 @media (min-width: 768px) {
   .stack-card-desc {
     font-size: 1.03125rem;
