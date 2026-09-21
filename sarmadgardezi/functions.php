@@ -19,7 +19,8 @@ define('SARMADGARDEZI_URI', get_template_directory_uri());
 require_once SARMADGARDEZI_DIR . '/inc/setup.php';
 require_once SARMADGARDEZI_DIR . '/inc/enqueue.php';
 require_once SARMADGARDEZI_DIR . '/inc/helpers.php';
-require_once SARMADGARDEZI_DIR . '/inc/yoast.php';
+require_once SARMADGARDEZI_DIR . '/inc/seo.php';
+require_once SARMADGARDEZI_DIR . '/inc/analytics.php';
 require_once SARMADGARDEZI_DIR . '/inc/acf-fields.php';
 
 // Optional modules loaded when created.

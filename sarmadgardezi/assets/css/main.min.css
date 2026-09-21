@@ -3384,6 +3384,7 @@ textarea::placeholder {
 }
 .stack-card-desc p {
   margin: 0;
+  color: inherit;
 }
 @media (min-width: 768px) {
   .stack-card-desc {
