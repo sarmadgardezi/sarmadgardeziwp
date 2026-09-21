@@ -2207,38 +2207,42 @@
     color: inherit;
   }
 
-  .stack-card-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 28px;
-    border-radius: 99px;
-    font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
-    font-weight: 600;
-    font-size: 0.9375rem;
-    text-decoration: none;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-    
-    &:hover {
-      transform: translateY(-2px);
-      opacity: 0.9;
-    }
-  }
-
-  .stack-card-btn-solid {
-    background-color: rgba(0, 0, 0, 0.9);
-    color: #ffffff;
-  }
-
-  .stack-card-btn-small {
-    padding: 8px 16px;
-    font-size: 0.8125rem;
-  }
-
   @include respond-to('md') {
     font-size: 1.03125rem;
     margin-bottom: 2rem;
   }
+}
+
+.stack-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 28px;
+  border-radius: 99px;
+  font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+  }
+
+  svg {
+    display: block;
+  }
+}
+
+.stack-card-btn-solid {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #ffffff;
+}
+
+.stack-card-btn-small {
+  padding: 8px 16px;
+  font-size: 0.8125rem;
 }
 
 // Checkmark Pills

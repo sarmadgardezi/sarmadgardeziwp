@@ -3423,10 +3423,17 @@ textarea::placeholder {
   margin: 0;
   color: inherit;
 }
-.stack-card-desc .stack-card-btn {
+@media (min-width: 768px) {
+  .stack-card-desc {
+    font-size: 1.03125rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.stack-card-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   padding: 12px 28px;
   border-radius: 99px;
   font-family: var(--framer-font-family, "Google Sans Flex", sans-serif);
@@ -3435,23 +3442,22 @@ textarea::placeholder {
   text-decoration: none;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
-.stack-card-desc .stack-card-btn:hover {
+.stack-card-btn:hover {
   transform: translateY(-2px);
   opacity: 0.9;
 }
-.stack-card-desc .stack-card-btn-solid {
+.stack-card-btn svg {
+  display: block;
+}
+
+.stack-card-btn-solid {
   background-color: rgba(0, 0, 0, 0.9);
   color: #ffffff;
 }
-.stack-card-desc .stack-card-btn-small {
+
+.stack-card-btn-small {
   padding: 8px 16px;
   font-size: 0.8125rem;
-}
-@media (min-width: 768px) {
-  .stack-card-desc {
-    font-size: 1.03125rem;
-    margin-bottom: 2rem;
-  }
 }
 
 .stack-card-pills {
