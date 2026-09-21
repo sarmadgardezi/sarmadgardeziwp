@@ -2122,12 +2122,12 @@
   align-items: center;
 
   @include respond-to('md') {
-    grid-template-columns: 1.15fr 1fr;
+    grid-template-columns: 1fr 1.2fr;
     gap: 3rem;
   }
 
   @include respond-to('lg') {
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: 0.9fr 1.4fr;
     gap: 3.5rem;
   }
 }

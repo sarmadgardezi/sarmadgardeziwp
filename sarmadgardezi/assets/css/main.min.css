@@ -3341,13 +3341,13 @@ textarea::placeholder {
 }
 @media (min-width: 768px) {
   .stack-card-grid {
-    grid-template-columns: 1.15fr 1fr;
+    grid-template-columns: 1fr 1.2fr;
     gap: 3rem;
   }
 }
 @media (min-width: 1024px) {
   .stack-card-grid {
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: 0.9fr 1.4fr;
     gap: 3.5rem;
   }
 }
