@@ -331,7 +331,7 @@ function sarmadgardezi_render_brands_admin_page() {
 
 /**
  * --------------------------------------------------------------------------
- * PORTFOLIO STACKING CARDS MANAGER ("HOW WE GROW YOU")
+ * PORTFOLIO STACKING CARDS MANAGER ("HOW I BUILD THESE PROJECTS")
  * --------------------------------------------------------------------------
  */
 
@@ -391,7 +391,7 @@ function sarmadgardezi_save_portfolio_settings() {
 }
 
 function sarmadgardezi_render_portfolio_admin_page() {
-    $section_title = get_option('portfolio_section_title', 'HOW WE GROW YOU');
+    $section_title = get_option('portfolio_section_title', 'HOW I BUILD THESE PROJECTS');
     $portfolio_cards = get_option('portfolio_cards', array());
     if (!is_array($portfolio_cards)) {
         $portfolio_cards = array();
@@ -400,7 +400,7 @@ function sarmadgardezi_render_portfolio_admin_page() {
     <div class="wrap" style="max-width: 980px; margin-top: 24px;">
         <h1 style="display:flex; align-items:center; gap: 10px; font-size: 24px; margin-bottom: 8px;">
             <span class="dashicons dashicons-welcome-widgets-menus" style="font-size:28px; width:28px; height:28px;"></span>
-            <?php esc_html_e('Portfolio Stacking Cards ("HOW WE GROW YOU")', 'sarmadgardezi'); ?>
+            <?php esc_html_e('Portfolio Stacking Cards ("HOW I BUILD THESE PROJECTS")', 'sarmadgardezi'); ?>
         </h1>
         <p style="color: #64748b; font-size: 14px; margin-bottom: 24px;">
             <?php esc_html_e('Manage the 3 Google-colored cards that stack on top of each other as the user scrolls. If empty, default showcase cards will be displayed.', 'sarmadgardezi'); ?>
@@ -426,7 +426,7 @@ function sarmadgardezi_render_portfolio_admin_page() {
                     name="portfolio_section_title" 
                     value="<?php echo esc_attr($section_title); ?>" 
                     style="width: 100%; max-width: 500px; padding: 8px 12px; border-radius: 6px; border: 1px solid #cbd5e1; font-size: 14px; font-weight: 600;"
-                    placeholder="HOW WE GROW YOU"
+                    placeholder="HOW I BUILD THESE PROJECTS"
                 />
             </div>
 
@@ -686,7 +686,7 @@ function sarmadgardezi_register_frontpage_meta_boxes() {
     if ((int)$post->ID === (int)$front_id || get_page_template_slug($post->ID) === 'front-page.php') {
         add_meta_box(
             'sarmadgardezi_portfolio_quick_meta',
-            __('Portfolio Stacking Cards ("HOW WE GROW YOU")', 'sarmadgardezi'),
+            __('Portfolio Stacking Cards ("HOW I BUILD THESE PROJECTS")', 'sarmadgardezi'),
             'sarmadgardezi_render_frontpage_portfolio_meta_box',
             'page',
             'normal',
@@ -831,15 +831,15 @@ function sarmadgardezi_register_all_acf_field_groups() {
     // 2. Portfolio Stacking Cards ACF Field Group on Front Page
     acf_add_local_field_group(array(
         'key' => 'group_sarmadgardezi_portfolio_stack',
-        'title' => __('Front Page — Portfolio Stacking Cards (HOW WE GROW YOU)', 'sarmadgardezi'),
+        'title' => __('Front Page — Portfolio Stacking Cards (HOW I BUILD THESE PROJECTS)', 'sarmadgardezi'),
         'fields' => array(
             array(
                 'key' => 'field_portfolio_section_title',
                 'label' => __('Section Main Heading', 'sarmadgardezi'),
                 'name' => 'portfolio_section_title',
                 'type' => 'text',
-                'default_value' => 'HOW WE GROW YOU',
-                'placeholder' => 'HOW WE GROW YOU',
+                'default_value' => 'HOW I BUILD THESE PROJECTS',
+                'placeholder' => 'HOW I BUILD THESE PROJECTS',
             ),
             array(
                 'key' => 'field_portfolio_cards',

@@ -10,13 +10,13 @@
 
 defined('ABSPATH') || exit;
 
-// Retrieve Section Heading Title (default "HOW WE GROW YOU")
+// Retrieve Section Heading Title (default "HOW I BUILD THESE PROJECTS")
 $section_title = get_option('portfolio_section_title', '');
 if (empty($section_title) && function_exists('get_field')) {
     $section_title = get_field('portfolio_section_title');
 }
 if (empty($section_title)) {
-    $section_title = 'HOW WE GROW YOU';
+    $section_title = 'HOW I BUILD THESE PROJECTS';
 }
 
 // Check for custom cards from:
