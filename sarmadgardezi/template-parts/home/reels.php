@@ -17,9 +17,9 @@ $sarmad_avatar = function_exists('sarmadgardezi_asset')
 
 $reels_data = array(
     'card_1' => array(
-        'video_url' => '/wp-content/uploads/2026/09/sarmadgardezi-r1.mp4',
+        'video_url' => '',
         'link_url'  => 'https://www.instagram.com/reel/DX8lLExilGn/',
-        'poster'    => $sarmad_avatar,
+        'poster'    => '/wp-content/uploads/2026/09/sarmadgardezi_summit4.png',
         'avatar'    => $sarmad_avatar,
         'handle'    => 'sarmadgardezi',
         'verified'  => true,
@@ -52,8 +52,6 @@ $reels_data = array(
     'card_4' => array(
         'video_url' => '', // e.g. your custom video link
         'poster'    => '/wp-content/uploads/2026/09/sarmadgardezi_summit_2.png',
-        'avatar'    => 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80',
-        'handle'    => 'theolund.co',
         'verified'  => true,
     ),
 );
@@ -82,6 +80,7 @@ $reels_data = array(
 
                     <!-- Bottom Bar -->
                     <div class="reel-card-bottom">
+                        <?php if (!empty($reels_data['card_1']['handle'])) : ?>
                         <div class="reel-creator-chip">
                             <img class="reel-creator-avatar" src="<?php echo esc_url($reels_data['card_1']['avatar']); ?>" alt="<?php echo esc_attr($reels_data['card_1']['handle']); ?>" width="26" height="26" loading="lazy" />
                             <span class="reel-creator-handle"><?php echo esc_html($reels_data['card_1']['handle']); ?></span>
@@ -93,6 +92,7 @@ $reels_data = array(
                                 </span>
                             <?php endif; ?>
                         </div>
+                        <?php endif; ?>
                         <div class="reel-action-btn" aria-hidden="true">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                                 <rect x="6" y="4" width="3.5" height="16" rx="1"></rect>
@@ -128,6 +128,7 @@ $reels_data = array(
 
                     <!-- Bottom Bar -->
                     <div class="reel-card-bottom">
+                        <?php if (!empty($reels_data['card_2']['handle'])) : ?>
                         <div class="reel-creator-chip">
                             <img class="reel-creator-avatar" src="<?php echo esc_url($reels_data['card_2']['avatar']); ?>" alt="<?php echo esc_attr($reels_data['card_2']['handle']); ?>" width="26" height="26" loading="lazy" />
                             <span class="reel-creator-handle"><?php echo esc_html($reels_data['card_2']['handle']); ?></span>
@@ -139,6 +140,7 @@ $reels_data = array(
                                 </span>
                             <?php endif; ?>
                         </div>
+                        <?php endif; ?>
                         <div class="reel-action-btn" aria-hidden="true">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                                 <rect x="6" y="4" width="3.5" height="16" rx="1"></rect>
@@ -216,6 +218,7 @@ $reels_data = array(
 
                     <!-- Bottom Bar -->
                     <div class="reel-card-bottom">
+                        <?php if (!empty($reels_data['card_4']['handle'])) : ?>
                         <div class="reel-creator-chip">
                             <img class="reel-creator-avatar" src="<?php echo esc_url($reels_data['card_4']['avatar']); ?>" alt="<?php echo esc_attr($reels_data['card_4']['handle']); ?>" width="26" height="26" loading="lazy" />
                             <span class="reel-creator-handle"><?php echo esc_html($reels_data['card_4']['handle']); ?></span>
@@ -227,6 +230,7 @@ $reels_data = array(
                                 </span>
                             <?php endif; ?>
                         </div>
+                        <?php endif; ?>
                         <div class="reel-action-btn" aria-hidden="true">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                                 <rect x="6" y="4" width="3.5" height="16" rx="1"></rect>
