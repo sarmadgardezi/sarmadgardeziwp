@@ -160,6 +160,9 @@ if (empty($portfolio_items)) {
                 'metric_lbl' => get_post_meta($pid, '_project_metric_lbl', true),
                 'image'      => $img,
                 'link'       => get_permalink(),
+                'role'       => function_exists('sarmad_get_field') ? sarmad_get_field('project_role', $pid) : get_post_meta($pid, '_project_role', true),
+                'timeline'   => function_exists('sarmad_get_field') ? sarmad_get_field('project_timeline', $pid) : get_post_meta($pid, '_project_timeline', true),
+                'tech_stack' => get_the_terms($pid, 'technology')
             );
             $idx++;
         }
@@ -180,6 +183,9 @@ if (empty($portfolio_items)) {
             'metric_lbl' => __('Videos delivered', 'sarmadgardezi'),
             'image'      => 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=900&h=650&fit=crop',
             'link'       => home_url('/projects/'),
+            'role'       => 'Creative Director',
+            'timeline'   => '2023',
+            'tech_stack' => false,
         ),
         array(
             'color'      => 'pink',
@@ -191,6 +197,9 @@ if (empty($portfolio_items)) {
             'metric_lbl' => __('Organic views', 'sarmadgardezi'),
             'image'      => 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=900&h=650&fit=crop',
             'link'       => home_url('/projects/'),
+            'role'       => 'Strategy Lead',
+            'timeline'   => '2024',
+            'tech_stack' => false,
         ),
         array(
             'color'      => 'green',
@@ -202,6 +211,9 @@ if (empty($portfolio_items)) {
             'metric_lbl' => __('Average ROAS', 'sarmadgardezi'),
             'image'      => 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=900&h=650&fit=crop',
             'link'       => home_url('/projects/'),
+            'role'       => 'Growth Manager',
+            'timeline'   => '2024',
+            'tech_stack' => false,
         ),
     );
 }
@@ -239,71 +251,12 @@ function sarmadgardezi_render_card_icon($icon_key) {
 
         <!-- Sticky Stacking Cards Container -->
         <div class="portfolio-cards-stack">
-            <?php foreach ($portfolio_items as $idx => $card) : ?>
-                <article 
-                    class="portfolio-stack-card card-color-<?php echo esc_attr($card['color']); ?>"
-                    style="--card-index: <?php echo esc_attr($idx); ?>;"
-                >
-                    <!-- Top-Right Dark Icon Bubble -->
-                    <div class="stack-card-icon-badge" aria-hidden="true">
-                        <?php echo sarmadgardezi_render_card_icon($card['icon']); ?>
-                    </div>
-
-                    <!-- Card Content Grid -->
-                    <div class="stack-card-grid">
-                        <!-- Left Details Column -->
-                        <div class="stack-card-content">
-                            <h3 class="stack-card-title">
-                                <?php echo esc_html($card['title']); ?>
-                            </h3>
-
-                            <div class="stack-card-desc">
-                                <p><?php echo esc_html($card['desc']); ?></p>
-                            </div>
-
-                            <?php if (!empty($card['pills'])) : ?>
-                                <div class="stack-card-pills">
-                                    <?php foreach ($card['pills'] as $pill) : 
-                                        $pill_text = is_array($pill) ? ($pill['text'] ?? '') : $pill;
-                                        $pill_icon = is_array($pill) ? ($pill['icon'] ?? '') : '';
-                                        if (empty($pill_text)) continue;
-                                    ?>
-                                        <span class="stack-pill">
-                                            <?php if (!empty($pill_icon)) : ?>
-                                                <img src="<?php echo esc_url($pill_icon); ?>" alt="icon" style="width: 16px; height: 16px; object-fit: contain;">
-                                            <?php else : ?>
-                                                <svg class="pill-check" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                            <?php endif; ?>
-                                            <?php echo esc_html($pill_text); ?>
-                                        </span>
-                                    <?php endforeach; ?>
-                                </div>
-                            <?php endif; ?>
-
-                            <?php if (!empty($card['metric_val'])) : ?>
-                                <div class="stack-card-metric">
-                                    <div class="metric-number"><?php echo esc_html($card['metric_val']); ?></div>
-                                    <?php if (!empty($card['metric_lbl'])) : ?>
-                                        <div class="metric-label"><?php echo esc_html($card['metric_lbl']); ?></div>
-                                    <?php endif; ?>
-                                </div>
-                            <?php endif; ?>
-                        </div>
-
-                        <!-- Right Visual Column -->
-                        <div class="stack-card-visual-wrap">
-                            <div class="stack-card-visual-link" title="<?php echo esc_attr($card['title']); ?>">
-                                <img 
-                                    src="<?php echo esc_url($card['image']); ?>" 
-                                    alt="<?php echo esc_attr($card['title']); ?>" 
-                                    class="stack-card-img"
-                                    loading="lazy"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            <?php endforeach; ?>
+            <?php foreach ($portfolio_items as $idx => $card) : 
+                get_template_part('template-parts/projects/stack-card', null, array(
+                    'card' => $card,
+                    'idx'  => $idx,
+                ));
+            endforeach; ?>
         </div>
 
     </div>
