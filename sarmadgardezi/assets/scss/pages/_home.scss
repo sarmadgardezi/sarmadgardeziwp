@@ -2003,71 +2003,96 @@
   // Google Colors Colorways
   &.card-color-blue {
     background-color: #549dfb;
-    color: #ffffff;
+    color: #111111;
 
     .stack-card-title,
     .metric-number {
-      color: #ffffff;
+      color: #0f172a;
     }
     .stack-card-desc,
-    .metric-label {
-      color: #ffffff;
+    .metric-label,
+    .stack-card-meta {
+      color: #1e293b;
+    }
+    .stack-card-tech-badge {
+      background-color: rgba(15, 23, 42, 0.08);
+      color: #0f172a;
     }
   }
 
   &.card-color-pink {
     background-color: #ff85a2;
-    color: #ffffff;
+    color: #111111;
 
     .stack-card-title,
     .metric-number {
-      color: #ffffff;
+      color: #111827;
     }
     .stack-card-desc,
-    .metric-label {
-      color: #ffffff;
+    .metric-label,
+    .stack-card-meta {
+      color: #1f2937;
+    }
+    .stack-card-tech-badge {
+      background-color: rgba(17, 24, 39, 0.08);
+      color: #111827;
     }
   }
 
   &.card-color-green {
     background-color: #4ade80;
-    color: #ffffff;
+    color: #111111;
 
     .stack-card-title,
     .metric-number {
-      color: #ffffff;
+      color: #064e3b;
     }
     .stack-card-desc,
-    .metric-label {
-      color: #ffffff;
+    .metric-label,
+    .stack-card-meta {
+      color: #065f46;
+    }
+    .stack-card-tech-badge {
+      background-color: rgba(6, 78, 59, 0.08);
+      color: #064e3b;
     }
   }
 
   &.card-color-yellow {
     background-color: #fcd34d;
-    color: #ffffff;
+    color: #111111;
 
     .stack-card-title,
     .metric-number {
-      color: #ffffff;
+      color: #78350f;
     }
     .stack-card-desc,
-    .metric-label {
-      color: #ffffff;
+    .metric-label,
+    .stack-card-meta {
+      color: #92400e;
+    }
+    .stack-card-tech-badge {
+      background-color: rgba(120, 53, 15, 0.08);
+      color: #78350f;
     }
   }
 
   &.card-color-purple {
     background-color: #a78bfa;
-    color: #ffffff;
+    color: #111111;
 
     .stack-card-title,
     .metric-number {
-      color: #ffffff;
+      color: #2e1065;
     }
     .stack-card-desc,
-    .metric-label {
-      color: #ffffff;
+    .metric-label,
+    .stack-card-meta {
+      color: #3b0764;
+    }
+    .stack-card-tech-badge {
+      background-color: rgba(46, 16, 101, 0.08);
+      color: #2e1065;
     }
   }
 

@@ -35,7 +35,7 @@ $idx  = isset($args['idx']) ? $args['idx'] : 0;
             </div>
             
             <?php if (!empty($card['role']) || !empty($card['timeline'])) : ?>
-                <div class="project-card-meta" style="margin-bottom: 1.5rem; color: rgba(255, 255, 255, 0.9);">
+                <div class="project-card-meta stack-card-meta" style="margin-bottom: 1.5rem;">
                     <?php if (!empty($card['role'])) : ?>
                         <span class="project-role" style="font-weight: 600;"><?php echo esc_html($card['role']); ?></span>
                     <?php endif; ?>
@@ -49,9 +49,9 @@ $idx  = isset($args['idx']) ? $args['idx'] : 0;
             <?php endif; ?>
 
             <?php if (!empty($card['tech_stack']) && !is_wp_error($card['tech_stack'])) : ?>
-                <div class="project-tech-stack" style="margin-bottom: 1.5rem;" aria-label="<?php esc_attr_e('Technologies used', 'sarmadgardezi'); ?>">
+                <div class="project-tech-stack stack-card-tech" style="margin-bottom: 1.5rem;" aria-label="<?php esc_attr_e('Technologies used', 'sarmadgardezi'); ?>">
                     <?php foreach ($card['tech_stack'] as $term) : ?>
-                        <span class="tech-badge" style="background: rgba(255,255,255,0.2); color: #fff; padding: 4px 10px; border-radius: 99px; font-size: 0.75rem; margin-right: 6px; display: inline-block; margin-bottom: 6px;"><?php echo esc_html($term->name); ?></span>
+                        <span class="tech-badge stack-card-tech-badge" style="padding: 4px 10px; border-radius: 99px; font-size: 0.75rem; margin-right: 6px; display: inline-block; margin-bottom: 6px;"><?php echo esc_html($term->name); ?></span>
                     <?php endforeach; ?>
                 </div>
             <?php endif; ?>

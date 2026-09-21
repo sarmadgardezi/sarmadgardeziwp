@@ -3235,63 +3235,88 @@ textarea::placeholder {
 }
 .portfolio-stack-card.card-color-blue {
   background-color: #549dfb;
-  color: #ffffff;
+  color: #111111;
 }
 .portfolio-stack-card.card-color-blue .stack-card-title,
 .portfolio-stack-card.card-color-blue .metric-number {
-  color: #ffffff;
+  color: #0f172a;
 }
 .portfolio-stack-card.card-color-blue .stack-card-desc,
-.portfolio-stack-card.card-color-blue .metric-label {
-  color: #ffffff;
+.portfolio-stack-card.card-color-blue .metric-label,
+.portfolio-stack-card.card-color-blue .stack-card-meta {
+  color: #1e293b;
+}
+.portfolio-stack-card.card-color-blue .stack-card-tech-badge {
+  background-color: rgba(15, 23, 42, 0.08);
+  color: #0f172a;
 }
 .portfolio-stack-card.card-color-pink {
   background-color: #ff85a2;
-  color: #ffffff;
+  color: #111111;
 }
 .portfolio-stack-card.card-color-pink .stack-card-title,
 .portfolio-stack-card.card-color-pink .metric-number {
-  color: #ffffff;
+  color: #111827;
 }
 .portfolio-stack-card.card-color-pink .stack-card-desc,
-.portfolio-stack-card.card-color-pink .metric-label {
-  color: #ffffff;
+.portfolio-stack-card.card-color-pink .metric-label,
+.portfolio-stack-card.card-color-pink .stack-card-meta {
+  color: #1f2937;
+}
+.portfolio-stack-card.card-color-pink .stack-card-tech-badge {
+  background-color: rgba(17, 24, 39, 0.08);
+  color: #111827;
 }
 .portfolio-stack-card.card-color-green {
   background-color: #4ade80;
-  color: #ffffff;
+  color: #111111;
 }
 .portfolio-stack-card.card-color-green .stack-card-title,
 .portfolio-stack-card.card-color-green .metric-number {
-  color: #ffffff;
+  color: #064e3b;
 }
 .portfolio-stack-card.card-color-green .stack-card-desc,
-.portfolio-stack-card.card-color-green .metric-label {
-  color: #ffffff;
+.portfolio-stack-card.card-color-green .metric-label,
+.portfolio-stack-card.card-color-green .stack-card-meta {
+  color: #065f46;
+}
+.portfolio-stack-card.card-color-green .stack-card-tech-badge {
+  background-color: rgba(6, 78, 59, 0.08);
+  color: #064e3b;
 }
 .portfolio-stack-card.card-color-yellow {
   background-color: #fcd34d;
-  color: #ffffff;
+  color: #111111;
 }
 .portfolio-stack-card.card-color-yellow .stack-card-title,
 .portfolio-stack-card.card-color-yellow .metric-number {
-  color: #ffffff;
+  color: #78350f;
 }
 .portfolio-stack-card.card-color-yellow .stack-card-desc,
-.portfolio-stack-card.card-color-yellow .metric-label {
-  color: #ffffff;
+.portfolio-stack-card.card-color-yellow .metric-label,
+.portfolio-stack-card.card-color-yellow .stack-card-meta {
+  color: #92400e;
+}
+.portfolio-stack-card.card-color-yellow .stack-card-tech-badge {
+  background-color: rgba(120, 53, 15, 0.08);
+  color: #78350f;
 }
 .portfolio-stack-card.card-color-purple {
   background-color: #a78bfa;
-  color: #ffffff;
+  color: #111111;
 }
 .portfolio-stack-card.card-color-purple .stack-card-title,
 .portfolio-stack-card.card-color-purple .metric-number {
-  color: #ffffff;
+  color: #2e1065;
 }
 .portfolio-stack-card.card-color-purple .stack-card-desc,
-.portfolio-stack-card.card-color-purple .metric-label {
-  color: #ffffff;
+.portfolio-stack-card.card-color-purple .metric-label,
+.portfolio-stack-card.card-color-purple .stack-card-meta {
+  color: #3b0764;
+}
+.portfolio-stack-card.card-color-purple .stack-card-tech-badge {
+  background-color: rgba(46, 16, 101, 0.08);
+  color: #2e1065;
 }
 .portfolio-stack-card.card-color-dark {
   background-color: #111827;
