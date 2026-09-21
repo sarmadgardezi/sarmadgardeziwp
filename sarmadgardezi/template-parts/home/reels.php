@@ -78,28 +78,7 @@ $reels_data = array(
 
                     <div class="reel-overlay-gradient"></div>
 
-                    <!-- Bottom Bar -->
-                    <div class="reel-card-bottom">
-                        <?php if (!empty($reels_data['card_1']['handle'])) : ?>
-                        <div class="reel-creator-chip">
-                            <img class="reel-creator-avatar" src="<?php echo esc_url($reels_data['card_1']['avatar']); ?>" alt="<?php echo esc_attr($reels_data['card_1']['handle']); ?>" width="26" height="26" loading="lazy" />
-                            <span class="reel-creator-handle"><?php echo esc_html($reels_data['card_1']['handle']); ?></span>
-                            <?php if (!empty($reels_data['card_1']['verified'])) : ?>
-                                <span class="reel-verified-badge" aria-label="Verified">
-                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#38bdf8">
-                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                                    </svg>
-                                </span>
-                            <?php endif; ?>
-                        </div>
-                        <?php endif; ?>
-                        <div class="reel-action-btn" aria-hidden="true">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                <rect x="6" y="4" width="3.5" height="16" rx="1"></rect>
-                                <rect x="14.5" y="4" width="3.5" height="16" rx="1"></rect>
-                            </svg>
-                        </div>
-                    </div>
+
 
                     <?php 
                     $c1_click = !empty($reels_data['card_1']['link_url']) ? $reels_data['card_1']['link_url'] : $reels_data['card_1']['video_url'];
@@ -126,28 +105,7 @@ $reels_data = array(
 
                     <div class="reel-overlay-gradient"></div>
 
-                    <!-- Bottom Bar -->
-                    <div class="reel-card-bottom">
-                        <?php if (!empty($reels_data['card_2']['handle'])) : ?>
-                        <div class="reel-creator-chip">
-                            <img class="reel-creator-avatar" src="<?php echo esc_url($reels_data['card_2']['avatar']); ?>" alt="<?php echo esc_attr($reels_data['card_2']['handle']); ?>" width="26" height="26" loading="lazy" />
-                            <span class="reel-creator-handle"><?php echo esc_html($reels_data['card_2']['handle']); ?></span>
-                            <?php if (!empty($reels_data['card_2']['verified'])) : ?>
-                                <span class="reel-verified-badge" aria-label="Verified">
-                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#38bdf8">
-                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                                    </svg>
-                                </span>
-                            <?php endif; ?>
-                        </div>
-                        <?php endif; ?>
-                        <div class="reel-action-btn" aria-hidden="true">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                <rect x="6" y="4" width="3.5" height="16" rx="1"></rect>
-                                <rect x="14.5" y="4" width="3.5" height="16" rx="1"></rect>
-                            </svg>
-                        </div>
-                    </div>
+
 
                     <?php 
                     $c2_click = !empty($reels_data['card_2']['link_url']) ? $reels_data['card_2']['link_url'] : $reels_data['card_2']['video_url'];
@@ -216,28 +174,7 @@ $reels_data = array(
 
                     <div class="reel-overlay-gradient"></div>
 
-                    <!-- Bottom Bar -->
-                    <div class="reel-card-bottom">
-                        <?php if (!empty($reels_data['card_4']['handle'])) : ?>
-                        <div class="reel-creator-chip">
-                            <img class="reel-creator-avatar" src="<?php echo esc_url($reels_data['card_4']['avatar']); ?>" alt="<?php echo esc_attr($reels_data['card_4']['handle']); ?>" width="26" height="26" loading="lazy" />
-                            <span class="reel-creator-handle"><?php echo esc_html($reels_data['card_4']['handle']); ?></span>
-                            <?php if (!empty($reels_data['card_4']['verified'])) : ?>
-                                <span class="reel-verified-badge" aria-label="Verified">
-                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="#38bdf8">
-                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                                    </svg>
-                                </span>
-                            <?php endif; ?>
-                        </div>
-                        <?php endif; ?>
-                        <div class="reel-action-btn" aria-hidden="true">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                <rect x="6" y="4" width="3.5" height="16" rx="1"></rect>
-                                <rect x="14.5" y="4" width="3.5" height="16" rx="1"></rect>
-                            </svg>
-                        </div>
-                    </div>
+
 
                     <?php if (!empty($reels_data['card_4']['video_url'])) : ?>
                         <a href="<?php echo esc_url($reels_data['card_4']['video_url']); ?>" target="_blank" rel="noopener noreferrer" class="reel-clickable-cover" aria-label="<?php esc_attr_e('Watch Reel', 'sarmadgardezi'); ?>"></a>
