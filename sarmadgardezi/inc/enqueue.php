@@ -14,7 +14,7 @@ function sarmadgardezi_scripts() {
     // Google Fonts (Plus Jakarta Sans & JetBrains Mono)
     wp_enqueue_style(
         'sarmadgardezi-fonts',
-        'https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap',
+        'https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Lora:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap',
         array(),
         null
     );
