@@ -128,10 +128,14 @@
 
 // Single Case Study View
 
-.single-case-main {
+.site-single-case-main {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 4rem 1rem 3rem;
+
+  @include respond-to('md') {
+    padding-top: 6rem;
+  }
 
   .case-study-top-nav {
     text-align: left;

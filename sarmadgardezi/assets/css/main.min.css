@@ -5603,16 +5603,21 @@ body.page-template-page-blog,
   line-height: 1.4;
 }
 
-.single-case-main {
+.site-single-case-main {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 4rem 1rem 3rem;
 }
-.single-case-main .case-study-top-nav {
+@media (min-width: 768px) {
+  .site-single-case-main {
+    padding-top: 6rem;
+  }
+}
+.site-single-case-main .case-study-top-nav {
   text-align: left;
   margin-bottom: 2rem;
 }
-.single-case-main .case-study-top-nav .back-link {
+.site-single-case-main .case-study-top-nav .back-link {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -5624,14 +5629,14 @@ body.page-template-page-blog,
   background: transparent;
   transition: all 0.15s ease;
 }
-.single-case-main .case-study-top-nav .back-link:hover {
+.site-single-case-main .case-study-top-nav .back-link:hover {
   color: #000;
 }
-.single-case-main .case-header {
+.site-single-case-main .case-header {
   text-align: center;
   margin-bottom: 3rem;
 }
-.single-case-main .case-header .case-title {
+.site-single-case-main .case-header .case-title {
   font-size: clamp(3rem, 7vw, 5.5rem);
   font-weight: 900;
   line-height: 1;
@@ -5640,25 +5645,25 @@ body.page-template-page-blog,
   margin-bottom: 0.75rem;
   color: #000;
 }
-.single-case-main .case-header .case-subtitle {
+.site-single-case-main .case-header .case-subtitle {
   font-size: clamp(1rem, 2vw, 1.15rem);
   color: #4b5563;
   max-width: 600px;
   margin: 0 auto 3rem;
   line-height: 1.5;
 }
-.single-case-main .case-header .case-meta-cards {
+.site-single-case-main .case-header .case-meta-cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   text-align: left;
 }
 @media (min-width: 768px) {
-  .single-case-main .case-header .case-meta-cards {
+  .site-single-case-main .case-header .case-meta-cards {
     grid-template-columns: repeat(4, 1fr);
   }
 }
-.single-case-main .case-header .case-meta-cards .meta-card {
+.site-single-case-main .case-header .case-meta-cards .meta-card {
   background: #ffffff;
   padding: 1.25rem 1.5rem;
   border-radius: 1rem;
@@ -5668,48 +5673,48 @@ body.page-template-page-blog,
   gap: 0.5rem;
   border: 1px solid rgba(0, 0, 0, 0.02);
 }
-.single-case-main .case-header .case-meta-cards .meta-card .meta-label {
+.site-single-case-main .case-header .case-meta-cards .meta-card .meta-label {
   font-size: 0.75rem;
   color: #78716c;
   font-weight: 600;
 }
-.single-case-main .case-header .case-meta-cards .meta-card .meta-value {
+.site-single-case-main .case-header .case-meta-cards .meta-card .meta-value {
   font-size: 0.95rem;
   font-weight: 700;
   color: #000;
 }
-.single-case-main .case-header .case-meta-cards .meta-card .meta-value .platform-tag {
+.site-single-case-main .case-header .case-meta-cards .meta-card .meta-value .platform-tag {
   display: inline-block;
   margin-right: 0.5rem;
 }
-.single-case-main .case-featured-visual {
+.site-single-case-main .case-featured-visual {
   margin-bottom: 4rem;
 }
-.single-case-main .case-featured-visual img {
+.site-single-case-main .case-featured-visual img {
   width: 100%;
   height: auto;
   border-radius: 1.5rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   object-fit: cover;
 }
-.single-case-main .case-content-wrapper {
+.site-single-case-main .case-content-wrapper {
   max-width: 760px;
   margin: 0 auto;
 }
-.single-case-main .case-content h2 {
+.site-single-case-main .case-content h2 {
   font-size: 1.5rem;
   font-weight: 800;
   text-transform: uppercase;
   margin: 3rem 0 1rem;
   letter-spacing: -0.01em;
 }
-.single-case-main .case-content p {
+.site-single-case-main .case-content p {
   font-size: 1.05rem;
   line-height: 1.6;
   color: #333;
   margin-bottom: 1.5rem;
 }
-.single-case-main .case-results-cards {
+.site-single-case-main .case-results-cards {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
@@ -5717,11 +5722,11 @@ body.page-template-page-blog,
   margin-bottom: 3rem;
 }
 @media (min-width: 640px) {
-  .single-case-main .case-results-cards {
+  .site-single-case-main .case-results-cards {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-.single-case-main .case-results-cards .result-card {
+.site-single-case-main .case-results-cards .result-card {
   padding: 2rem 1.5rem;
   border-radius: 1.25rem;
   display: flex;
@@ -5729,22 +5734,22 @@ body.page-template-page-blog,
   justify-content: space-between;
   min-height: 140px;
 }
-.single-case-main .case-results-cards .result-card.style-pink {
+.site-single-case-main .case-results-cards .result-card.style-pink {
   background-color: #ffb6e6;
 }
-.single-case-main .case-results-cards .result-card.style-blue {
+.site-single-case-main .case-results-cards .result-card.style-blue {
   background-color: #62a0ff;
 }
-.single-case-main .case-results-cards .result-card.style-yellow {
+.site-single-case-main .case-results-cards .result-card.style-yellow {
   background-color: #ffc34d;
 }
-.single-case-main .case-results-cards .result-card .result-label {
+.site-single-case-main .case-results-cards .result-card .result-label {
   font-size: 0.8rem;
   font-weight: 600;
   color: rgba(0, 0, 0, 0.7);
   max-width: 80%;
 }
-.single-case-main .case-results-cards .result-card .result-value {
+.site-single-case-main .case-results-cards .result-card .result-value {
   font-size: 2.5rem;
   font-weight: 900;
   color: #000;
@@ -5752,60 +5757,60 @@ body.page-template-page-blog,
   margin-top: 1rem;
   letter-spacing: -0.03em;
 }
-.single-case-main .case-testimonial-block {
+.site-single-case-main .case-testimonial-block {
   background: #e9ecef;
   padding: 2.5rem;
   border-radius: 1.25rem;
   margin-bottom: 5rem;
 }
-.single-case-main .case-testimonial-block .testimonial-text {
+.site-single-case-main .case-testimonial-block .testimonial-text {
   font-size: 1.1rem;
   line-height: 1.6;
   color: #333;
   margin-bottom: 1.5rem;
 }
-.single-case-main .case-testimonial-block .testimonial-author {
+.site-single-case-main .case-testimonial-block .testimonial-author {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
-.single-case-main .case-testimonial-block .testimonial-author .author-avatar {
+.site-single-case-main .case-testimonial-block .testimonial-author .author-avatar {
   width: 48px;
   height: 48px;
   border-radius: 50%;
   object-fit: cover;
 }
-.single-case-main .case-testimonial-block .testimonial-author .author-details {
+.site-single-case-main .case-testimonial-block .testimonial-author .author-details {
   display: flex;
   flex-direction: column;
 }
-.single-case-main .case-testimonial-block .testimonial-author .author-details .author-name {
+.site-single-case-main .case-testimonial-block .testimonial-author .author-details .author-name {
   font-weight: 700;
   font-size: 0.95rem;
   color: #000;
 }
-.single-case-main .case-testimonial-block .testimonial-author .author-details .author-title {
+.site-single-case-main .case-testimonial-block .testimonial-author .author-details .author-title {
   font-size: 0.8rem;
   color: #78716c;
 }
-.single-case-main .related-cases-section {
+.site-single-case-main .related-cases-section {
   padding-top: 4rem;
   border-top: 1px solid #e2ded5;
 }
-.single-case-main .related-cases-section .related-cases-header {
+.site-single-case-main .related-cases-section .related-cases-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2.5rem;
 }
-.single-case-main .related-cases-section .related-cases-header h2 {
+.site-single-case-main .related-cases-section .related-cases-header h2 {
   font-size: 2rem;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: -0.02em;
   margin: 0;
 }
-.single-case-main .related-cases-section .related-cases-header .btn-dark-pill {
+.site-single-case-main .related-cases-section .related-cases-header .btn-dark-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -5818,7 +5823,7 @@ body.page-template-page-blog,
   font-size: 0.85rem;
   transition: background 0.15s ease;
 }
-.single-case-main .related-cases-section .related-cases-header .btn-dark-pill:hover {
+.site-single-case-main .related-cases-section .related-cases-header .btn-dark-pill:hover {
   background: #333;
 }
 

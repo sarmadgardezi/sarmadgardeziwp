@@ -1,0 +1,18 @@
+/* Error: Undefined mixin.
+ *    ,
+ * 10 | /   @include respond-to('md') {
+ * 11 | |     grid-template-columns: repeat(2, 1fr);
+ * 12 | \   }
+ *    '
+ *   sarmadgardezi\assets\scss\pages\_case-study.scss 10:3  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined mixin.\a    \2577 \a 10 \2502  \250c    @include respond-to('md') {\a 11 \2502  \2502      grid-template-columns: repeat(2, 1fr);\a 12 \2502  \2514    }\a    \2575 \a   sarmadgardezi\\assets\\scss\\pages\\_case-study.scss 10:3  root stylesheet";
+}
