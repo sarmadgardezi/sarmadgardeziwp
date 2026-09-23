@@ -77,6 +77,15 @@ function sarmadgardezi_core_add_meta_boxes() {
         'normal',
         'high'
     );
+
+    add_meta_box(
+        'sarmad_page_meta',
+        __('Page Header Settings', 'sarmadgardezi-core'),
+        'sarmadgardezi_core_page_meta_callback',
+        'page',
+        'side',
+        'high'
+    );
 }
 add_action('add_meta_boxes', 'sarmadgardezi_core_add_meta_boxes');
 
@@ -302,6 +311,29 @@ function sarmadgardezi_core_case_meta_callback($post) {
 }
 
 /**
+ * Page meta box HTML markup.
+ */
+function sarmadgardezi_core_page_meta_callback($post) {
+    wp_nonce_field('sarmad_page_meta_save', 'sarmad_page_meta_nonce');
+    $show_hero = get_post_meta($post->ID, '_page_show_hero', true);
+    // Default to '1' if not set
+    if ($show_hero === '') {
+        $show_hero = '1';
+    }
+    ?>
+    <div style="padding: 10px 0;">
+        <label style="font-weight:600;">
+            <input type="checkbox" name="page_show_hero" value="1" <?php checked($show_hero, '1'); ?> />
+            <?php esc_html_e('Show Global Page Hero (Title & Excerpt)', 'sarmadgardezi-core'); ?>
+        </label>
+        <p style="font-size: 12px; color: #666; margin-top: 5px;">
+            <?php esc_html_e('If unchecked, the page will not output the default title header block.', 'sarmadgardezi-core'); ?>
+        </p>
+    </div>
+    <?php
+}
+
+/**
  * Save meta box data securely.
  */
 function sarmadgardezi_core_save_meta_boxes($post_id) {
@@ -310,6 +342,11 @@ function sarmadgardezi_core_save_meta_boxes($post_id) {
     }
     if (!current_user_can('edit_post', $post_id)) {
         return;
+    }
+
+    // Save Page meta
+    if (isset($_POST['sarmad_page_meta_nonce']) && wp_verify_nonce($_POST['sarmad_page_meta_nonce'], 'sarmad_page_meta_save')) {
+        update_post_meta($post_id, '_page_show_hero', isset($_POST['page_show_hero']) ? '1' : '0');
     }
 
     // Save Project meta

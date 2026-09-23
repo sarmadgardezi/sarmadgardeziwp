@@ -12,11 +12,7 @@ get_header();
 
 <main id="main-content" class="site-main site-single-case-main">
     <div class="site-container">
-        <div class="case-study-top-nav">
-            <a href="<?php echo esc_url(get_post_type_archive_link('case-study')); ?>" class="back-link">
-                <span class="icon-arrow-left">&larr;</span> <?php esc_html_e('All case study', 'sarmadgardezi'); ?>
-            </a>
-        </div>
+        <?php get_template_part('template-parts/global/breadcrumbs'); ?>
 
         <?php
         while (have_posts()) :

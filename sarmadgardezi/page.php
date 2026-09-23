@@ -15,9 +15,19 @@ get_header();
         <?php
         while (have_posts()) :
             the_post();
+            
+            $show_hero = function_exists('sarmad_get_field') ? sarmad_get_field('page_show_hero') : get_post_meta(get_the_ID(), '_page_show_hero', true);
+            // Default to true if not set
+            if ($show_hero === '' || $show_hero === false) {
+                $show_hero = '1';
+            }
         ?>
             <article id="post-<?php the_ID(); ?>" <?php post_class('page-article'); ?>>
-                <?php get_template_part('template-parts/global/page-header'); ?>
+                <?php 
+                if ($show_hero === '1') {
+                    get_template_part('template-parts/global/page-header'); 
+                }
+                ?>
 
                 <?php if (has_post_thumbnail()) : ?>
                     <div class="page-featured-image">

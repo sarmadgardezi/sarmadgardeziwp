@@ -51,7 +51,7 @@ function sarmadgardezi_breadcrumbs($class = '') {
     echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
     echo '<a itemprop="item" href="' . esc_url(home_url('/')) . '"><span itemprop="name">' . esc_html__('Home', 'sarmadgardezi') . '</span></a>';
     echo '<meta itemprop="position" content="1" />';
-    echo '<span class="breadcrumb-separator" aria-hidden="true">/</span>';
+    echo '<span class="breadcrumb-separator" aria-hidden="true">&gt;</span>';
     echo '</li>';
 
     $position = 2;
@@ -67,7 +67,7 @@ function sarmadgardezi_breadcrumbs($class = '') {
         echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
         echo '<a itemprop="item" href="' . esc_url($blog_url) . '"><span itemprop="name">' . esc_html__('Blog', 'sarmadgardezi') . '</span></a>';
         echo '<meta itemprop="position" content="' . $position++ . '" />';
-        echo '<span class="breadcrumb-separator" aria-hidden="true">/</span>';
+        echo '<span class="breadcrumb-separator" aria-hidden="true">&gt;</span>';
         echo '</li>';
         echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
         echo '<span itemprop="name" aria-current="page">' . esc_html(get_the_title()) . '</span>';
@@ -77,7 +77,7 @@ function sarmadgardezi_breadcrumbs($class = '') {
         echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
         echo '<a itemprop="item" href="' . esc_url(home_url('/projects/')) . '"><span itemprop="name">' . esc_html__('Projects', 'sarmadgardezi') . '</span></a>';
         echo '<meta itemprop="position" content="' . $position++ . '" />';
-        echo '<span class="breadcrumb-separator" aria-hidden="true">/</span>';
+        echo '<span class="breadcrumb-separator" aria-hidden="true">&gt;</span>';
         echo '</li>';
         echo '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
         echo '<span itemprop="name" aria-current="page">' . esc_html(get_the_title()) . '</span>';
