@@ -4615,110 +4615,57 @@ body.page-template-page-blog,
   max-width: 820px;
   margin: 0 auto;
 }
-.single-article .article-header {
-  margin-bottom: 2.5rem;
+.single-article .single-post-hero-section {
+  background-color: #F4F3ED;
+  padding: 5rem 0;
+  margin-bottom: 3.5rem;
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
 }
-.single-article .article-header .article-categories {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+.single-article .single-post-hero-section .site-container {
+  max-width: 800px;
+  margin: 0 auto;
 }
-.single-article .article-header .category-badge {
-  display: inline-block;
+.single-article .single-post-hero-section .hero-category {
+  font-family: var(--framer-font-family-bold, "Google Sans Flex", sans-serif);
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 800;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0.25rem 0.65rem;
-  border-radius: 9999px;
-  background: #f9f9f9;
-  color: #4b5563;
-  border: 1px solid #e2ded5;
-  text-decoration: none;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
 }
-.single-article .article-header .category-badge:hover {
-  background: #1c1917;
-  color: #ffffff;
-}
-.single-article .article-header .article-title {
+.single-article .single-post-hero-section .hero-title {
   font-family: "Lora", "Playfair Display", serif;
-  font-size: clamp(2.15rem, 6vw, 4.5rem);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 400;
-  line-height: 1.25;
-  color: #1a1b26;
-  margin-bottom: 1.25rem;
-  letter-spacing: -0.01em;
+  line-height: 1.15;
+  color: #111827;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
 }
-.single-article .article-header .article-meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid #e2ded5;
-}
-.single-article .article-header .article-author-info {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-.single-article .article-header .article-author-info .author-thumb {
-  border-radius: 9999px;
-  object-fit: cover;
-}
-.single-article .article-header .article-author-info .author-details {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-}
-.single-article .article-header .article-author-info .author-details .author-name {
-  font-weight: 600;
-  font-size: 0.9375rem;
-}
-.single-article .article-header .article-author-info .author-details .author-name a {
-  color: #1c1917;
-  text-decoration: none;
-}
-.single-article .article-header .article-author-info .author-details .author-name a:hover {
-  text-decoration: underline;
-}
-.single-article .article-header .article-author-info .author-details .author-title {
-  font-size: 0.8125rem;
-  color: #78716c;
-}
-.single-article .article-header .article-time-info {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.875rem;
+.single-article .single-post-hero-section .hero-excerpt {
+  font-family: var(--framer-font-family, "Google Sans Flex", sans-serif);
+  font-size: 1.125rem;
+  line-height: 1.6;
   color: #4b5563;
+  margin-bottom: 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
-.single-article .article-header .article-time-info .meta-icon {
-  display: inline-flex;
-  align-items: center;
-  margin-right: 0.35rem;
-  color: #78716c;
+.single-article .single-post-hero-section .hero-separator {
+  width: 100px;
+  height: 1px;
+  background-color: #d1d5db;
+  border: none;
+  margin: 0 auto 2rem auto;
 }
-.single-article .article-header .article-time-info .meta-icon svg {
-  width: 14px;
-  height: 14px;
-}
-.single-article .article-header .article-time-info .time-block {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-.single-article .article-header .article-time-info .updated-date {
-  font-style: italic;
-  color: #78716c;
-  font-size: 0.8125rem;
-}
-.single-article .article-header .article-time-info .article-read-time {
-  display: inline-flex;
-  align-items: center;
+.single-article .single-post-hero-section .hero-date {
+  font-family: var(--framer-font-family, "Google Sans Flex", sans-serif);
+  font-size: 0.875rem;
+  color: #111827;
+  font-weight: 500;
 }
 .single-article .article-featured-image {
   margin: 0 0 2.5rem;
