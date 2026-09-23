@@ -1013,3 +1013,175 @@ body.page-template-page-blog,
     }
   }
 }
+
+
+// ==========================================================================
+// Post Share Widget & Related Posts List
+// ==========================================================================
+
+.post-share-widget {
+  background-color: #E6E4D9;
+  border: 1px solid #D1CFBA;
+  border-radius: 36px;
+  padding: 1.5rem 1.5rem;
+  margin: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+
+  @include respond-to('md') {
+    flex-direction: row;
+    padding: 1.5rem 2.5rem;
+  }
+
+  .share-widget-left {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+
+    .action-pill {
+      background: transparent;
+      border: 1px solid #111827;
+      border-radius: 99px;
+      padding: 0.6rem 1.2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #111827;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: rgba(17, 24, 39, 0.05);
+      }
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+
+  .share-widget-right {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem;
+    justify-content: center;
+
+    .share-label {
+      font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #9CA3AF;
+    }
+
+    .social-share-links {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+
+      .social-circle {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        border: 1px solid #111827;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #111827;
+        transition: all 0.2s ease;
+        background: transparent;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #111827;
+          color: #ffffff;
+        }
+
+        svg {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+  }
+}
+
+.post-related-list-widget {
+  margin: 4rem 0;
+
+  .related-badge {
+    display: inline-block;
+    background-color: #E6E4D9;
+    border-radius: 12px;
+    padding: 0.6rem 1.25rem;
+    font-family: 'Lora', 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: #111827;
+    margin-bottom: 2.5rem;
+    
+    .serif {
+      font-weight: 400;
+    }
+  }
+
+  .related-numbered-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .related-list-item {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+
+      @include respond-to('md') {
+        gap: 2.5rem;
+      }
+
+      .list-rank {
+        font-family: 'Instrument Serif', 'Playfair Display', serif;
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: #111827;
+        line-height: 1;
+        width: 2rem;
+        text-align: center;
+        flex-shrink: 0;
+
+        @include respond-to('md') {
+          font-size: 3rem;
+          width: 3rem;
+        }
+      }
+
+      .list-title {
+        font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: #111827;
+        text-decoration: none;
+        line-height: 1.4;
+        transition: color 0.2s ease;
+
+        @include respond-to('md') {
+          font-size: 1.25rem;
+        }
+
+        &:hover {
+          color: $color-primary;
+        }
+      }
+    }
+  }
+}

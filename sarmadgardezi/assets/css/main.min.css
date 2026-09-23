@@ -5146,6 +5146,160 @@ body.page-template-page-blog,
   background: #ffffff;
 }
 
+.post-share-widget {
+  background-color: #E6E4D9;
+  border: 1px solid #D1CFBA;
+  border-radius: 36px;
+  padding: 1.5rem 1.5rem;
+  margin: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (min-width: 768px) {
+  .post-share-widget {
+    flex-direction: row;
+    padding: 1.5rem 2.5rem;
+  }
+}
+.post-share-widget .share-widget-left {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+.post-share-widget .share-widget-left .action-pill {
+  background: transparent;
+  border: 1px solid #111827;
+  border-radius: 99px;
+  padding: 0.6rem 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--framer-font-family, "Google Sans Flex", sans-serif);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #111827;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.post-share-widget .share-widget-left .action-pill:hover {
+  background-color: rgba(17, 24, 39, 0.05);
+}
+.post-share-widget .share-widget-left .action-pill svg {
+  width: 16px;
+  height: 16px;
+}
+.post-share-widget .share-widget-right {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  justify-content: center;
+}
+.post-share-widget .share-widget-right .share-label {
+  font-family: var(--framer-font-family, "Google Sans Flex", sans-serif);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #9CA3AF;
+}
+.post-share-widget .share-widget-right .social-share-links {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.post-share-widget .share-widget-right .social-share-links .social-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #111827;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #111827;
+  transition: all 0.2s ease;
+  background: transparent;
+  cursor: pointer;
+}
+.post-share-widget .share-widget-right .social-share-links .social-circle:hover {
+  background-color: #111827;
+  color: #ffffff;
+}
+.post-share-widget .share-widget-right .social-share-links .social-circle svg {
+  width: 16px;
+  height: 16px;
+}
+
+.post-related-list-widget {
+  margin: 4rem 0;
+}
+.post-related-list-widget .related-badge {
+  display: inline-block;
+  background-color: #E6E4D9;
+  border-radius: 12px;
+  padding: 0.6rem 1.25rem;
+  font-family: "Lora", "Playfair Display", serif;
+  font-size: 1.25rem;
+  color: #111827;
+  margin-bottom: 2.5rem;
+}
+.post-related-list-widget .related-badge .serif {
+  font-weight: 400;
+}
+.post-related-list-widget .related-numbered-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.post-related-list-widget .related-numbered-list .related-list-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+@media (min-width: 768px) {
+  .post-related-list-widget .related-numbered-list .related-list-item {
+    gap: 2.5rem;
+  }
+}
+.post-related-list-widget .related-numbered-list .related-list-item .list-rank {
+  font-family: "Instrument Serif", "Playfair Display", serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #111827;
+  line-height: 1;
+  width: 2rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+@media (min-width: 768px) {
+  .post-related-list-widget .related-numbered-list .related-list-item .list-rank {
+    font-size: 3rem;
+    width: 3rem;
+  }
+}
+.post-related-list-widget .related-numbered-list .related-list-item .list-title {
+  font-family: var(--framer-font-family, "Google Sans Flex", sans-serif);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #111827;
+  text-decoration: none;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+}
+@media (min-width: 768px) {
+  .post-related-list-widget .related-numbered-list .related-list-item .list-title {
+    font-size: 1.25rem;
+  }
+}
+.post-related-list-widget .related-numbered-list .related-list-item .list-title:hover {
+  color: #1c1917;
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr;

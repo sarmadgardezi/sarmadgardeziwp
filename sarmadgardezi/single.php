@@ -112,7 +112,16 @@ get_header();
                         </div>
                     <?php endif; ?>
 
-                    <?php get_template_part('template-parts/blog/author-box'); ?>
+                    <?php 
+                    // New Share Widget
+                    get_template_part('template-parts/blog/share-widget'); 
+                    
+                    // New Related Posts List
+                    get_template_part('template-parts/blog/related-posts-list');
+                    
+                    // Author Box
+                    get_template_part('template-parts/blog/author-box'); 
+                    ?>
 
                     <nav class="article-navigation" aria-label="<?php esc_attr_e('Adjacent posts', 'sarmadgardezi'); ?>">
                         <div class="nav-links">
@@ -139,7 +148,7 @@ get_header();
                     </nav>
                 </footer>
 
-                <?php get_template_part('template-parts/blog/related-posts'); ?>
+                <!-- Old related posts removed in favor of new numbered list design -->
 
                 <?php
                 if (comments_open() || get_comments_number()) :
