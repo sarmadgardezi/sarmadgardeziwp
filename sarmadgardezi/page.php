@@ -17,6 +17,9 @@ get_header();
             the_post();
             
             $show_hero = function_exists('sarmad_get_field') ? sarmad_get_field('page_show_hero') : get_post_meta(get_the_ID(), '_page_show_hero', true);
+            $hero_title = function_exists('sarmad_get_field') ? sarmad_get_field('page_hero_title') : get_post_meta(get_the_ID(), '_page_hero_title', true);
+            $hero_subtitle = function_exists('sarmad_get_field') ? sarmad_get_field('page_hero_subtitle') : get_post_meta(get_the_ID(), '_page_hero_subtitle', true);
+            
             // Default to true if not set
             if ($show_hero === '' || $show_hero === false) {
                 $show_hero = '1';
@@ -25,7 +28,14 @@ get_header();
             <article id="post-<?php the_ID(); ?>" <?php post_class('page-article'); ?>>
                 <?php 
                 if ($show_hero === '1') {
-                    get_template_part('template-parts/global/page-header'); 
+                    $header_args = array();
+                    if (!empty($hero_title)) {
+                        $header_args['title'] = $hero_title;
+                    }
+                    if (!empty($hero_subtitle)) {
+                        $header_args['description'] = $hero_subtitle;
+                    }
+                    get_template_part('template-parts/global/page-header', null, $header_args); 
                 }
                 ?>
 
