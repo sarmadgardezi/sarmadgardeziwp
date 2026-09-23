@@ -3243,18 +3243,20 @@ textarea::placeholder {
 }
 .portfolio-stack-card .decorative-star {
   position: absolute;
-  top: -16px;
+  top: -24px;
   right: 16px;
   z-index: 20;
-  width: 36px;
-  height: 36px;
+  font-family: "Instrument Serif", serif;
+  font-size: 64px;
+  line-height: 1em;
+  -webkit-text-stroke: 1px #141824;
+  user-select: none;
 }
 @media (min-width: 768px) {
   .portfolio-stack-card .decorative-star {
-    top: -12px;
+    top: -32px;
     right: 24px;
-    width: 42px;
-    height: 42px;
+    font-size: 82px;
   }
 }
 .portfolio-stack-card .stack-card-inner {
@@ -3281,43 +3283,43 @@ textarea::placeholder {
   background-color: #f4f8fc;
   border-color: #dbeafe;
 }
-.portfolio-stack-card.card-color-blue .decorative-star path {
-  fill: #60a5fa;
+.portfolio-stack-card.card-color-blue .decorative-star {
+  color: #60a5fa;
 }
 .portfolio-stack-card.card-color-pink {
   background-color: #fcf6f7;
   border-color: #fbcfe8;
 }
-.portfolio-stack-card.card-color-pink .decorative-star path {
-  fill: #7C72FF;
+.portfolio-stack-card.card-color-pink .decorative-star {
+  color: #7C72FF;
 }
 .portfolio-stack-card.card-color-green {
   background-color: #f2fcf5;
   border-color: #bbf7d0;
 }
-.portfolio-stack-card.card-color-green .decorative-star path {
-  fill: #4ade80;
+.portfolio-stack-card.card-color-green .decorative-star {
+  color: #4ade80;
 }
 .portfolio-stack-card.card-color-yellow {
   background-color: #fcfbf5;
   border-color: #fde68a;
 }
-.portfolio-stack-card.card-color-yellow .decorative-star path {
-  fill: #fbbf24;
+.portfolio-stack-card.card-color-yellow .decorative-star {
+  color: #fbbf24;
 }
 .portfolio-stack-card.card-color-purple {
   background-color: #f7f5fc;
   border-color: #ddd6fe;
 }
-.portfolio-stack-card.card-color-purple .decorative-star path {
-  fill: #a78bfa;
+.portfolio-stack-card.card-color-purple .decorative-star {
+  color: #a78bfa;
 }
 .portfolio-stack-card.card-color-dark {
   background-color: #f8fafc;
   border-color: #e2e8f0;
 }
-.portfolio-stack-card.card-color-dark .decorative-star path {
-  fill: #475569;
+.portfolio-stack-card.card-color-dark .decorative-star {
+  color: #475569;
 }
 
 .stack-card-grid {

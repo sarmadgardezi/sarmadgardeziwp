@@ -27,9 +27,7 @@ $outline_string = !empty($outline_texts) ? implode(' &bull; ', array_filter($out
     style="--card-index: <?php echo esc_attr($idx); ?>;"
 >
     <!-- Floating Decorative Star -->
-    <svg class="decorative-star" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M24 0L27.2323 16.7677L44 20L27.2323 23.2323L24 40L20.7677 23.2323L4 20L20.7677 16.7677L24 0Z" fill="#7C72FF" stroke="#1A1B26" stroke-width="1.5"/>
-    </svg>
+    <div class="decorative-star">✦</div>
 
     <div class="stack-card-inner">
         <!-- Card Content Grid -->
