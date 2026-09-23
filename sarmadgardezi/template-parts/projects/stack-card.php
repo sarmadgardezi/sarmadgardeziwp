@@ -4,106 +4,74 @@
  * Used in featured projects and project archive.
  */
 
-// We expect $args to contain the card data:
-// $card = $args['card'];
-// $idx  = $args['idx'];
-
 if (empty($args['card'])) return;
 $card = $args['card'];
 $idx  = isset($args['idx']) ? $args['idx'] : 0;
+
+// Build the outline string from pills or tech stack
+$outline_texts = array();
+if (!empty($card['pills'])) {
+    foreach ($card['pills'] as $pill) {
+        $outline_texts[] = is_array($pill) ? ($pill['text'] ?? '') : $pill;
+    }
+} elseif (!empty($card['tech_stack']) && !is_wp_error($card['tech_stack'])) {
+    foreach ($card['tech_stack'] as $term) {
+        $outline_texts[] = $term->name;
+    }
+}
+$outline_string = !empty($outline_texts) ? implode(' &bull; ', array_filter($outline_texts)) : 'CASE STUDY';
 ?>
 
 <article 
     class="portfolio-stack-card card-color-<?php echo esc_attr($card['color']); ?>"
     style="--card-index: <?php echo esc_attr($idx); ?>;"
 >
-    <!-- Top-Right Actions -->
-    <div class="stack-card-top-actions">
-        <?php if (!empty($card['link']) && $card['link'] !== '#') : ?>
-            <a href="<?php echo esc_url($card['link']); ?>" target="_blank" rel="noopener noreferrer" class="stack-card-btn stack-card-btn-solid stack-card-btn-small">
-                <?php esc_html_e('View Project', 'sarmadgardezi'); ?>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-            </a>
-        <?php endif; ?>
-        
-        <div class="stack-card-icon-badge" aria-hidden="true">
-            <?php echo sarmadgardezi_render_card_icon($card['icon']); ?>
-        </div>
-    </div>
+    <!-- Floating Decorative Star -->
+    <svg class="decorative-star" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24 0L27.2323 16.7677L44 20L27.2323 23.2323L24 40L20.7677 23.2323L4 20L20.7677 16.7677L24 0Z" fill="#7C72FF" stroke="#1A1B26" stroke-width="1.5"/>
+    </svg>
 
-    <!-- Card Content Grid -->
-    <div class="stack-card-grid">
-        <!-- Left Details Column -->
-        <div class="stack-card-content">
-            <h3 class="stack-card-title">
-                <?php echo esc_html($card['title']); ?>
-            </h3>
-
-            <div class="stack-card-desc">
-                <p><?php echo esc_html($card['desc']); ?></p>
-            </div>
+    <div class="stack-card-inner">
+        <!-- Card Content Grid -->
+        <div class="stack-card-grid">
             
-            <?php if (!empty($card['role']) || !empty($card['timeline'])) : ?>
-                <div class="project-card-meta stack-card-meta" style="margin-bottom: 1.5rem;">
-                    <?php if (!empty($card['role'])) : ?>
-                        <span class="project-role" style="font-weight: 600;"><?php echo esc_html($card['role']); ?></span>
-                    <?php endif; ?>
-                    <?php if (!empty($card['role']) && !empty($card['timeline'])) : ?>
-                        <span class="meta-dot" aria-hidden="true" style="margin: 0 8px;">&bull;</span>
-                    <?php endif; ?>
-                    <?php if (!empty($card['timeline'])) : ?>
-                        <span class="project-timeline"><?php echo esc_html($card['timeline']); ?></span>
-                    <?php endif; ?>
+            <!-- Left Details Column -->
+            <div class="stack-card-content">
+                
+                <div class="card-badges">
+                    <span class="live-badge">
+                        <span class="pulse-dot"></span> LIVE PROJECT
+                    </span>
+                    <span class="outline-badge">
+                        <?php echo wp_kses_post($outline_string); ?>
+                    </span>
                 </div>
-            <?php endif; ?>
 
-            <?php if (!empty($card['tech_stack']) && !is_wp_error($card['tech_stack'])) : ?>
-                <div class="project-tech-stack stack-card-tech" style="margin-bottom: 1.5rem;" aria-label="<?php esc_attr_e('Technologies used', 'sarmadgardezi'); ?>">
-                    <?php foreach ($card['tech_stack'] as $term) : ?>
-                        <span class="tech-badge stack-card-tech-badge" style="padding: 4px 10px; border-radius: 99px; font-size: 0.75rem; margin-right: 6px; display: inline-block; margin-bottom: 6px;"><?php echo esc_html($term->name); ?></span>
-                    <?php endforeach; ?>
+                <h3 class="stack-card-title serif-title">
+                    <?php echo esc_html($card['title']); ?>
+                </h3>
+
+                <div class="stack-card-desc">
+                    <p><?php echo esc_html($card['desc']); ?></p>
                 </div>
-            <?php endif; ?>
-
-            <?php if (!empty($card['pills'])) : ?>
-                <div class="stack-card-pills">
-                    <?php foreach ($card['pills'] as $pill) : 
-                        $pill_text = is_array($pill) ? ($pill['text'] ?? '') : $pill;
-                        $pill_icon = is_array($pill) ? ($pill['icon'] ?? '') : '';
-                        if (empty($pill_text)) continue;
-                    ?>
-                        <span class="stack-pill">
-                            <?php if (!empty($pill_icon)) : ?>
-                                <img src="<?php echo esc_url($pill_icon); ?>" alt="icon" style="width: 16px; height: 16px; object-fit: contain;">
-                            <?php else : ?>
-                                <svg class="pill-check" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            <?php endif; ?>
-                            <?php echo esc_html($pill_text); ?>
-                        </span>
-                    <?php endforeach; ?>
-                </div>
-            <?php endif; ?>
-
-            <?php if (!empty($card['metric_val'])) : ?>
-                <div class="stack-card-metric">
-                    <div class="metric-number"><?php echo esc_html($card['metric_val']); ?></div>
-                    <?php if (!empty($card['metric_lbl'])) : ?>
-                        <div class="metric-label"><?php echo esc_html($card['metric_lbl']); ?></div>
-                    <?php endif; ?>
-                </div>
-            <?php endif; ?>
-        </div>
-
-        <!-- Right Visual Column -->
-        <div class="stack-card-visual-wrap">
-            <div class="stack-card-visual-link" title="<?php echo esc_attr($card['title']); ?>">
-                <img 
-                    src="<?php echo esc_url($card['image']); ?>" 
-                    alt="<?php echo esc_attr($card['title']); ?>" 
-                    class="stack-card-img"
-                    loading="lazy"
-                />
+                
+                <?php if (!empty($card['link']) && $card['link'] !== '#') : ?>
+                    <a href="<?php echo esc_url($card['link']); ?>" class="card-hidden-link" aria-label="<?php esc_attr_e('View Project', 'sarmadgardezi'); ?>"></a>
+                <?php endif; ?>
             </div>
+
+            <!-- Right Visual Column -->
+            <div class="stack-card-visual-wrap">
+                <div class="stack-card-visual-link">
+                    <img 
+                        src="<?php echo esc_url($card['image']); ?>" 
+                        alt="<?php echo esc_attr($card['title']); ?>" 
+                        class="stack-card-img"
+                        loading="lazy"
+                    />
+                </div>
+            </div>
+
         </div>
     </div>
 </article>
