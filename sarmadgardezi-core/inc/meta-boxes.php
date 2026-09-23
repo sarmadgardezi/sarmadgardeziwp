@@ -78,14 +78,16 @@ function sarmadgardezi_core_add_meta_boxes() {
         'high'
     );
 
-    add_meta_box(
-        'sarmad_page_meta',
-        __('Page Header Settings', 'sarmadgardezi-core'),
-        'sarmadgardezi_core_page_meta_callback',
-        'page',
-        'normal',
-        'high'
-    );
+    if (!function_exists('acf_add_local_field_group')) {
+        add_meta_box(
+            'sarmad_page_meta',
+            __('Page Header Settings', 'sarmadgardezi-core'),
+            'sarmadgardezi_core_page_meta_callback',
+            'page',
+            'normal',
+            'high'
+        );
+    }
 }
 add_action('add_meta_boxes', 'sarmadgardezi_core_add_meta_boxes');
 

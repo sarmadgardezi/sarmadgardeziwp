@@ -1051,4 +1051,71 @@ function sarmadgardezi_register_all_acf_field_groups() {
         'position' => 'normal',
         'style' => 'default',
     ));
+
+    // Page Header Settings (ACF Bridge)
+    acf_add_local_field_group(array(
+        'key' => 'group_page_header_settings',
+        'title' => __('Page Header Settings', 'sarmadgardezi'),
+        'fields' => array(
+            array(
+                'key' => 'field_page_show_hero',
+                'label' => __('Show Global Page Hero (Title & Excerpt)', 'sarmadgardezi'),
+                'name' => '_page_show_hero',
+                'type' => 'true_false',
+                'instructions' => __('If unchecked, the page will only output the content (ideal for Elementor).', 'sarmadgardezi'),
+                'default_value' => 1,
+                'ui' => 1,
+            ),
+            array(
+                'key' => 'field_page_hero_title',
+                'label' => __('Custom Hero Title', 'sarmadgardezi'),
+                'name' => '_page_hero_title',
+                'type' => 'text',
+                'instructions' => __('Overrides the default Page Title.', 'sarmadgardezi'),
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field' => 'field_page_show_hero',
+                            'operator' => '==',
+                            'value' => '1',
+                        ),
+                    ),
+                ),
+            ),
+            array(
+                'key' => 'field_page_hero_subtitle',
+                'label' => __('Hero Subtitle / Excerpt', 'sarmadgardezi'),
+                'name' => '_page_hero_subtitle',
+                'type' => 'textarea',
+                'instructions' => __('Enter a subtitle or description to appear below the title.', 'sarmadgardezi'),
+                'rows' => 3,
+                'conditional_logic' => array(
+                    array(
+                        array(
+                            'field' => 'field_page_show_hero',
+                            'operator' => '==',
+                            'value' => '1',
+                        ),
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'page',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => true,
+        'description' => '',
+    ));
 }
