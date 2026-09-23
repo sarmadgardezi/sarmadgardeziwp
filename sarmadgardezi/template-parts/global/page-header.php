@@ -29,12 +29,12 @@ $align = isset($args['align']) ? $args['align'] : 'center';
     get_template_part('template-parts/global/breadcrumbs'); 
     ?>
     
-    <h1 class="page-title" style="font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; margin-bottom: 1rem; color: #000; line-height: 1.1;">
+    <h1 class="page-title" style="font-family: var(--framer-font-family-bold, 'Google Sans Flex', -apple-system, sans-serif); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900; letter-spacing: -0.04em; margin-bottom: 1.35rem; color: #111827; line-height: 1.05;">
         <?php echo wp_kses_post($title); ?>
     </h1>
     
     <?php if (!empty($description)) : ?>
-        <p class="page-description" style="max-width: 800px; margin: 0 <?php echo $align === 'center' ? 'auto' : '0'; ?>; font-size: 1.125rem; color: #666; line-height: 1.6;">
+        <p class="page-description" style="font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif); max-width: 640px; margin: 0 <?php echo $align === 'center' ? 'auto' : '0'; ?>; font-size: clamp(1.05rem, 1.5vw, 1.1875rem); font-weight: 500; color: #4b5563; line-height: 1.6; letter-spacing: -0.015em;">
             <?php echo wp_kses_post($description); ?>
         </p>
     <?php endif; ?>

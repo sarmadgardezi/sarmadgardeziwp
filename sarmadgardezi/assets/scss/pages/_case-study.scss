@@ -169,21 +169,24 @@
     margin-bottom: 3rem;
 
     .case-title {
+      font-family: var(--framer-font-family-bold, 'Google Sans Flex', -apple-system, sans-serif);
       font-size: clamp(3rem, 7vw, 5.5rem);
       font-weight: 900;
       line-height: 1;
-      text-transform: uppercase;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.04em;
       margin-bottom: 0.75rem;
-      color: #000;
+      color: #111827;
     }
 
     .case-subtitle {
-      font-size: clamp(1rem, 2vw, 1.15rem);
-      color: $color-text-muted;
-      max-width: 600px;
+      font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+      font-size: clamp(1rem, 2vw, 1.1875rem);
+      font-weight: 500;
+      color: #4b5563;
+      max-width: 640px;
       margin: 0 auto 3rem;
-      line-height: 1.5;
+      line-height: 1.6;
+      letter-spacing: -0.015em;
     }
 
     .case-meta-cards {

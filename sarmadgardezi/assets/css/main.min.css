@@ -5645,20 +5645,23 @@ body.page-template-page-blog,
   margin-bottom: 3rem;
 }
 .site-single-case-main .case-header .case-title {
+  font-family: var(--framer-font-family-bold, "Google Sans Flex", -apple-system, sans-serif);
   font-size: clamp(3rem, 7vw, 5.5rem);
   font-weight: 900;
   line-height: 1;
-  text-transform: uppercase;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
   margin-bottom: 0.75rem;
-  color: #000;
+  color: #111827;
 }
 .site-single-case-main .case-header .case-subtitle {
-  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-family: var(--framer-font-family, "Google Sans Flex", sans-serif);
+  font-size: clamp(1rem, 2vw, 1.1875rem);
+  font-weight: 500;
   color: #4b5563;
-  max-width: 600px;
+  max-width: 640px;
   margin: 0 auto 3rem;
-  line-height: 1.5;
+  line-height: 1.6;
+  letter-spacing: -0.015em;
 }
 .site-single-case-main .case-header .case-meta-cards {
   display: grid;

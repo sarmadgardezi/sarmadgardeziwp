@@ -83,7 +83,7 @@ function sarmadgardezi_core_add_meta_boxes() {
         __('Page Header Settings', 'sarmadgardezi-core'),
         'sarmadgardezi_core_page_meta_callback',
         'page',
-        'side',
+        'normal',
         'high'
     );
 }
