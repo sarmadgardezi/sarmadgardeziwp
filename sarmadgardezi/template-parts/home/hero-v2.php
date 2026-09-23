@@ -48,15 +48,15 @@ if (function_exists('get_field')) {
         <div class="hero-v2-pills">
             <div class="hero-pill pill-purple">
                 <span class="pill-dot"></span>
-                Senior UX Designer @ 
+                Senior Software Engineer @ 
                 <span class="pill-icon-wrapper">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="coditas-icon"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
                 </span>
-                Coditas
+                TrickleUp
             </div>
             <div class="hero-pill pill-grey">
                 <span class="pill-dot-orange"></span>
-                Bangalore, India
+                Islamabad, Pakistan
             </div>
         </div>
 
