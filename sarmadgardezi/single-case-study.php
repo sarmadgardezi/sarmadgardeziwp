@@ -86,7 +86,13 @@ get_header();
                     </div>
                 </header>
 
-                <?php if (has_post_thumbnail()) : ?>
+                <?php 
+                $cover_image = function_exists('sarmad_get_field') ? sarmad_get_field('case_cover_image', $post_id) : get_post_meta($post_id, '_case_cover_image', true);
+                if (!empty($cover_image)) : ?>
+                    <figure class="case-featured-visual">
+                        <img src="<?php echo esc_url($cover_image); ?>" alt="<?php the_title_attribute(); ?>" loading="eager" fetchpriority="high" />
+                    </figure>
+                <?php elseif (has_post_thumbnail()) : ?>
                     <figure class="case-featured-visual">
                         <?php the_post_thumbnail('full', array('loading' => 'eager', 'fetchpriority' => 'high')); ?>
                     </figure>

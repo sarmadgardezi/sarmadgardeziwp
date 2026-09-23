@@ -5597,30 +5597,33 @@ body.page-template-page-blog,
   line-height: 1.4;
 }
 
+.site-case-studies-main,
+.site-single-case-main {
+  background-color: #ffffff;
+}
+
 .single-case-main {
   max-width: 1000px;
   margin: 0 auto;
   padding: 2rem 1rem;
 }
 .single-case-main .case-study-top-nav {
-  text-align: center;
+  text-align: left;
   margin-bottom: 2rem;
 }
 .single-case-main .case-study-top-nav .back-link {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 500;
   color: #4b5563;
   text-decoration: none;
-  padding: 0.5rem 1rem;
-  background: #e5e3db;
-  border-radius: 2rem;
+  padding: 0.5rem 0;
+  background: transparent;
   transition: all 0.15s ease;
 }
 .single-case-main .case-study-top-nav .back-link:hover {
-  background: rgb(91.4215686275%, 92.6470588235%, 93.8725490196%);
   color: #000;
 }
 .single-case-main .case-header {

@@ -231,6 +231,10 @@ function sarmadgardezi_core_case_meta_callback($post) {
         <label style="display:block; font-weight:600; margin-bottom:4px;" for="case_hero_subtitle"><?php esc_html_e('Hero Subtitle (Used on Single Page Header)', 'sarmadgardezi-core'); ?></label>
         <input type="text" id="case_hero_subtitle" name="case_hero_subtitle" value="<?php echo esc_attr($hero_subtitle); ?>" style="width: 100%;" placeholder="e.g. Beauty & Wellness brand that had great products..." />
     </div>
+    <div style="margin-bottom: 16px;">
+        <label style="display:block; font-weight:600; margin-bottom:4px;" for="case_cover_image"><?php esc_html_e('Single Page Cover Image URL', 'sarmadgardezi-core'); ?></label>
+        <input type="url" id="case_cover_image" name="case_cover_image" value="<?php echo esc_url(get_post_meta($post->ID, '_case_cover_image', true)); ?>" style="width: 100%;" placeholder="https://..." />
+    </div>
     
     <h4><?php esc_html_e('Single Page Meta Details', 'sarmadgardezi-core'); ?></h4>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 10px 0;">
@@ -335,6 +339,7 @@ function sarmadgardezi_core_save_meta_boxes($post_id) {
     if (isset($_POST['sarmad_case_meta_nonce']) && wp_verify_nonce($_POST['sarmad_case_meta_nonce'], 'sarmad_case_meta_save')) {
         update_post_meta($post_id, '_case_subtitle', sanitize_text_field($_POST['case_subtitle'] ?? ''));
         update_post_meta($post_id, '_case_hero_subtitle', sanitize_text_field($_POST['case_hero_subtitle'] ?? ''));
+        update_post_meta($post_id, '_case_cover_image', esc_url_raw($_POST['case_cover_image'] ?? ''));
         update_post_meta($post_id, '_case_category', sanitize_text_field($_POST['case_category'] ?? ''));
         update_post_meta($post_id, '_case_platforms', sanitize_text_field($_POST['case_platforms'] ?? ''));
         update_post_meta($post_id, '_case_focus', sanitize_text_field($_POST['case_focus'] ?? ''));

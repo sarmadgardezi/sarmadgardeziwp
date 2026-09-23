@@ -127,30 +127,33 @@
 }
 
 // Single Case Study View
+.site-case-studies-main,
+.site-single-case-main {
+  background-color: #ffffff;
+}
+
 .single-case-main {
   max-width: 1000px;
   margin: 0 auto;
   padding: 2rem 1rem;
 
   .case-study-top-nav {
-    text-align: center;
+    text-align: left;
     margin-bottom: 2rem;
 
     .back-link {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: 0.85rem;
-      font-weight: 600;
+      font-size: 0.9rem;
+      font-weight: 500;
       color: $color-text-muted;
       text-decoration: none;
-      padding: 0.5rem 1rem;
-      background: $color-surface-hover;
-      border-radius: 2rem;
+      padding: 0.5rem 0;
+      background: transparent;
       @include transition(all, $transition-fast);
 
       &:hover {
-        background: darken(#f8f9fa, 5%);
         color: #000;
       }
     }
