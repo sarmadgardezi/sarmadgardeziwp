@@ -205,6 +205,15 @@ function sarmadgardezi_core_case_meta_callback($post) {
     wp_nonce_field('sarmad_case_meta_save', 'sarmad_case_meta_nonce');
 
     $subtitle  = get_post_meta($post->ID, '_case_subtitle', true);
+    $hero_subtitle = get_post_meta($post->ID, '_case_hero_subtitle', true);
+    $category  = get_post_meta($post->ID, '_case_category', true);
+    $platforms = get_post_meta($post->ID, '_case_platforms', true);
+    $focus     = get_post_meta($post->ID, '_case_focus', true);
+    $testim_text   = get_post_meta($post->ID, '_case_testimonial_text', true);
+    $testim_name   = get_post_meta($post->ID, '_case_testimonial_name', true);
+    $testim_title  = get_post_meta($post->ID, '_case_testimonial_title', true);
+    $testim_avatar = get_post_meta($post->ID, '_case_testimonial_avatar_url', true);
+    
     $client    = get_post_meta($post->ID, '_case_client', true);
     $timeline  = get_post_meta($post->ID, '_case_timeline', true);
     $metrics_1_val = get_post_meta($post->ID, '_case_metric_1_val', true);
@@ -215,17 +224,35 @@ function sarmadgardezi_core_case_meta_callback($post) {
     $metrics_3_lbl = get_post_meta($post->ID, '_case_metric_3_lbl', true);
     ?>
     <div style="margin-bottom: 16px;">
-        <label style="display:block; font-weight:600; margin-bottom:4px;" for="case_subtitle"><?php esc_html_e('Subtitle / Category & Platform', 'sarmadgardezi-core'); ?></label>
+        <label style="display:block; font-weight:600; margin-bottom:4px;" for="case_subtitle"><?php esc_html_e('Subtitle / Category & Platform (Used on Cards)', 'sarmadgardezi-core'); ?></label>
         <input type="text" id="case_subtitle" name="case_subtitle" value="<?php echo esc_attr($subtitle); ?>" style="width: 100%;" placeholder="e.g. Beauty & Wellness - Instagram reels" />
     </div>
+    <div style="margin-bottom: 16px;">
+        <label style="display:block; font-weight:600; margin-bottom:4px;" for="case_hero_subtitle"><?php esc_html_e('Hero Subtitle (Used on Single Page Header)', 'sarmadgardezi-core'); ?></label>
+        <input type="text" id="case_hero_subtitle" name="case_hero_subtitle" value="<?php echo esc_attr($hero_subtitle); ?>" style="width: 100%;" placeholder="e.g. Beauty & Wellness brand that had great products..." />
+    </div>
+    
+    <h4><?php esc_html_e('Single Page Meta Details', 'sarmadgardezi-core'); ?></h4>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 10px 0;">
         <div>
-            <label style="display:block; font-weight:600; margin-bottom:4px;" for="case_client"><?php esc_html_e('Client / Organization', 'sarmadgardezi-core'); ?></label>
-            <input type="text" id="case_client" name="case_client" value="<?php echo esc_attr($client); ?>" style="width: 100%;" />
+            <label style="display:block; font-weight:600; margin-bottom:4px;" for="case_category"><?php esc_html_e('Category', 'sarmadgardezi-core'); ?></label>
+            <input type="text" id="case_category" name="case_category" value="<?php echo esc_attr($category); ?>" style="width: 100%;" placeholder="e.g. Beauty & Wellness" />
         </div>
         <div>
-            <label style="display:block; font-weight:600; margin-bottom:4px;" for="case_timeline"><?php esc_html_e('Project Duration', 'sarmadgardezi-core'); ?></label>
-            <input type="text" id="case_timeline" name="case_timeline" value="<?php echo esc_attr($timeline); ?>" style="width: 100%;" placeholder="e.g. 6 Months" />
+            <label style="display:block; font-weight:600; margin-bottom:4px;" for="case_platforms"><?php esc_html_e('Platforms', 'sarmadgardezi-core'); ?></label>
+            <input type="text" id="case_platforms" name="case_platforms" value="<?php echo esc_attr($platforms); ?>" style="width: 100%;" placeholder="e.g. Instagram, Facebook, YouTube" />
+        </div>
+        <div>
+            <label style="display:block; font-weight:600; margin-bottom:4px;" for="case_timeline"><?php esc_html_e('Timeline', 'sarmadgardezi-core'); ?></label>
+            <input type="text" id="case_timeline" name="case_timeline" value="<?php echo esc_attr($timeline); ?>" style="width: 100%;" placeholder="e.g. 90 Days" />
+        </div>
+        <div>
+            <label style="display:block; font-weight:600; margin-bottom:4px;" for="case_focus"><?php esc_html_e('Key focus', 'sarmadgardezi-core'); ?></label>
+            <input type="text" id="case_focus" name="case_focus" value="<?php echo esc_attr($focus); ?>" style="width: 100%;" placeholder="e.g. UGC + Growth" />
+        </div>
+        <div style="grid-column: 1 / -1; display: none;">
+            <label style="display:block; font-weight:600; margin-bottom:4px;" for="case_client"><?php esc_html_e('Client / Organization (Legacy)', 'sarmadgardezi-core'); ?></label>
+            <input type="text" id="case_client" name="case_client" value="<?php echo esc_attr($client); ?>" style="width: 100%;" />
         </div>
     </div>
     <h4><?php esc_html_e('Key Quantifiable Metrics / Results', 'sarmadgardezi-core'); ?></h4>
@@ -244,6 +271,27 @@ function sarmadgardezi_core_case_meta_callback($post) {
             <label style="display:block; font-weight:600; margin-bottom:4px;"><?php esc_html_e('Metric 3 (Value / Label)', 'sarmadgardezi-core'); ?></label>
             <input type="text" name="case_metric_3_val" value="<?php echo esc_attr($metrics_3_val); ?>" placeholder="99.99%" style="width: 100%; margin-bottom: 6px;" />
             <input type="text" name="case_metric_3_lbl" value="<?php echo esc_attr($metrics_3_lbl); ?>" placeholder="Uptime / Reliability" style="width: 100%;" />
+        </div>
+    </div>
+
+    <h4 style="margin-top:20px;"><?php esc_html_e('Testimonial', 'sarmadgardezi-core'); ?></h4>
+    <div style="padding-bottom: 10px;">
+        <label style="display:block; font-weight:600; margin-bottom:4px;"><?php esc_html_e('Testimonial Quote', 'sarmadgardezi-core'); ?></label>
+        <textarea name="case_testimonial_text" rows="3" style="width: 100%; margin-bottom: 10px;"><?php echo esc_textarea($testim_text); ?></textarea>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+            <div>
+                <label style="display:block; font-weight:600; margin-bottom:4px;"><?php esc_html_e('Author Name', 'sarmadgardezi-core'); ?></label>
+                <input type="text" name="case_testimonial_name" value="<?php echo esc_attr($testim_name); ?>" style="width: 100%;" />
+            </div>
+            <div>
+                <label style="display:block; font-weight:600; margin-bottom:4px;"><?php esc_html_e('Job Title / Company', 'sarmadgardezi-core'); ?></label>
+                <input type="text" name="case_testimonial_title" value="<?php echo esc_attr($testim_title); ?>" style="width: 100%;" />
+            </div>
+            <div>
+                <label style="display:block; font-weight:600; margin-bottom:4px;"><?php esc_html_e('Avatar URL', 'sarmadgardezi-core'); ?></label>
+                <input type="url" name="case_testimonial_avatar_url" value="<?php echo esc_url($testim_avatar); ?>" style="width: 100%;" />
+            </div>
         </div>
     </div>
     <?php
@@ -286,6 +334,15 @@ function sarmadgardezi_core_save_meta_boxes($post_id) {
     // Save Case Study meta
     if (isset($_POST['sarmad_case_meta_nonce']) && wp_verify_nonce($_POST['sarmad_case_meta_nonce'], 'sarmad_case_meta_save')) {
         update_post_meta($post_id, '_case_subtitle', sanitize_text_field($_POST['case_subtitle'] ?? ''));
+        update_post_meta($post_id, '_case_hero_subtitle', sanitize_text_field($_POST['case_hero_subtitle'] ?? ''));
+        update_post_meta($post_id, '_case_category', sanitize_text_field($_POST['case_category'] ?? ''));
+        update_post_meta($post_id, '_case_platforms', sanitize_text_field($_POST['case_platforms'] ?? ''));
+        update_post_meta($post_id, '_case_focus', sanitize_text_field($_POST['case_focus'] ?? ''));
+        update_post_meta($post_id, '_case_testimonial_text', sanitize_textarea_field($_POST['case_testimonial_text'] ?? ''));
+        update_post_meta($post_id, '_case_testimonial_name', sanitize_text_field($_POST['case_testimonial_name'] ?? ''));
+        update_post_meta($post_id, '_case_testimonial_title', sanitize_text_field($_POST['case_testimonial_title'] ?? ''));
+        update_post_meta($post_id, '_case_testimonial_avatar_url', esc_url_raw($_POST['case_testimonial_avatar_url'] ?? ''));
+        
         update_post_meta($post_id, '_case_client', sanitize_text_field($_POST['case_client'] ?? ''));
         update_post_meta($post_id, '_case_timeline', sanitize_text_field($_POST['case_timeline'] ?? ''));
         update_post_meta($post_id, '_case_metric_1_val', sanitize_text_field($_POST['case_metric_1_val'] ?? ''));

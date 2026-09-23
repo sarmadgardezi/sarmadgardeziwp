@@ -12,69 +12,78 @@ get_header();
 
 <main id="main-content" class="site-main site-single-case-main">
     <div class="site-container">
-        <?php get_template_part('template-parts/global/breadcrumbs'); ?>
+        <div class="case-study-top-nav">
+            <a href="<?php echo esc_url(get_post_type_archive_link('case-study')); ?>" class="back-link">
+                <span class="icon-arrow-left">&larr;</span> <?php esc_html_e('All case study', 'sarmadgardezi'); ?>
+            </a>
+        </div>
 
         <?php
         while (have_posts()) :
             the_post();
             $post_id  = get_the_ID();
-            $subtitle = function_exists('sarmad_get_field') ? sarmad_get_field('case_subtitle', $post_id) : get_post_meta($post_id, '_case_subtitle', true);
-            $client   = function_exists('sarmad_get_field') ? sarmad_get_field('case_client', $post_id) : get_post_meta($post_id, '_case_client', true);
-            $timeline = function_exists('sarmad_get_field') ? sarmad_get_field('case_timeline', $post_id) : get_post_meta($post_id, '_case_timeline', true);
-            $m1_val   = function_exists('sarmad_get_field') ? sarmad_get_field('case_metric_1_val', $post_id) : get_post_meta($post_id, '_case_metric_1_val', true);
-            $m1_lbl   = function_exists('sarmad_get_field') ? sarmad_get_field('case_metric_1_lbl', $post_id) : get_post_meta($post_id, '_case_metric_1_lbl', true);
-            $m2_val   = function_exists('sarmad_get_field') ? sarmad_get_field('case_metric_2_val', $post_id) : get_post_meta($post_id, '_case_metric_2_val', true);
-            $m2_lbl   = function_exists('sarmad_get_field') ? sarmad_get_field('case_metric_2_lbl', $post_id) : get_post_meta($post_id, '_case_metric_2_lbl', true);
-            $m3_val   = function_exists('sarmad_get_field') ? sarmad_get_field('case_metric_3_val', $post_id) : get_post_meta($post_id, '_case_metric_3_val', true);
-            $m3_lbl   = function_exists('sarmad_get_field') ? sarmad_get_field('case_metric_3_lbl', $post_id) : get_post_meta($post_id, '_case_metric_3_lbl', true);
+            
+            $hero_subtitle = function_exists('sarmad_get_field') ? sarmad_get_field('case_hero_subtitle', $post_id) : get_post_meta($post_id, '_case_hero_subtitle', true);
+            $category  = function_exists('sarmad_get_field') ? sarmad_get_field('case_category', $post_id) : get_post_meta($post_id, '_case_category', true);
+            $platforms = function_exists('sarmad_get_field') ? sarmad_get_field('case_platforms', $post_id) : get_post_meta($post_id, '_case_platforms', true);
+            $timeline  = function_exists('sarmad_get_field') ? sarmad_get_field('case_timeline', $post_id) : get_post_meta($post_id, '_case_timeline', true);
+            $focus     = function_exists('sarmad_get_field') ? sarmad_get_field('case_focus', $post_id) : get_post_meta($post_id, '_case_focus', true);
+            
+            $m1_val    = function_exists('sarmad_get_field') ? sarmad_get_field('case_metric_1_val', $post_id) : get_post_meta($post_id, '_case_metric_1_val', true);
+            $m1_lbl    = function_exists('sarmad_get_field') ? sarmad_get_field('case_metric_1_lbl', $post_id) : get_post_meta($post_id, '_case_metric_1_lbl', true);
+            $m2_val    = function_exists('sarmad_get_field') ? sarmad_get_field('case_metric_2_val', $post_id) : get_post_meta($post_id, '_case_metric_2_val', true);
+            $m2_lbl    = function_exists('sarmad_get_field') ? sarmad_get_field('case_metric_2_lbl', $post_id) : get_post_meta($post_id, '_case_metric_2_lbl', true);
+            $m3_val    = function_exists('sarmad_get_field') ? sarmad_get_field('case_metric_3_val', $post_id) : get_post_meta($post_id, '_case_metric_3_val', true);
+            $m3_lbl    = function_exists('sarmad_get_field') ? sarmad_get_field('case_metric_3_lbl', $post_id) : get_post_meta($post_id, '_case_metric_3_lbl', true);
+            
+            $t_text    = function_exists('sarmad_get_field') ? sarmad_get_field('case_testimonial_text', $post_id) : get_post_meta($post_id, '_case_testimonial_text', true);
+            $t_name    = function_exists('sarmad_get_field') ? sarmad_get_field('case_testimonial_name', $post_id) : get_post_meta($post_id, '_case_testimonial_name', true);
+            $t_title   = function_exists('sarmad_get_field') ? sarmad_get_field('case_testimonial_title', $post_id) : get_post_meta($post_id, '_case_testimonial_title', true);
+            $t_avatar  = function_exists('sarmad_get_field') ? sarmad_get_field('case_testimonial_avatar_url', $post_id) : get_post_meta($post_id, '_case_testimonial_avatar_url', true);
         ?>
             <article id="post-<?php the_ID(); ?>" <?php post_class('single-case-article'); ?>>
-                <header class="case-header" style="text-align: center; margin-bottom: 3rem;">
-                    <?php if (!empty($subtitle)) : ?>
-                        <span class="section-tag" style="display: block; margin-bottom: 1rem; color: var(--text-secondary, #666); font-weight: 500; font-size: 1.125rem;"><?php echo esc_html($subtitle); ?></span>
+                <header class="case-header">
+                    <h1 class="case-title"><?php the_title(); ?></h1>
+                    <?php if (!empty($hero_subtitle)) : ?>
+                        <p class="case-subtitle"><?php echo esc_html($hero_subtitle); ?></p>
                     <?php endif; ?>
-                    <h1 class="case-title" style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 2rem;"><?php the_title(); ?></h1>
 
-                    <div class="case-meta-bar glass-card">
-                        <?php if (!empty($client)) : ?>
-                            <div class="meta-item">
-                                <span class="meta-label"><?php esc_html_e('Client', 'sarmadgardezi'); ?></span>
-                                <span class="meta-value"><?php echo esc_html($client); ?></span>
+                    <div class="case-meta-cards">
+                        <?php if (!empty($category)) : ?>
+                            <div class="meta-card">
+                                <span class="meta-label"><?php esc_html_e('Category', 'sarmadgardezi'); ?></span>
+                                <span class="meta-value"><?php echo esc_html($category); ?></span>
+                            </div>
+                        <?php endif; ?>
+                        
+                        <?php if (!empty($platforms)) : ?>
+                            <div class="meta-card">
+                                <span class="meta-label"><?php esc_html_e('Platforms', 'sarmadgardezi'); ?></span>
+                                <span class="meta-value">
+                                    <?php
+                                    $platforms_array = array_map('trim', explode(',', $platforms));
+                                    foreach ($platforms_array as $platform) {
+                                        echo '<span class="platform-tag">' . esc_html($platform) . '</span>';
+                                    }
+                                    ?>
+                                </span>
                             </div>
                         <?php endif; ?>
 
                         <?php if (!empty($timeline)) : ?>
-                            <div class="meta-item">
+                            <div class="meta-card">
                                 <span class="meta-label"><?php esc_html_e('Timeline', 'sarmadgardezi'); ?></span>
                                 <span class="meta-value"><?php echo esc_html($timeline); ?></span>
                             </div>
                         <?php endif; ?>
+
+                        <?php if (!empty($focus)) : ?>
+                            <div class="meta-card">
+                                <span class="meta-label"><?php esc_html_e('Key focus', 'sarmadgardezi'); ?></span>
+                                <span class="meta-value"><?php echo esc_html($focus); ?></span>
+                            </div>
+                        <?php endif; ?>
                     </div>
-
-                    <?php if (!empty($m1_val) || !empty($m2_val) || !empty($m3_val)) : ?>
-                        <div class="case-metrics-grid">
-                            <?php if (!empty($m1_val)) : ?>
-                                <div class="case-metric-card glass-card">
-                                    <span class="metric-number"><?php echo esc_html($m1_val); ?></span>
-                                    <span class="metric-description"><?php echo esc_html($m1_lbl); ?></span>
-                                </div>
-                            <?php endif; ?>
-
-                            <?php if (!empty($m2_val)) : ?>
-                                <div class="case-metric-card glass-card">
-                                    <span class="metric-number"><?php echo esc_html($m2_val); ?></span>
-                                    <span class="metric-description"><?php echo esc_html($m2_lbl); ?></span>
-                                </div>
-                            <?php endif; ?>
-
-                            <?php if (!empty($m3_val)) : ?>
-                                <div class="case-metric-card glass-card">
-                                    <span class="metric-number"><?php echo esc_html($m3_val); ?></span>
-                                    <span class="metric-description"><?php echo esc_html($m3_lbl); ?></span>
-                                </div>
-                            <?php endif; ?>
-                        </div>
-                    <?php endif; ?>
                 </header>
 
                 <?php if (has_post_thumbnail()) : ?>
@@ -83,46 +92,91 @@ get_header();
                     </figure>
                 <?php endif; ?>
 
-                <div class="case-content entry-content prose">
-                    <?php the_content(); ?>
-                </div>
+                <div class="case-content-wrapper">
+                    <div class="case-content entry-content prose">
+                        <?php the_content(); ?>
+                    </div>
 
-                <footer class="case-footer">
-                    <nav class="article-navigation" aria-label="<?php esc_attr_e('Adjacent case studies', 'sarmadgardezi'); ?>">
-                        <div class="nav-links">
-                            <?php
-                            $prev_case = get_previous_post();
-                            if ($prev_case) :
-                            ?>
-                                <a href="<?php echo esc_url(get_permalink($prev_case->ID)); ?>" class="nav-previous glass-card">
-                                    <span class="nav-subtitle">&larr; <?php esc_html_e('Previous Case Study', 'sarmadgardezi'); ?></span>
-                                    <span class="nav-title"><?php echo esc_html(get_the_title($prev_case->ID)); ?></span>
-                                </a>
+                    <?php if (!empty($m1_val) || !empty($m2_val) || !empty($m3_val)) : ?>
+                        <div class="case-results-cards">
+                            <?php if (!empty($m1_val)) : ?>
+                                <div class="result-card style-pink">
+                                    <span class="result-label"><?php echo esc_html($m1_lbl); ?></span>
+                                    <span class="result-value"><?php echo esc_html($m1_val); ?></span>
+                                </div>
                             <?php endif; ?>
 
-                            <?php
-                            $next_case = get_next_post();
-                            if ($next_case) :
-                            ?>
-                                <a href="<?php echo esc_url(get_permalink($next_case->ID)); ?>" class="nav-next glass-card">
-                                    <span class="nav-subtitle"><?php esc_html_e('Next Case Study', 'sarmadgardezi'); ?> &rarr;</span>
-                                    <span class="nav-title"><?php echo esc_html(get_the_title($next_case->ID)); ?></span>
-                                </a>
+                            <?php if (!empty($m2_val)) : ?>
+                                <div class="result-card style-blue">
+                                    <span class="result-label"><?php echo esc_html($m2_lbl); ?></span>
+                                    <span class="result-value"><?php echo esc_html($m2_val); ?></span>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if (!empty($m3_val)) : ?>
+                                <div class="result-card style-yellow">
+                                    <span class="result-label"><?php echo esc_html($m3_lbl); ?></span>
+                                    <span class="result-value"><?php echo esc_html($m3_val); ?></span>
+                                </div>
                             <?php endif; ?>
                         </div>
-                    </nav>
+                    <?php endif; ?>
 
-                    <div class="case-cta glass-card">
-                        <h3><?php esc_html_e('Want results like this for your system?', 'sarmadgardezi'); ?></h3>
-                        <p><?php esc_html_e('I help engineering organizations design resilient distributed systems and achieve scalable software velocity.', 'sarmadgardezi'); ?></p>
-                        <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn-primary">
-                            <span><?php esc_html_e('Initiate Consultation', 'sarmadgardezi'); ?></span>
-                            <?php echo sarmadgardezi_get_icon('arrow-right'); ?>
-                        </a>
-                    </div>
-                </footer>
+                    <?php if (!empty($t_text)) : ?>
+                        <div class="case-testimonial-block">
+                            <p class="testimonial-text"><?php echo esc_html($t_text); ?></p>
+                            
+                            <?php if (!empty($t_name) || !empty($t_avatar)) : ?>
+                                <div class="testimonial-author">
+                                    <?php if (!empty($t_avatar)) : ?>
+                                        <img src="<?php echo esc_url($t_avatar); ?>" alt="<?php echo esc_attr($t_name); ?>" class="author-avatar" />
+                                    <?php endif; ?>
+                                    <div class="author-details">
+                                        <?php if (!empty($t_name)) : ?>
+                                            <span class="author-name"><?php echo esc_html($t_name); ?></span>
+                                        <?php endif; ?>
+                                        <?php if (!empty($t_title)) : ?>
+                                            <span class="author-title"><?php echo esc_html($t_title); ?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+
             </article>
         <?php endwhile; ?>
+    </div>
+    
+    <div class="related-cases-section">
+        <div class="site-container">
+            <div class="related-cases-header">
+                <h2><?php esc_html_e('CHECK OTHER CASES', 'sarmadgardezi'); ?></h2>
+                <a href="<?php echo esc_url(get_post_type_archive_link('case-study')); ?>" class="btn-dark-pill">
+                    <span class="icon-arrow-right">&rarr;</span> <?php esc_html_e('All case studies', 'sarmadgardezi'); ?>
+                </a>
+            </div>
+
+            <div class="case-studies-grid">
+                <?php
+                $related_cases = new WP_Query(array(
+                    'post_type'      => 'case-study',
+                    'posts_per_page' => 2,
+                    'post__not_in'   => array(get_the_ID()),
+                    'orderby'        => 'rand'
+                ));
+
+                if ($related_cases->have_posts()) :
+                    while ($related_cases->have_posts()) :
+                        $related_cases->the_post();
+                        get_template_part('template-parts/case-studies/card');
+                    endwhile;
+                    wp_reset_postdata();
+                endif;
+                ?>
+            </div>
+        </div>
     </div>
 </main>
 
