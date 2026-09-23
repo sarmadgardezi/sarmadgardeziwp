@@ -5147,8 +5147,8 @@ body.page-template-page-blog,
 }
 
 .post-share-widget {
-  background-color: #E6E4D9;
-  border: 1px solid #D1CFBA;
+  background-color: #111827;
+  border: 1px solid #374151;
   border-radius: 36px;
   padding: 1.5rem 1.5rem;
   margin: 3rem 0;
@@ -5172,7 +5172,7 @@ body.page-template-page-blog,
 }
 .post-share-widget .share-widget-left .action-pill {
   background: transparent;
-  border: 1px solid #111827;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 99px;
   padding: 0.6rem 1.2rem;
   display: inline-flex;
@@ -5181,12 +5181,14 @@ body.page-template-page-blog,
   font-family: var(--framer-font-family, "Google Sans Flex", sans-serif);
   font-size: 0.875rem;
   font-weight: 600;
-  color: #111827;
+  color: #ffffff;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 .post-share-widget .share-widget-left .action-pill:hover {
-  background-color: rgba(17, 24, 39, 0.05);
+  background-color: #1c1917;
+  border-color: #1c1917;
+  color: #ffffff;
 }
 .post-share-widget .share-widget-left .action-pill svg {
   width: 16px;
@@ -5216,17 +5218,18 @@ body.page-template-page-blog,
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  border: 1px solid #111827;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #111827;
+  color: #ffffff;
   transition: all 0.2s ease;
   background: transparent;
   cursor: pointer;
 }
 .post-share-widget .share-widget-right .social-share-links .social-circle:hover {
-  background-color: #111827;
+  background-color: #1c1917;
+  border-color: #1c1917;
   color: #ffffff;
 }
 .post-share-widget .share-widget-right .social-share-links .social-circle svg {

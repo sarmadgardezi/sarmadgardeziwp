@@ -1020,8 +1020,8 @@ body.page-template-page-blog,
 // ==========================================================================
 
 .post-share-widget {
-  background-color: #E6E4D9;
-  border: 1px solid #D1CFBA;
+  background-color: #111827; // Black / very dark gray
+  border: 1px solid #374151; // Darker border
   border-radius: 36px;
   padding: 1.5rem 1.5rem;
   margin: 3rem 0;
@@ -1044,7 +1044,7 @@ body.page-template-page-blog,
 
     .action-pill {
       background: transparent;
-      border: 1px solid #111827;
+      border: 1px solid rgba(255, 255, 255, 0.2); // White transparent border
       border-radius: 99px;
       padding: 0.6rem 1.2rem;
       display: inline-flex;
@@ -1053,12 +1053,14 @@ body.page-template-page-blog,
       font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
       font-size: 0.875rem;
       font-weight: 600;
-      color: #111827;
+      color: #ffffff; // White text
       cursor: pointer;
       transition: all 0.2s ease;
 
       &:hover {
-        background-color: rgba(17, 24, 39, 0.05);
+        background-color: $color-primary; // Blue hover
+        border-color: $color-primary;
+        color: #ffffff;
       }
 
       svg {
@@ -1093,17 +1095,18 @@ body.page-template-page-blog,
         width: 38px;
         height: 38px;
         border-radius: 50%;
-        border: 1px solid #111827;
+        border: 1px solid rgba(255, 255, 255, 0.2); // White transparent border
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        color: #111827;
+        color: #ffffff; // White icon
         transition: all 0.2s ease;
         background: transparent;
         cursor: pointer;
 
         &:hover {
-          background-color: #111827;
+          background-color: $color-primary; // Blue hover
+          border-color: $color-primary;
           color: #ffffff;
         }
 
