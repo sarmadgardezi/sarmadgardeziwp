@@ -12,15 +12,12 @@ get_header();
 
 <main id="main-content" class="site-main site-projects-main">
     <div class="site-container">
-        <?php get_template_part('template-parts/global/breadcrumbs'); ?>
-
-        <header class="page-header projects-header">
-            <span class="section-tag"><?php esc_html_e('Portfolio & Software Works', 'sarmadgardezi'); ?></span>
-            <h1 class="page-title"><?php esc_html_e('Featured Projects & Systems', 'sarmadgardezi'); ?></h1>
-            <p class="page-description">
-                <?php esc_html_e('Production software engineering, cloud architectures, AI integrations, and full-stack systems built by Sarmad Gardezi.', 'sarmadgardezi'); ?>
-            </p>
-        </header>
+        <?php
+        get_template_part('template-parts/global/page-header', null, array(
+            'title'       => __('Featured Projects & Systems', 'sarmadgardezi'),
+            'description' => __('Production software engineering, cloud architectures, AI integrations, and full-stack systems built by Sarmad Gardezi.', 'sarmadgardezi')
+        ));
+        ?>
 
         <?php
         $cat_terms = get_terms(array(

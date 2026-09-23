@@ -9,7 +9,9 @@
   color: $color-text-muted;
 
   .breadcrumbs-list,
-  span {
+  span,
+  p,
+  .rank-math-breadcrumb {
     display: flex;
     flex-wrap: wrap;
     align-items: center;

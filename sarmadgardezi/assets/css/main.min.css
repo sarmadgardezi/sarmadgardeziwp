@@ -432,7 +432,9 @@ textarea::placeholder {
   color: #4b5563;
 }
 .site-breadcrumbs .breadcrumbs-list,
-.site-breadcrumbs span {
+.site-breadcrumbs span,
+.site-breadcrumbs p,
+.site-breadcrumbs .rank-math-breadcrumb {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
