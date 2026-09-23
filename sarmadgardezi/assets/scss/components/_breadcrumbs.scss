@@ -3,10 +3,15 @@
 // ==========================================================================
 
 .site-breadcrumbs {
-  padding: 1.25rem 0;
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
-  color: #4b5563; // Dark gray
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 2rem;
+  font-size: 0.85rem;
+  color: #6b7280; // Muted gray
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px; // Pill shape
+  display: inline-block;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 
   .breadcrumbs-list,
   span,
@@ -15,8 +20,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -25,30 +29,32 @@
   li, span {
     display: inline-flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
   }
 
   a {
     color: #4b5563;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 500;
     @include transition(color, $transition-fast);
 
     &:hover {
-      color: #3b2a82; // Darker purple on hover
+      color: #111827; // Dark on hover
     }
   }
 
   .breadcrumb-separator,
   .separator,
   .breadcrumb_last::before {
-    color: #9ca3af;
-    font-size: 0.8rem;
+    color: #d1d5db; // Lighter separator
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
   }
 
   .breadcrumb_last,
   [aria-current="page"] {
-    color: #4f46e5; // Purple active color
+    color: #1877f2; // Requested active color
     font-weight: 600;
   }
 }

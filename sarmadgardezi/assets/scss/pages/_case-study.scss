@@ -20,12 +20,14 @@
   background: #ffffff;
   border-radius: 1.5rem;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.04);
   @include transition(all, $transition-base);
 
   &:hover {
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
     transform: translateY(-4px);
+    border-color: rgba(24, 119, 242, 0.15);
   }
 
   .case-study-link-wrap {
@@ -36,20 +38,16 @@
     color: inherit;
     
     @include respond-to('md') {
-      flex-direction: row;
+      flex-direction: column; // Changed to vertical for a cleaner, modern look
     }
   }
 
   .case-study-thumb {
     width: 100%;
-    aspect-ratio: 1 / 1; // roughly square based on image
+    aspect-ratio: 16 / 9; // Modern widescreen ratio for thumbs
     overflow: hidden;
-    
-    @include respond-to('md') {
-      width: 45%;
-      flex-shrink: 0;
-      aspect-ratio: auto; // let it stretch height
-    }
+    position: relative;
+    border-bottom: 1px solid rgba(0,0,0,0.03);
 
     img {
       width: 100%;
@@ -66,7 +64,7 @@
   }
   
   &:hover .case-study-thumb img {
-    transform: scale(1.04);
+    transform: scale(1.05);
   }
 
   .case-study-body {
@@ -74,52 +72,59 @@
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; // Title top, metrics bottom
-    
-    @include respond-to('md') {
-      width: 55%;
-      padding: 2.5rem;
-    }
+    justify-content: space-between;
+    flex-grow: 1;
   }
 
   .case-study-header {
     margin-bottom: 2rem;
 
     .case-study-title {
-      font-size: 1.75rem;
-      font-weight: 700;
+      font-size: 1.5rem;
+      font-weight: 800;
       color: #000000;
       margin-bottom: 0.5rem;
       letter-spacing: -0.01em;
+      line-height: 1.3;
+      @include transition(color, $transition-fast);
     }
 
     .case-study-subtitle {
       font-size: 0.95rem;
       color: $color-text-muted;
       margin: 0;
+      line-height: 1.5;
     }
+  }
+
+  &:hover .case-study-title {
+    color: #1877f2;
   }
 
   .case-study-metrics {
     display: flex;
     gap: 2rem;
     margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px dashed rgba(0,0,0,0.08);
     
     .metric-item {
       display: flex;
       flex-direction: column;
 
       .metric-val {
-        font-size: 1.875rem;
-        font-weight: 800;
-        color: #000000;
+        font-size: 1.5rem;
+        font-weight: 900;
+        color: #1877f2; // Requested active color
         line-height: 1.1;
         margin-bottom: 0.25rem;
+        letter-spacing: -0.02em;
       }
 
       .metric-lbl {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
         color: $color-text-dim;
+        font-weight: 500;
         line-height: 1.4;
       }
     }

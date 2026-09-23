@@ -12,7 +12,9 @@ get_header();
 
 <main id="main-content" class="site-main site-single-case-main">
     <div class="site-container">
-        <?php get_template_part('template-parts/global/breadcrumbs'); ?>
+        <div style="text-align: center;">
+            <?php get_template_part('template-parts/global/breadcrumbs'); ?>
+        </div>
 
         <?php
         while (have_posts()) :
