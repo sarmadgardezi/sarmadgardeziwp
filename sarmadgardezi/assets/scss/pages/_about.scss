@@ -5,6 +5,11 @@
 .site-about-main {
   background-color: #ffffff;
   overflow: hidden;
+  padding: 4rem 0 0;
+
+  @include respond-to('md') {
+    padding-top: 6rem;
+  }
 }
 
 // --------------------------------------------------------------------------

@@ -3573,6 +3573,12 @@ textarea::placeholder {
 .site-about-main {
   background-color: #ffffff;
   overflow: hidden;
+  padding: 4rem 0 0;
+}
+@media (min-width: 768px) {
+  .site-about-main {
+    padding-top: 6rem;
+  }
 }
 
 .about-hero-section {
