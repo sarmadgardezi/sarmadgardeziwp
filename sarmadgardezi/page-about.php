@@ -30,6 +30,30 @@ if (function_exists('get_field')) {
 
 <main id="main-content" class="site-main site-about-main">
 
+    <?php
+    $show_hero = function_exists('sarmad_get_field') ? sarmad_get_field('page_show_hero') : get_post_meta(get_the_ID(), '_page_show_hero', true);
+    $hero_title = function_exists('sarmad_get_field') ? sarmad_get_field('page_hero_title') : get_post_meta(get_the_ID(), '_page_hero_title', true);
+    $hero_subtitle = function_exists('sarmad_get_field') ? sarmad_get_field('page_hero_subtitle') : get_post_meta(get_the_ID(), '_page_hero_subtitle', true);
+
+    // Default to true if not set
+    if ($show_hero === '' || $show_hero === false) {
+        $show_hero = '1';
+    }
+
+    if ($show_hero === '1') {
+        $header_args = array();
+        if (!empty($hero_title)) {
+            $header_args['title'] = $hero_title;
+        }
+        if (!empty($hero_subtitle)) {
+            $header_args['description'] = $hero_subtitle;
+        }
+        echo '<div class="site-container">';
+        get_template_part('template-parts/global/page-header', null, $header_args);
+        echo '</div>';
+    }
+    ?>
+
     <!-- 1. Hero Section (Matching Exact Reference: Bold Headline + 3D Depth Card Stack) -->
     <section class="about-hero-section" aria-label="<?php esc_attr_e('About Sarmad Gardezi', 'sarmadgardezi'); ?>">
         <div class="site-container about-hero-container">
