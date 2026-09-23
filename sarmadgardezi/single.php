@@ -36,7 +36,7 @@ get_header();
 
                     <div class="article-meta">
                         <div class="article-author-info">
-                            <?php echo get_avatar($author_id, 40, '', esc_attr(get_the_author()), array('class' => 'author-thumb')); ?>
+                            <?php echo get_avatar($author_id, 48, '', esc_attr(get_the_author()), array('class' => 'author-thumb')); ?>
                             <div class="author-details">
                                 <span class="author-name"><?php the_author_posts_link(); ?></span>
                                 <span class="author-title"><?php esc_html_e('Software Engineer', 'sarmadgardezi'); ?></span>
@@ -45,11 +45,26 @@ get_header();
 
                         <div class="article-time-info">
                             <span class="meta-separator" aria-hidden="true">&bull;</span>
-                            <time class="published-date" datetime="<?php echo esc_attr(get_the_date('c')); ?>">
-                                <?php echo esc_html(get_the_date('M j, Y')); ?>
-                            </time>
+                            <div class="time-block">
+                                <time class="published-date" datetime="<?php echo esc_attr(get_the_date('c')); ?>">
+                                    <span class="meta-icon">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                    </span>
+                                    <?php echo esc_html(get_the_date('M j, Y')); ?> at <?php echo esc_html(get_the_time('g:i a')); ?>
+                                </time>
+                                <?php if (get_the_modified_time('U') !== get_the_time('U')) : ?>
+                                    <span class="updated-date">
+                                        (Updated: <?php echo esc_html(get_the_modified_date('M j, Y')); ?>)
+                                    </span>
+                                <?php endif; ?>
+                            </div>
                             <span class="meta-separator" aria-hidden="true">&bull;</span>
-                            <span class="article-read-time"><?php echo esc_html(sarmadgardezi_reading_time(get_the_ID())); ?></span>
+                            <span class="article-read-time">
+                                <span class="meta-icon">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                </span>
+                                <?php echo esc_html(sarmadgardezi_reading_time(get_the_ID())); ?>
+                            </span>
                         </div>
                     </div>
                 </header>

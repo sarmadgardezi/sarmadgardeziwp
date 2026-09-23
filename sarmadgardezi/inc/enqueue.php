@@ -78,5 +78,36 @@ function sarmadgardezi_scripts() {
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
     }
+
+    // Syntax Highlighting (PrismJS) for Single Posts
+    if (is_single()) {
+        wp_enqueue_style(
+            'prism-theme-okaidia',
+            'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css',
+            array(),
+            '1.29.0'
+        );
+        wp_enqueue_script(
+            'prism-core',
+            'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js',
+            array(),
+            '1.29.0',
+            true
+        );
+        wp_enqueue_script(
+            'prism-autoloader',
+            'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js',
+            array('prism-core'),
+            '1.29.0',
+            true
+        );
+        wp_enqueue_script(
+            'prism-show-language',
+            'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/show-language/prism-show-language.min.js',
+            array('prism-core'),
+            '1.29.0',
+            true
+        );
+    }
 }
 add_action('wp_enqueue_scripts', 'sarmadgardezi_scripts');
