@@ -4583,12 +4583,12 @@ body.page-template-page-blog,
 .archive-header .page-title,
 .search-header .page-title {
   font-family: "Lora", "Playfair Display", serif;
-  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  font-size: clamp(2.15rem, 6vw, 4.5rem);
   font-weight: 400;
-  line-height: 1.15;
+  line-height: 1.25;
   margin-bottom: 0.75rem;
-  color: #1c1917;
-  letter-spacing: -0.02em;
+  color: #1a1b26;
+  letter-spacing: -0.01em;
 }
 .blog-index-header .page-description,
 .projects-header .page-description,
@@ -4643,12 +4643,12 @@ body.page-template-page-blog,
 }
 .single-article .article-header .article-title {
   font-family: "Lora", "Playfair Display", serif;
-  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-size: clamp(2.15rem, 6vw, 4.5rem);
   font-weight: 400;
-  line-height: 1.15;
-  color: #1c1917;
+  line-height: 1.25;
+  color: #1a1b26;
   margin-bottom: 1.25rem;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 .single-article .article-header .article-meta {
   display: flex;
@@ -5981,11 +5981,11 @@ body.page-template-page-blog,
 }
 .page-article .page-header .page-title {
   font-family: "Lora", "Playfair Display", serif;
-  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-size: clamp(2.15rem, 6vw, 4.5rem);
   font-weight: 400;
-  line-height: 1.15;
-  color: #1c1917;
-  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: #1a1b26;
+  letter-spacing: -0.01em;
 }
 .page-article .page-featured-image {
   margin: 0 0 2.5rem;
@@ -6113,10 +6113,12 @@ body.page-template-page-blog,
 }
 .error-404 .page-title {
   font-family: "Lora", "Playfair Display", serif;
-  font-size: 2.25rem;
+  font-size: clamp(2.15rem, 6vw, 4.5rem);
   font-weight: 400;
+  line-height: 1.25;
+  color: #1a1b26;
   margin-bottom: 1rem;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 .error-404 p {
   font-size: 1.05rem;
