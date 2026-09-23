@@ -41,8 +41,8 @@ if (function_exists('get_field')) {
         </h1>
 
         <p class="hero-v2-description">
-            4+ years designing scalable B2B and B2C web & mobile applications that<br class="hide-mobile" /> 
-            simplify complexity across fintech and enterprise SaaS.
+            6+ years engineering high-performance web & mobile applications.<br class="hide-mobile" /> 
+            Transforming complex ideas into scalable, production-ready SaaS products.
         </p>
 
         <div class="hero-v2-pills">
