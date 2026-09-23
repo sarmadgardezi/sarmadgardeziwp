@@ -14,11 +14,10 @@ get_header();
     <div class="site-container">
         <?php get_template_part('template-parts/global/breadcrumbs'); ?>
 
-        <header class="page-header case-studies-header">
-            <span class="section-tag"><?php esc_html_e('Architectural Transformations', 'sarmadgardezi'); ?></span>
-            <h1 class="page-title"><?php esc_html_e('Engineering Case Studies', 'sarmadgardezi'); ?></h1>
-            <p class="page-description">
-                <?php esc_html_e('Deep dives into complex technical problems solved, architecture decisions, and measurable business impact.', 'sarmadgardezi'); ?>
+        <header class="page-header case-studies-header" style="text-align: center; margin-bottom: 3rem;">
+            <h1 class="page-title" style="font-size: clamp(3rem, 6vw, 5rem); font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; margin-bottom: 1rem;"><?php esc_html_e('OUR CASE STUDIES', 'sarmadgardezi'); ?></h1>
+            <p class="page-description" style="max-width: 800px; margin: 0 auto; font-size: 1.125rem; color: var(--text-secondary, #666);">
+                <?php esc_html_e('See how focused strategies translate into clear, data-backed success for our clients, growth and consistent performance over time.', 'sarmadgardezi'); ?>
             </p>
         </header>
 

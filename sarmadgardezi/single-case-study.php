@@ -18,6 +18,7 @@ get_header();
         while (have_posts()) :
             the_post();
             $post_id  = get_the_ID();
+            $subtitle = function_exists('sarmad_get_field') ? sarmad_get_field('case_subtitle', $post_id) : get_post_meta($post_id, '_case_subtitle', true);
             $client   = function_exists('sarmad_get_field') ? sarmad_get_field('case_client', $post_id) : get_post_meta($post_id, '_case_client', true);
             $timeline = function_exists('sarmad_get_field') ? sarmad_get_field('case_timeline', $post_id) : get_post_meta($post_id, '_case_timeline', true);
             $m1_val   = function_exists('sarmad_get_field') ? sarmad_get_field('case_metric_1_val', $post_id) : get_post_meta($post_id, '_case_metric_1_val', true);
@@ -28,9 +29,11 @@ get_header();
             $m3_lbl   = function_exists('sarmad_get_field') ? sarmad_get_field('case_metric_3_lbl', $post_id) : get_post_meta($post_id, '_case_metric_3_lbl', true);
         ?>
             <article id="post-<?php the_ID(); ?>" <?php post_class('single-case-article'); ?>>
-                <header class="case-header">
-                    <span class="section-tag"><?php esc_html_e('Architectural Transformation', 'sarmadgardezi'); ?></span>
-                    <h1 class="case-title"><?php the_title(); ?></h1>
+                <header class="case-header" style="text-align: center; margin-bottom: 3rem;">
+                    <?php if (!empty($subtitle)) : ?>
+                        <span class="section-tag" style="display: block; margin-bottom: 1rem; color: var(--text-secondary, #666); font-weight: 500; font-size: 1.125rem;"><?php echo esc_html($subtitle); ?></span>
+                    <?php endif; ?>
+                    <h1 class="case-title" style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 2rem;"><?php the_title(); ?></h1>
 
                     <div class="case-meta-bar glass-card">
                         <?php if (!empty($client)) : ?>

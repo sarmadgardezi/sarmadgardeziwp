@@ -5499,26 +5499,39 @@ body.page-template-page-blog,
 }
 
 .case-study-card {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
   background: #ffffff;
-  border: 1px solid #e2ded5;
-  border-radius: 16px;
+  border-radius: 1.5rem;
   overflow: hidden;
-  padding: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   transition: all 0.25s ease;
 }
 .case-study-card:hover {
-  border-color: #cbcfc5;
-  box-shadow: 0 4px 12px -2px rgba(40, 30, 20, 0.06), 0 2px 4px -1px rgba(40, 30, 20, 0.03);
-  transform: translateY(-2px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+.case-study-card .case-study-link-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+@media (min-width: 768px) {
+  .case-study-card .case-study-link-wrap {
+    flex-direction: row;
+  }
 }
 .case-study-card .case-study-thumb {
-  position: relative;
-  aspect-ratio: 16/9;
+  width: 100%;
+  aspect-ratio: 1/1;
   overflow: hidden;
-  background: #e5e3db;
+}
+@media (min-width: 768px) {
+  .case-study-card .case-study-thumb {
+    width: 45%;
+    flex-shrink: 0;
+    aspect-ratio: auto;
+  }
 }
 .case-study-card .case-study-thumb img {
   width: 100%;
@@ -5526,77 +5539,62 @@ body.page-template-page-blog,
   object-fit: cover;
   transition: transform 0.4s ease;
 }
-.case-study-card .case-study-thumb:hover img {
+.case-study-card .case-study-thumb .case-thumb-placeholder {
+  width: 100%;
+  height: 100%;
+  background: #e5e3db;
+}
+.case-study-card:hover .case-study-thumb img {
   transform: scale(1.04);
 }
 .case-study-card .case-study-body {
+  width: 100%;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  padding: 1.5rem;
+  justify-content: space-between;
 }
-.case-study-card .case-study-meta {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.8125rem;
-  color: #78716c;
-  margin-bottom: 0.75rem;
+@media (min-width: 768px) {
+  .case-study-card .case-study-body {
+    width: 55%;
+    padding: 2.5rem;
+  }
 }
-.case-study-card .case-study-meta .case-client {
-  font-weight: 600;
-  color: #4b5563;
+.case-study-card .case-study-header {
+  margin-bottom: 2rem;
 }
-.case-study-card .case-study-title {
-  font-size: 1.25rem;
-  line-height: 1.35;
-  margin-bottom: 0.75rem;
+.case-study-card .case-study-header .case-study-title {
+  font-size: 1.75rem;
   font-weight: 700;
-}
-.case-study-card .case-study-title a {
-  color: #1c1917;
-  text-decoration: none;
-  transition: color 0.15s ease;
-}
-.case-study-card .case-study-title a:hover {
   color: #000000;
-  text-decoration: underline;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
 }
-.case-study-card .case-study-excerpt {
-  font-size: 0.9375rem;
-  line-height: 1.6;
+.case-study-card .case-study-header .case-study-subtitle {
+  font-size: 0.95rem;
   color: #4b5563;
-  margin-bottom: 1.25rem;
-  flex-grow: 1;
-}
-.case-study-card .case-study-excerpt p {
   margin: 0;
 }
-.case-study-card .case-highlight-metric {
+.case-study-card .case-study-metrics {
   display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
-  padding: 0.65rem 0.85rem;
-  background: #e5e3db;
-  border-radius: 10px;
-  margin-bottom: 1.25rem;
-}
-.case-study-card .case-highlight-metric .metric-val {
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: #1c1917;
-}
-.case-study-card .case-highlight-metric .metric-lbl {
-  font-size: 0.8125rem;
-  color: #78716c;
-}
-.case-study-card .case-study-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+  gap: 2rem;
   margin-top: auto;
-  padding-top: 1rem;
-  border-top: 1px solid #e2ded5;
+}
+.case-study-card .case-study-metrics .metric-item {
+  display: flex;
+  flex-direction: column;
+}
+.case-study-card .case-study-metrics .metric-item .metric-val {
+  font-size: 1.875rem;
+  font-weight: 800;
+  color: #000000;
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+}
+.case-study-card .case-study-metrics .metric-item .metric-lbl {
+  font-size: 0.85rem;
+  color: #78716c;
+  line-height: 1.4;
 }
 
 .single-case-main {

@@ -8,54 +8,46 @@
 defined('ABSPATH') || exit;
 
 $post_id  = get_the_ID();
-$client   = function_exists('sarmad_get_field') ? sarmad_get_field('case_client', $post_id) : get_post_meta($post_id, '_case_client', true);
-$timeline = function_exists('sarmad_get_field') ? sarmad_get_field('case_timeline', $post_id) : get_post_meta($post_id, '_case_timeline', true);
+$subtitle = function_exists('sarmad_get_field') ? sarmad_get_field('case_subtitle', $post_id) : get_post_meta($post_id, '_case_subtitle', true);
 $m1_val   = function_exists('sarmad_get_field') ? sarmad_get_field('case_metric_1_val', $post_id) : get_post_meta($post_id, '_case_metric_1_val', true);
 $m1_lbl   = function_exists('sarmad_get_field') ? sarmad_get_field('case_metric_1_lbl', $post_id) : get_post_meta($post_id, '_case_metric_1_lbl', true);
+$m2_val   = function_exists('sarmad_get_field') ? sarmad_get_field('case_metric_2_val', $post_id) : get_post_meta($post_id, '_case_metric_2_val', true);
+$m2_lbl   = function_exists('sarmad_get_field') ? sarmad_get_field('case_metric_2_lbl', $post_id) : get_post_meta($post_id, '_case_metric_2_lbl', true);
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('glass-card case-study-card'); ?>>
-    <?php if (has_post_thumbnail()) : ?>
+<article id="post-<?php the_ID(); ?>" <?php post_class('case-study-card style-split'); ?>>
+    <a href="<?php the_permalink(); ?>" class="case-study-link-wrap">
         <div class="case-study-thumb">
-            <a href="<?php the_permalink(); ?>" aria-label="<?php echo esc_attr(sprintf(__('Read case study: %s', 'sarmadgardezi'), get_the_title())); ?>">
-                <?php the_post_thumbnail('sarmadgardezi-card', array('loading' => 'lazy')); ?>
-            </a>
-        </div>
-    <?php endif; ?>
-
-    <div class="case-study-body">
-        <div class="case-study-meta">
-            <?php if (!empty($client)) : ?>
-                <span class="case-client"><?php echo esc_html($client); ?></span>
-            <?php endif; ?>
-            <?php if (!empty($client) && !empty($timeline)) : ?>
-                <span class="meta-dot" aria-hidden="true">&bull;</span>
-            <?php endif; ?>
-            <?php if (!empty($timeline)) : ?>
-                <span class="case-timeline"><?php echo esc_html($timeline); ?></span>
+            <?php if (has_post_thumbnail()) : ?>
+                <?php the_post_thumbnail('large', array('loading' => 'lazy')); ?>
+            <?php else: ?>
+                <div class="case-thumb-placeholder"></div>
             <?php endif; ?>
         </div>
 
-        <h3 class="case-study-title">
-            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-        </h3>
-
-        <div class="case-study-excerpt">
-            <?php the_excerpt(); ?>
-        </div>
-
-        <?php if (!empty($m1_val)) : ?>
-            <div class="case-highlight-metric">
-                <span class="metric-val"><?php echo esc_html($m1_val); ?></span>
-                <span class="metric-lbl"><?php echo esc_html($m1_lbl); ?></span>
+        <div class="case-study-body">
+            <div class="case-study-header">
+                <h3 class="case-study-title"><?php the_title(); ?></h3>
+                <?php if (!empty($subtitle)) : ?>
+                    <p class="case-study-subtitle"><?php echo esc_html($subtitle); ?></p>
+                <?php endif; ?>
             </div>
-        <?php endif; ?>
 
-        <div class="case-study-actions">
-            <a href="<?php the_permalink(); ?>" class="btn btn-secondary btn-sm">
-                <span><?php esc_html_e('Read Full Case Study', 'sarmadgardezi'); ?></span>
-                <?php echo sarmadgardezi_get_icon('arrow-right'); ?>
-            </a>
+            <div class="case-study-metrics">
+                <?php if (!empty($m1_val)) : ?>
+                    <div class="metric-item">
+                        <span class="metric-val"><?php echo esc_html($m1_val); ?></span>
+                        <span class="metric-lbl"><?php echo esc_html($m1_lbl); ?></span>
+                    </div>
+                <?php endif; ?>
+                
+                <?php if (!empty($m2_val)) : ?>
+                    <div class="metric-item">
+                        <span class="metric-val"><?php echo esc_html($m2_val); ?></span>
+                        <span class="metric-lbl"><?php echo esc_html($m2_lbl); ?></span>
+                    </div>
+                <?php endif; ?>
+            </div>
         </div>
-    </div>
+    </a>
 </article>

@@ -17,27 +17,39 @@
 }
 
 .case-study-card {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
   background: #ffffff;
-  border: 1px solid $color-border;
-  border-radius: $radius-lg;
+  border-radius: 1.5rem;
   overflow: hidden;
-  padding: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   @include transition(all, $transition-base);
 
   &:hover {
-    border-color: $color-border-hover;
-    box-shadow: $shadow-md;
-    transform: translateY(-2px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+  }
+
+  .case-study-link-wrap {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    
+    @include respond-to('md') {
+      flex-direction: row;
+    }
   }
 
   .case-study-thumb {
-    position: relative;
-    aspect-ratio: 16 / 9;
+    width: 100%;
+    aspect-ratio: 1 / 1; // roughly square based on image
     overflow: hidden;
-    background: $color-surface-hover;
+    
+    @include respond-to('md') {
+      width: 45%;
+      flex-shrink: 0;
+      aspect-ratio: auto; // let it stretch height
+    }
 
     img {
       width: 100%;
@@ -46,88 +58,71 @@
       @include transition(transform, $transition-slow);
     }
 
-    &:hover img {
-      transform: scale(1.04);
+    .case-thumb-placeholder {
+      width: 100%;
+      height: 100%;
+      background: $color-surface-hover;
     }
+  }
+  
+  &:hover .case-study-thumb img {
+    transform: scale(1.04);
   }
 
   .case-study-body {
+    width: 100%;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
-    padding: 1.5rem;
-  }
-
-  .case-study-meta {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.8125rem;
-    color: $color-text-dim;
-    margin-bottom: 0.75rem;
-
-    .case-client {
-      font-weight: $font-weight-semibold;
-      color: $color-text-muted;
+    justify-content: space-between; // Title top, metrics bottom
+    
+    @include respond-to('md') {
+      width: 55%;
+      padding: 2.5rem;
     }
   }
 
-  .case-study-title {
-    font-size: 1.25rem;
-    line-height: 1.35;
-    margin-bottom: 0.75rem;
-    font-weight: $font-weight-bold;
+  .case-study-header {
+    margin-bottom: 2rem;
 
-    a {
-      color: $color-text;
-      text-decoration: none;
-      @include transition(color, $transition-fast);
+    .case-study-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #000000;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
 
-      &:hover {
+    .case-study-subtitle {
+      font-size: 0.95rem;
+      color: $color-text-muted;
+      margin: 0;
+    }
+  }
+
+  .case-study-metrics {
+    display: flex;
+    gap: 2rem;
+    margin-top: auto;
+    
+    .metric-item {
+      display: flex;
+      flex-direction: column;
+
+      .metric-val {
+        font-size: 1.875rem;
+        font-weight: 800;
         color: #000000;
-        text-decoration: underline;
+        line-height: 1.1;
+        margin-bottom: 0.25rem;
+      }
+
+      .metric-lbl {
+        font-size: 0.85rem;
+        color: $color-text-dim;
+        line-height: 1.4;
       }
     }
-  }
-
-  .case-study-excerpt {
-    font-size: 0.9375rem;
-    line-height: 1.6;
-    color: $color-text-muted;
-    margin-bottom: 1.25rem;
-    flex-grow: 1;
-
-    p { margin: 0; }
-  }
-
-  .case-highlight-metric {
-    display: flex;
-    align-items: baseline;
-    gap: 0.5rem;
-    padding: 0.65rem 0.85rem;
-    background: $color-surface-hover;
-    border-radius: $radius-md;
-    margin-bottom: 1.25rem;
-
-    .metric-val {
-      font-size: 1.25rem;
-      font-weight: $font-weight-extrabold;
-      color: $color-primary;
-    }
-
-    .metric-lbl {
-      font-size: 0.8125rem;
-      color: $color-text-dim;
-    }
-  }
-
-  .case-study-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-top: auto;
-    padding-top: 1rem;
-    border-top: 1px solid $color-border;
   }
 }
 

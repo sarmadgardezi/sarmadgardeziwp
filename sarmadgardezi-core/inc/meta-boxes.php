@@ -204,6 +204,7 @@ function sarmadgardezi_core_talk_meta_callback($post) {
 function sarmadgardezi_core_case_meta_callback($post) {
     wp_nonce_field('sarmad_case_meta_save', 'sarmad_case_meta_nonce');
 
+    $subtitle  = get_post_meta($post->ID, '_case_subtitle', true);
     $client    = get_post_meta($post->ID, '_case_client', true);
     $timeline  = get_post_meta($post->ID, '_case_timeline', true);
     $metrics_1_val = get_post_meta($post->ID, '_case_metric_1_val', true);
@@ -213,6 +214,10 @@ function sarmadgardezi_core_case_meta_callback($post) {
     $metrics_3_val = get_post_meta($post->ID, '_case_metric_3_val', true);
     $metrics_3_lbl = get_post_meta($post->ID, '_case_metric_3_lbl', true);
     ?>
+    <div style="margin-bottom: 16px;">
+        <label style="display:block; font-weight:600; margin-bottom:4px;" for="case_subtitle"><?php esc_html_e('Subtitle / Category & Platform', 'sarmadgardezi-core'); ?></label>
+        <input type="text" id="case_subtitle" name="case_subtitle" value="<?php echo esc_attr($subtitle); ?>" style="width: 100%;" placeholder="e.g. Beauty & Wellness - Instagram reels" />
+    </div>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 10px 0;">
         <div>
             <label style="display:block; font-weight:600; margin-bottom:4px;" for="case_client"><?php esc_html_e('Client / Organization', 'sarmadgardezi-core'); ?></label>
@@ -280,6 +285,7 @@ function sarmadgardezi_core_save_meta_boxes($post_id) {
 
     // Save Case Study meta
     if (isset($_POST['sarmad_case_meta_nonce']) && wp_verify_nonce($_POST['sarmad_case_meta_nonce'], 'sarmad_case_meta_save')) {
+        update_post_meta($post_id, '_case_subtitle', sanitize_text_field($_POST['case_subtitle'] ?? ''));
         update_post_meta($post_id, '_case_client', sanitize_text_field($_POST['case_client'] ?? ''));
         update_post_meta($post_id, '_case_timeline', sanitize_text_field($_POST['case_timeline'] ?? ''));
         update_post_meta($post_id, '_case_metric_1_val', sanitize_text_field($_POST['case_metric_1_val'] ?? ''));
