@@ -71,13 +71,13 @@ if (function_exists('get_field')) {
 
                     <!-- Main Impact Headline -->
                     <h1 class="about-hero-title">
-                        <span class="title-line-1"><?php esc_html_e('SYSTEMS BUILT TO', 'sarmadgardezi'); ?></span>
-                        <span class="title-pill-orange"><?php esc_html_e('SCALE.', 'sarmadgardezi'); ?></span>
+                        <span class="title-line-1"><?php esc_html_e('CLOUD & AI', 'sarmadgardezi'); ?></span>
+                        <span class="title-pill-orange"><?php esc_html_e('ARCHITECT.', 'sarmadgardezi'); ?></span>
                     </h1>
 
                     <!-- Description -->
                     <p class="about-hero-description">
-                        <?php esc_html_e('Architecting resilient Agentic AI workflows, high-performance cloud infrastructure, and software systems that drive real growth for modern engineering teams.', 'sarmadgardezi'); ?>
+                        <?php esc_html_e('Senior Full-Stack Engineer and recognized expert for Firebase and Google Cloud. I specialize in architecting scalable, AI-driven cloud ecosystems that empower developers and enterprises worldwide.', 'sarmadgardezi'); ?>
                     </p>
 
                     <!-- CTA Button -->
@@ -188,33 +188,33 @@ if (function_exists('get_field')) {
                 
                 <!-- Card 1 (Light) -->
                 <div class="metric-card-item card-light">
-                    <p class="card-top-desc"><?php esc_html_e('Google & Community events organized since 2017.', 'sarmadgardezi'); ?></p>
+                    <p class="card-top-desc"><?php esc_html_e('Developers trained on cloud-native dev & AI integration.', 'sarmadgardezi'); ?></p>
                     <div class="card-bottom-num">
-                        <span>70</span><span class="num-accent-blue" style="color: #3b82f6;">+</span>
+                        <span>500</span><span class="num-accent-blue" style="color: #3b82f6;">+</span>
                     </div>
                 </div>
 
                 <!-- Card 2 (Light) -->
                 <div class="metric-card-item card-light">
-                    <p class="card-top-desc"><?php esc_html_e('Technical keynotes and conference talks delivered.', 'sarmadgardezi'); ?></p>
+                    <p class="card-top-desc"><?php esc_html_e('Manual workload reduction via AI-powered automation.', 'sarmadgardezi'); ?></p>
                     <div class="card-bottom-num">
-                        <span>10</span><span class="num-accent-yellow" style="color: #eab308;">+</span>
+                        <span>65</span><span class="num-accent-yellow" style="color: #eab308;">%</span>
                     </div>
                 </div>
 
                 <!-- Card 3 (Dark Black Card) -->
                 <div class="metric-card-item card-dark">
-                    <p class="card-top-desc"><?php esc_html_e('Buildathons & hackathons successfully led & judged.', 'sarmadgardezi'); ?></p>
+                    <p class="card-top-desc"><?php esc_html_e('Consistent PageSpeed scores via optimized architectures.', 'sarmadgardezi'); ?></p>
                     <div class="card-bottom-num">
-                        <span>25</span><span class="num-accent-green" style="color: #10b981;">+</span>
+                        <span>95</span><span class="num-accent-green" style="color: #10b981;">+</span>
                     </div>
                 </div>
 
                 <!-- Card 4 (Light) -->
                 <div class="metric-card-item card-light">
-                    <p class="card-top-desc"><?php esc_html_e('Developers & engineers reached on YouTube and open source.', 'sarmadgardezi'); ?></p>
+                    <p class="card-top-desc"><?php esc_html_e('Team productivity boost through agile workflows.', 'sarmadgardezi'); ?></p>
                     <div class="card-bottom-num">
-                        <span>50</span><span class="num-accent-purple" style="color: #8b5cf6;">K+</span>
+                        <span>50</span><span class="num-accent-purple" style="color: #8b5cf6;">%</span>
                     </div>
                 </div>
 
@@ -243,32 +243,32 @@ if (function_exists('get_field')) {
             
             <div class="journey-header">
                 <span class="section-eyebrow"><?php esc_html_e('The Journey', 'sarmadgardezi'); ?></span>
-                <h2 class="journey-title"><?php esc_html_e('Writing, speaking & building scalable systems for over a decade.', 'sarmadgardezi'); ?></h2>
+                <h2 class="journey-title"><?php esc_html_e('From static code to cloud architecture.', 'sarmadgardezi'); ?></h2>
             </div>
 
             <div class="journey-grid">
                 
                 <div class="journey-item glass-card">
                     <span class="journey-year">2012</span>
-                    <h3 class="journey-item-title"><?php esc_html_e('Started Technical Blogging', 'sarmadgardezi'); ?></h3>
+                    <h3 class="journey-item-title"><?php esc_html_e('First Digital Footprints', 'sarmadgardezi'); ?></h3>
                     <p class="journey-item-desc">
-                        <?php esc_html_e('Began writing in-depth tutorials, software blueprints, and developer guides to simplify complex technology for engineers around the world.', 'sarmadgardezi'); ?>
+                        <?php esc_html_e('Began building web platforms using pure HTML and CSS, officially claiming my corner of the web and experimenting with code from the ground up.', 'sarmadgardezi'); ?>
                     </p>
                 </div>
 
                 <div class="journey-item glass-card">
                     <span class="journey-year">2017</span>
-                    <h3 class="journey-item-title"><?php esc_html_e('GDG Cloud Islamabad Organizer', 'sarmadgardezi'); ?></h3>
+                    <h3 class="journey-item-title"><?php esc_html_e('GDG Cloud Islamabad', 'sarmadgardezi'); ?></h3>
                     <p class="journey-item-desc">
-                        <?php esc_html_e('Began leading Google Developer Groups Cloud Islamabad, organizing DevFests, hands-on Cloud buildathons, and mentoring hundreds of developers.', 'sarmadgardezi'); ?>
+                        <?php esc_html_e('Joined Google for Developers CLOUD Islamabad, eventually leading the chapter and helping thousands of developers in Pakistan navigate the Cloud and AI landscape.', 'sarmadgardezi'); ?>
                     </p>
                 </div>
 
                 <div class="journey-item glass-card">
                     <span class="journey-year"><?php echo date('Y'); ?></span>
-                    <h3 class="journey-item-title"><?php esc_html_e('Agentic AI & Cloud Architecture', 'sarmadgardezi'); ?></h3>
+                    <h3 class="journey-item-title"><?php esc_html_e('Senior Software Engineer', 'sarmadgardezi'); ?></h3>
                     <p class="journey-item-desc">
-                        <?php esc_html_e('Architecting cutting-edge Agentic AI workflows, high-throughput cloud infrastructure, and speaking at global technical conferences.', 'sarmadgardezi'); ?>
+                        <?php esc_html_e('Currently at TrickleUp, architecting resilient, AI-powered systems that solve global challenges, all while remaining committed to the local developer community.', 'sarmadgardezi'); ?>
                     </p>
                 </div>
 
@@ -282,53 +282,70 @@ if (function_exists('get_field')) {
         <div class="site-container about-pillars-container">
             
             <div class="pillars-header">
-                <span class="section-eyebrow"><?php esc_html_e('What I Do', 'sarmadgardezi'); ?></span>
-                <h2 class="pillars-title"><?php esc_html_e('Core Competencies & Engineering Focus', 'sarmadgardezi'); ?></h2>
+                <span class="section-eyebrow"><?php esc_html_e('My Philosophy', 'sarmadgardezi'); ?></span>
+                <h2 class="pillars-title"><?php esc_html_e('Commitment to technical excellence & open collaboration.', 'sarmadgardezi'); ?></h2>
             </div>
 
             <div class="pillars-grid">
                 
                 <div class="pillar-card">
                     <div class="pillar-icon-box">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff6b2c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                        </svg>
-                    </div>
-                    <h3 class="pillar-heading"><?php esc_html_e('Agentic AI & LLM Systems', 'sarmadgardezi'); ?></h3>
-                    <p class="pillar-text"><?php esc_html_e('Designing autonomous multi-agent pipelines, RAG architecture, and production-grade AI applications using Vertex AI and modern LLMs.', 'sarmadgardezi'); ?></p>
-                </div>
-
-                <div class="pillar-card">
-                    <div class="pillar-icon-box">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
                         </svg>
                     </div>
-                    <h3 class="pillar-heading"><?php esc_html_e('Google Cloud Architecture', 'sarmadgardezi'); ?></h3>
-                    <p class="pillar-text"><?php esc_html_e('Building fault-tolerant serverless backends, microservices, and Kubernetes clusters optimized for high scalability and low latency.', 'sarmadgardezi'); ?></p>
+                    <h3 class="pillar-heading"><?php esc_html_e('Build for global scale.', 'sarmadgardezi'); ?></h3>
+                    <p class="pillar-text"><?php esc_html_e('Architecting systems designed to handle millions of users from day one, leveraging serverless cloud-native technologies.', 'sarmadgardezi'); ?></p>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff6b2c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                    </div>
+                    <h3 class="pillar-heading"><?php esc_html_e('Integrate Agentic AI.', 'sarmadgardezi'); ?></h3>
+                    <p class="pillar-text"><?php esc_html_e('Implementing autonomous AI workflows that perform complex reasoning and automate high-value tasks seamlessly.', 'sarmadgardezi'); ?></p>
                 </div>
 
                 <div class="pillar-card">
                     <div class="pillar-icon-box">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                            <line x1="8" y1="21" x2="16" y2="21"></line>
-                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                         </svg>
                     </div>
-                    <h3 class="pillar-heading"><?php esc_html_e('Full-Stack Web Engineering', 'sarmadgardezi'); ?></h3>
-                    <p class="pillar-text"><?php esc_html_e('Developing responsive, blazing-fast web applications with Next.js, React, Node.js, and TypeScript tailored for optimal user conversion.', 'sarmadgardezi'); ?></p>
+                    <h3 class="pillar-heading"><?php esc_html_e('Community as the core.', 'sarmadgardezi'); ?></h3>
+                    <p class="pillar-text"><?php esc_html_e('As a GDG Lead, I believe the best software is built when knowledge is shared, prioritizing open-source contribution.', 'sarmadgardezi'); ?></p>
                 </div>
 
                 <div class="pillar-card">
                     <div class="pillar-icon-box">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
+                            <path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                         </svg>
                     </div>
-                    <h3 class="pillar-heading"><?php esc_html_e('Tech Speaking & Workshops', 'sarmadgardezi'); ?></h3>
-                    <p class="pillar-text"><?php esc_html_e('Delivering technical keynotes, judging global hackathons, and teaching software engineering concepts to tens of thousands on YouTube.', 'sarmadgardezi'); ?></p>
+                    <h3 class="pillar-heading"><?php esc_html_e('Simplify the complex.', 'sarmadgardezi'); ?></h3>
+                    <p class="pillar-text"><?php esc_html_e('Focusing on removing technical friction and bridging the gap between sophisticated engineering and intuitive design.', 'sarmadgardezi'); ?></p>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="pillar-heading"><?php esc_html_e('Certified expertise.', 'sarmadgardezi'); ?></h3>
+                    <p class="pillar-text"><?php esc_html_e('Maintaining a rigorous standard of technical proficiency, holding Professional Cloud Architect certifications.', 'sarmadgardezi'); ?></p>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="pillar-heading"><?php esc_html_e('Strategic leadership.', 'sarmadgardezi'); ?></h3>
+                    <p class="pillar-text"><?php esc_html_e('Combining hands-on coding with high-level strategy to deliver results that matter and managing technical communities.', 'sarmadgardezi'); ?></p>
                 </div>
 
             </div>
@@ -343,10 +360,10 @@ if (function_exists('get_field')) {
     <section class="about-cta-section">
         <div class="site-container about-cta-container">
             <div class="about-cta-card">
-                <h2 class="cta-title"><?php esc_html_e('Have a project in mind?', 'sarmadgardezi'); ?></h2>
+                <h2 class="cta-title"><?php esc_html_e('Scale your vision with bespoke Agentic AI', 'sarmadgardezi'); ?></h2>
                 <p class="cta-desc"><?php esc_html_e("Let's discuss how Agentic AI and resilient cloud architecture can accelerate your product roadmap.", 'sarmadgardezi'); ?></p>
                 <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="cta-action-btn">
-                    <span><?php esc_html_e("Let's build together", 'sarmadgardezi'); ?> &rarr;</span>
+                    <span><?php esc_html_e("Start a Conversation", 'sarmadgardezi'); ?> &rarr;</span>
                 </a>
             </div>
         </div>
