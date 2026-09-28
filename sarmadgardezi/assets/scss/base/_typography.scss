@@ -64,3 +64,20 @@ pre {
 .text-muted {
   color: $color-text-muted;
 }
+
+// Utility Font Classes
+.font-sans {
+  font-family: var(--font-family, #{$font-sans});
+}
+
+.font-mono {
+  font-family: var(--font-family-mono, #{$font-mono});
+}
+
+.font-spicy {
+  font-family: var(--font-family-spicy, #{$font-spicy});
+}
+
+.font-calligraphic {
+  font-family: var(--font-family-calligraphic, #{$font-calligraphic});
+}

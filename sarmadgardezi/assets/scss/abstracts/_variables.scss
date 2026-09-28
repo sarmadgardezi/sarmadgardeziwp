@@ -28,9 +28,11 @@ $color-purple: #a855f7;
 $shadow-glow-cyan: 0 0 25px rgba(6, 182, 212, 0.15);
 $shadow-glow-blue: 0 0 25px rgba(14, 165, 233, 0.18);
 
-// Typography (Theme Font: Google Sans Flex)
-$font-sans: "Google Sans Flex", "Google Sans Flex Placeholder", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-$font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+// Typography (Global Theme Fonts)
+$font-sans: 'Wotfard', Futura, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+$font-mono: 'Cartograph CF', 'Source Code Pro', 'Fira Mono', monospace;
+$font-spicy: 'Sriracha', cursive;
+$font-calligraphic: 'Great Vibes', cursive;
 
 $font-weight-regular: 400;
 $font-weight-medium: 500;

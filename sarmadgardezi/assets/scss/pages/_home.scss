@@ -2480,10 +2480,10 @@
   }
 
   .annotation-text {
-    font-family: 'Caveat', cursive, sans-serif;
-    font-size: 1.45rem;
-    font-weight: 600;
-    line-height: 1.05;
+    font-family: var(--font-family-spicy, 'Sriracha', cursive);
+    font-size: 1.35rem;
+    font-weight: 500;
+    line-height: 1.1;
     color: #5b677a;
     display: flex;
     flex-direction: column;
