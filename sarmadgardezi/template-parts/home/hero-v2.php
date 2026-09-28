@@ -89,9 +89,9 @@ if (function_exists('get_field')) {
                     <span>Grow</span>
                 </div>
                 <div class="annotation-arrow">
-                    <svg viewBox="0 0 65 75" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M 48 4 C 44 24, 35 48, 12 60" stroke="#5d5fef" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M 23 54 L 10 60 L 16 71" stroke="#5d5fef" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <svg viewBox="0 0 70 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 52 2 C 50 24, 42 46, 6 48" stroke="#5d5fef" stroke-width="2.2" stroke-linecap="round"/>
+                        <path d="M 18 40 L 4 48 L 17 56" stroke="#5d5fef" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
             </div>

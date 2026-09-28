@@ -2462,13 +2462,18 @@
 // Right Hand-drawn Annotation & Arrow
 .hero-v2-annotation {
   position: absolute;
-  right: -7.8rem;
-  top: -1.4rem;
+  right: -7.5rem;
+  top: -4.8rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   pointer-events: none;
   user-select: none;
+
+  @include respond-to('lg') {
+    right: -8.2rem;
+    top: -5.2rem;
+  }
 
   @media (max-width: 900px) {
     display: none;
@@ -2483,7 +2488,7 @@
     display: flex;
     flex-direction: column;
     transform: rotate(14deg);
-    margin-left: 1.2rem;
+    margin-left: 1.5rem;
 
     span {
       display: block;
@@ -2499,11 +2504,10 @@
   }
 
   .annotation-arrow {
-    width: 62px;
-    height: 72px;
+    width: 68px;
+    height: 58px;
     margin-top: 0.15rem;
-    margin-left: -0.85rem;
-    transform: rotate(-10deg);
+    margin-left: -0.3rem;
 
     svg {
       width: 100%;
