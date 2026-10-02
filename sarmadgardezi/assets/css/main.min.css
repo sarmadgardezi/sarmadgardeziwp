@@ -626,7 +626,7 @@ textarea::placeholder {
 }
 .site-header-custom .site-header-container {
   width: 100%;
-  max-width: 1140px;
+  max-width: 1080px;
   margin: 0 auto;
   padding: 0 1.5rem;
   display: flex;
@@ -634,7 +634,7 @@ textarea::placeholder {
 }
 .site-header-custom .site-header-inner {
   width: 100%;
-  max-width: 580px;
+  max-width: 100%;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -1462,21 +1462,21 @@ textarea::placeholder {
 
 .hero-logo-strip-container {
   width: 100%;
-  max-width: 1140px;
+  max-width: 1080px;
   margin: 0 auto;
   padding: 0 1.5rem;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .hero-logo-strip-wrap {
   width: 100%;
-  max-width: 580px;
-  margin: 0 auto;
+  max-width: 820px;
+  margin: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 @media (max-width: 520px) {
   .hero-logo-strip-wrap {
@@ -1565,7 +1565,7 @@ textarea::placeholder {
 }
 .about-intro-split-section .about-intro-container {
   width: 100%;
-  max-width: 1160px;
+  max-width: 1080px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
@@ -2797,17 +2797,17 @@ textarea::placeholder {
 
 .hero-v2-container {
   width: 100%;
-  max-width: 1140px;
+  max-width: 1080px;
   margin: 0 auto;
   padding: 0 1.5rem;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .hero-v2-content-wrap {
   width: 100%;
-  max-width: 580px;
-  margin: 0 auto;
+  max-width: 820px;
+  margin: 0;
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -5693,7 +5693,7 @@ body.page-template-page-blog,
 }
 .events-products-section .events-products-container {
   width: 100%;
-  max-width: 980px;
+  max-width: 1080px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
