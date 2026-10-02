@@ -1509,126 +1509,82 @@ textarea::placeholder {
   flex-shrink: 0;
 }
 
-.hero-brands-section {
+.hero-logo-strip-section {
   width: 100%;
   background-color: #ffffff;
-  padding: 3rem 0 3.5rem;
-  overflow: hidden;
-  position: relative;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-@media (min-width: 768px) {
-  .hero-brands-section {
-    padding: 3.75rem 0 4.25rem;
-  }
-}
-
-.brands-boxed-container {
-  width: 100%;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-  box-sizing: border-box;
-}
-@media (min-width: 768px) {
-  .brands-boxed-container {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-}
-
-.brands-header-title {
-  text-align: center;
-  font-family: var(--framer-font-family, "Google Sans Flex", -apple-system, BlinkMacSystemFont, sans-serif);
-  font-size: 1.0625rem;
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  color: #111827;
-  margin: 0 0 2.25rem 0;
-  padding: 0 1.25rem;
-  line-height: 1.35;
-}
-@media (min-width: 768px) {
-  .brands-header-title {
-    font-size: 1.1875rem;
-    margin-bottom: 2.75rem;
-  }
-}
-
-.brands-marquee-wrapper {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  padding: 0 0 clamp(3.5rem, 6vw, 5rem);
   display: flex;
-  cursor: default;
-}
-.brands-marquee-wrapper:hover .brands-marquee-track {
-  animation-play-state: paused;
+  justify-content: center;
+  align-items: center;
 }
 
-.brands-marquee-track {
+.hero-logo-strip-container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
   display: flex;
-  width: max-content;
-  flex-shrink: 0;
-  animation: scrollBrandsMarquee 42s linear infinite;
-  will-change: transform;
-  transform: translate3d(0, 0, 0);
-}
-.brands-marquee-track:hover {
-  animation-play-state: paused;
+  justify-content: center;
 }
 
-.brands-group {
+.hero-logo-strip-wrap {
+  width: 100%;
+  max-width: 580px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
-  flex-shrink: 0;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+@media (max-width: 520px) {
+  .hero-logo-strip-wrap {
+    gap: 0.75rem;
+  }
 }
 
-.brand-logo-item {
+.logo-slot {
+  flex: 1 1 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 0 0 190px;
-  width: 190px;
-  min-width: 190px;
-  max-width: 190px;
-  height: 52px;
-  padding: 0 1.5rem;
-  box-sizing: border-box;
+  height: 38px;
   position: relative;
-  border-right: 1px solid rgba(0, 0, 0, 0.08);
-  opacity: 0.88;
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  overflow: hidden;
 }
-@media (min-width: 768px) {
-  .brand-logo-item {
-    flex: 0 0 250px;
-    width: 250px;
-    min-width: 250px;
-    max-width: 250px;
-    height: 60px;
-    padding: 0 2rem;
-  }
+.logo-slot .logo-item {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease, filter 0.6s ease;
+  will-change: transform, opacity, filter;
 }
-@media (min-width: 1024px) {
-  .brand-logo-item {
-    flex: 0 0 270px;
-    width: 270px;
-    min-width: 270px;
-    max-width: 270px;
-  }
-}
-.brand-logo-item:hover {
+.logo-slot .logo-item.current-logo {
+  transform: translateY(0);
   opacity: 1;
-  transform: scale(1.04);
+  filter: blur(0px);
+  z-index: 1;
 }
-
-.brand-logo-link {
+.logo-slot .logo-item.current-logo.slide-out {
+  transform: translateY(-100%);
+  opacity: 0;
+  filter: blur(4px);
+}
+.logo-slot .logo-item.incoming-logo {
+  transform: translateY(100%);
+  opacity: 0;
+  filter: blur(4px);
+  z-index: 2;
+}
+.logo-slot .logo-item.incoming-logo.slide-in {
+  transform: translateY(0);
+  opacity: 1;
+  filter: blur(0px);
+}
+.logo-slot .logo-item a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1636,41 +1592,27 @@ textarea::placeholder {
   height: 100%;
   text-decoration: none;
 }
-
-.brand-logo-img-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-}
-
-.brand-logo-img {
-  max-height: 28px;
-  max-width: 130px;
+.logo-slot .logo-item .brand-img {
+  max-height: 24px;
+  max-width: 110px;
   width: auto;
   height: auto;
   object-fit: contain;
   display: block;
-  user-select: none;
-  pointer-events: none;
-  transition: transform 0.25s ease;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
-@media (min-width: 768px) {
-  .brand-logo-img {
-    max-height: 34px;
-    max-width: 155px;
+@media (max-width: 520px) {
+  .logo-slot .logo-item .brand-img {
+    max-height: 20px;
+    max-width: 85px;
   }
+}
+.logo-slot .logo-item .brand-img:hover {
+  opacity: 1;
+  transform: scale(1.05);
 }
 
-@keyframes scrollBrandsMarquee {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-50%, 0, 0);
-  }
-}
 .numbers-impact-section {
   padding: 4.5rem 1.5rem 4.5rem;
   background-color: #f3f4f6;
@@ -3067,7 +3009,7 @@ textarea::placeholder {
 .hero-v2-section {
   width: 100%;
   background-color: #ffffff;
-  padding: clamp(2rem, 3.5vw, 3.25rem) 0 clamp(3.5rem, 5.5vw, 5rem);
+  padding: clamp(4.5rem, 7.5vw, 6.5rem) 0 clamp(2rem, 3.5vw, 2.75rem);
   position: relative;
   display: flex;
   justify-content: center;
