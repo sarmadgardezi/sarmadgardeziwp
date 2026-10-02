@@ -9,17 +9,20 @@
 defined('ABSPATH') || exit;
 
 // Section Label
-$section_label = 'Products';
+$section_label = 'Projects';
 if (function_exists('get_field')) {
-    $acf_label = get_field('events_section_label');
+    $acf_label = get_field('projects_section_label');
+    if (empty($acf_label)) {
+        $acf_label = get_field('events_section_label');
+    }
     if (!empty($acf_label)) {
         $section_label = $acf_label;
     }
 }
 
-// Query Dynamic Event / Product Posts
+// Query Dynamic Project / Event Posts
 $events_args = array(
-    'post_type'      => 'event',
+    'post_type'      => array('project', 'event'),
     'posts_per_page' => -1,
     'post_status'    => 'publish',
     'orderby'        => 'menu_order date',
@@ -120,21 +123,33 @@ $static_products = array(
                     $stagger   = 5 + $item_idx;
                     $item_idx++;
 
-                    $role      = get_post_meta($p_id, '_event_role', true);
+                    $role      = get_post_meta($p_id, '_project_role', true);
+                    if (empty($role)) $role = get_post_meta($p_id, 'project_role', true);
+                    if (empty($role)) $role = get_post_meta($p_id, '_event_role', true);
                     if (empty($role)) $role = get_post_meta($p_id, 'event_role', true);
+                    if (empty($role)) $role = get_post_meta($p_id, 'project_subtitle', true);
                     if (empty($role) && has_excerpt()) $role = get_the_excerpt();
 
-                    $timeline  = get_post_meta($p_id, '_event_timeline', true);
+                    $timeline  = get_post_meta($p_id, '_project_timeline', true);
+                    if (empty($timeline)) $timeline = get_post_meta($p_id, 'project_timeline', true);
+                    if (empty($timeline)) $timeline = get_post_meta($p_id, '_project_year', true);
+                    if (empty($timeline)) $timeline = get_post_meta($p_id, '_event_timeline', true);
                     if (empty($timeline)) $timeline = get_post_meta($p_id, 'event_timeline', true);
                     if (empty($timeline)) $timeline = get_the_date('Y');
 
-                    $logo_url  = get_post_meta($p_id, '_event_logo', true);
+                    $logo_url  = get_post_meta($p_id, '_project_logo', true);
+                    if (empty($logo_url)) $logo_url = get_post_meta($p_id, 'project_logo', true);
+                    if (empty($logo_url)) $logo_url = get_post_meta($p_id, '_event_logo', true);
                     if (empty($logo_url)) $logo_url = get_post_meta($p_id, 'event_logo', true);
                     if (empty($logo_url) && has_post_thumbnail()) {
                         $logo_url = get_the_post_thumbnail_url($p_id, 'thumbnail');
                     }
 
-                    $ext_url   = get_post_meta($p_id, '_event_url', true);
+                    $ext_url   = get_post_meta($p_id, '_project_live_url', true);
+                    if (empty($ext_url)) $ext_url = get_post_meta($p_id, 'project_live_url', true);
+                    if (empty($ext_url)) $ext_url = get_post_meta($p_id, '_project_url', true);
+                    if (empty($ext_url)) $ext_url = get_post_meta($p_id, 'project_url', true);
+                    if (empty($ext_url)) $ext_url = get_post_meta($p_id, '_event_url', true);
                     if (empty($ext_url)) $ext_url = get_post_meta($p_id, 'event_url', true);
                     
                     $item_link   = !empty($ext_url) ? $ext_url : get_permalink($p_id);

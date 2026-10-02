@@ -634,7 +634,7 @@ textarea::placeholder {
 }
 .site-header-custom .site-header-inner {
   width: 100%;
-  max-width: 580px;
+  max-width: 640px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -1471,7 +1471,7 @@ textarea::placeholder {
 
 .hero-logo-strip-wrap {
   width: 100%;
-  max-width: 580px;
+  max-width: 640px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -1565,7 +1565,7 @@ textarea::placeholder {
 }
 .about-intro-split-section .about-intro-container {
   width: 100%;
-  max-width: 580px;
+  max-width: 640px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
@@ -2804,7 +2804,7 @@ textarea::placeholder {
 
 .hero-v2-content-wrap {
   width: 100%;
-  max-width: 580px;
+  max-width: 640px;
   margin: 0 auto;
   text-align: left;
   display: flex;
@@ -2912,7 +2912,7 @@ textarea::placeholder {
 }
 .company-section .company-container {
   width: 100%;
-  max-width: 580px;
+  max-width: 640px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
@@ -3061,7 +3061,7 @@ textarea::placeholder {
 }
 .faq-section .faq-container {
   width: 100%;
-  max-width: 580px;
+  max-width: 640px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
@@ -3103,7 +3103,7 @@ textarea::placeholder {
   line-height: 1.6;
   color: #52525b;
   margin: 0;
-  max-width: 580px;
+  max-width: 640px;
 }
 
 .booking-cal-section {
@@ -5931,7 +5931,7 @@ body.page-template-page-blog,
 }
 .products-section .products-container {
   width: 100%;
-  max-width: 580px;
+  max-width: 640px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
