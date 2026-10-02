@@ -1118,4 +1118,150 @@ function sarmadgardezi_register_all_acf_field_groups() {
         'active' => true,
         'description' => '',
     ));
+
+    // 4. Events & Products Details Field Group
+    acf_add_local_field_group(array(
+        'key' => 'group_event_details',
+        'title' => __('Event & Product Details', 'sarmadgardezi'),
+        'fields' => array(
+            array(
+                'key' => 'field_event_role',
+                'label' => __('Role / Subtitle / Tagline', 'sarmadgardezi'),
+                'name' => 'event_role',
+                'type' => 'text',
+                'instructions' => __('e.g. Fractional CTO & AI Product Engineer', 'sarmadgardezi'),
+                'placeholder' => 'Fractional CTO & AI Product Engineer',
+            ),
+            array(
+                'key' => 'field_event_timeline',
+                'label' => __('Timeline / Dates', 'sarmadgardezi'),
+                'name' => 'event_timeline',
+                'type' => 'text',
+                'instructions' => __('e.g. 2026–Today or 2023–2025', 'sarmadgardezi'),
+                'placeholder' => '2026–Today',
+            ),
+            array(
+                'key' => 'field_event_logo',
+                'label' => __('Brand Logo / Icon', 'sarmadgardezi'),
+                'name' => 'event_logo',
+                'type' => 'image',
+                'instructions' => __('Upload brand/event icon or logo (SVG/PNG/WebP). Featured Image is used as fallback.', 'sarmadgardezi'),
+                'return_format' => 'url',
+                'preview_size' => 'thumbnail',
+            ),
+            array(
+                'key' => 'field_event_url',
+                'label' => __('External Website / Project Link', 'sarmadgardezi'),
+                'name' => 'event_url',
+                'type' => 'url',
+                'instructions' => __('Optional external link (e.g. https://example.com)', 'sarmadgardezi'),
+                'placeholder' => 'https://',
+            ),
+            array(
+                'key' => 'field_event_location',
+                'label' => __('Location / Venue / Mode', 'sarmadgardezi'),
+                'name' => 'event_location',
+                'type' => 'text',
+                'instructions' => __('e.g. San Francisco, CA / Remote or Online', 'sarmadgardezi'),
+                'placeholder' => 'Remote / Global',
+            ),
+            array(
+                'key' => 'field_event_highlights',
+                'label' => __('Key Highlights / Summary Points', 'sarmadgardezi'),
+                'name' => 'event_highlights',
+                'type' => 'textarea',
+                'instructions' => __('Enter one highlight per line.', 'sarmadgardezi'),
+                'rows' => 4,
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'event',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'active' => true,
+    ));
 }
+
+/**
+ * Native Event Meta Box (Fallback when ACF Pro is not installed)
+ */
+add_action('add_meta_boxes', 'sarmadgardezi_add_event_native_meta_boxes');
+function sarmadgardezi_add_event_native_meta_boxes() {
+    if (!function_exists('acf_add_local_field_group')) {
+        add_meta_box(
+            'sarmad_event_meta_box',
+            __('Event & Product Details', 'sarmadgardezi'),
+            'sarmadgardezi_render_event_native_meta_box',
+            'event',
+            'normal',
+            'high'
+        );
+    }
+}
+
+function sarmadgardezi_render_event_native_meta_box($post) {
+    wp_nonce_field('sarmad_event_meta_save', 'sarmad_event_meta_nonce');
+    $role     = get_post_meta($post->ID, '_event_role', true);
+    if (empty($role)) $role = get_post_meta($post->ID, 'event_role', true);
+    $timeline = get_post_meta($post->ID, '_event_timeline', true);
+    if (empty($timeline)) $timeline = get_post_meta($post->ID, 'event_timeline', true);
+    $url      = get_post_meta($post->ID, '_event_url', true);
+    if (empty($url)) $url = get_post_meta($post->ID, 'event_url', true);
+    $location = get_post_meta($post->ID, '_event_location', true);
+    if (empty($location)) $location = get_post_meta($post->ID, 'event_location', true);
+    ?>
+    <div style="padding: 10px 0;">
+        <p>
+            <label style="font-weight: 600; display:block; margin-bottom: 5px;"><?php esc_html_e('Role / Subtitle / Tagline', 'sarmadgardezi'); ?></label>
+            <input type="text" name="event_role" value="<?php echo esc_attr($role); ?>" placeholder="Fractional CTO & AI Product Engineer" style="width: 100%;" />
+        </p>
+        <p>
+            <label style="font-weight: 600; display:block; margin-bottom: 5px;"><?php esc_html_e('Timeline / Dates', 'sarmadgardezi'); ?></label>
+            <input type="text" name="event_timeline" value="<?php echo esc_attr($timeline); ?>" placeholder="2026–Today" style="width: 100%;" />
+        </p>
+        <p>
+            <label style="font-weight: 600; display:block; margin-bottom: 5px;"><?php esc_html_e('External Website / Project Link', 'sarmadgardezi'); ?></label>
+            <input type="url" name="event_url" value="<?php echo esc_attr($url); ?>" placeholder="https://" style="width: 100%;" />
+        </p>
+        <p>
+            <label style="font-weight: 600; display:block; margin-bottom: 5px;"><?php esc_html_e('Location / Venue', 'sarmadgardezi'); ?></label>
+            <input type="text" name="event_location" value="<?php echo esc_attr($location); ?>" placeholder="Remote / Global" style="width: 100%;" />
+        </p>
+    </div>
+    <?php
+}
+
+add_action('save_post_event', 'sarmadgardezi_save_event_native_meta');
+function sarmadgardezi_save_event_native_meta($post_id) {
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+    if (!isset($_POST['sarmad_event_meta_nonce']) || !wp_verify_nonce($_POST['sarmad_event_meta_nonce'], 'sarmad_event_meta_save')) return;
+    if (!current_user_can('edit_post', $post_id)) return;
+
+    if (isset($_POST['event_role'])) {
+        update_post_meta($post_id, 'event_role', sanitize_text_field($_POST['event_role']));
+        update_post_meta($post_id, '_event_role', sanitize_text_field($_POST['event_role']));
+    }
+    if (isset($_POST['event_timeline'])) {
+        update_post_meta($post_id, 'event_timeline', sanitize_text_field($_POST['event_timeline']));
+        update_post_meta($post_id, '_event_timeline', sanitize_text_field($_POST['event_timeline']));
+    }
+    if (isset($_POST['event_url'])) {
+        update_post_meta($post_id, 'event_url', esc_url_raw($_POST['event_url']));
+        update_post_meta($post_id, '_event_url', esc_url_raw($_POST['event_url']));
+    }
+    if (isset($_POST['event_location'])) {
+        update_post_meta($post_id, 'event_location', sanitize_text_field($_POST['event_location']));
+        update_post_meta($post_id, '_event_location', sanitize_text_field($_POST['event_location']));
+    }
+}
+

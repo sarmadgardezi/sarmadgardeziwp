@@ -165,3 +165,32 @@ function sarmadgardezi_theme_save_page_meta($post_id) {
     update_post_meta($post_id, '_page_hero_subtitle', sanitize_textarea_field($_POST['page_hero_subtitle'] ?? ''));
 }
 
+/**
+ * Fallback Event CPT registration in theme
+ */
+add_action('init', 'sarmadgardezi_register_event_cpt_fallback', 5);
+function sarmadgardezi_register_event_cpt_fallback() {
+    if (!post_type_exists('event')) {
+        register_post_type('event', array(
+            'label'               => __('Events', 'sarmadgardezi'),
+            'labels'              => array(
+                'name'          => __('Events & Products', 'sarmadgardezi'),
+                'singular_name' => __('Event / Product', 'sarmadgardezi'),
+                'menu_name'     => __('Events', 'sarmadgardezi'),
+                'all_items'     => __('All Events & Products', 'sarmadgardezi'),
+                'add_new_item'  => __('Add New Event / Product', 'sarmadgardezi'),
+            ),
+            'public'              => true,
+            'show_ui'             => true,
+            'show_in_menu'        => true,
+            'menu_position'       => 23,
+            'menu_icon'           => 'dashicons-calendar-alt',
+            'supports'            => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'revisions'),
+            'has_archive'         => 'events',
+            'show_in_rest'        => true,
+            'rewrite'             => array('slug' => 'events', 'with_front' => false),
+        ));
+    }
+}
+
+

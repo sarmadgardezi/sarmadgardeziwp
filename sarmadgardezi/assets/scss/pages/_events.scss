@@ -1,0 +1,458 @@
+// ==========================================================================
+// SCSS Pages: Events & Products List + Single Event Template
+// ==========================================================================
+
+// --------------------------------------------------------------------------
+// 1. Homepage Events & Products Table List Section
+// --------------------------------------------------------------------------
+
+.events-products-section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: clamp(2.5rem, 5vw, 4.5rem) 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .events-products-container {
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  // Section Label
+  .events-products-header {
+    width: 100%;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 0.85rem;
+    margin-bottom: 0;
+
+    .events-products-label {
+      font-family: 'Wotfard', var(--font-family, sans-serif);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: #71717a;
+      letter-spacing: -0.01em;
+      margin: 0;
+      text-transform: none;
+    }
+  }
+
+  // Events Table List
+  .events-products-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  // Each Clickable Row
+  .event-row-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: clamp(1.25rem, 2.5vw, 1.85rem) 0.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+    border-radius: 8px;
+
+    @include respond-to('md') {
+      display: grid;
+      grid-template-columns: 240px 1fr auto;
+      align-items: center;
+      gap: 2rem;
+      padding: 1.65rem 0.75rem;
+    }
+
+    &:hover {
+      background-color: rgba(244, 244, 245, 0.6);
+
+      .event-brand-title {
+        color: #000000;
+      }
+
+      .event-arrow-indicator {
+        background-color: #C3DAFE;
+        color: #1e3a8a;
+        transform: translateX(3px);
+      }
+    }
+
+    // Column 1: Brand Logo & Title
+    .event-col-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.95rem;
+
+      .event-brand-icon {
+        width: 34px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          display: block;
+        }
+
+        svg {
+          width: 100%;
+          height: 100%;
+          display: block;
+        }
+
+        &.placeholder-icon {
+          background-color: #f4f4f5;
+          border-radius: 8px;
+          font-weight: 700;
+          font-size: 1rem;
+          color: #18181b;
+        }
+      }
+
+      .event-brand-title {
+        font-family: 'Wotfard', var(--font-family, sans-serif);
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: #111827;
+        letter-spacing: -0.025em;
+        line-height: 1.2;
+        transition: color 0.2s ease;
+      }
+
+      .event-arrow-indicator {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background-color: #f4f4f5;
+        color: #71717a;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 0.25rem;
+        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, color 0.2s ease;
+
+        svg {
+          width: 10px;
+          height: 10px;
+          display: block;
+        }
+      }
+    }
+
+    // Column 2: Role / Subtitle
+    .event-col-role {
+      font-family: 'Wotfard', var(--font-family, sans-serif);
+      font-size: 0.9375rem;
+      font-weight: 400;
+      color: #52525b;
+      line-height: 1.45;
+      letter-spacing: -0.01em;
+    }
+
+    // Column 3: Timeline Dates
+    .event-col-timeline {
+      font-family: 'Wotfard', var(--font-family, sans-serif);
+      font-size: 0.9375rem;
+      font-weight: 400;
+      color: #71717a;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+
+      @include respond-to('md') {
+        text-align: right;
+      }
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// 2. Single Event Detail Page Template Styles
+// --------------------------------------------------------------------------
+
+.site-single-event-main {
+  width: 100%;
+  background-color: #ffffff;
+  padding-top: clamp(2rem, 4vw, 3.5rem);
+
+  .single-event-container {
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  // Breadcrumbs / Back Link
+  .single-event-breadcrumbs {
+    margin-bottom: 2rem;
+
+    .event-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Wotfard', var(--font-family, sans-serif);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #71717a;
+      text-decoration: none;
+      transition: color 0.2s ease, transform 0.2s ease;
+
+      svg {
+        transition: transform 0.2s ease;
+      }
+
+      &:hover {
+        color: #111827;
+
+        svg {
+          transform: translateX(-3px);
+        }
+      }
+    }
+  }
+
+  // Event Header Card
+  .single-event-header {
+    background-color: #fbfbfd;
+    border: 1px solid #edf0f5;
+    border-radius: 24px;
+    padding: clamp(2rem, 4.5vw, 3.25rem);
+    margin-bottom: 2.5rem;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04);
+
+    .event-header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+
+      .single-event-logo {
+        width: 58px;
+        height: 58px;
+        border-radius: 14px;
+        background-color: #ffffff;
+        border: 1px solid #e2e8f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        padding: 6px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+
+      .single-event-badges {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+
+        .event-timeline-badge,
+        .event-location-badge {
+          font-family: 'Wotfard', var(--font-family, sans-serif);
+          font-size: 0.8125rem;
+          font-weight: 500;
+          color: #52525b;
+          background-color: #f4f4f5;
+          border: 1px solid #e4e4e7;
+          padding: 0.35rem 0.85rem;
+          border-radius: 9999px;
+          line-height: 1.3;
+        }
+
+        .event-timeline-badge {
+          background-color: #eff6ff;
+          border-color: #bfdbfe;
+          color: #1e40af;
+        }
+      }
+    }
+
+    .single-event-title {
+      font-family: 'Wotfard', var(--font-family, sans-serif);
+      font-size: clamp(2.15rem, 4.5vw, 3rem);
+      font-weight: 800;
+      color: #111827;
+      letter-spacing: -0.035em;
+      line-height: 1.15;
+      margin: 0 0 0.75rem 0;
+    }
+
+    .single-event-role {
+      font-family: 'Wotfard', var(--font-family, sans-serif);
+      font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+      font-weight: 500;
+      color: #52525b;
+      line-height: 1.45;
+      letter-spacing: -0.015em;
+      margin: 0 0 1.75rem 0;
+    }
+
+    .single-event-actions {
+      .event-visit-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background-color: #09090b;
+        color: #ffffff;
+        font-family: 'Wotfard', var(--font-family, sans-serif);
+        font-size: 0.9375rem;
+        font-weight: 600;
+        padding: 0.75rem 1.4rem;
+        border-radius: 12px;
+        text-decoration: none;
+        box-shadow: 0 8px 20px -4px rgba(9, 9, 11, 0.25);
+        transition: background-color 0.2s ease, transform 0.2s ease;
+
+        svg {
+          transition: transform 0.2s ease;
+        }
+
+        &:hover {
+          background-color: #27272a;
+          transform: translateY(-2px);
+
+          svg {
+            transform: translate(2px, -2px);
+          }
+        }
+      }
+    }
+  }
+
+  // Content Body
+  .single-event-body {
+    margin-bottom: 3.5rem;
+
+    .single-event-highlights-card {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: clamp(1.5rem, 3vw, 2.25rem);
+      margin-bottom: 2.5rem;
+
+      .highlights-heading {
+        font-family: 'Wotfard', var(--font-family, sans-serif);
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #111827;
+        margin: 0 0 1.25rem 0;
+        letter-spacing: -0.02em;
+      }
+
+      .highlights-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+
+        .highlight-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 0.75rem;
+
+          .hl-check {
+            margin-top: 2px;
+            flex-shrink: 0;
+          }
+
+          .hl-text {
+            font-family: 'Wotfard', var(--font-family, sans-serif);
+            font-size: 0.9375rem;
+            color: #334155;
+            line-height: 1.55;
+          }
+        }
+      }
+    }
+
+    .single-event-content {
+      font-family: 'Wotfard', var(--font-family, sans-serif);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: #334155;
+      margin-bottom: 2.5rem;
+
+      p {
+        margin-bottom: 1.5rem;
+      }
+
+      h2, h3, h4 {
+        color: #0f172a;
+        font-weight: 700;
+        letter-spacing: -0.025em;
+        margin: 2rem 0 1rem;
+      }
+    }
+
+    .single-event-tech-stack {
+      border-top: 1px solid #e5e7eb;
+      padding-top: 2rem;
+
+      .tech-stack-title {
+        font-family: 'Wotfard', var(--font-family, sans-serif);
+        font-size: 0.9375rem;
+        font-weight: 600;
+        color: #71717a;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin: 0 0 1rem 0;
+      }
+
+      .tech-stack-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+
+        .tech-pill {
+          font-family: 'Wotfard', var(--font-family, sans-serif);
+          font-size: 0.8125rem;
+          font-weight: 500;
+          color: #374151;
+          background-color: #f3f4f6;
+          border: 1px solid #e5e7eb;
+          padding: 0.35rem 0.85rem;
+          border-radius: 9999px;
+        }
+      }
+    }
+  }
+
+  // Post Navigation (Prev/Next)
+  .single-event-post-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #e5e7eb;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+
+    a {
+      font-family: 'Wotfard', var(--font-family, sans-serif);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: #111827;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #3b82f6;
+      }
+    }
+  }
+}

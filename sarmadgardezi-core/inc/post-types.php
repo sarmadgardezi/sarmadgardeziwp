@@ -165,6 +165,52 @@ function sarmadgardezi_core_register_post_types() {
         ),
     );
     register_post_type('case-study', $case_args);
+
+    // 4. Events / Products / Experience Custom Post Type
+    $event_labels = array(
+        'name'                  => _x('Events & Products', 'Post Type General Name', 'sarmadgardezi-core'),
+        'singular_name'         => _x('Event / Product', 'Post Type Singular Name', 'sarmadgardezi-core'),
+        'menu_name'             => __('Events', 'sarmadgardezi-core'),
+        'name_admin_bar'        => __('Event', 'sarmadgardezi-core'),
+        'archives'              => __('Event Archives', 'sarmadgardezi-core'),
+        'all_items'             => __('All Events & Products', 'sarmadgardezi-core'),
+        'add_new_item'          => __('Add New Event / Product', 'sarmadgardezi-core'),
+        'add_new'               => __('Add New', 'sarmadgardezi-core'),
+        'edit_item'             => __('Edit Event', 'sarmadgardezi-core'),
+        'view_item'             => __('View Event', 'sarmadgardezi-core'),
+        'search_items'          => __('Search Events', 'sarmadgardezi-core'),
+        'not_found'             => __('No events found', 'sarmadgardezi-core'),
+        'not_found_in_trash'    => __('No events found in Trash', 'sarmadgardezi-core'),
+        'featured_image'        => __('Event / Brand Logo', 'sarmadgardezi-core'),
+        'set_featured_image'    => __('Set logo image', 'sarmadgardezi-core'),
+    );
+
+    $event_args = array(
+        'label'               => __('Event', 'sarmadgardezi-core'),
+        'description'         => __('Product leadership, speaking events, and advisory roles', 'sarmadgardezi-core'),
+        'labels'              => $event_labels,
+        'supports'            => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'revisions'),
+        'taxonomies'          => array('technology'),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'menu_position'       => 23,
+        'menu_icon'           => 'dashicons-calendar-alt',
+        'show_in_admin_bar'   => true,
+        'show_in_nav_menus'   => true,
+        'can_export'          => true,
+        'has_archive'         => 'events',
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'show_in_rest'        => true,
+        'rewrite'             => array(
+            'slug'       => 'events',
+            'with_front' => false,
+        ),
+    );
+    register_post_type('event', $event_args);
 }
 endif;
 add_action('init', 'sarmadgardezi_core_register_post_types', 0);

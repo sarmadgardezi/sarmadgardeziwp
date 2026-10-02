@@ -150,7 +150,7 @@ pre {
   --framer-font-family-mono: var(--font-family);
   --color-bg: #f5f5f5;
   --color-surface: #ffffff;
-  --color-primary: #1c1917;
+  --color-primary: #C3DAFE;
   --color-text: #1c1917;
   --color-text-muted: #4b5563;
   --color-border: #e2ded5;
@@ -185,7 +185,7 @@ pre {
   width: auto !important;
   height: auto !important;
   padding: 0.75rem 1.5rem !important;
-  background: #1c1917 !important;
+  background: #C3DAFE !important;
   color: #ffffff !important;
   border-radius: 10px !important;
   clip: auto !important;
@@ -219,7 +219,7 @@ pre {
 }
 
 .btn-primary, .search-form .search-submit {
-  background: #1c1917;
+  background: #C3DAFE;
   color: #ffffff;
 }
 .btn-primary:hover, .search-form .search-submit:hover {
@@ -535,7 +535,7 @@ textarea::placeholder {
 }
 .site-pagination .page-numbers.current,
 .navigation.pagination .page-numbers.current {
-  background: #1c1917;
+  background: #C3DAFE;
   color: #ffffff;
   font-weight: 600;
 }
@@ -660,7 +660,7 @@ textarea::placeholder {
   width: 36px;
   height: 36px;
   border-radius: 8px;
-  background-color: #d8b4fe;
+  background-color: #C3DAFE;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   flex-shrink: 0;
 }
@@ -702,8 +702,8 @@ textarea::placeholder {
   transition: color 0.18s ease, opacity 0.18s ease;
 }
 .site-header-custom .header-nav-link:hover {
-  color: #5d5fef;
-  opacity: 0.85;
+  color: #C3DAFE;
+  opacity: 1;
 }
 .header-nav-item.is-active .site-header-custom .header-nav-link {
   font-weight: 600;
@@ -4192,7 +4192,7 @@ body.page-template-page-blog,
   text-decoration: none;
 }
 .single-article .article-header .category-badge:hover {
-  background: #1c1917;
+  background: #C3DAFE;
   color: #ffffff;
 }
 .single-article .article-header .article-title {
@@ -4398,7 +4398,7 @@ body.page-template-page-blog,
   margin-bottom: 0.5rem;
 }
 .single-article .entry-content blockquote {
-  border-left: 3px solid #1c1917;
+  border-left: 3px solid #C3DAFE;
   padding: 0.75rem 1.25rem;
   margin: 2rem 0;
   font-style: italic;
@@ -4441,7 +4441,7 @@ body.page-template-page-blog,
   margin: 1.5rem 0;
 }
 .single-article .entry-content a {
-  color: #1c1917;
+  color: #C3DAFE;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -4475,7 +4475,7 @@ body.page-template-page-blog,
   text-decoration: none;
 }
 .single-article .article-tags .tag-chip:hover {
-  border-color: #1c1917;
+  border-color: #C3DAFE;
   color: #1c1917;
 }
 
@@ -4550,7 +4550,7 @@ body.page-template-page-blog,
   font-weight: 500;
 }
 .author-bio-box .author-bio-content .author-bio-links a:hover {
-  color: #1c1917;
+  color: #C3DAFE;
 }
 
 .article-navigation {
@@ -4696,7 +4696,7 @@ body.page-template-page-blog,
 }
 .comments-area .comment-form textarea:focus, .comments-area .comment-form input[type=text]:focus, .comments-area .comment-form input[type=email]:focus, .comments-area .comment-form input[type=url]:focus {
   outline: none;
-  border-color: #1c1917;
+  border-color: #C3DAFE;
   background: #ffffff;
 }
 
@@ -4740,8 +4740,8 @@ body.page-template-page-blog,
   transition: all 0.2s ease;
 }
 .post-share-widget .share-widget-left .action-pill:hover {
-  background-color: #1c1917;
-  border-color: #1c1917;
+  background-color: #C3DAFE;
+  border-color: #C3DAFE;
   color: #ffffff;
 }
 .post-share-widget .share-widget-left .action-pill svg {
@@ -4782,8 +4782,8 @@ body.page-template-page-blog,
   cursor: pointer;
 }
 .post-share-widget .share-widget-right .social-share-links .social-circle:hover {
-  background-color: #1c1917;
-  border-color: #1c1917;
+  background-color: #C3DAFE;
+  border-color: #C3DAFE;
   color: #ffffff;
 }
 .post-share-widget .share-widget-right .social-share-links .social-circle svg {
@@ -4854,7 +4854,7 @@ body.page-template-page-blog,
   }
 }
 .post-related-list-widget .related-numbered-list .related-list-item .list-title:hover {
-  color: #1c1917;
+  color: #C3DAFE;
 }
 
 .projects-grid {
@@ -5683,6 +5683,389 @@ body.page-template-page-blog,
   background: #333;
 }
 
+.events-products-section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: clamp(2.5rem, 5vw, 4.5rem) 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.events-products-section .events-products-container {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.events-products-section .events-products-header {
+  width: 100%;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.85rem;
+  margin-bottom: 0;
+}
+.events-products-section .events-products-header .events-products-label {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #71717a;
+  letter-spacing: -0.01em;
+  margin: 0;
+  text-transform: none;
+}
+.events-products-section .events-products-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.events-products-section .event-row-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: clamp(1.25rem, 2.5vw, 1.85rem) 0.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  border-radius: 8px;
+}
+@media (min-width: 768px) {
+  .events-products-section .event-row-link {
+    display: grid;
+    grid-template-columns: 240px 1fr auto;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.65rem 0.75rem;
+  }
+}
+.events-products-section .event-row-link:hover {
+  background-color: rgba(244, 244, 245, 0.6);
+}
+.events-products-section .event-row-link:hover .event-brand-title {
+  color: #000000;
+}
+.events-products-section .event-row-link:hover .event-arrow-indicator {
+  background-color: #C3DAFE;
+  color: #1e3a8a;
+  transform: translateX(3px);
+}
+.events-products-section .event-row-link .event-col-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.95rem;
+}
+.events-products-section .event-row-link .event-col-brand .event-brand-icon {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.events-products-section .event-row-link .event-col-brand .event-brand-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.events-products-section .event-row-link .event-col-brand .event-brand-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.events-products-section .event-row-link .event-col-brand .event-brand-icon.placeholder-icon {
+  background-color: #f4f4f5;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #18181b;
+}
+.events-products-section .event-row-link .event-col-brand .event-brand-title {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  transition: color 0.2s ease;
+}
+.events-products-section .event-row-link .event-col-brand .event-arrow-indicator {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #f4f4f5;
+  color: #71717a;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.25rem;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, color 0.2s ease;
+}
+.events-products-section .event-row-link .event-col-brand .event-arrow-indicator svg {
+  width: 10px;
+  height: 10px;
+  display: block;
+}
+.events-products-section .event-row-link .event-col-role {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: #52525b;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+.events-products-section .event-row-link .event-col-timeline {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: #71717a;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+@media (min-width: 768px) {
+  .events-products-section .event-row-link .event-col-timeline {
+    text-align: right;
+  }
+}
+
+.site-single-event-main {
+  width: 100%;
+  background-color: #ffffff;
+  padding-top: clamp(2rem, 4vw, 3.5rem);
+}
+.site-single-event-main .single-event-container {
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.site-single-event-main .single-event-breadcrumbs {
+  margin-bottom: 2rem;
+}
+.site-single-event-main .single-event-breadcrumbs .event-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #71717a;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.site-single-event-main .single-event-breadcrumbs .event-back-link svg {
+  transition: transform 0.2s ease;
+}
+.site-single-event-main .single-event-breadcrumbs .event-back-link:hover {
+  color: #111827;
+}
+.site-single-event-main .single-event-breadcrumbs .event-back-link:hover svg {
+  transform: translateX(-3px);
+}
+.site-single-event-main .single-event-header {
+  background-color: #fbfbfd;
+  border: 1px solid #edf0f5;
+  border-radius: 24px;
+  padding: clamp(2rem, 4.5vw, 3.25rem);
+  margin-bottom: 2.5rem;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04);
+}
+.site-single-event-main .single-event-header .event-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.site-single-event-main .single-event-header .event-header-top .single-event-logo {
+  width: 58px;
+  height: 58px;
+  border-radius: 14px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.site-single-event-main .single-event-header .event-header-top .single-event-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.site-single-event-main .single-event-header .event-header-top .single-event-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.site-single-event-main .single-event-header .event-header-top .single-event-badges .event-timeline-badge,
+.site-single-event-main .single-event-header .event-header-top .single-event-badges .event-location-badge {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #52525b;
+  background-color: #f4f4f5;
+  border: 1px solid #e4e4e7;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  line-height: 1.3;
+}
+.site-single-event-main .single-event-header .event-header-top .single-event-badges .event-timeline-badge {
+  background-color: #eff6ff;
+  border-color: #bfdbfe;
+  color: #1e40af;
+}
+.site-single-event-main .single-event-header .single-event-title {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: clamp(2.15rem, 4.5vw, 3rem);
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  margin: 0 0 0.75rem 0;
+}
+.site-single-event-main .single-event-header .single-event-role {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  font-weight: 500;
+  color: #52525b;
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+  margin: 0 0 1.75rem 0;
+}
+.site-single-event-main .single-event-header .single-event-actions .event-visit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #09090b;
+  color: #ffffff;
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: 0.75rem 1.4rem;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 8px 20px -4px rgba(9, 9, 11, 0.25);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.site-single-event-main .single-event-header .single-event-actions .event-visit-btn svg {
+  transition: transform 0.2s ease;
+}
+.site-single-event-main .single-event-header .single-event-actions .event-visit-btn:hover {
+  background-color: #27272a;
+  transform: translateY(-2px);
+}
+.site-single-event-main .single-event-header .single-event-actions .event-visit-btn:hover svg {
+  transform: translate(2px, -2px);
+}
+.site-single-event-main .single-event-body {
+  margin-bottom: 3.5rem;
+}
+.site-single-event-main .single-event-body .single-event-highlights-card {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  margin-bottom: 2.5rem;
+}
+.site-single-event-main .single-event-body .single-event-highlights-card .highlights-heading {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 1.25rem 0;
+  letter-spacing: -0.02em;
+}
+.site-single-event-main .single-event-body .single-event-highlights-card .highlights-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.site-single-event-main .single-event-body .single-event-highlights-card .highlights-list .highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+.site-single-event-main .single-event-body .single-event-highlights-card .highlights-list .highlight-item .hl-check {
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+.site-single-event-main .single-event-body .single-event-highlights-card .highlights-list .highlight-item .hl-text {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 0.9375rem;
+  color: #334155;
+  line-height: 1.55;
+}
+.site-single-event-main .single-event-body .single-event-content {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #334155;
+  margin-bottom: 2.5rem;
+}
+.site-single-event-main .single-event-body .single-event-content p {
+  margin-bottom: 1.5rem;
+}
+.site-single-event-main .single-event-body .single-event-content h2, .site-single-event-main .single-event-body .single-event-content h3, .site-single-event-main .single-event-body .single-event-content h4 {
+  color: #0f172a;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin: 2rem 0 1rem;
+}
+.site-single-event-main .single-event-body .single-event-tech-stack {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 2rem;
+}
+.site-single-event-main .single-event-body .single-event-tech-stack .tech-stack-title {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #71717a;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 1rem 0;
+}
+.site-single-event-main .single-event-body .single-event-tech-stack .tech-stack-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.site-single-event-main .single-event-body .single-event-tech-stack .tech-stack-pills .tech-pill {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #374151;
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+}
+.site-single-event-main .single-event-post-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #e5e7eb;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+}
+.site-single-event-main .single-event-post-nav a {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #111827;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.site-single-event-main .single-event-post-nav a:hover {
+  color: #3b82f6;
+}
+
 .page-article {
   max-width: 820px;
   margin: 0 auto;
@@ -5754,7 +6137,7 @@ body.page-template-page-blog,
 }
 .search-form .search-input-wrap .search-field:focus {
   outline: none;
-  border-color: #1c1917;
+  border-color: #C3DAFE;
 }
 .search-form .search-input-wrap .search-submit {
   flex-shrink: 0;
@@ -5818,7 +6201,7 @@ body.page-template-page-blog,
   font-size: 5rem;
   font-weight: 800;
   line-height: 1;
-  color: #1c1917;
+  color: #C3DAFE;
   margin-bottom: 1rem;
   letter-spacing: -0.04em;
 }

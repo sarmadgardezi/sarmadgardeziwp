@@ -14,6 +14,7 @@ get_header();
     <?php // get_template_part('template-parts/home/hero'); ?>
     <?php get_template_part('template-parts/home/hero-v2'); ?>
     <?php get_template_part('template-parts/home/brands'); ?>
+    <?php get_template_part('template-parts/home/events'); ?>
     <?php get_template_part('template-parts/home/about'); ?>
     <?php get_template_part('template-parts/home/contact-cta'); ?>
     <?php /* Removed for now per request:
