@@ -1,6 +1,15 @@
 // ==========================================================================
-// SCSS Base: Typography (Google Sans Flex)
+// SCSS Base: Typography (Wotfard & Google Sans Flex)
 // ==========================================================================
+
+@font-face {
+  font-family: 'Wotfard';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: local('Wotfard'),
+       url('https://fonts.cdnfonts.com/s/83722/Wotfard-Regular.woff') format('woff');
+}
 
 @font-face {
   font-family: 'Google Sans Flex';
