@@ -97,10 +97,9 @@ if (function_exists('get_field')) {
             <!-- Central Content Column -->
             <div class="booking-cta-content">
                 
-                <!-- Main Headline -->
+                <!-- Main Headline (Single Line) -->
                 <h2 class="booking-cta-heading">
-                    <span class="cta-heading-line"><?php echo esc_html($cta_heading_line1); ?></span>
-                    <span class="cta-heading-line"><?php echo esc_html($cta_heading_line2); ?></span>
+                    <?php echo esc_html(trim($cta_heading_line1 . ' ' . $cta_heading_line2)); ?>
                 </h2>
 
                 <!-- Subtitle Description -->

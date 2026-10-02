@@ -1,383 +1,536 @@
 // ==========================================================================
-// SCSS Pages: Case Studies Catalog & Single Case Study
+// SCSS Pages: Single Project & Case Study Editorial Layout
+// Matching exact reference design with dynamic metrics & visual showcase
 // ==========================================================================
 
-.case-studies-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
+.site-single-cs-main {
+  width: 100%;
+  background-color: #ffffff;
+  padding: clamp(2rem, 4.5vw, 3.5rem) 0 clamp(4rem, 7vw, 6rem);
 
-  @include respond-to('md') {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @include respond-to('lg') {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.case-study-card {
-  background: #ffffff;
-  border-radius: 1.5rem;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  @include transition(all, $transition-base);
-
-  &:hover {
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
-    transform: translateY(-4px);
-    border-color: rgba(24, 119, 242, 0.15);
-  }
-
-  .case-study-link-wrap {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    text-decoration: none;
-    color: inherit;
-    
-    @include respond-to('md') {
-      flex-direction: column; // Changed to vertical for a cleaner, modern look
-    }
-  }
-
-  .case-study-thumb {
+  .cs-outer-wrap {
     width: 100%;
-    aspect-ratio: 16 / 9; // Modern widescreen ratio for thumbs
-    overflow: hidden;
-    position: relative;
-    border-bottom: 1px solid rgba(0,0,0,0.03);
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      @include transition(transform, $transition-slow);
-    }
-
-    .case-thumb-placeholder {
-      width: 100%;
-      height: 100%;
-      background: $color-surface-hover;
-    }
-  }
-  
-  &:hover .case-study-thumb img {
-    transform: scale(1.05);
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
   }
 
-  .case-study-body {
+  .cs-inner-container {
     width: 100%;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex-grow: 1;
-  }
-
-  .case-study-header {
-    margin-bottom: 2rem;
-
-    .case-study-title {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #000000;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.01em;
-      line-height: 1.3;
-      @include transition(color, $transition-fast);
-    }
-
-    .case-study-subtitle {
-      font-size: 0.95rem;
-      color: $color-text-muted;
-      margin: 0;
-      line-height: 1.5;
-    }
-  }
-
-  &:hover .case-study-title {
-    color: #1877f2;
-  }
-
-  .case-study-metrics {
-    display: flex;
-    gap: 2rem;
-    margin-top: auto;
-    padding-top: 1.5rem;
-    border-top: 1px dashed rgba(0,0,0,0.08);
-    
-    .metric-item {
-      display: flex;
-      flex-direction: column;
-
-      .metric-val {
-        font-size: 1.5rem;
-        font-weight: 900;
-        color: #1877f2; // Requested active color
-        line-height: 1.1;
-        margin-bottom: 0.25rem;
-        letter-spacing: -0.02em;
-      }
-
-      .metric-lbl {
-        font-size: 0.8rem;
-        color: $color-text-dim;
-        font-weight: 500;
-        line-height: 1.4;
-      }
-    }
-  }
-}
-
-// Single Case Study View
-
-.site-single-case-main {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 4rem 1rem 3rem;
-
-  @include respond-to('md') {
-    padding-top: 6rem;
-  }
-
-  .case-study-top-nav {
-    text-align: left;
-    margin-bottom: 2rem;
-
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: $color-text-muted;
-      text-decoration: none;
-      padding: 0.5rem 0;
-      background: transparent;
-      @include transition(all, $transition-fast);
-
-      &:hover {
-        color: #000;
-      }
-    }
-  }
-
-  .case-header {
-    text-align: center;
-    margin-bottom: 3rem;
-
-    .case-title {
-      font-family: var(--framer-font-family-bold, 'Google Sans Flex', -apple-system, sans-serif);
-      font-size: clamp(3rem, 7vw, 5.5rem);
-      font-weight: 900;
-      line-height: 1;
-      letter-spacing: -0.04em;
-      margin-bottom: 0.75rem;
-      color: #111827;
-    }
-
-    .case-subtitle {
-      font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
-      font-size: clamp(1rem, 2vw, 1.1875rem);
-      font-weight: 500;
-      color: #4b5563;
-      max-width: 640px;
-      margin: 0 auto 3rem;
-      line-height: 1.6;
-      letter-spacing: -0.015em;
-    }
-
-    .case-meta-cards {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      text-align: left;
-
-      @include respond-to('md') {
-        grid-template-columns: repeat(4, 1fr);
-      }
-
-      .meta-card {
-        background: #ffffff;
-        padding: 1.25rem 1.5rem;
-        border-radius: 1rem;
-        box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        border: 1px solid rgba(0,0,0,0.02);
-
-        .meta-label {
-          font-size: 0.75rem;
-          color: $color-text-dim;
-          font-weight: 600;
-        }
-
-        .meta-value {
-          font-size: 0.95rem;
-          font-weight: 700;
-          color: #000;
-          
-          .platform-tag {
-            display: inline-block;
-            margin-right: 0.5rem;
-          }
-        }
-      }
-    }
-  }
-
-  .case-featured-visual {
-    margin-bottom: 4rem;
-    
-    img {
-      width: 100%;
-      height: auto;
-      border-radius: 1.5rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      object-fit: cover;
-    }
-  }
-
-  .case-content-wrapper {
-    max-width: 760px;
+    max-width: 980px;
     margin: 0 auto;
   }
 
-  .case-content {
-    h2 {
-      font-size: 1.5rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      margin: 3rem 0 1rem;
-      letter-spacing: -0.01em;
-    }
-    p {
-      font-size: 1.05rem;
-      line-height: 1.6;
-      color: #333;
-      margin-bottom: 1.5rem;
+  // 1. Back Navigation Link
+  .cs-back-nav {
+    margin-bottom: 2rem;
+
+    .cs-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: 'Wotfard', var(--font-family, sans-serif);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #71717a;
+      text-decoration: none;
+      transition: color 0.2s ease, transform 0.2s ease;
+
+      svg {
+        transition: transform 0.2s ease;
+      }
+
+      &:hover {
+        color: #111827;
+
+        svg {
+          transform: translateX(-3px);
+        }
+      }
     }
   }
 
-  .case-results-cards {
+  // 2. Header Grid: Title, Subtitle, Tags & Live Action Button
+  .cs-header-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    margin-top: 2rem;
-    margin-bottom: 3rem;
+    align-items: flex-end;
+    margin-bottom: 2.75rem;
 
-    @include respond-to('sm') {
-      grid-template-columns: repeat(3, 1fr);
+    @media (min-width: 900px) {
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
     }
 
-    .result-card {
-      padding: 2rem 1.5rem;
-      border-radius: 1.25rem;
+    .cs-header-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .cs-main-title {
+      font-family: 'Wotfard', var(--font-family, sans-serif);
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      font-weight: 600;
+      letter-spacing: -0.035em;
+      color: #111827;
+      line-height: 1.1;
+      margin: 0 0 0.65rem 0;
+    }
+
+    .cs-subtitle {
+      font-family: 'Wotfard', var(--font-family, sans-serif);
+      font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+      font-weight: 400;
+      color: #52525b;
+      line-height: 1.45;
+      letter-spacing: -0.015em;
+      margin: 0 0 1.5rem 0;
+    }
+
+    .cs-tags-actions-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .cs-tag-pill {
+      font-family: 'Wotfard', var(--font-family, sans-serif);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      padding: 0.35rem 0.95rem;
+      border-radius: 9999px;
+      line-height: 1.3;
+      letter-spacing: -0.005em;
+
+      &.pill-sky {
+        background-color: #e0f2fe;
+        color: #0369a1;
+      }
+
+      &.pill-zinc {
+        background-color: #f4f4f5;
+        color: #52525b;
+      }
+    }
+
+    .cs-live-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'Wotfard', var(--font-family, sans-serif);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #18181b;
+      padding: 0.35rem 0.85rem;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1px solid #e4e4e7;
+      background-color: #ffffff;
+      transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+
+      &:hover {
+        background-color: #f4f4f5;
+        border-color: #d4d4d8;
+        color: #000000;
+      }
+    }
+
+    .cs-header-right {
+      .cs-timeline-text {
+        font-family: 'Wotfard', var(--font-family, sans-serif);
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #71717a;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        line-height: 1.4;
+
+        @media (min-width: 900px) {
+          text-align: right;
+          display: block;
+        }
+      }
+    }
+  }
+
+  // 3. Large High-Res Cover Visual Mockup Card
+  .cs-cover-visual-card {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background-color: #f8fafc;
+    margin-bottom: clamp(3rem, 6vw, 5rem);
+    box-shadow: 0 20px 48px -16px rgba(0, 0, 0, 0.06);
+
+    .cs-cover-frame {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cs-cover-img {
+      width: 100%;
+      height: auto;
+      max-height: 620px;
+      object-fit: cover;
+      object-position: top left;
+      display: block;
+    }
+  }
+
+  // 4. Summary & Our Team 2-Column Split
+  .cs-summary-team-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    margin-bottom: clamp(3.5rem, 6vw, 5.5rem);
+
+    @media (min-width: 768px) {
+      grid-template-columns: 2fr 1fr;
+      gap: 4rem;
+    }
+
+    .cs-section-label {
+      display: block;
+      font-family: 'Wotfard', var(--font-family, sans-serif);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #71717a;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.85rem;
+    }
+
+    .cs-summary-paragraph {
+      font-family: 'Wotfard', var(--font-family, sans-serif);
+      font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+      font-weight: 400;
+      line-height: 1.65;
+      color: #18181b;
+      margin: 0;
+    }
+
+    .cs-team-avatar-group {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-top: 0.5rem;
+    }
+
+    .cs-avatar-item {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid #C3DAFE;
+      background-color: #f4f4f5;
+      flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: scale(1.08);
+      }
+
+      .cs-avatar-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  // 5. Results Grid: 3 Interactive Metric Cards
+  .cs-results-section {
+    margin-bottom: clamp(3.5rem, 6vw, 5.5rem);
+
+    .cs-section-label {
+      display: block;
+      font-family: 'Wotfard', var(--font-family, sans-serif);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #71717a;
+      letter-spacing: -0.01em;
+      margin-bottom: 1rem;
+    }
+
+    .cs-results-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+
+      @media (min-width: 768px) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+    }
+
+    .cs-result-card {
+      background-color: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 1.75rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+
+      &:hover {
+        border-color: #d1d5db;
+        box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.06);
+        transform: translateY(-2px);
+      }
+    }
+
+    .cs-result-badge-wrap {
+      margin-bottom: 1rem;
+    }
+
+    .cs-card-badge {
+      font-family: 'Wotfard', var(--font-family, sans-serif);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      display: inline-block;
+
+      &.badge-amber {
+        background-color: #fef3c7;
+        color: #b45309;
+      }
+
+      &.badge-sky {
+        background-color: #e0f2fe;
+        color: #0369a1;
+      }
+
+      &.badge-purple {
+        background-color: #f3e8ff;
+        color: #7e22ce;
+      }
+    }
+
+    .cs-result-text {
+      font-family: 'Wotfard', var(--font-family, sans-serif);
+      font-size: 1rem;
+      line-height: 1.55;
+      color: #3f3f46;
+      margin: 0;
+    }
+
+    .cs-result-lead {
+      font-weight: 600;
+      color: #18181b;
+    }
+  }
+
+  // 6. Feature Deep-Dive Showcase Cards
+  .cs-features-showcase-section {
+    margin-bottom: clamp(3.5rem, 6vw, 5.5rem);
+    border-top: 1px solid #e5e7eb;
+    padding-top: clamp(2.5rem, 5vw, 4rem);
+
+    .cs-features-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+
+      @media (min-width: 768px) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.75rem;
+      }
+    }
+
+    .cs-feature-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cs-feature-card-visual {
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid #e5e7eb;
+      background-color: #f9fafb;
+      overflow: hidden;
+      padding: 1rem;
+      min-height: 190px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 140px;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    }
 
-      &.style-pink { background-color: #ffb6e6; }
-      &.style-blue { background-color: #62a0ff; }
-      &.style-yellow { background-color: #ffc34d; }
+    .cs-mockup-topbar {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 0.75rem;
 
-      .result-label {
-        font-size: 0.8rem;
-        font-weight: 600;
-        color: rgba(0,0,0,0.7);
+      .mockup-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+
+        &.dot-red { background-color: #fca5a5; }
+        &.dot-yellow { background-color: #fde047; }
+        &.dot-green { background-color: #86efac; }
+      }
+    }
+
+    .cs-mockup-inner-preview {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 0.5rem 0;
+
+      .cs-profile-card-mini {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        background-color: #ffffff;
+        padding: 0.6rem 0.75rem;
+        border-radius: 10px;
+        border: 1px solid #e5e7eb;
+
+        .cs-profile-avatar-ph {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          background-color: #fed7aa;
+        }
+
+        .cs-profile-lines {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          flex: 1;
+
+          .line-title {
+            width: 70%;
+            height: 8px;
+            background-color: #e4e4e7;
+            border-radius: 4px;
+          }
+
+          .line-sub {
+            width: 45%;
+            height: 6px;
+            background-color: #f4f4f5;
+            border-radius: 3px;
+          }
+        }
+      }
+
+      .cs-chat-bubble-ph {
+        font-family: 'Wotfard', sans-serif;
+        font-size: 0.75rem;
+        font-weight: 500;
+        padding: 0.45rem 0.75rem;
+        border-radius: 12px;
         max-width: 80%;
+
+        &.bubble-left {
+          align-self: flex-start;
+          background-color: #ffffff;
+          border: 1px solid #e5e7eb;
+          color: #374151;
+        }
+
+        &.bubble-right {
+          align-self: flex-end;
+          background-color: #C3DAFE;
+          color: #1e3a8a;
+        }
       }
 
-      .result-value {
-        font-size: 2.5rem;
-        font-weight: 900;
-        color: #000;
-        text-align: right;
-        margin-top: 1rem;
-        letter-spacing: -0.03em;
+      .cs-matching-metric-card {
+        background-color: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 0.75rem 1rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .match-score {
+          font-family: 'Wotfard', sans-serif;
+          font-size: 1.25rem;
+          font-weight: 700;
+          color: #10b981;
+        }
+
+        .match-sub {
+          font-family: 'Wotfard', sans-serif;
+          font-size: 0.75rem;
+          color: #6b7280;
+        }
       }
+    }
+
+    .cs-feature-title {
+      font-family: 'Wotfard', var(--font-family, sans-serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: #18181b;
+      margin: 0 0 0.4rem 0;
+      line-height: 1.35;
+    }
+
+    .cs-feature-caption {
+      font-family: 'Wotfard', var(--font-family, sans-serif);
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: #71717a;
+      margin: 0;
     }
   }
 
-  .case-testimonial-block {
-    background: #e9ecef;
-    padding: 2.5rem;
-    border-radius: 1.25rem;
-    margin-bottom: 5rem;
+  // 7. WordPress Editor Full Content
+  .cs-editor-body {
+    margin-bottom: 4rem;
+    font-family: 'Wotfard', var(--font-family, sans-serif);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #334155;
 
-    .testimonial-text {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #333;
+    p {
       margin-bottom: 1.5rem;
     }
 
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-
-      .author-avatar {
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        object-fit: cover;
-      }
-
-      .author-details {
-        display: flex;
-        flex-direction: column;
-
-        .author-name {
-          font-weight: 700;
-          font-size: 0.95rem;
-          color: #000;
-        }
-
-        .author-title {
-          font-size: 0.8rem;
-          color: $color-text-dim;
-        }
-      }
+    h2, h3, h4 {
+      color: #0f172a;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      margin: 2.25rem 0 1rem;
     }
   }
 
-  .related-cases-section {
-    padding-top: 4rem;
-    border-top: 1px solid $color-border;
+  // 8. Post Navigation (Prev/Next)
+  .cs-post-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #e5e7eb;
+    padding: 2rem 0;
+    margin-top: 3rem;
 
-    .related-cases-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2.5rem;
+    a {
+      font-family: 'Wotfard', var(--font-family, sans-serif);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: #111827;
+      text-decoration: none;
+      transition: color 0.2s ease;
 
-      h2 {
-        font-size: 2rem;
-        font-weight: 900;
-        text-transform: uppercase;
-        letter-spacing: -0.02em;
-        margin: 0;
-      }
-
-      .btn-dark-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        background: #111;
-        color: #fff;
-        padding: 0.6rem 1.25rem;
-        border-radius: 2rem;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 0.85rem;
-        @include transition(background, $transition-fast);
-
-        &:hover { background: #333; }
+      &:hover {
+        color: #2563eb;
       }
     }
   }

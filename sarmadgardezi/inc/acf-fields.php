@@ -1190,10 +1190,150 @@ function sarmadgardezi_register_all_acf_field_groups() {
         'instruction_placement' => 'label',
         'active' => true,
     ));
+
+    // Comprehensive Project & Case Study Field Group
+    acf_add_local_field_group(array(
+        'key' => 'group_project_case_details',
+        'title' => __('Project & Case Study Details', 'sarmadgardezi'),
+        'fields' => array(
+            array(
+                'key' => 'field_project_subtitle',
+                'label' => __('Subtitle / Tagline', 'sarmadgardezi'),
+                'name' => 'project_subtitle',
+                'type' => 'text',
+                'instructions' => __('e.g. From a rigid rental solution to your own scalable platform', 'sarmadgardezi'),
+                'placeholder' => 'From a rigid rental solution to your own scalable platform',
+            ),
+            array(
+                'key' => 'field_project_tags_str',
+                'label' => __('Tags / Categories (Comma-separated)', 'sarmadgardezi'),
+                'name' => 'project_tags',
+                'type' => 'text',
+                'instructions' => __('e.g. SaaS development, healthcare', 'sarmadgardezi'),
+                'placeholder' => 'SaaS development, healthcare',
+            ),
+            array(
+                'key' => 'field_project_live_url',
+                'label' => __('Live Website Link', 'sarmadgardezi'),
+                'name' => 'project_live_url',
+                'type' => 'url',
+                'placeholder' => 'https://medmingle.de',
+            ),
+            array(
+                'key' => 'field_project_timeline',
+                'label' => __('Timeline / Year', 'sarmadgardezi'),
+                'name' => 'project_timeline',
+                'type' => 'text',
+                'placeholder' => '2024 – today',
+            ),
+            array(
+                'key' => 'field_project_cover_img',
+                'label' => __('Hero Cover Image / Mockup', 'sarmadgardezi'),
+                'name' => 'project_cover_image',
+                'type' => 'image',
+                'return_format' => 'url',
+                'preview_size' => 'large',
+            ),
+            array(
+                'key' => 'field_project_summary_text',
+                'label' => __('Project Summary', 'sarmadgardezi'),
+                'name' => 'project_summary',
+                'type' => 'textarea',
+                'rows' => 4,
+                'placeholder' => 'Medmingle connects medical assistants and dental assistants with suitable employers in the healthcare sector...',
+            ),
+            array(
+                'key' => 'field_project_results_r1_title',
+                'label' => __('Result 1 - Headline', 'sarmadgardezi'),
+                'name' => 'project_r1_title',
+                'type' => 'text',
+                'default_value' => 'Minimal operational effort',
+            ),
+            array(
+                'key' => 'field_project_results_r1_badge',
+                'label' => __('Result 1 - Badge', 'sarmadgardezi'),
+                'name' => 'project_r1_badge',
+                'type' => 'text',
+                'default_value' => 'Product',
+            ),
+            array(
+                'key' => 'field_project_results_r1_desc',
+                'label' => __('Result 1 - Description', 'sarmadgardezi'),
+                'name' => 'project_r1_desc',
+                'type' => 'textarea',
+                'rows' => 2,
+                'default_value' => 'through a scalable platform where employers and candidates can connect directly, without time-consuming manual matching.',
+            ),
+            array(
+                'key' => 'field_project_results_r2_title',
+                'label' => __('Result 2 - Headline', 'sarmadgardezi'),
+                'name' => 'project_r2_title',
+                'type' => 'text',
+                'default_value' => 'Five-figure monthly revenues, over 2,000 users',
+            ),
+            array(
+                'key' => 'field_project_results_r2_badge',
+                'label' => __('Result 2 - Badge', 'sarmadgardezi'),
+                'name' => 'project_r2_badge',
+                'type' => 'text',
+                'default_value' => 'Growth',
+            ),
+            array(
+                'key' => 'field_project_results_r2_desc',
+                'label' => __('Result 2 - Description', 'sarmadgardezi'),
+                'name' => 'project_r2_desc',
+                'type' => 'textarea',
+                'rows' => 2,
+                'default_value' => ', and full flexibility for long-term scaling of your own product.',
+            ),
+            array(
+                'key' => 'field_project_results_r3_title',
+                'label' => __('Result 3 - Headline', 'sarmadgardezi'),
+                'name' => 'project_r3_title',
+                'type' => 'text',
+                'default_value' => 'A product partnership spanning years:',
+            ),
+            array(
+                'key' => 'field_project_results_r3_badge',
+                'label' => __('Result 3 - Badge', 'sarmadgardezi'),
+                'name' => 'project_r3_badge',
+                'type' => 'text',
+                'default_value' => 'Collaboration',
+            ),
+            array(
+                'key' => 'field_project_results_r3_desc',
+                'label' => __('Result 3 - Description', 'sarmadgardezi'),
+                'name' => 'project_r3_desc',
+                'type' => 'textarea',
+                'rows' => 2,
+                'default_value' => 'jointly conceived, iteratively developed, side by side with the founders.',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'project',
+                ),
+            ),
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'case-study',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'active' => true,
+    ));
 }
 
 /**
- * Native Event Meta Box (Fallback when ACF Pro is not installed)
+ * Native Event & Project Meta Boxes (Fallback when ACF Pro is not installed)
  */
 add_action('add_meta_boxes', 'sarmadgardezi_add_event_native_meta_boxes');
 function sarmadgardezi_add_event_native_meta_boxes() {
@@ -1206,7 +1346,88 @@ function sarmadgardezi_add_event_native_meta_boxes() {
             'normal',
             'high'
         );
+
+        add_meta_box(
+            'sarmad_project_case_meta_box',
+            __('Project & Case Study Details', 'sarmadgardezi'),
+            'sarmadgardezi_render_project_native_meta_box',
+            array('project', 'case-study'),
+            'normal',
+            'high'
+        );
     }
+}
+
+function sarmadgardezi_render_project_native_meta_box($post) {
+    wp_nonce_field('sarmad_project_meta_save_action', 'sarmad_project_meta_nonce_field');
+    $subtitle = get_post_meta($post->ID, '_project_subtitle', true);
+    if (empty($subtitle)) $subtitle = get_post_meta($post->ID, 'project_subtitle', true);
+    $tags = get_post_meta($post->ID, '_project_tags', true);
+    if (empty($tags)) $tags = get_post_meta($post->ID, 'project_tags', true);
+    $url = get_post_meta($post->ID, '_project_live_url', true);
+    if (empty($url)) $url = get_post_meta($post->ID, 'project_live_url', true);
+    $timeline = get_post_meta($post->ID, '_project_timeline', true);
+    if (empty($timeline)) $timeline = get_post_meta($post->ID, 'project_timeline', true);
+    $summary = get_post_meta($post->ID, '_project_summary', true);
+    if (empty($summary)) $summary = get_post_meta($post->ID, 'project_summary', true);
+
+    $r1_badge = get_post_meta($post->ID, '_project_r1_badge', true) ?: get_post_meta($post->ID, 'project_r1_badge', true);
+    $r1_title = get_post_meta($post->ID, '_project_r1_title', true) ?: get_post_meta($post->ID, 'project_r1_title', true);
+    $r1_desc  = get_post_meta($post->ID, '_project_r1_desc', true) ?: get_post_meta($post->ID, 'project_r1_desc', true);
+
+    $r2_badge = get_post_meta($post->ID, '_project_r2_badge', true) ?: get_post_meta($post->ID, 'project_r2_badge', true);
+    $r2_title = get_post_meta($post->ID, '_project_r2_title', true) ?: get_post_meta($post->ID, 'project_r2_title', true);
+    $r2_desc  = get_post_meta($post->ID, '_project_r2_desc', true) ?: get_post_meta($post->ID, 'project_r2_desc', true);
+
+    $r3_badge = get_post_meta($post->ID, '_project_r3_badge', true) ?: get_post_meta($post->ID, 'project_r3_badge', true);
+    $r3_title = get_post_meta($post->ID, '_project_r3_title', true) ?: get_post_meta($post->ID, 'project_r3_title', true);
+    $r3_desc  = get_post_meta($post->ID, '_project_r3_desc', true) ?: get_post_meta($post->ID, 'project_r3_desc', true);
+    ?>
+    <div style="padding: 10px 0;">
+        <p>
+            <label style="font-weight: 600; display:block; margin-bottom: 5px;"><?php esc_html_e('Subtitle / Tagline', 'sarmadgardezi'); ?></label>
+            <input type="text" name="project_subtitle" value="<?php echo esc_attr($subtitle); ?>" placeholder="From a rigid rental solution to your own scalable platform" style="width: 100%;" />
+        </p>
+        <p>
+            <label style="font-weight: 600; display:block; margin-bottom: 5px;"><?php esc_html_e('Tags (comma separated)', 'sarmadgardezi'); ?></label>
+            <input type="text" name="project_tags" value="<?php echo esc_attr($tags); ?>" placeholder="SaaS development, healthcare" style="width: 100%;" />
+        </p>
+        <p>
+            <label style="font-weight: 600; display:block; margin-bottom: 5px;"><?php esc_html_e('Live URL', 'sarmadgardezi'); ?></label>
+            <input type="url" name="project_live_url" value="<?php echo esc_attr($url); ?>" placeholder="https://medmingle.de" style="width: 100%;" />
+        </p>
+        <p>
+            <label style="font-weight: 600; display:block; margin-bottom: 5px;"><?php esc_html_e('Timeline / Year', 'sarmadgardezi'); ?></label>
+            <input type="text" name="project_timeline" value="<?php echo esc_attr($timeline); ?>" placeholder="2024 – today" style="width: 100%;" />
+        </p>
+        <p>
+            <label style="font-weight: 600; display:block; margin-bottom: 5px;"><?php esc_html_e('Project Summary', 'sarmadgardezi'); ?></label>
+            <textarea name="project_summary" rows="4" style="width: 100%;"><?php echo esc_textarea($summary); ?></textarea>
+        </p>
+
+        <h4 style="margin-top:20px; border-bottom:1px solid #eee; padding-bottom:5px;"><?php esc_html_e('Results Cards', 'sarmadgardezi'); ?></h4>
+        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:15px;">
+            <div>
+                <strong><?php esc_html_e('Result Card 1', 'sarmadgardezi'); ?></strong>
+                <input type="text" name="project_r1_badge" value="<?php echo esc_attr($r1_badge); ?>" placeholder="Badge (e.g. Product)" style="width: 100%; margin-top:5px;" />
+                <input type="text" name="project_r1_title" value="<?php echo esc_attr($r1_title); ?>" placeholder="Highlight title" style="width: 100%; margin-top:5px;" />
+                <textarea name="project_r1_desc" rows="3" placeholder="Description..." style="width: 100%; margin-top:5px;"><?php echo esc_textarea($r1_desc); ?></textarea>
+            </div>
+            <div>
+                <strong><?php esc_html_e('Result Card 2', 'sarmadgardezi'); ?></strong>
+                <input type="text" name="project_r2_badge" value="<?php echo esc_attr($r2_badge); ?>" placeholder="Badge (e.g. Growth)" style="width: 100%; margin-top:5px;" />
+                <input type="text" name="project_r2_title" value="<?php echo esc_attr($r2_title); ?>" placeholder="Highlight title" style="width: 100%; margin-top:5px;" />
+                <textarea name="project_r2_desc" rows="3" placeholder="Description..." style="width: 100%; margin-top:5px;"><?php echo esc_textarea($r2_desc); ?></textarea>
+            </div>
+            <div>
+                <strong><?php esc_html_e('Result Card 3', 'sarmadgardezi'); ?></strong>
+                <input type="text" name="project_r3_badge" value="<?php echo esc_attr($r3_badge); ?>" placeholder="Badge (e.g. Collaboration)" style="width: 100%; margin-top:5px;" />
+                <input type="text" name="project_r3_title" value="<?php echo esc_attr($r3_title); ?>" placeholder="Highlight title" style="width: 100%; margin-top:5px;" />
+                <textarea name="project_r3_desc" rows="3" placeholder="Description..." style="width: 100%; margin-top:5px;"><?php echo esc_textarea($r3_desc); ?></textarea>
+            </div>
+        </div>
+    </div>
+    <?php
 }
 
 function sarmadgardezi_render_event_native_meta_box($post) {
@@ -1241,27 +1462,55 @@ function sarmadgardezi_render_event_native_meta_box($post) {
     <?php
 }
 
-add_action('save_post_event', 'sarmadgardezi_save_event_native_meta');
-function sarmadgardezi_save_event_native_meta($post_id) {
+add_action('save_post', 'sarmadgardezi_save_project_and_event_meta');
+function sarmadgardezi_save_project_and_event_meta($post_id) {
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
-    if (!isset($_POST['sarmad_event_meta_nonce']) || !wp_verify_nonce($_POST['sarmad_event_meta_nonce'], 'sarmad_event_meta_save')) return;
     if (!current_user_can('edit_post', $post_id)) return;
 
-    if (isset($_POST['event_role'])) {
-        update_post_meta($post_id, 'event_role', sanitize_text_field($_POST['event_role']));
-        update_post_meta($post_id, '_event_role', sanitize_text_field($_POST['event_role']));
+    if (isset($_POST['sarmad_event_meta_nonce']) && wp_verify_nonce($_POST['sarmad_event_meta_nonce'], 'sarmad_event_meta_save')) {
+        if (isset($_POST['event_role'])) {
+            update_post_meta($post_id, 'event_role', sanitize_text_field($_POST['event_role']));
+            update_post_meta($post_id, '_event_role', sanitize_text_field($_POST['event_role']));
+        }
+        if (isset($_POST['event_timeline'])) {
+            update_post_meta($post_id, 'event_timeline', sanitize_text_field($_POST['event_timeline']));
+            update_post_meta($post_id, '_event_timeline', sanitize_text_field($_POST['event_timeline']));
+        }
+        if (isset($_POST['event_url'])) {
+            update_post_meta($post_id, 'event_url', esc_url_raw($_POST['event_url']));
+            update_post_meta($post_id, '_event_url', esc_url_raw($_POST['event_url']));
+        }
+        if (isset($_POST['event_location'])) {
+            update_post_meta($post_id, 'event_location', sanitize_text_field($_POST['event_location']));
+            update_post_meta($post_id, '_event_location', sanitize_text_field($_POST['event_location']));
+        }
     }
-    if (isset($_POST['event_timeline'])) {
-        update_post_meta($post_id, 'event_timeline', sanitize_text_field($_POST['event_timeline']));
-        update_post_meta($post_id, '_event_timeline', sanitize_text_field($_POST['event_timeline']));
-    }
-    if (isset($_POST['event_url'])) {
-        update_post_meta($post_id, 'event_url', esc_url_raw($_POST['event_url']));
-        update_post_meta($post_id, '_event_url', esc_url_raw($_POST['event_url']));
-    }
-    if (isset($_POST['event_location'])) {
-        update_post_meta($post_id, 'event_location', sanitize_text_field($_POST['event_location']));
-        update_post_meta($post_id, '_event_location', sanitize_text_field($_POST['event_location']));
+
+    if (isset($_POST['sarmad_project_meta_nonce_field']) && wp_verify_nonce($_POST['sarmad_project_meta_nonce_field'], 'sarmad_project_meta_save_action')) {
+        $text_fields = array(
+            'project_subtitle', 'project_tags', 'project_timeline',
+            'project_r1_badge', 'project_r1_title',
+            'project_r2_badge', 'project_r2_title',
+            'project_r3_badge', 'project_r3_title',
+        );
+        foreach ($text_fields as $tf) {
+            if (isset($_POST[$tf])) {
+                update_post_meta($post_id, $tf, sanitize_text_field($_POST[$tf]));
+                update_post_meta($post_id, '_' . $tf, sanitize_text_field($_POST[$tf]));
+            }
+        }
+        $textarea_fields = array('project_summary', 'project_r1_desc', 'project_r2_desc', 'project_r3_desc');
+        foreach ($textarea_fields as $taf) {
+            if (isset($_POST[$taf])) {
+                update_post_meta($post_id, $taf, sanitize_textarea_field($_POST[$taf]));
+                update_post_meta($post_id, '_' . $taf, sanitize_textarea_field($_POST[$taf]));
+            }
+        }
+        if (isset($_POST['project_live_url'])) {
+            update_post_meta($post_id, 'project_live_url', esc_url_raw($_POST['project_live_url']));
+            update_post_meta($post_id, '_project_live_url', esc_url_raw($_POST['project_live_url']));
+        }
     }
 }
+
 

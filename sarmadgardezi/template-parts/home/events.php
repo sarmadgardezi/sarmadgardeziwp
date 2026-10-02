@@ -152,12 +152,12 @@ $static_products = array(
                     if (empty($ext_url)) $ext_url = get_post_meta($p_id, '_event_url', true);
                     if (empty($ext_url)) $ext_url = get_post_meta($p_id, 'event_url', true);
                     
-                    $item_link   = !empty($ext_url) ? $ext_url : get_permalink($p_id);
-                    $target_attr = !empty($ext_url) ? '_blank' : '_self';
-                    $rel_attr    = !empty($ext_url) ? 'noopener noreferrer' : '';
+                    $item_link   = get_permalink($p_id);
+                    $target_attr = '_self';
+                    $rel_attr    = '';
                 ?>
                     <li class="reveal products-item" style="--stagger:<?php echo esc_attr($stagger); ?>">
-                        <a href="<?php echo esc_url($item_link); ?>" target="<?php echo esc_attr($target_attr); ?>" <?php if (!empty($rel_attr)) echo 'rel="' . esc_attr($rel_attr) . '"'; ?> class="group products-item-link">
+                        <a href="<?php echo esc_url($item_link); ?>" class="group products-item-link">
                             
                             <!-- Logo Column -->
                             <span class="product-logo-slot">
