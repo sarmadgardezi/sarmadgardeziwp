@@ -547,6 +547,682 @@ textarea::placeholder {
   color: #78716c;
 }
 
+.cal-booker-widget {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  color: #111827;
+}
+.cal-booker-widget .cal-booker-frame {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+  min-height: 480px;
+}
+.cal-booker-widget .cal-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 480px;
+}
+@media (min-width: 768px) {
+  .cal-booker-widget .cal-grid-layout {
+    grid-template-columns: 240px 1fr 220px;
+  }
+}
+@media (min-width: 1024px) {
+  .cal-booker-widget .cal-grid-layout {
+    grid-template-columns: 260px 1fr 240px;
+  }
+}
+.cal-booker-widget .cal-meta-sidebar {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: #ffffff;
+}
+@media (min-width: 768px) {
+  .cal-booker-widget .cal-meta-sidebar {
+    border-bottom: none;
+    border-right: 1px solid #e5e7eb;
+  }
+}
+.cal-booker-widget .cal-meta-sidebar .cal-host-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+}
+.cal-booker-widget .cal-meta-sidebar .cal-host-meta .cal-host-avatar-wrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 0.35rem;
+}
+.cal-booker-widget .cal-meta-sidebar .cal-host-meta .cal-host-avatar-wrap .cal-host-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cal-booker-widget .cal-meta-sidebar .cal-host-meta .cal-host-name {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #71717a;
+}
+.cal-booker-widget .cal-meta-sidebar .cal-host-meta .cal-event-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  line-height: 1.2;
+}
+.cal-booker-widget .cal-meta-sidebar .cal-meta-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  font-size: 0.875rem;
+  color: #374151;
+}
+.cal-booker-widget .cal-meta-sidebar .cal-meta-details-list .cal-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.cal-booker-widget .cal-meta-sidebar .cal-meta-details-list .cal-meta-item .cal-icon {
+  color: #71717a;
+  flex-shrink: 0;
+}
+.cal-booker-widget .cal-meta-sidebar .cal-meta-details-list .cal-meta-item .cal-meta-label {
+  font-weight: 500;
+}
+.cal-booker-widget .cal-meta-sidebar .cal-meta-details-list .cal-meta-item .cal-meta-time-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.35;
+}
+.cal-booker-widget .cal-meta-sidebar .cal-meta-details-list .cal-meta-item .cal-meta-time-text strong {
+  color: #111827;
+  font-size: 0.875rem;
+}
+.cal-booker-widget .cal-meta-sidebar .cal-meta-details-list .cal-meta-item .cal-meta-time-text span {
+  color: #71717a;
+  font-size: 0.8125rem;
+}
+.cal-booker-widget .cal-meta-sidebar .cal-meta-details-list .cal-duration-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+.cal-booker-widget .cal-meta-sidebar .cal-meta-details-list .cal-duration-selector .cal-duration-pills {
+  display: inline-flex;
+  align-items: center;
+  background-color: #f4f4f5;
+  padding: 2px;
+  border-radius: 8px;
+  border: 1px solid #e4e4e7;
+}
+.cal-booker-widget .cal-meta-sidebar .cal-meta-details-list .cal-duration-selector .cal-duration-pills .cal-pill-btn {
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #71717a;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.cal-booker-widget .cal-meta-sidebar .cal-meta-details-list .cal-duration-selector .cal-duration-pills .cal-pill-btn.is-active {
+  background-color: #ffffff;
+  color: #111827;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+.cal-booker-widget .cal-meta-sidebar .cal-meta-details-list .cal-duration-selector .cal-duration-pills .cal-pill-btn:hover:not(.is-active) {
+  color: #111827;
+}
+.cal-booker-widget .cal-calendar-section {
+  padding: 1.5rem 1.75rem;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .cal-booker-widget .cal-calendar-section {
+    border-bottom: none;
+    border-right: 1px solid #e5e7eb;
+  }
+}
+.cal-booker-widget .cal-calendar-section .cal-month-nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.cal-booker-widget .cal-calendar-section .cal-month-nav-header .cal-month-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #111827;
+}
+.cal-booker-widget .cal-calendar-section .cal-month-nav-header .cal-nav-arrows {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.cal-booker-widget .cal-calendar-section .cal-month-nav-header .cal-nav-arrows .cal-arrow-btn {
+  width: 32px;
+  height: 32px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #71717a;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.cal-booker-widget .cal-calendar-section .cal-month-nav-header .cal-nav-arrows .cal-arrow-btn:hover {
+  background-color: #f4f4f5;
+  color: #111827;
+}
+.cal-booker-widget .cal-calendar-section .cal-weekdays-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  margin-bottom: 0.85rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #71717a;
+}
+.cal-booker-widget .cal-calendar-section .cal-days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+.cal-booker-widget .cal-calendar-section .cal-days-grid .cal-day-cell.is-empty {
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+.cal-booker-widget .cal-calendar-section .cal-days-grid .cal-day-btn {
+  width: 100%;
+  aspect-ratio: 1/1;
+  max-width: 42px;
+  max-height: 42px;
+  margin: 0 auto;
+  border: none;
+  border-radius: 10px;
+  background-color: #f4f4f5;
+  color: #111827;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.15s ease;
+}
+.cal-booker-widget .cal-calendar-section .cal-days-grid .cal-day-btn.is-past {
+  background-color: transparent;
+  color: #d1d5db;
+  cursor: not-allowed;
+  font-weight: 400;
+}
+.cal-booker-widget .cal-calendar-section .cal-days-grid .cal-day-btn.is-available:hover {
+  background-color: #e4e4e7;
+}
+.cal-booker-widget .cal-calendar-section .cal-days-grid .cal-day-btn.is-selected {
+  background-color: #111827 !important;
+  color: #ffffff !important;
+  font-weight: 700;
+}
+.cal-booker-widget .cal-calendar-section .cal-days-grid .cal-day-btn.is-today:not(.is-selected)::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #2563eb;
+}
+.cal-booker-widget .cal-timeslots-section {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+.cal-booker-widget .cal-timeslots-section .cal-timeslots-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+.cal-booker-widget .cal-timeslots-section .cal-timeslots-header .cal-selected-day-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #111827;
+}
+.cal-booker-widget .cal-timeslots-section .cal-timeslots-header .cal-format-toggle {
+  display: inline-flex;
+  align-items: center;
+  background-color: #f4f4f5;
+  padding: 2px;
+  border-radius: 6px;
+  border: 1px solid #e4e4e7;
+}
+.cal-booker-widget .cal-timeslots-section .cal-timeslots-header .cal-format-toggle .cal-toggle-btn {
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: #71717a;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.cal-booker-widget .cal-timeslots-section .cal-timeslots-header .cal-format-toggle .cal-toggle-btn.is-active {
+  background-color: #ffffff;
+  color: #111827;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.cal-booker-widget .cal-timeslots-section .cal-slots-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 380px;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+.cal-booker-widget .cal-timeslots-section .cal-slots-list .cal-slot-btn {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background-color: #ffffff;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #111827;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.cal-booker-widget .cal-timeslots-section .cal-slots-list .cal-slot-btn:hover {
+  border-color: #111827;
+  background-color: #fafafa;
+  font-weight: 600;
+}
+.cal-booker-widget .cal-form-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 480px;
+}
+@media (min-width: 768px) {
+  .cal-booker-widget .cal-form-grid-layout {
+    grid-template-columns: 260px 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  .cal-booker-widget .cal-form-grid-layout {
+    grid-template-columns: 300px 1fr;
+  }
+}
+.cal-booker-widget .cal-form-section {
+  padding: 1.75rem 2rem;
+  background-color: #ffffff;
+}
+@media (min-width: 768px) {
+  .cal-booker-widget .cal-form-section {
+    padding: 2.25rem 3rem;
+  }
+}
+.cal-booker-widget .cal-form-section .cal-booking-form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.cal-booker-widget .cal-form-section .cal-form-group {
+  margin-bottom: 1.25rem;
+}
+.cal-booker-widget .cal-form-section .cal-form-group .cal-field-label {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #18181b;
+  margin-bottom: 0.45rem;
+}
+.cal-booker-widget .cal-form-section .cal-form-group .cal-field-label .req-star {
+  color: #ef4444;
+}
+.cal-booker-widget .cal-form-section .cal-form-group .cal-field-label .cal-field-hint {
+  display: inline-flex;
+  color: #a1a1aa;
+  cursor: help;
+}
+.cal-booker-widget .cal-form-section .cal-form-group .cal-input-field,
+.cal-booker-widget .cal-form-section .cal-form-group .cal-textarea-field {
+  width: 100%;
+  border: 1px solid #e4e4e7;
+  border-radius: 8px;
+  padding: 0.55rem 0.85rem;
+  font-family: inherit;
+  font-size: 0.875rem;
+  color: #111827;
+  background-color: #ffffff;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  outline: none;
+}
+.cal-booker-widget .cal-form-section .cal-form-group .cal-input-field::placeholder,
+.cal-booker-widget .cal-form-section .cal-form-group .cal-textarea-field::placeholder {
+  color: #a1a1aa;
+}
+.cal-booker-widget .cal-form-section .cal-form-group .cal-input-field:focus,
+.cal-booker-widget .cal-form-section .cal-form-group .cal-textarea-field:focus {
+  border-color: #111827;
+  box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.08);
+}
+.cal-booker-widget .cal-form-section .cal-form-group .cal-phone-input-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e4e4e7;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.cal-booker-widget .cal-form-section .cal-form-group .cal-phone-input-group:focus-within {
+  border-color: #111827;
+  box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.08);
+}
+.cal-booker-widget .cal-form-section .cal-form-group .cal-phone-input-group .cal-country-prefix {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.55rem 0.75rem;
+  background-color: #f4f4f5;
+  border-right: 1px solid #e4e4e7;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  user-select: none;
+}
+.cal-booker-widget .cal-form-section .cal-form-group .cal-phone-input-group .cal-phone-field {
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+.cal-booker-widget .cal-form-section .cal-form-group .cal-add-guests-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #52525b;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s ease;
+}
+.cal-booker-widget .cal-form-section .cal-form-group .cal-add-guests-btn:hover {
+  color: #111827;
+}
+.cal-booker-widget .cal-form-section .cal-terms-notice {
+  font-size: 0.75rem;
+  color: #71717a;
+  line-height: 1.4;
+  margin: 1rem 0 1.5rem;
+}
+.cal-booker-widget .cal-form-section .cal-terms-notice a {
+  color: #111827;
+  text-decoration: underline;
+}
+.cal-booker-widget .cal-form-section .cal-form-error {
+  padding: 0.65rem 0.85rem;
+  border-radius: 8px;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+}
+.cal-booker-widget .cal-form-section .cal-form-actions-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: auto;
+  padding-top: 1rem;
+}
+.cal-booker-widget .cal-form-section .cal-form-actions-row .cal-btn-back {
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #71717a;
+  padding: 0.55rem 1.15rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.cal-booker-widget .cal-form-section .cal-form-actions-row .cal-btn-back:hover {
+  background-color: #f4f4f5;
+  color: #111827;
+}
+.cal-booker-widget .cal-form-section .cal-form-actions-row .cal-btn-confirm {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  background-color: #111827;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+.cal-booker-widget .cal-form-section .cal-form-actions-row .cal-btn-confirm:hover {
+  background-color: #1f2937;
+  transform: translateY(-1px);
+}
+.cal-booker-widget .cal-form-section .cal-form-actions-row .cal-btn-confirm:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+.cal-booker-widget .cal-success-wrap {
+  padding: 3.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 580px;
+  margin: 0 auto;
+}
+.cal-booker-widget .cal-success-wrap .cal-success-icon-badge {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #eff6ff;
+  border: 2px solid #C3DAFE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+}
+.cal-booker-widget .cal-success-wrap .cal-success-heading {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 1rem 0;
+}
+.cal-booker-widget .cal-success-wrap .cal-success-whatsapp-notice {
+  width: 100%;
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: left;
+}
+.cal-booker-widget .cal-success-wrap .cal-success-whatsapp-notice .whatsapp-badge-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #22c55e;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.cal-booker-widget .cal-success-wrap .cal-success-whatsapp-notice .cal-success-highlight {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #15803d;
+  margin: 0;
+  line-height: 1.4;
+}
+.cal-booker-widget .cal-success-wrap .cal-success-card-details {
+  width: 100%;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  text-align: left;
+  font-size: 0.875rem;
+}
+.cal-booker-widget .cal-success-wrap .cal-success-card-details .detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cal-booker-widget .cal-success-wrap .cal-success-card-details .detail-row .label {
+  color: #64748b;
+}
+.cal-booker-widget .cal-success-wrap .cal-success-card-details .detail-row .val {
+  color: #0f172a;
+}
+.cal-booker-widget .cal-success-wrap .cal-success-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+.cal-booker-widget .cal-success-wrap .cal-success-actions .cal-btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #22c55e;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+.cal-booker-widget .cal-success-wrap .cal-success-actions .cal-btn-whatsapp:hover {
+  background-color: #16a34a;
+  transform: translateY(-1px);
+}
+.cal-booker-widget .cal-success-wrap .cal-success-actions .cal-btn-secondary {
+  border: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  color: #475569;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.cal-booker-widget .cal-success-wrap .cal-success-actions .cal-btn-secondary:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+.cal-booking-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background-color: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  overflow-y: auto;
+}
+.cal-booking-modal-overlay .cal-modal-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: auto;
+  animation: calModalFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cal-booking-modal-overlay .cal-modal-dialog .cal-modal-close-btn {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #111827;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+.cal-booking-modal-overlay .cal-modal-dialog .cal-modal-close-btn:hover {
+  background-color: #ef4444;
+  transform: scale(1.08);
+}
+
+@keyframes calModalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
 .site-container {
   width: 100%;
   max-width: 1200px;

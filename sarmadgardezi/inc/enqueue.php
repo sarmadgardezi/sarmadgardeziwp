@@ -57,6 +57,19 @@ function sarmadgardezi_scripts() {
         );
     }
 
+    // Cal.com Style Booker Script
+    $booker_file = '/assets/js/booking-widget.js';
+    $booker_path = SARMADGARDEZI_DIR . $booker_file;
+    if (file_exists($booker_path)) {
+        wp_enqueue_script(
+            'sarmadgardezi-booking-widget',
+            SARMADGARDEZI_URI . $booker_file,
+            array(),
+            filemtime($booker_path),
+            true
+        );
+    }
+
     // Main App Script
     $main_js_file = '/assets/js/main.js';
     $main_js_path = SARMADGARDEZI_DIR . $main_js_file;

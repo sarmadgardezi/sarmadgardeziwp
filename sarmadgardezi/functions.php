@@ -23,6 +23,7 @@ require_once SARMADGARDEZI_DIR . '/inc/seo.php';
 require_once SARMADGARDEZI_DIR . '/inc/analytics.php';
 require_once SARMADGARDEZI_DIR . '/inc/acf-fields.php';
 require_once SARMADGARDEZI_DIR . '/inc/ajax.php';
+require_once SARMADGARDEZI_DIR . '/inc/reservations.php';
 
 // Optional modules loaded when created.
 if (file_exists(SARMADGARDEZI_DIR . '/inc/security.php')) {

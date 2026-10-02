@@ -104,4 +104,17 @@ $nav_items = sarmadgardezi_get_nav_items();
         </div>
 
     </div>
+
+    <!-- Booking Modal Overlay -->
+    <div id="cal-booking-modal-overlay" class="cal-booking-modal-overlay" style="display: none;" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="cal-modal-dialog">
+            <button type="button" id="cal-modal-close-btn" class="cal-modal-close-btn" aria-label="<?php esc_attr_e('Close booking modal', 'sarmadgardezi'); ?>">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <?php get_template_part('template-parts/contact/booking-widget'); ?>
+        </div>
+    </div>
 </footer>
