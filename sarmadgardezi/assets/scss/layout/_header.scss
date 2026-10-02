@@ -15,7 +15,7 @@
 
   .site-header-container {
     width: 100%;
-    max-width: 1080px;
+    max-width: 1140px;
     margin: 0 auto;
     padding: 0 1.5rem;
     display: flex;
@@ -24,7 +24,7 @@
 
   .site-header-inner {
     width: 100%;
-    max-width: 100%;
+    max-width: 580px; // Exact match to hero width
     margin: 0 auto;
     display: flex;
     align-items: center;
