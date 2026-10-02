@@ -1,6 +1,7 @@
 <?php
 /**
- * Template part for displaying the Events & Products List section matching reference design
+ * Template part for displaying the Products & Experience list section
+ * Matching exact grid specification with dynamic ACF support and static fallbacks
  *
  * @package SarmadGardezi
  */
@@ -16,7 +17,7 @@ if (function_exists('get_field')) {
     }
 }
 
-// Query Dynamic Event Posts
+// Query Dynamic Event / Product Posts
 $events_args = array(
     'post_type'      => 'event',
     'posts_per_page' => -1,
@@ -27,65 +28,98 @@ $events_args = array(
 $events_query = new WP_Query($events_args);
 $has_dynamic_events = $events_query->have_posts();
 
-// Static fallback items (from user reference screenshot)
-$static_events = array(
+// Asset base for fallback logos
+$asset_base = function_exists('sarmadgardezi_asset') 
+    ? sarmadgardezi_asset('') 
+    : get_template_directory_uri() . '/assets/';
+$brand_img_dir = rtrim($asset_base, '/') . '/images/brands/';
+
+// Static fallback items from reference specification
+$static_products = array(
     array(
         'name'     => 'Maya',
         'role'     => 'Fractional CTO & AI Product Engineer',
         'timeline' => '2026–Today',
-        'has_arrow'=> true,
-        'link'     => home_url('/events/maya/'),
-        'svg'      => '<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 23C7 19.5 9 16 11.5 16C14 16 15 19.5 17 23C19 19.5 20 16 22.5 16C25 16 27 19.5 27 23" stroke="#84cc16" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M11.5 16C11.5 13.5 13 11 15 11C16.8 11 17.5 12.8 18 14.5" stroke="#84cc16" stroke-width="2.5" stroke-linecap="round"/></svg>',
+        'url'      => 'https://myprotectify.org/',
+        'logo_img' => $brand_img_dir . 'maya.svg',
+        'logo_svg' => '',
     ),
     array(
         'name'     => 'Sevenflow',
         'role'     => 'Fractional CTO & Product Engineer',
         'timeline' => '2026–Today',
-        'has_arrow'=> true,
-        'link'     => home_url('/events/sevenflow/'),
-        'svg'      => '<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="8" width="14" height="6.5" rx="3" fill="#111111"/><rect x="14" y="17.5" width="14" height="6.5" rx="3" fill="#111111"/><rect x="11.5" y="12.5" width="9" height="7" rx="2" fill="#111111"/></svg>',
+        'url'      => 'https://sevenflow.de/',
+        'logo_img' => $brand_img_dir . 'sevenflow.svg',
+        'logo_svg' => '',
     ),
     array(
         'name'     => 'Tuuul',
         'role'     => 'Fractional CTO & Product Engineer',
         'timeline' => '2024–Today',
-        'has_arrow'=> false,
-        'link'     => home_url('/events/tuuul/'),
-        'svg'      => '<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="8" fill="#111111"/><circle cx="11" cy="12" r="1.8" fill="#ffffff"/><circle cx="21" cy="12" r="1.8" fill="#ffffff"/><path d="M11 16.5C11 19.5 13.2 21.5 16 21.5C18.8 21.5 21 19.5 21 16.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/></svg>',
+        'url'      => 'https://tuuul.de/',
+        'logo_img' => $brand_img_dir . 'tuuul.svg',
+        'logo_svg' => '',
     ),
     array(
         'name'     => 'medmingle',
         'role'     => 'Fractional CTO & Product Engineer',
         'timeline' => '2024–Today',
-        'has_arrow'=> false,
-        'link'     => home_url('/events/medmingle/'),
-        'svg'      => '<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 7L13 23" stroke="#3b82f6" stroke-width="4" stroke-linecap="round"/><path d="M17 11L21 23" stroke="#60a5fa" stroke-width="4" stroke-linecap="round"/></svg>',
+        'url'      => 'https://medmingle.de/',
+        'logo_img' => $brand_img_dir . 'medmingle.svg',
+        'logo_svg' => '',
     ),
     array(
         'name'     => 'Akindi',
         'role'     => 'Product Engineer',
         'timeline' => '2023–2025',
-        'has_arrow'=> false,
-        'link'     => home_url('/events/akindi/'),
-        'svg'      => '<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 5L25 24H15L15 5Z" fill="#ea580c"/><path d="M15 5L5 24H15L15 5Z" fill="#f97316" fill-opacity="0.85"/></svg>',
+        'url'      => 'https://akindi.com/',
+        'logo_img' => $brand_img_dir . 'akindi.svg',
+        'logo_svg' => '',
+    ),
+    array(
+        'name'     => 'vykee',
+        'role'     => 'Product Engineer',
+        'timeline' => '2023–2024',
+        'url'      => 'https://vykee.co/',
+        'logo_img' => $brand_img_dir . 'vykee.svg',
+        'logo_svg' => '',
+    ),
+    array(
+        'name'     => 'dskrpt',
+        'role'     => 'Product Engineer',
+        'timeline' => '2023–2024',
+        'url'      => 'https://dskrpt.de/',
+        'logo_img' => $brand_img_dir . 'dokrypt.svg',
+        'logo_svg' => '',
+    ),
+    array(
+        'name'     => 'Lazy',
+        'role'     => 'AI Product Engineer',
+        'timeline' => '2021–2024',
+        'url'      => 'https://lazy.so/',
+        'logo_img' => $brand_img_dir . 'lazy.svg',
+        'logo_svg' => '',
     ),
 );
 ?>
 
-<section id="events-products" class="events-products-section" aria-label="<?php echo esc_attr($section_label); ?>">
-    <div class="site-container events-products-container">
+<section id="products-experience" class="products-section" aria-label="<?php echo esc_attr($section_label); ?>">
+    <div class="site-container products-container">
         
         <!-- Section Header Label -->
-        <div class="events-products-header">
-            <h2 class="events-products-label"><?php echo esc_html($section_label); ?></h2>
-        </div>
+        <h2 class="reveal products-section-heading" style="--stagger:4"><?php echo esc_html($section_label); ?></h2>
 
-        <!-- Events List Table -->
-        <div class="events-products-list">
+        <!-- Products List -->
+        <ul class="products-list">
             
             <?php if ($has_dynamic_events) : ?>
-                <?php while ($events_query->have_posts()) : $events_query->the_post(); 
+                <?php 
+                $item_idx = 0;
+                while ($events_query->have_posts()) : $events_query->the_post(); 
                     $p_id      = get_the_ID();
+                    $stagger   = 5 + $item_idx;
+                    $item_idx++;
+
                     $role      = get_post_meta($p_id, '_event_role', true);
                     if (empty($role)) $role = get_post_meta($p_id, 'event_role', true);
                     if (empty($role) && has_excerpt()) $role = get_the_excerpt();
@@ -99,85 +133,95 @@ $static_events = array(
                     if (empty($logo_url) && has_post_thumbnail()) {
                         $logo_url = get_the_post_thumbnail_url($p_id, 'thumbnail');
                     }
-                    $permalink = get_permalink($p_id);
+
+                    $ext_url   = get_post_meta($p_id, '_event_url', true);
+                    if (empty($ext_url)) $ext_url = get_post_meta($p_id, 'event_url', true);
+                    
+                    $item_link   = !empty($ext_url) ? $ext_url : get_permalink($p_id);
+                    $target_attr = !empty($ext_url) ? '_blank' : '_self';
+                    $rel_attr    = !empty($ext_url) ? 'noopener noreferrer' : '';
                 ?>
-                    <a href="<?php echo esc_url($permalink); ?>" class="event-row-link" aria-label="<?php echo esc_attr(get_the_title()); ?>">
-                        
-                        <!-- Left: Brand Logo & Title -->
-                        <div class="event-col-brand">
-                            <?php if (!empty($logo_url)) : ?>
-                                <div class="event-brand-icon">
-                                    <img src="<?php echo esc_url($logo_url); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" loading="lazy" />
-                                </div>
-                            <?php else : ?>
-                                <div class="event-brand-icon placeholder-icon">
-                                    <span><?php echo esc_html(substr(get_the_title(), 0, 1)); ?></span>
-                                </div>
-                            <?php endif; ?>
+                    <li class="reveal products-item" style="--stagger:<?php echo esc_attr($stagger); ?>">
+                        <a href="<?php echo esc_url($item_link); ?>" target="<?php echo esc_attr($target_attr); ?>" <?php if (!empty($rel_attr)) echo 'rel="' . esc_attr($rel_attr) . '"'; ?> class="group products-item-link">
                             
-                            <span class="event-brand-title"><?php the_title(); ?></span>
-                            
-                            <span class="event-arrow-indicator" aria-hidden="true">
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    <polyline points="12 5 19 12 12 19"></polyline>
+                            <!-- Logo Column -->
+                            <span class="product-logo-slot">
+                                <?php if (!empty($logo_url)) : ?>
+                                    <img src="<?php echo esc_url($logo_url); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="product-logo-img" loading="lazy" />
+                                <?php else : ?>
+                                    <span class="product-placeholder-logo"><?php echo esc_html(substr(get_the_title(), 0, 1)); ?></span>
+                                <?php endif; ?>
+                            </span>
+
+                            <!-- Brand Name & Hover Arrow -->
+                            <span class="product-name-slot">
+                                <?php the_title(); ?>
+                                <svg viewBox="0 0 16 16" aria-hidden="true" class="product-arrow-pill">
+                                    <rect width="16" height="16" rx="8" fill="#CEAFFA"></rect>
+                                    <path d="M5 8h6M8.2 5 11 8l-2.8 3" fill="none" stroke="#121212" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"></path>
                                 </svg>
                             </span>
-                        </div>
 
-                        <!-- Middle: Role / Subtitle -->
-                        <div class="event-col-role">
-                            <span><?php echo esc_html($role); ?></span>
-                        </div>
+                            <!-- Role / Tagline -->
+                            <span class="product-role-slot">
+                                <?php echo esc_html($role); ?>
+                            </span>
 
-                        <!-- Right: Timeline Date -->
-                        <div class="event-col-timeline">
-                            <span><?php echo esc_html($timeline); ?></span>
-                        </div>
+                            <!-- Timeline -->
+                            <span class="product-timeline-slot">
+                                <?php echo esc_html($timeline); ?>
+                            </span>
 
-                    </a>
+                        </a>
+                    </li>
                 <?php endwhile; wp_reset_postdata(); ?>
 
             <?php else : ?>
-                
-                <!-- Static Fallback (Reference Screenshot Design) -->
-                <?php foreach ($static_events as $event) : ?>
-                    <a href="<?php echo esc_url($event['link']); ?>" class="event-row-link" aria-label="<?php echo esc_attr($event['name']); ?>">
-                        
-                        <!-- Left: Brand Logo & Title -->
-                        <div class="event-col-brand">
-                            <div class="event-brand-icon">
-                                <?php echo $event['svg']; ?>
-                            </div>
+
+                <!-- Static Reference Fallbacks -->
+                <?php foreach ($static_products as $i => $prod) : 
+                    $stagger = 5 + $i;
+                ?>
+                    <li class="reveal products-item" style="--stagger:<?php echo esc_attr($stagger); ?>">
+                        <a href="<?php echo esc_url($prod['url']); ?>" target="_blank" rel="noopener noreferrer" class="group products-item-link">
                             
-                            <span class="event-brand-title"><?php echo esc_html($event['name']); ?></span>
-                            
-                            <?php if ($event['has_arrow']) : ?>
-                                <span class="event-arrow-indicator" aria-hidden="true">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
-                            <?php endif; ?>
-                        </div>
+                            <!-- Logo Column -->
+                            <span class="product-logo-slot">
+                                <?php if (!empty($prod['logo_img'])) : ?>
+                                    <img src="<?php echo esc_url($prod['logo_img']); ?>" alt="<?php echo esc_attr($prod['name']); ?>" class="product-logo-img" loading="lazy" />
+                                <?php elseif (!empty($prod['logo_svg'])) : ?>
+                                    <?php echo $prod['logo_svg']; ?>
+                                <?php else : ?>
+                                    <span class="product-placeholder-logo"><?php echo esc_html(substr($prod['name'], 0, 1)); ?></span>
+                                <?php endif; ?>
+                            </span>
 
-                        <!-- Middle: Role / Subtitle -->
-                        <div class="event-col-role">
-                            <span><?php echo esc_html($event['role']); ?></span>
-                        </div>
+                            <!-- Brand Name & Hover Arrow -->
+                            <span class="product-name-slot">
+                                <?php echo esc_html($prod['name']); ?>
+                                <svg viewBox="0 0 16 16" aria-hidden="true" class="product-arrow-pill">
+                                    <rect width="16" height="16" rx="8" fill="#CEAFFA"></rect>
+                                    <path d="M5 8h6M8.2 5 11 8l-2.8 3" fill="none" stroke="#121212" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"></path>
+                                </svg>
+                            </span>
 
-                        <!-- Right: Timeline Date -->
-                        <div class="event-col-timeline">
-                            <span><?php echo esc_html($event['timeline']); ?></span>
-                        </div>
+                            <!-- Role / Tagline -->
+                            <span class="product-role-slot">
+                                <?php echo esc_html($prod['role']); ?>
+                            </span>
 
-                    </a>
+                            <!-- Timeline -->
+                            <span class="product-timeline-slot">
+                                <?php echo esc_html($prod['timeline']); ?>
+                            </span>
+
+                        </a>
+                    </li>
                 <?php endforeach; ?>
 
             <?php endif; ?>
 
-        </div>
+        </ul>
 
     </div>
 </section>

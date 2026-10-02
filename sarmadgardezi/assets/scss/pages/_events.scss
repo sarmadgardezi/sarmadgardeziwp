@@ -1,172 +1,200 @@
 // ==========================================================================
-// SCSS Pages: Events & Products List + Single Event Template
+// SCSS Pages: Products & Events List Section + Single Event Template
+// Matching exact grid specification with dynamic ACF support
 // ==========================================================================
 
 // --------------------------------------------------------------------------
-// 1. Homepage Events & Products Table List Section
+// 1. Homepage Products List Section (Exact Grid Spec)
 // --------------------------------------------------------------------------
 
-.events-products-section {
+.products-section {
   width: 100%;
-  background-color: #ffffff;
-  padding: clamp(2.5rem, 5vw, 4.5rem) 0;
+  margin-top: 4rem; // mt-16
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 
-  .events-products-container {
+  @media (min-width: 640px) {
+    margin-top: 5rem; // sm:mt-20
+  }
+
+  .products-container {
     width: 100%;
-    max-width: 580px; // Exact match to hero width
+    max-width: 580px; // Exact match to hero & brand container width
     margin: 0 auto;
     padding: 0 1.5rem;
   }
 
-  // Section Label
-  .events-products-header {
-    width: 100%;
-    border-bottom: 1px solid #e5e7eb;
-    padding-bottom: 0.85rem;
+  // Section Heading / Label
+  .products-section-heading {
+    font-family: 'Wotfard', var(--font-family, sans-serif);
+    font-size: 0.875rem; // text-sm (14px)
+    font-weight: 400;
+    color: #737373; // text-neutral-500
+    margin: 0;
+    letter-spacing: -0.01em;
+    line-height: 1.4;
+  }
+
+  // Products Unordered List
+  .products-list {
+    margin-top: 1rem; // mt-4
+    border-top: 1px solid #e5e5e5; // border-neutral-200
+    list-style: none;
+    padding: 0;
     margin-bottom: 0;
-
-    .events-products-label {
-      font-family: 'Wotfard', var(--font-family, sans-serif);
-      font-size: 0.9375rem;
-      font-weight: 500;
-      color: #71717a;
-      letter-spacing: -0.01em;
-      margin: 0;
-      text-transform: none;
-    }
-  }
-
-  // Events Table List
-  .events-products-list {
     width: 100%;
-    display: flex;
-    flex-direction: column;
   }
 
-  // Each Clickable Row
-  .event-row-link {
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
-    padding: 1.25rem 0.35rem;
-    border-bottom: 1px solid #e5e7eb;
+  // Each Product Row Item
+  .products-item {
+    border-bottom: 1px solid #e5e5e5; // border-neutral-200
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  // Clickable Grid Row Link
+  .products-item-link {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr auto; // grid-cols-[2.5rem_1fr_auto]
+    align-items: center;
+    column-gap: 1rem; // gap-x-4
+    row-gap: 0.15rem;
+    padding-top: 1.25rem; // py-5 (20px)
+    padding-bottom: 1.25rem;
     text-decoration: none;
     color: inherit;
-    transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
-    border-radius: 8px;
+    transition: opacity 0.2s ease;
 
     @media (min-width: 500px) {
-      display: grid;
-      grid-template-columns: 165px 1fr auto;
-      align-items: center;
-      gap: 1.25rem;
-      padding: 1.4rem 0.5rem;
+      grid-template-columns: 2.5rem minmax(0, 0.8fr) minmax(0, 1.3fr) auto; // sm:grid-cols-[2.5rem_minmax(0,0.8fr)_minmax(0,1.3fr)_auto]
+      row-gap: 0;
     }
 
     &:hover {
-      background-color: rgba(244, 244, 245, 0.6);
-
-      .event-brand-title {
-        color: #000000;
-      }
-
-      .event-arrow-indicator {
-        background-color: #C3DAFE;
-        color: #1e3a8a;
-        transform: translateX(3px);
+      .product-arrow-pill {
+        transform: translateX(0); // group-hover:translate-x-0
+        opacity: 1; // group-hover:opacity-100
       }
     }
 
-    // Column 1: Brand Logo & Title
-    .event-col-brand {
-      display: inline-flex;
+    // 1. Logo Column
+    .product-logo-slot {
+      grid-row: span 2; // row-span-2 on mobile
+      grid-column: 1;
+      display: flex;
+      height: 1.75rem; // h-7 (28px)
+      width: 2rem; // w-8 (32px)
       align-items: center;
-      gap: 0.95rem;
+      justify-content: flex-start;
+      flex-shrink: 0;
 
-      .event-brand-icon {
-        width: 34px;
-        height: 34px;
+      @media (min-width: 500px) {
+        grid-row: span 1; // sm:row-span-1
+      }
+
+      .product-logo-img,
+      svg {
+        max-height: 1.5rem; // max-h-6 (24px)
+        width: auto;
+        max-width: 100%;
+        object-fit: contain;
+        display: block;
+      }
+
+      .product-placeholder-logo {
+        width: 24px;
+        height: 24px;
+        border-radius: 4px;
+        background-color: #f4f4f5;
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-shrink: 0;
-
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
-          display: block;
-        }
-
-        svg {
-          width: 100%;
-          height: 100%;
-          display: block;
-        }
-
-        &.placeholder-icon {
-          background-color: #f4f4f5;
-          border-radius: 8px;
-          font-weight: 700;
-          font-size: 1rem;
-          color: #18181b;
-        }
-      }
-
-      .event-brand-title {
-        font-family: 'Wotfard', var(--font-family, sans-serif);
-        font-size: 1.125rem;
+        font-size: 0.75rem;
         font-weight: 700;
-        color: #111827;
-        letter-spacing: -0.025em;
-        line-height: 1.2;
-        transition: color 0.2s ease;
+        color: #18181b;
+      }
+    }
+
+    // 2. Brand / Product Name Slot & Hover Arrow
+    .product-name-slot {
+      grid-column-start: 2; // col-start-2
+      grid-row-start: 1;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem; // gap-2 (8px)
+      font-family: 'Wotfard', var(--font-family, sans-serif);
+      font-weight: 500; // font-medium
+      font-size: 0.9375rem;
+      color: #171717; // neutral-900
+      letter-spacing: -0.015em;
+      line-height: 1.3;
+
+      @media (min-width: 500px) {
+        font-size: 1rem;
       }
 
-      .event-arrow-indicator {
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        background-color: #f4f4f5;
-        color: #71717a;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        margin-left: 0.25rem;
-        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, color 0.2s ease;
+      .product-arrow-pill {
+        display: none; // hidden on mobile
+        width: 1rem; // h-4 w-4 (16px)
+        height: 1rem;
+        flex-shrink: 0;
+        transform: translateX(-4px); // -translate-x-1
+        opacity: 0;
+        transition: opacity 0.2s cubic-bezier(0, 0, 0.2, 1), transform 0.2s cubic-bezier(0, 0, 0.2, 1);
 
-        svg {
-          width: 10px;
-          height: 10px;
-          display: block;
+        @media (min-width: 500px) {
+          display: block; // sm:block
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          transition: none;
+        }
+
+        rect {
+          fill: #CEAFFA; // Exact reference lavender pill
+        }
+
+        path {
+          stroke: #121212;
         }
       }
     }
 
-    // Column 2: Role / Subtitle
-    .event-col-role {
+    // 3. Role / Tagline Slot
+    .product-role-slot {
+      grid-column-start: 2; // col-start-2
+      grid-row-start: 2; // row-start-2
       font-family: 'Wotfard', var(--font-family, sans-serif);
-      font-size: 0.9375rem;
-      font-weight: 400;
-      color: #52525b;
-      line-height: 1.45;
+      font-size: 0.875rem; // text-sm (14px)
+      color: #737373; // text-neutral-500
+      line-height: 1.4;
       letter-spacing: -0.01em;
+
+      @media (min-width: 500px) {
+        grid-column-start: 3; // sm:col-start-3
+        grid-row-start: 1; // sm:row-start-1
+        font-size: 1rem; // sm:text-base (16px)
+      }
     }
 
-    // Column 3: Timeline Dates
-    .event-col-timeline {
+    // 4. Timeline Dates Slot
+    .product-timeline-slot {
+      grid-column-start: 3; // col-start-3
+      grid-row-start: 1; // row-start-1
+      justify-self: end; // justify-self-end
       font-family: 'Wotfard', var(--font-family, sans-serif);
-      font-size: 0.9375rem;
-      font-weight: 400;
-      color: #71717a;
+      font-size: 0.875rem; // text-sm (14px)
+      color: #737373; // text-neutral-500
+      font-variant-numeric: tabular-nums; // tabular-nums
       letter-spacing: -0.01em;
       white-space: nowrap;
 
-      @include respond-to('md') {
-        text-align: right;
+      @media (min-width: 500px) {
+        grid-column-start: 4; // sm:col-start-4
+        font-size: 1rem; // sm:text-base (16px)
       }
     }
   }
