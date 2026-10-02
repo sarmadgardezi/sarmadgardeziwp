@@ -52,6 +52,7 @@ get_header();
     <?php get_template_part('template-parts/home/hero-v2'); ?>
     <?php get_template_part('template-parts/home/brands'); ?>
     <?php get_template_part('template-parts/home/events'); ?>
+    <?php get_template_part('template-parts/home/reservation'); ?>
     <?php get_template_part('template-parts/home/contact-cta'); ?>
 </main>
 

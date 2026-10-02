@@ -119,7 +119,7 @@ if (function_exists('get_field')) {
                         />
                     </div>
 
-                    <a href="<?php echo esc_url($btn_url); ?>" class="booking-submit-btn">
+                    <a href="#reservation" class="booking-submit-btn">
                         <span class="btn-text"><?php echo esc_html($btn_text); ?></span>
                         <svg class="btn-arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <line x1="5" y1="12" x2="19" y2="12"></line>
