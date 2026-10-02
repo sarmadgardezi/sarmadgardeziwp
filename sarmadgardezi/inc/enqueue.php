@@ -11,17 +11,10 @@ defined('ABSPATH') || exit;
  * Enqueue scripts and styles.
  */
 function sarmadgardezi_scripts() {
-    // Web Fonts (Wotfard, Sriracha, Great Vibes, Source Code Pro, Fira Mono, Lora)
+    // Primary Theme Font: Wotfard
     wp_enqueue_style(
         'sarmadgardezi-wotfard-font',
         'https://fonts.cdnfonts.com/css/wotfard',
-        array(),
-        null
-    );
-
-    wp_enqueue_style(
-        'sarmadgardezi-fonts',
-        'https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Source+Code+Pro:wght@400;500;600;700&family=Sriracha&display=swap',
         array(),
         null
     );

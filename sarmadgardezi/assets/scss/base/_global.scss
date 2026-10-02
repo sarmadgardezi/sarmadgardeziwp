@@ -4,14 +4,14 @@
 
 :root {
   --font-family: 'Wotfard', Futura, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-family-mono: 'Cartograph CF', 'Source Code Pro', 'Fira Mono', monospace;
-  --font-family-spicy: 'Sriracha', cursive;
-  --font-family-calligraphic: 'Great Vibes', cursive;
+  --font-family-mono: 'Wotfard', monospace;
+  --font-family-spicy: 'Wotfard', sans-serif;
+  --font-family-calligraphic: 'Wotfard', sans-serif;
 
   // Framer Font Family Compatibility Variables
   --framer-font-family: var(--font-family);
   --framer-font-family-bold: var(--font-family);
-  --framer-font-family-mono: var(--font-family-mono);
+  --framer-font-family-mono: var(--font-family);
 
   --color-bg: #{$color-bg};
   --color-surface: #{$color-surface};

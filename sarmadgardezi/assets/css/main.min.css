@@ -71,14 +71,6 @@ table {
   font-display: swap;
   src: local("Wotfard"), url("https://fonts.cdnfonts.com/s/83722/Wotfard-Regular.woff") format("woff");
 }
-@font-face {
-  font-family: "Google Sans Flex";
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 900;
-  src: url("../fonts/google-sans-flex-latin-wght-normal.woff2") format("woff2-variations"), url("../fonts/google-sans-flex-latin-wght-normal.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
 h1, h2, h3, h4, h5, h6 {
   font-family: "Wotfard", Futura, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-weight: 700;
@@ -117,7 +109,7 @@ p {
 }
 
 code, pre {
-  font-family: "Cartograph CF", "Source Code Pro", "Fira Mono", monospace;
+  font-family: "Wotfard", monospace;
 }
 
 pre {
@@ -137,25 +129,25 @@ pre {
 }
 
 .font-mono {
-  font-family: var(--font-family-mono, Cartograph CF, Source Code Pro, Fira Mono, monospace);
+  font-family: var(--font-family-mono, Wotfard, monospace);
 }
 
 .font-spicy {
-  font-family: var(--font-family-spicy, Sriracha, cursive);
+  font-family: var(--font-family-spicy, Wotfard, sans-serif);
 }
 
 .font-calligraphic {
-  font-family: var(--font-family-calligraphic, Great Vibes, cursive);
+  font-family: var(--font-family-calligraphic, Wotfard, sans-serif);
 }
 
 :root {
   --font-family: 'Wotfard', Futura, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-family-mono: 'Cartograph CF', 'Source Code Pro', 'Fira Mono', monospace;
-  --font-family-spicy: 'Sriracha', cursive;
-  --font-family-calligraphic: 'Great Vibes', cursive;
+  --font-family-mono: 'Wotfard', monospace;
+  --font-family-spicy: 'Wotfard', sans-serif;
+  --font-family-calligraphic: 'Wotfard', sans-serif;
   --framer-font-family: var(--font-family);
   --framer-font-family-bold: var(--font-family);
-  --framer-font-family-mono: var(--font-family-mono);
+  --framer-font-family-mono: var(--font-family);
   --color-bg: #f5f5f5;
   --color-surface: #ffffff;
   --color-primary: #1c1917;
@@ -316,7 +308,7 @@ pre {
   background: #27c93f;
 }
 .code-terminal-card .terminal-header .terminal-title {
-  font-family: "Cartograph CF", "Source Code Pro", "Fira Mono", monospace;
+  font-family: "Wotfard", monospace;
   font-size: 0.8rem;
   color: #78716c;
 }
@@ -810,230 +802,180 @@ textarea::placeholder {
 }
 
 .site-footer {
-  background-color: #141413;
+  background-color: #343434;
   color: #ffffff;
-  padding: 4.5rem 0 2.5rem;
+  padding: clamp(3rem, 5.5vw, 4.5rem) 0 clamp(1.75rem, 3.5vw, 2.5rem);
   margin-top: auto;
-  border-top: none;
+  font-family: "Wotfard", var(--font-family, sans-serif);
 }
 .site-footer .footer-inner-container {
-  max-width: 64rem;
-  margin-left: auto;
-  margin-right: auto;
   width: 100%;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
-@media (min-width: 640px) {
-  .site-footer .footer-inner-container {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-}
-@media (min-width: 768px) {
-  .site-footer .footer-inner-container {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-}
-.site-footer .footer-top-bar {
+.site-footer .footer-top-grid {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: flex-start;
+  gap: 2.5rem;
   flex-wrap: wrap;
-  gap: 1.5rem;
-  margin-bottom: 3.5rem;
 }
-.site-footer .footer-top-bar .footer-brand {
-  display: inline-flex;
-  align-items: center;
+@media (max-width: 768px) {
+  .site-footer .footer-top-grid {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+.site-footer .footer-info-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 420px;
+}
+.site-footer .footer-brand {
   text-decoration: none;
-  user-select: none;
+  display: inline-block;
+  margin-bottom: 0.85rem;
 }
-.site-footer .footer-top-bar .footer-brand .footer-logo-brackets {
-  color: #e4e4e7;
-  font-family: monospace, Courier, monospace;
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-right: 0.65rem;
-}
-.site-footer .footer-top-bar .footer-brand .footer-logo-name {
+.site-footer .footer-brand .footer-brand-title {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 1.5rem;
+  font-weight: 800;
   color: #ffffff;
-  font-family: var(--framer-font-family-bold, "Google Sans Flex", sans-serif);
-  font-size: 1.6rem;
-  font-weight: 700;
   letter-spacing: -0.025em;
+  margin: 0;
+  line-height: 1.2;
 }
-.site-footer .footer-top-bar .footer-brand .footer-logo-sub {
+.site-footer .footer-brand-desc {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 0.84375rem;
   color: #a1a1aa;
-  font-family: var(--framer-font-family, "Google Sans Flex", sans-serif);
-  font-size: 1.6rem;
-  font-weight: 400;
-  margin-left: 0.45rem;
+  line-height: 1.6;
+  margin: 0 0 1.6rem 0;
 }
-.site-footer .footer-top-bar .footer-top-actions {
+.site-footer .footer-social-icons {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.25rem;
   flex-wrap: wrap;
 }
-.site-footer .footer-top-bar .footer-top-actions .footer-btn-talks {
+.site-footer .footer-social-icons .footer-social-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: transparent;
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 8px;
-  padding: 0.55rem 1.25rem;
-  font-family: var(--framer-font-family-bold, "Google Sans Flex", sans-serif);
-  font-size: 0.725rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  opacity: 0.88;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
-.site-footer .footer-top-bar .footer-top-actions .footer-btn-talks:hover {
-  border-color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.06);
+.site-footer .footer-social-icons .footer-social-link:hover {
+  opacity: 1;
+  transform: translateY(-2px);
 }
-.site-footer .footer-top-bar .footer-top-actions .footer-btn-consultation {
+.site-footer .footer-social-icons .footer-social-link svg {
+  display: block;
+}
+.site-footer .footer-nav-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.35rem;
+}
+@media (max-width: 768px) {
+  .site-footer .footer-nav-col {
+    align-items: flex-start;
+    width: 100%;
+  }
+}
+.site-footer .footer-scroll-top {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: #1e293b;
+  border: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: transparent;
-  color: #ffffff;
-  padding: 0.55rem 0.5rem;
-  font-family: var(--framer-font-family-bold, "Google Sans Flex", sans-serif);
-  font-size: 0.725rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: color 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
-.site-footer .footer-top-bar .footer-top-actions .footer-btn-consultation:hover {
-  color: #a3e635;
+.site-footer .footer-scroll-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.32);
+  background-color: #f8fafc;
 }
-.site-footer .footer-columns-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2.5rem 1.5rem;
-  margin-bottom: 3.5rem;
+.site-footer .footer-scroll-top:active {
+  transform: translateY(-1px);
 }
-@media (min-width: 640px) {
-  .site-footer .footer-columns-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem 2rem;
-  }
+.site-footer .footer-scroll-top svg {
+  display: block;
+  color: #0284c7;
 }
-@media (min-width: 768px) {
-  .site-footer .footer-columns-grid {
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1.5rem;
-  }
+.site-footer .footer-primary-nav {
+  display: flex;
+  align-items: center;
 }
-.site-footer .footer-columns-grid .footer-col-title {
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #ffffff;
-  margin: 0 0 1.5rem 0;
-}
-.site-footer .footer-columns-grid .footer-col-links {
+.site-footer .footer-primary-nav .footer-primary-nav-list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
-.site-footer .footer-columns-grid .footer-col-links li a {
-  font-family: var(--framer-font-family, "Google Sans Flex", sans-serif);
-  font-size: 0.85rem;
-  font-weight: 400;
-  color: #8e8e93;
-  text-decoration: none;
-  line-height: 1.4;
-  transition: color 0.2s ease;
-}
-.site-footer .footer-columns-grid .footer-col-links li a:hover {
-  color: #ffffff;
-}
-.site-footer .footer-pill-bar {
-  background-color: #1c1c1b;
-  border-radius: 12px;
-  padding: 1rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-@media (min-width: 768px) {
-  .site-footer .footer-pill-bar {
-    flex-direction: row;
-    align-items: center;
-    padding: 1.1rem 2rem;
+@media (max-width: 768px) {
+  .site-footer .footer-primary-nav .footer-primary-nav-list {
+    gap: 1rem 1.25rem;
   }
 }
-.site-footer .footer-pill-bar .footer-legal-links {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1.75rem;
-}
-.site-footer .footer-pill-bar .footer-legal-links a {
-  font-family: var(--framer-font-family-bold, "Google Sans Flex", sans-serif);
-  font-size: 0.8125rem;
-  font-weight: 600;
+.site-footer .footer-primary-nav .footer-primary-nav-list li a {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 0.9375rem;
+  font-weight: 500;
   color: #e4e4e7;
   text-decoration: none;
-  transition: color 0.2s ease;
+  letter-spacing: -0.01em;
+  transition: color 0.18s ease;
 }
-.site-footer .footer-pill-bar .footer-legal-links a:hover {
+.site-footer .footer-primary-nav .footer-primary-nav-list li a:hover {
   color: #ffffff;
 }
-.site-footer .footer-pill-bar .footer-social-icons {
+.site-footer .footer-secondary-nav {
   display: flex;
   align-items: center;
-  gap: 1.35rem;
+  gap: 1.25rem;
+  flex-wrap: wrap;
 }
-.site-footer .footer-pill-bar .footer-social-icons a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #a1a1aa;
+.site-footer .footer-secondary-nav a {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: #9ca3af;
   text-decoration: none;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: color 0.18s ease;
 }
-.site-footer .footer-pill-bar .footer-social-icons a:hover {
-  color: #ffffff;
-  transform: translateY(-1px);
+.site-footer .footer-secondary-nav a:hover {
+  color: #e4e4e7;
 }
-.site-footer .footer-pill-bar .footer-social-icons a svg {
-  width: 18px;
-  height: 18px;
-  stroke: currentColor;
-  fill: none;
+.site-footer .footer-divider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.12);
+  margin: 2.5rem 0 1.75rem 0;
 }
-.site-footer .footer-tech-note {
-  margin: 1.75rem 0 0 0;
-  font-family: var(--framer-font-family, "Google Sans Flex", sans-serif);
-  font-size: 0.715rem;
-  line-height: 1.68;
-  color: #55555c;
-  max-width: 100%;
-}
-.site-footer .footer-copyright {
-  margin: 2.25rem 0 0.5rem 0;
+.site-footer .footer-copyright-wrap {
   text-align: center;
-  font-family: var(--framer-font-family, "Google Sans Flex", sans-serif);
-  font-size: 0.75rem;
-  color: #71717a;
+}
+.site-footer .footer-copyright-wrap .footer-copyright-text {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 0.8125rem;
+  color: #9ca3af;
+  margin: 0;
+  letter-spacing: -0.005em;
 }
 
 .hero-section {
@@ -4224,13 +4166,13 @@ body.page-template-page-blog,
   border-radius: 10px;
   overflow-x: auto;
   margin: 1.75rem 0;
-  font-family: "Cartograph CF", "Source Code Pro", "Fira Mono", monospace;
+  font-family: "Wotfard", monospace;
   font-size: 0.875rem;
   line-height: 1.6;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .single-article .entry-content code {
-  font-family: "Cartograph CF", "Source Code Pro", "Fira Mono", monospace;
+  font-family: "Wotfard", monospace;
   font-size: 0.875em;
   padding: 0.2em 0.4em;
   border-radius: 6px;
