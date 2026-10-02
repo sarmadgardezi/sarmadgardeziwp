@@ -1,185 +1,117 @@
 <?php
 /**
- * Template part for displaying the Results & Impact Showcase Section ("By the numbers")
- *
- * Sarmad Gardezi - Google Achievements, Talks, Global Hackathons & Cloud Impact
+ * Template part for displaying the Minimalist About / Intro Split section
  *
  * @package SarmadGardezi
  */
 
 defined('ABSPATH') || exit;
 
-// Photo URL with Sarmad Gardezi Google 2026 Photo default & ACF support
-$default_photo = content_url('/uploads/2026/09/sarmadgardezi-google-2026.webp');
-$visual_photo  = $default_photo;
-
+// Photo URL with fallbacks & ACF support
+$photo_url = content_url('/uploads/2026/09/sarmadgardezi-google-2026.webp');
 if (function_exists('get_field')) {
-    $custom_photo = get_field('impact_photo');
+    $custom_photo = get_field('about_photo');
+    if (empty($custom_photo)) {
+        $custom_photo = get_field('impact_photo');
+    }
+    if (empty($custom_photo)) {
+        $custom_photo = get_field('about_hero_photo');
+    }
     if (!empty($custom_photo)) {
         if (is_array($custom_photo) && !empty($custom_photo['url'])) {
-            $visual_photo = $custom_photo['url'];
+            $photo_url = $custom_photo['url'];
+        } elseif (is_string($custom_photo)) {
+            $photo_url = $custom_photo;
         } elseif (is_numeric($custom_photo)) {
             $img_src = wp_get_attachment_image_src($custom_photo, 'full');
             if ($img_src) {
-                $visual_photo = $img_src[0];
+                $photo_url = $img_src[0];
             }
-        } elseif (is_string($custom_photo)) {
-            $visual_photo = $custom_photo;
         }
     }
 }
 
-// Impact Overlay Lines
-$overlay_lines = array(
-    'GOOGLER.',
-);
+// Fallback photo
+$fallback_photo = get_template_directory_uri() . '/assets/images/sarmad.png';
 
-// Main Metric
-$main_badge  = 'By the numbers';
-$main_number = '70';
-$main_suffix = '+';
-$main_label  = 'Events, Google summits & buildathons organized and spoken at since 2017.';
+// Copy Details
+$about_heading = 'Hey, I am Sarmad';
+if (function_exists('get_field')) {
+    $acf_h = get_field('about_split_heading');
+    if (!empty($acf_h)) $about_heading = $acf_h;
+}
 
-// Breakdown Rows
-$metric_rows = array(
-    array(
-        'value'     => '10',
-        'suffix'    => '+',
-        'color'     => '#3b82f6', // Google Blue
-        'title'     => __('Keynote & Tech Talks', 'sarmadgardezi'),
-        'desc'      => __('Spoken at GDG DevFests, Cloud summits & global conferences.', 'sarmadgardezi'),
-    ),
-    array(
-        'value'     => '25',
-        'suffix'    => '+',
-        'color'     => '#eab308', // Google Yellow
-        'title'     => __('Buildathons & Hackathons', 'sarmadgardezi'),
-        'desc'      => __('Successfully organized, mentored & judged across AI and Cloud.', 'sarmadgardezi'),
-    ),
-    array(
-        'value'     => '50',
-        'suffix'    => 'K+',
-        'color'     => '#10b981', // Google Green
-        'title'     => __('Developers Guided on YouTube', 'sarmadgardezi'),
-        'desc'      => __('Hands-on tutorials, Agentic AI architectures & tech mentorship.', 'sarmadgardezi'),
-    ),
-);
+$about_subtitle = 'A Senior Software Engineer & Product Builder &mdash; or to put it simply: an engineer who builds &amp; scales products.';
+if (function_exists('get_field')) {
+    $acf_sub = get_field('about_split_subtitle');
+    if (!empty($acf_sub)) $about_subtitle = $acf_sub;
+}
 
-// Bottom Pills
-$benefit_pills = array(
-    array(
-        'icon' => 'check',
-        'text' => __('GDG Cloud Islamabad Organizer (Since 2017)', 'sarmadgardezi'),
-    ),
-    array(
-        'icon' => 'rocket',
-        'text' => __('10+ Keynote & Technical Talks', 'sarmadgardezi'),
-    ),
-    array(
-        'icon' => 'trophy',
-        'text' => __('Successful Buildathons & Hackathons', 'sarmadgardezi'),
-    ),
-    array(
-        'icon' => 'target',
-        'text' => __('Guiding Tech Talent on YouTube', 'sarmadgardezi'),
-    ),
-    array(
-        'icon' => 'bolt',
-        'text' => __('Scalable Agentic AI & Cloud Architecture', 'sarmadgardezi'),
-    ),
+$about_bio = 'My passion has always been at the intersection of product architecture and modern full-stack development. I love turning complex ideas into intuitive, scalable software as much as coding with a good lo-fi playlist running in the back 🎧';
+if (function_exists('get_field')) {
+    $acf_bio = get_field('about_split_bio');
+    if (!empty($acf_bio)) $about_bio = $acf_bio;
+}
+
+$photo_caption = 'Building web apps since high school. Waiting for yours since.';
+if (function_exists('get_field')) {
+    $acf_cap = get_field('about_split_caption');
+    if (!empty($acf_cap)) $photo_caption = $acf_cap;
+}
+
+$pills = array(
+    '6+ years of building web apps',
+    'Organizer at GDG Cloud Islamabad',
 );
+if (function_exists('get_field')) {
+    $acf_pills = get_field('about_split_pills');
+    if (!empty($acf_pills) && is_array($acf_pills)) {
+        $pills = array_map(function($p) { return is_array($p) ? ($p['text'] ?? $p['pill'] ?? '') : $p; }, $acf_pills);
+    }
+}
 ?>
 
-<section id="numbers-impact" class="numbers-impact-section" aria-label="<?php esc_attr_e('By the numbers impact', 'sarmadgardezi'); ?>">
-    <div class="numbers-impact-container">
-
-        <!-- Top Two-Column Grid -->
-        <div class="numbers-impact-grid">
-
-            <!-- Left Card: Visual Photo Card with Bottom Overlay Text -->
-            <div class="impact-photo-card">
-                <img 
-                    src="<?php echo esc_url($visual_photo); ?>" 
-                    alt="<?php esc_attr_e('Sarmad Gardezi - Google Talks & Hackathons', 'sarmadgardezi'); ?>" 
-                    class="impact-photo-img"
-                    loading="lazy"
-                    width="600"
-                    height="600"
-                    onerror="this.onerror=null;this.src='/wp-content/uploads/2026/09/sarmadgardezi-google-2026.webp';"
-                />
+<section id="about-intro" class="about-intro-split-section" aria-label="<?php echo esc_attr($about_heading); ?>">
+    <div class="site-container about-intro-container">
+        <div class="about-intro-grid">
+            
+            <!-- Left Column: Text Content & Badges -->
+            <div class="about-intro-content">
+                <h2 class="about-intro-heading"><?php echo esc_html($about_heading); ?></h2>
                 
-                <!-- Bottom Dark Gradient Overlay -->
-                <div class="impact-gradient-overlay" aria-hidden="true"></div>
+                <p class="about-intro-subtitle">
+                    <?php echo wp_kses_post($about_subtitle); ?>
+                </p>
 
-                <!-- Overlay Typography -->
-                <div class="impact-overlay-content">
-                    <h2 class="impact-overlay-title">
-                        <?php foreach ($overlay_lines as $line) : ?>
-                            <span class="impact-title-line"><?php echo esc_html($line); ?></span>
+                <p class="about-intro-bio">
+                    <?php echo wp_kses_post($about_bio); ?>
+                </p>
+
+                <?php if (!empty($pills)) : ?>
+                    <div class="about-intro-pills">
+                        <?php foreach ($pills as $pill) : if (empty($pill)) continue; ?>
+                            <span class="intro-pill-badge"><?php echo esc_html($pill); ?></span>
                         <?php endforeach; ?>
-                    </h2>
-                </div>
+                    </div>
+                <?php endif; ?>
             </div>
 
-            <!-- Right Card: White Numbers & Breakdown Card -->
-            <div class="impact-numbers-card">
-                
-                <!-- Top Centered Pill Badge -->
-                <div class="numbers-pill-badge-wrap">
-                    <span class="numbers-pill-badge"><?php echo esc_html($main_badge); ?></span>
+            <!-- Right Column: Photo Card with Caption -->
+            <div class="about-intro-visual">
+                <div class="intro-photo-card">
+                    <img 
+                        src="<?php echo esc_url($photo_url); ?>" 
+                        alt="<?php echo esc_attr($about_heading); ?>" 
+                        class="intro-photo-img"
+                        loading="lazy"
+                        onerror="this.onerror=null;this.src='<?php echo esc_url($fallback_photo); ?>';"
+                    />
                 </div>
-
-                <!-- Main Highlight Number -->
-                <div class="numbers-main-metric">
-                    <div class="main-metric-value">
-                        <?php echo esc_html($main_number); ?><span class="metric-accent-purple"><?php echo esc_html($main_suffix); ?></span>
-                    </div>
-                    <p class="main-metric-label"><?php echo esc_html($main_label); ?></p>
-                </div>
-
-                <!-- 3 Metric Rows -->
-                <div class="numbers-rows-list">
-                    <?php foreach ($metric_rows as $row) : ?>
-                        <div class="numbers-row-item">
-                            <div class="row-value-col">
-                                <span class="row-num"><?php echo esc_html($row['value']); ?></span><span class="row-accent" style="color: <?php echo esc_attr($row['color']); ?>;"><?php echo esc_html($row['suffix']); ?></span>
-                            </div>
-                            <div class="row-text-col">
-                                <h3 class="row-heading"><?php echo esc_html($row['title']); ?></h3>
-                                <p class="row-subtext"><?php echo esc_html($row['desc']); ?></p>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-
+                <?php if (!empty($photo_caption)) : ?>
+                    <p class="intro-photo-caption"><?php echo esc_html($photo_caption); ?></p>
+                <?php endif; ?>
             </div>
 
         </div>
-
-        <!-- Bottom Horizontal Benefit Pills Row -->
-        <div class="impact-pills-marquee-wrap">
-            <div class="impact-pills-row">
-                <?php foreach ($benefit_pills as $pill) : ?>
-                    <div class="impact-benefit-pill">
-                        <span class="benefit-icon-circle">
-                            <?php if ($pill['icon'] === 'check') : ?>
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            <?php elseif ($pill['icon'] === 'rocket') : ?>
-                                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5s-4 4.5-4 9.5c0 2.2 1.3 4.2 3 5v4l1-1 1 1v-4c1.7-.8 3-2.8 3-5 0-5-4-9.5-4-9.5z"/></svg>
-                            <?php elseif ($pill['icon'] === 'trophy') : ?>
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94A5.01 5.01 0 0 0 11 15.9V19H8v2h8v-2h-3v-3.1c1.8-.3 3.32-1.5 3.61-3.06C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/></svg>
-                            <?php elseif ($pill['icon'] === 'target') : ?>
-                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-                            <?php elseif ($pill['icon'] === 'bolt') : ?>
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                            <?php endif; ?>
-                        </span>
-                        <span class="benefit-pill-text"><?php echo esc_html($pill['text']); ?></span>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-        </div>
-
     </div>
 </section>
-

@@ -14,11 +14,13 @@ get_header();
     <?php // get_template_part('template-parts/home/hero'); ?>
     <?php get_template_part('template-parts/home/hero-v2'); ?>
     <?php get_template_part('template-parts/home/brands'); ?>
-    <?php get_template_part('template-parts/home/reels'); ?>
-    <?php get_template_part('template-parts/home/problem'); ?>
-    <?php get_template_part('template-parts/home/mission'); ?>
-    <?php get_template_part('template-parts/home/featured-projects'); ?>
     <?php get_template_part('template-parts/home/about'); ?>
+    <?php /* Removed for now per request:
+    get_template_part('template-parts/home/reels');
+    get_template_part('template-parts/home/problem');
+    get_template_part('template-parts/home/mission');
+    get_template_part('template-parts/home/featured-projects');
+    */ ?>
 </main>
 
 <?php
