@@ -15,7 +15,7 @@
 
   .site-header-container {
     width: 100%;
-    max-width: 1140px;
+    max-width: 980px; // Exact match to projects & content width
     margin: 0 auto;
     padding: 0 1.5rem;
     display: flex;
@@ -24,7 +24,7 @@
 
   .site-header-inner {
     width: 100%;
-    max-width: 640px; // Exact match to hero and section width
+    max-width: 100%;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -55,15 +55,16 @@
       justify-content: center;
       width: 36px;
       height: 36px;
-      border-radius: 8px;
+      border-radius: 9px;
       background-color: $color-primary; // Primary theme color #C3DAFE
+      color: #111827;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
       flex-shrink: 0;
 
       .brand-badge-svg {
         display: block;
-        width: 20px;
-        height: 20px;
+        width: 19px;
+        height: 19px;
       }
     }
 

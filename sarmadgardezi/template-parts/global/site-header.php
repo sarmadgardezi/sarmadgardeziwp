@@ -21,9 +21,8 @@ $nav_items = sarmadgardezi_get_nav_items();
                         <?php the_custom_logo(); ?>
                     <?php else : ?>
                         <span class="brand-badge" aria-hidden="true">
-                            <svg class="brand-badge-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="2.5" y="14.5" width="4.5" height="4.5" rx="1" fill="#111827" />
-                                <path d="M19 7 C19 4.8, 16 3.5, 13 3.5 C9 3.5, 7.5 6, 7.5 8.2 C7.5 12.2, 19 11.2, 19 15.8 C19 19, 16 20.5, 12 20.5 C8.5 20.5, 7.5 18.2, 7.5 18.2" stroke="#111827" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                            <svg class="brand-badge-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 6.5C18 4.5 15.5 3 12 3C8.5 3 6 4.5 6 7C6 11.8 18 10.8 18 16.8C18 19.2 15.5 21 12 21C8.5 21 6 19.2 6 17.2"></path>
                             </svg>
                         </span>
                     <?php endif; ?>

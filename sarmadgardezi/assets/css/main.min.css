@@ -626,7 +626,7 @@ textarea::placeholder {
 }
 .site-header-custom .site-header-container {
   width: 100%;
-  max-width: 1140px;
+  max-width: 980px;
   margin: 0 auto;
   padding: 0 1.5rem;
   display: flex;
@@ -634,7 +634,7 @@ textarea::placeholder {
 }
 .site-header-custom .site-header-inner {
   width: 100%;
-  max-width: 640px;
+  max-width: 100%;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -659,15 +659,16 @@ textarea::placeholder {
   justify-content: center;
   width: 36px;
   height: 36px;
-  border-radius: 8px;
+  border-radius: 9px;
   background-color: #C3DAFE;
+  color: #111827;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   flex-shrink: 0;
 }
 .site-header-custom .brand-link .brand-badge .brand-badge-svg {
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 19px;
+  height: 19px;
 }
 .site-header-custom .brand-link .custom-logo {
   max-height: 36px;
@@ -5802,13 +5803,12 @@ body.page-template-page-blog,
 }
 .site-single-cs-main .cs-outer-wrap {
   width: 100%;
-  max-width: 1140px;
+  max-width: 980px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
 .site-single-cs-main .cs-inner-container {
   width: 100%;
-  max-width: 980px;
   margin: 0 auto;
 }
 .site-single-cs-main .cs-back-nav {
