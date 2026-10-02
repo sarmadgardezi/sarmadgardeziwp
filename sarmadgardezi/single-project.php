@@ -132,12 +132,12 @@ while (have_posts()) :
                 
                 <!-- 1. Back Navigation Link -->
                 <div class="cs-back-nav">
-                    <a href="<?php echo esc_url(home_url('/#projects-experience')); ?>" class="cs-back-btn">
+                    <a href="<?php echo esc_url(get_post_type_archive_link('project') ?: home_url('/projects/')); ?>" class="cs-back-btn">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <path d="m12 19-7-7 7-7"></path>
                             <path d="M19 12H5"></path>
                         </svg>
-                        <span><?php esc_html_e('Case Studies', 'sarmadgardezi'); ?></span>
+                        <span><?php esc_html_e('Projects', 'sarmadgardezi'); ?></span>
                     </a>
                 </div>
 
@@ -332,8 +332,8 @@ while (have_posts()) :
                     </section>
                 <?php endif; ?>
 
-                <!-- 8. Bottom Navigation / Case Study Switcher -->
-                <nav class="cs-post-nav" aria-label="<?php esc_attr_e('Case Study Navigation', 'sarmadgardezi'); ?>">
+                <!-- 8. Bottom Navigation / Project Switcher -->
+                <nav class="cs-post-nav" aria-label="<?php esc_attr_e('Project Navigation', 'sarmadgardezi'); ?>">
                     <div class="cs-nav-prev">
                         <?php previous_post_link('%link', '&larr; %title'); ?>
                     </div>

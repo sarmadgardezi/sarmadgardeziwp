@@ -5341,6 +5341,222 @@ body.page-template-page-blog,
   margin-right: auto;
 }
 
+.site-projects-archive-main {
+  width: 100%;
+  background-color: #ffffff;
+  padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(4rem, 8vw, 7rem);
+}
+.site-projects-archive-main .projects-archive-wrap {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.site-projects-archive-main .projects-page-header {
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+.site-projects-archive-main .projects-page-header .projects-page-title {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: clamp(2.5rem, 5.5vw, 3.75rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  color: #111827;
+  line-height: 1.1;
+  margin: 0 0 1rem 0;
+}
+.site-projects-archive-main .projects-page-header .projects-page-subtitle {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  color: #71717a;
+  max-width: 640px;
+  line-height: 1.55;
+  margin: 0;
+}
+.site-projects-archive-main .projects-showcase-list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.5rem, 5vw, 3.75rem);
+}
+.site-projects-archive-main .project-showcase-item {
+  position: relative;
+  width: 100%;
+}
+.site-projects-archive-main .project-showcase-card {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  background-color: #ffffff;
+}
+.site-projects-archive-main .project-showcase-card .corner-cross {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
+  z-index: 10;
+}
+.site-projects-archive-main .project-showcase-card .corner-cross::before, .site-projects-archive-main .project-showcase-card .corner-cross::after {
+  content: "";
+  position: absolute;
+  background-color: rgba(17, 24, 39, 0.28);
+}
+.site-projects-archive-main .project-showcase-card .corner-cross::before {
+  left: 0;
+  right: 0;
+  top: 5.5px;
+  height: 1px;
+}
+.site-projects-archive-main .project-showcase-card .corner-cross::after {
+  top: 0;
+  bottom: 0;
+  left: 5.5px;
+  width: 1px;
+}
+.site-projects-archive-main .project-showcase-card .corner-cross.top-left {
+  top: -6px;
+  left: -6px;
+}
+.site-projects-archive-main .project-showcase-card .corner-cross.top-right {
+  top: -6px;
+  right: -6px;
+}
+.site-projects-archive-main .project-showcase-card .corner-cross.bottom-left {
+  bottom: -6px;
+  left: -6px;
+}
+.site-projects-archive-main .project-showcase-card .corner-cross.bottom-right {
+  bottom: -6px;
+  right: -6px;
+}
+.site-projects-archive-main .project-showcase-card .project-card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #ffffff;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+@media (min-width: 640px) {
+  .site-projects-archive-main .project-showcase-card .project-card-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.site-projects-archive-main .project-showcase-card .project-card-grid:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.08);
+}
+.site-projects-archive-main .project-showcase-card .project-preview-slot {
+  padding: 1.25rem;
+}
+@media (min-width: 640px) {
+  .site-projects-archive-main .project-showcase-card .project-preview-slot {
+    padding: 1.5rem;
+  }
+}
+.site-projects-archive-main .project-showcase-card .project-preview-slot .project-preview-frame {
+  position: relative;
+  aspect-ratio: 4/3;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.site-projects-archive-main .project-showcase-card .project-preview-slot .project-preview-mockup {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+  transform-origin: top left;
+  transform: scale(1.6) rotate(1deg) translate(6%, 6%);
+  border-radius: 4px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.site-projects-archive-main .project-showcase-card .project-details-slot {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-top: 1px solid #e5e7eb;
+}
+@media (min-width: 640px) {
+  .site-projects-archive-main .project-showcase-card .project-details-slot {
+    border-top: none;
+    border-left: 1px solid #e5e7eb;
+    padding: 2rem 2.25rem;
+  }
+}
+.site-projects-archive-main .project-showcase-card .project-details-slot .project-timeline-label {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #71717a;
+  margin-bottom: 0.5rem;
+}
+.site-projects-archive-main .project-showcase-card .project-details-slot .project-card-title {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+  font-weight: 600;
+  color: #111827;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin: 0 0 0.5rem 0;
+}
+.site-projects-archive-main .project-showcase-card .project-details-slot .project-card-desc {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #52525b;
+  margin: 0 0 1.25rem 0;
+}
+.site-projects-archive-main .project-showcase-card .project-details-slot .project-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1.5rem;
+}
+.site-projects-archive-main .project-showcase-card .project-details-slot .project-card-tags .tag-pill {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 0.75rem;
+  font-weight: 500;
+  background-color: #f4f4f5;
+  color: #52525b;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  line-height: 1.3;
+}
+.site-projects-archive-main .project-showcase-card .project-details-slot .project-card-action {
+  margin-top: auto;
+  padding-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #71717a;
+  transition: color 0.2s ease;
+}
+.site-projects-archive-main .project-showcase-card .project-details-slot .project-card-action .action-arrow-icon {
+  transition: transform 0.2s ease;
+}
+.site-projects-archive-main .project-showcase-card:hover .project-preview-mockup {
+  transform: scale(1.68) rotate(1deg) translate(7%, 5%);
+}
+.site-projects-archive-main .project-showcase-card:hover .project-card-action {
+  color: #111827;
+}
+.site-projects-archive-main .project-showcase-card:hover .project-card-action .action-arrow-icon {
+  transform: translateX(3px);
+}
+
 .talks-grid {
   display: grid;
   grid-template-columns: 1fr;

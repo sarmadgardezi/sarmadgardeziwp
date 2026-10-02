@@ -110,10 +110,9 @@ function sarmadgardezi_get_nav_items() {
         $defaults = array(
             array('title' => __('Home', 'sarmadgardezi'), 'url' => home_url('/'), 'path' => '/'),
             array('title' => __('About', 'sarmadgardezi'), 'url' => home_url('/about'), 'path' => '/about'),
-            array('title' => __('Case Studies', 'sarmadgardezi'), 'url' => home_url('/case-studies'), 'path' => '/case-studies'),
+            array('title' => __('Projects', 'sarmadgardezi'), 'url' => home_url('/projects/'), 'path' => '/projects'),
             array('title' => __('Blog', 'sarmadgardezi'), 'url' => home_url('/blog'), 'path' => '/blog'),
-            array('title' => __('FAQs', 'sarmadgardezi'), 'url' => home_url('/faqs'), 'path' => '/faqs'),
-            array('title' => __('Contact', 'sarmadgardezi'), 'url' => home_url('/contact'), 'path' => '/contact'),
+            array('title' => __('Contact', 'sarmadgardezi'), 'url' => home_url('/#contact'), 'path' => '/#contact'),
         );
 
         foreach ($defaults as $def) {

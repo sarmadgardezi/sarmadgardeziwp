@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying the Case Studies archive catalog
+ * Template Name: Projects Archive
  *
  * @package SarmadGardezi
  */
