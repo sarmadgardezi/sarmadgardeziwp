@@ -32,21 +32,22 @@
 
           window.scrollTo({
             top: offsetPosition,
-            behavior: 'smooth',
-          });
-        }
-        // Footer scroll-to-top button handler
-        var scrollTopBtn = document.getElementById('footer-scroll-top-btn');
-        if (scrollTopBtn) {
-          scrollTopBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            window.scrollTo({
-              top: 0,
-              behavior: 'smooth',
-            });
+            behavior: 'smooth'
           });
         }
       });
     });
+
+    // Footer scroll-to-top button handler
+    var scrollTopBtn = document.getElementById('footer-scroll-top-btn');
+    if (scrollTopBtn) {
+      scrollTopBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
   });
 })();
