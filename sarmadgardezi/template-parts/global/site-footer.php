@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying the modern minimalist footer matching reference design
+ * Template part for displaying the modern minimalist footer matching Kent C. Dodds reference design
  *
  * @package SarmadGardezi
  */
@@ -12,14 +12,14 @@ defined('ABSPATH') || exit;
     <div class="footer-outer-wrap">
         <div class="footer-grid">
             
-            <!-- Left Column: Brand, Bio, Socials & Signature -->
+            <!-- Column 1: Brand, Bio, Socials & Signature (XL: Cols 1-4, rows 1-2) -->
             <div class="footer-col-brand">
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="footer-brand-title" rel="home">
                     <?php echo esc_html(get_bloginfo('name')); ?>
                 </a>
                 
                 <p class="footer-brand-bio">
-                    <?php esc_html_e('Senior Software Engineer & AI Architect making digital experiences faster, smarter, and scalable.', 'sarmadgardezi'); ?>
+                    <?php esc_html_e('Full time educator making our world better', 'sarmadgardezi'); ?>
                 </p>
 
                 <div class="footer-social-signature-wrap">
@@ -32,11 +32,11 @@ defined('ABSPATH') || exit;
                             </svg>
                         </a>
                         
-                        <!-- LinkedIn -->
-                        <a href="https://linkedin.com/in/sarmadgardezi" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                                <title>LinkedIn</title>
-                                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v7.6h2.76v-7.6H6.46M7.84 6.2a1.6 1.6 0 0 0-1.6 1.6 1.6 1.6 0 0 0 1.6 1.6 1.6 1.6 0 0 0 1.6-1.6 1.6 1.6 0 0 0-1.6-1.6Z"/>
+                        <!-- YouTube -->
+                        <a href="https://youtube.com/@sarmadgardezi" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube">
+                            <svg width="32" height="32" fill="none" viewBox="0 0 24 24">
+                                <title>YouTube</title>
+                                <path fill="currentColor" d="M10,15L15.19,12L10,9V15M21.56,7.17C21.69,7.64 21.78,8.27 21.84,9.07C21.91,9.87 21.94,10.56 21.94,11.16L22,12C22,14.19 21.84,15.8 21.56,16.83C21.31,17.73 20.73,18.31 19.83,18.56C19.36,18.69 18.5,18.78 17.18,18.84C15.88,18.91 14.69,18.94 13.59,18.94L12,19C7.81,19 5.2,18.84 4.17,18.56C3.27,18.31 2.69,17.73 2.44,16.83C2.31,16.36 2.22,15.73 2.16,14.93C2.09,14.13 2.06,13.44 2.06,12.84L2,12C2,9.81 2.16,8.2 2.44,7.17C2.69,6.27 3.27,5.69 4.17,5.44C4.64,5.31 5.5,5.22 6.82,5.16C8.12,5.09 9.31,5.06 10.41,5.06L12,5C16.19,5 18.8,5.16 19.83,5.44C20.73,5.69 21.31,6.27 21.56,7.17Z"></path>
                             </svg>
                         </a>
                         
@@ -61,7 +61,7 @@ defined('ABSPATH') || exit;
 
                     <!-- Signature SVG -->
                     <div class="footer-signature-wrap">
-                        <svg width="170" height="90" viewBox="0 0 208 110" class="footer-signature-svg" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="208" height="110" viewBox="0 0 208 110" class="footer-signature-svg" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path d="m10.7 8.7c-0.4 4.3-2.7 19-5.2 32.7s-4.5 25.7-4.5 26.5c0 2.6 1.6 4.2 3.3 3.5 2.1-0.8 2.2-2.4 0.2-2.4-1.2 0-1.5-0.7-1-3.3 0.3-1.7 1.2-6.8 1.9-11.2 1.1-7 1.5-8 3.2-7.7 10.1 1.7 21.1 1.2 43.4-2.2 28.3-4.2 50-6.9 50.7-6.3 0.2 0.3-0.1 3.3-0.7 6.7s-0.9 6.4-0.6 6.7c1.2 1.3 2.4-1.1 2.9-6.3 0.3-3.1 1-6.1 1.5-6.6 0.6-0.6 9.9-1.8 20.9-2.8 33-3.1 38.7-3.4 38-2.3-0.4 0.6-1.9 1.4-3.4 1.8-1.6 0.3-8 2.6-14.3 5-6.3 2.5-23.2 8.7-37.5 13.9s-33.2 12.2-42 15.6c-28.5 10.9-50.4 19-51.5 19-0.5 0-1 0.4-1 1 0 0.5 0.2 1 0.4 1 1.2 0 28-9.7 60.6-22 20.6-7.8 42.5-15.9 48.5-18 6.1-2.1 13.6-4.8 16.8-6s6-2 6.3-1.8c0.2 0.3-0.5 1.7-1.6 3.1-1.2 1.4-2.7 4.3-3.4 6.4-1.1 3.2-1.7 3.8-4.5 3.9-3.9 0.2-7.1 2.9-7.1 6 0 2.3 2.5 4.4 4.5 3.9 0.6-0.2 2.2-0.6 3.8-0.9 4.2-1 3.2-2.5-1.3-1.9-3.6 0.5-4 0.3-4-1.5 0-2.9 4.4-4 6.9-1.8 1.7 1.5 1.8 1.3 3-3.7 0.6-2.9 2.3-7 3.6-9 1.4-2 2.5-4.2 2.5-5s1.9-1.9 4.3-2.7c2.3-0.6 7.1-2.5 10.7-4.2 5-2.2 6.1-3.1 5-3.8-2.5-1.6-12-1.2-46.6 2-37.5 3.5-49.3 4.9-71.9 8.5-28.1 4.4-43.5 4.3-43.5-0.3 0-2.9 13.9-15.2 26.9-24 10.2-6.9 12.5-8.1 13.8-7 1.2 1 1.8 0.8 3.4-1.2 2.3-3.1 2.4-4 0.1-4-4 0-27.1 15.3-37.3 24.7-3.5 3.3-5.9 4.9-5.9 4 0-0.8 0.9-5.9 2-11.2 2-9.9 2.7-22.5 1.1-22.5-0.4 0-1.1 3.5-1.4 7.7z"></path>
                             <path d="m165.1 40.7c-0.7 1.6-1.6 5.4-1.9 8.6-0.5 5.6-0.6 5.8-2.9 5.2-3.2-0.8-8.6 2.6-11.4 7.1-2.6 4.2-1.5 6.1 2.8 4.9 1.5-0.5 3.3-0.7 3.8-0.6 0.6 0.2 8.2 1.8 17 3.6 26.5 5.5 31.5 6.8 31.5 8 0 1.6-15.1 4-41 6.5-33.2 3.2-75.6 9.8-115.5 18-8.2 1.7-19.2 3.4-24.2 3.7-2.2066 0.132-5.0134 0.952-8.2618-0.36-1.2736-0.678-2.2382-1.25-0.5001-3.327 0.1923-0.577-0.7381-2.1132-2.0381-1.013-2 1.7-1.9 3.3 0.3 5.3 3 2.7 13.2 2.1 35.4-2.2 51.6-10 83.4-14.9 118.3-18.1 12.7-1.2 26.1-2.8 29.9-3.6 6.7-1.3 11.6-3.6 11.6-5.3 0-2.1-17.4-6.7-40.3-10.7-5.3-1-9.6-2.2-9.4-2.8 0.4-1.3 18.2-7.2 27.4-9.1 3.9-0.8 8.6-1.2 10.4-0.8 2.5 0.5 3.1 0.3 2.7-0.8-1-2.9-20.9 0-32 4.6-1.5 0.6-1.8 0.1-1.8-3.2 0-2.1 0.7-6.5 1.5-9.6 1.8-6.8 1.7-6.7 0.7-6.7-0.5 0-1.4 1.2-2.1 2.7zm-3.1 17.3c0 0.5-2 1.9-4.5 3.1s-4.8 2.5-5.1 3c-0.7 1.3-2.4 1.1-2.4-0.2 0-2.2 6.2-6.9 9.1-6.9 1.6 0 2.9 0.4 2.9 1z"></path>
                             <path d="m84.2 49.6c-2.4 1.6-3 5.4-0.9 5.4 2.4 0 10.7-3.2 10.7-4.1 0-1.2-0.1-1.2-4.3 0.6-4.3 1.8-4.7 1.8-4.7 0.5 0-0.6 1.1-1.5 2.5-2s2.5-1.2 2.5-1.5c0-1.1-3.7-0.4-5.8 1.1z"></path>
@@ -73,83 +73,92 @@ defined('ABSPATH') || exit;
                 </div>
             </div>
 
-            <!-- Middle Left: Contact & General -->
+            <!-- Middle Left: Contact (XL: Col 5-6, row 1) -->
             <div class="footer-col-nav footer-col-contact">
                 <div class="footer-nav-block">
-                    <h4 class="footer-nav-heading"><?php esc_html_e('Contact', 'sarmadgardezi'); ?></h4>
+                    <h3 class="footer-nav-heading"><?php esc_html_e('Contact', 'sarmadgardezi'); ?></h3>
                     <ul class="footer-nav-links">
-                        <li><a href="mailto:sarmad@sarmadgardezi.com"><?php esc_html_e('Email Sarmad', 'sarmadgardezi'); ?></a></li>
-                        <li><a href="<?php echo esc_url(home_url('/contact')); ?>" data-cal-trigger><?php esc_html_e('Call Sarmad', 'sarmadgardezi'); ?></a></li>
-                        <li><a href="<?php echo esc_url(home_url('/contact')); ?>"><?php esc_html_e('Office hours', 'sarmadgardezi'); ?></a></li>
+                        <li><a href="mailto:sarmad@sarmadgardezi.com"><?php esc_html_e('Email Kent', 'sarmadgardezi'); ?></a></li>
+                        <li><a href="<?php echo esc_url(home_url('/calls')); ?>" data-cal-trigger><?php esc_html_e('Call Kent', 'sarmadgardezi'); ?></a></li>
+                        <li><a href="<?php echo esc_url(home_url('/office-hours')); ?>"><?php esc_html_e('Office hours', 'sarmadgardezi'); ?></a></li>
                     </ul>
                 </div>
 
                 <div class="footer-nav-block footer-nav-block-general">
-                    <h4 class="footer-nav-heading"><?php esc_html_e('General', 'sarmadgardezi'); ?></h4>
+                    <h3 class="footer-nav-heading"><?php esc_html_e('General', 'sarmadgardezi'); ?></h3>
                     <ul class="footer-nav-links">
-                        <li><a href="<?php echo esc_url(home_url('/about')); ?>"><?php esc_html_e('My Mission', 'sarmadgardezi'); ?></a></li>
-                        <li><a href="<?php echo esc_url(home_url('/privacy')); ?>"><?php esc_html_e('Privacy policy', 'sarmadgardezi'); ?></a></li>
-                        <li><a href="<?php echo esc_url(home_url('/terms')); ?>"><?php esc_html_e('Terms of use', 'sarmadgardezi'); ?></a></li>
-                        <li><a href="<?php echo esc_url(home_url('/privacy#conduct')); ?>"><?php esc_html_e('Code of conduct', 'sarmadgardezi'); ?></a></li>
+                        <li><a href="<?php echo esc_url(home_url('/transparency')); ?>"><?php esc_html_e('My Mission', 'sarmadgardezi'); ?></a></li>
+                        <li><a href="<?php echo esc_url(home_url('/transparency#privacy')); ?>"><?php esc_html_e('Privacy policy', 'sarmadgardezi'); ?></a></li>
+                        <li><a href="<?php echo esc_url(home_url('/transparency#terms')); ?>"><?php esc_html_e('Terms of use', 'sarmadgardezi'); ?></a></li>
+                        <li><a href="<?php echo esc_url(home_url('/conduct')); ?>"><?php esc_html_e('Code of conduct', 'sarmadgardezi'); ?></a></li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Middle Right: Sitemap -->
+            <!-- Middle Right: Sitemap (XL: Col 7-8, rows 1-2) -->
             <div class="footer-col-nav footer-col-sitemap">
                 <div class="footer-nav-block">
-                    <h4 class="footer-nav-heading"><?php esc_html_e('Sitemap', 'sarmadgardezi'); ?></h4>
+                    <h3 class="footer-nav-heading"><?php esc_html_e('Sitemap', 'sarmadgardezi'); ?></h3>
                     <ul class="footer-nav-links">
                         <li><a href="<?php echo esc_url(home_url('/')); ?>"><?php esc_html_e('Home', 'sarmadgardezi'); ?></a></li>
                         <li><a href="<?php echo esc_url(home_url('/blog')); ?>"><?php esc_html_e('Blog', 'sarmadgardezi'); ?></a></li>
-                        <li><a href="<?php echo esc_url(home_url('/projects')); ?>"><?php esc_html_e('Projects', 'sarmadgardezi'); ?></a></li>
-                        <li><a href="<?php echo esc_url(home_url('/case-study')); ?>"><?php esc_html_e('Case Studies', 'sarmadgardezi'); ?></a></li>
-                        <li><a href="<?php echo esc_url(home_url('/events')); ?>"><?php esc_html_e('Talks & Events', 'sarmadgardezi'); ?></a></li>
+                        <li><a href="<?php echo esc_url(home_url('/courses')); ?>"><?php esc_html_e('Courses', 'sarmadgardezi'); ?></a></li>
+                        <li><a href="<?php echo esc_url(home_url('/better')); ?>"><?php esc_html_e('Better', 'sarmadgardezi'); ?></a></li>
+                        <li><a href="<?php echo esc_url(home_url('/discord')); ?>"><?php esc_html_e('Discord', 'sarmadgardezi'); ?></a></li>
+                        <li><a href="<?php echo esc_url(home_url('/chats')); ?>"><?php esc_html_e('Chats Podcast', 'sarmadgardezi'); ?></a></li>
+                        <li><a href="<?php echo esc_url(home_url('/talks')); ?>"><?php esc_html_e('Talks', 'sarmadgardezi'); ?></a></li>
+                        <li><a href="<?php echo esc_url(home_url('/testimony')); ?>"><?php esc_html_e('Testimony', 'sarmadgardezi'); ?></a></li>
+                        <li><a href="<?php echo esc_url(home_url('/testimonials')); ?>"><?php esc_html_e('Testimonials', 'sarmadgardezi'); ?></a></li>
                         <li><a href="<?php echo esc_url(home_url('/about')); ?>"><?php esc_html_e('About', 'sarmadgardezi'); ?></a></li>
-                        <li><a href="<?php echo esc_url(home_url('/contact')); ?>"><?php esc_html_e('Contact', 'sarmadgardezi'); ?></a></li>
+                        <li><a href="<?php echo esc_url(home_url('/resume')); ?>"><?php esc_html_e('Resume', 'sarmadgardezi'); ?></a></li>
+                        <li><a href="<?php echo esc_url(home_url('/credits')); ?>"><?php esc_html_e('Credits', 'sarmadgardezi'); ?></a></li>
                         <li><a href="<?php echo esc_url(home_url('/sitemap.xml')); ?>"><?php esc_html_e('Sitemap.xml', 'sarmadgardezi'); ?></a></li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Right Column: Stay up to date (Newsletter) -->
+            <!-- Right Column: Stay up to date (Newsletter) (XL: Cols 9-12, rows 1-2) -->
             <div class="footer-col-newsletter">
-                <h4 class="footer-nav-heading"><?php esc_html_e('Stay up to date', 'sarmadgardezi'); ?></h4>
+                <h3 class="footer-nav-heading"><?php esc_html_e('Stay up to date', 'sarmadgardezi'); ?></h3>
                 
-                <p class="footer-newsletter-desc">
-                    <?php esc_html_e('Subscribe to the newsletter to stay up to date with articles, courses, engineering deep dives and much more!', 'sarmadgardezi'); ?>
-                    <a href="<?php echo esc_url(home_url('/blog')); ?>" class="footer-newsletter-learn-more">
-                        <?php esc_html_e('Learn more about the newsletter', 'sarmadgardezi'); ?>
+                <div class="footer-newsletter-desc-wrap">
+                    <p class="footer-newsletter-desc">
+                        <?php esc_html_e('Subscribe to the newsletter to stay up to date with articles, courses and much more!', 'sarmadgardezi'); ?>
+                    </p>
+                    <a href="<?php echo esc_url(home_url('/subscribe')); ?>" class="footer-newsletter-learn-more">
+                        <span><?php esc_html_e('Learn more about the newsletter', 'sarmadgardezi'); ?></span>
                         <svg class="footer-diagonal-arrow" width="20" height="20" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M15.101 5.5V23.1094L9.40108 17.4095L8.14807 18.6619L15.9862 26.5L23.852 18.6342L22.5996 17.3817L16.8725 23.1094V5.5H15.101Z" fill="currentColor"></path>
                         </svg>
                     </a>
-                </p>
+                </div>
 
-                <form class="footer-newsletter-form" action="<?php echo esc_url(home_url('/contact')); ?>" method="get">
+                <form class="footer-newsletter-form" action="<?php echo esc_url(home_url('/subscribe')); ?>" method="post">
                     <!-- Honeypot -->
                     <div style="position: absolute; left: -9999px; opacity: 0;" aria-hidden="true">
-                        <label for="footer_hp_url">Website</label>
-                        <input type="text" id="footer_hp_url" name="url" tabindex="-1" autocomplete="off">
+                        <label for="website-url-footer">Your website</label>
+                        <input type="text" id="website-url-footer" name="url" tabindex="-1" autocomplete="nope">
                     </div>
+                    <input type="hidden" name="formId" value="newsletter">
 
                     <div class="footer-form-group">
-                        <label for="footer_fname" class="footer-field-label"><?php esc_html_e('First name', 'sarmadgardezi'); ?></label>
-                        <input type="text" id="footer_fname" name="firstName" required autocomplete="given-name" class="footer-field-input" placeholder="">
+                        <label for="footer_firstName" class="footer-field-label"><?php esc_html_e('First name', 'sarmadgardezi'); ?></label>
+                        <input required id="footer_firstName" name="firstName" autocomplete="given-name" class="footer-field-input" type="text">
                     </div>
 
                     <div class="footer-form-group">
                         <label for="footer_email" class="footer-field-label"><?php esc_html_e('Email', 'sarmadgardezi'); ?></label>
-                        <input type="email" id="footer_email" name="email" required autocomplete="email" class="footer-field-input" placeholder="">
+                        <input required id="footer_email" name="email" type="email" autocomplete="email" class="footer-field-input">
                     </div>
 
                     <button type="submit" class="footer-submit-btn">
                         <span class="footer-submit-text"><?php esc_html_e('Sign me up', 'sarmadgardezi'); ?></span>
-                        <div class="footer-submit-circle">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                                <polyline points="12 5 19 12 12 19"></polyline>
-                            </svg>
+                        <div class="footer-submit-circle-wrap">
+                            <div class="footer-submit-circle">
+                                <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="footer-submit-arrow-icon">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M15.101 5.5V23.1094L9.40108 17.4095L8.14807 18.6619L15.9862 26.5L23.852 18.6342L22.5996 17.3817L16.8725 23.1094V5.5H15.101Z" fill="currentColor"></path>
+                                </svg>
+                            </div>
                         </div>
                     </button>
                 </form>
@@ -177,3 +186,4 @@ defined('ABSPATH') || exit;
         </div>
     </div>
 </footer>
+
