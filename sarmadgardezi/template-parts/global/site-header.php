@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying the Minimalist Dark Header
+ * Template part for displaying the Minimalist Dark Header with Mobile Responsive Menu
  *
  * @package SarmadGardezi
  */
@@ -8,30 +8,37 @@
 defined('ABSPATH') || exit;
 
 $nav_items = sarmadgardezi_get_nav_items();
+
+// Theme Customizer branding options
+$brand_display = get_theme_mod('sarmadgardezi_brand_display', 'title_only');
+$brand_text_override = get_theme_mod('sarmadgardezi_brand_text', '');
+$brand_title = !empty($brand_text_override) ? $brand_text_override : get_bloginfo('name');
 ?>
 
 <header class="site-header-custom" id="masthead">
     <div class="site-header-container">
         <div class="site-header-inner">
             
-            <!-- Left: Brand Logo & Name -->
+            <!-- Left: Brand (Image Logo, Text Title, or Both - Box S removed) -->
             <div class="header-left">
-                <a class="brand-link" href="<?php echo esc_url(home_url('/')); ?>" rel="home" aria-label="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>">
+                <a class="brand-link" href="<?php echo esc_url(home_url('/')); ?>" rel="home" aria-label="<?php echo esc_attr($brand_title); ?>">
                     <?php if (has_custom_logo()) : ?>
-                        <?php the_custom_logo(); ?>
+                        <?php if ($brand_display === 'logo_only') : ?>
+                            <?php the_custom_logo(); ?>
+                        <?php elseif ($brand_display === 'both') : ?>
+                            <span class="brand-logo-wrap"><?php the_custom_logo(); ?></span>
+                            <span class="brand-name-text"><?php echo esc_html($brand_title); ?></span>
+                        <?php else : ?>
+                            <span class="brand-name-text"><?php echo esc_html($brand_title); ?></span>
+                        <?php endif; ?>
                     <?php else : ?>
-                        <span class="brand-badge" aria-hidden="true">
-                            <svg class="brand-badge-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 6.5C18 4.5 15.5 3 12 3C8.5 3 6 4.5 6 7C6 11.8 18 10.8 18 16.8C18 19.2 15.5 21 12 21C8.5 21 6 19.2 6 17.2"></path>
-                            </svg>
-                        </span>
-                        <span class="brand-name-text"><?php echo esc_html(get_bloginfo('name')); ?></span>
+                        <span class="brand-name-text"><?php echo esc_html($brand_title); ?></span>
                     <?php endif; ?>
                 </a>
             </div>
 
-            <!-- Right: Direct Horizontal Navigation Links -->
-            <nav class="header-nav" aria-label="<?php esc_attr_e('Primary Navigation', 'sarmadgardezi'); ?>">
+            <!-- Right: Desktop Navigation Links -->
+            <nav class="header-nav header-desktop-nav" aria-label="<?php esc_attr_e('Primary Navigation', 'sarmadgardezi'); ?>">
                 <ul class="header-nav-list">
                     <?php foreach ($nav_items as $item) : 
                         if (strtolower(trim($item['title'])) === 'home') {
@@ -49,7 +56,38 @@ $nav_items = sarmadgardezi_get_nav_items();
                 </ul>
             </nav>
 
+            <!-- Mobile Hamburger Toggle Button -->
+            <button type="button" class="header-mobile-toggle" id="mobile-menu-toggle" aria-expanded="false" aria-controls="header-mobile-drawer" aria-label="<?php esc_attr_e('Toggle navigation menu', 'sarmadgardezi'); ?>">
+                <span class="hamburger-box">
+                    <span class="hamburger-bar bar-1"></span>
+                    <span class="hamburger-bar bar-2"></span>
+                    <span class="hamburger-bar bar-3"></span>
+                </span>
+            </button>
+
+        </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer Overlay -->
+    <div class="header-mobile-drawer" id="header-mobile-drawer" aria-hidden="true">
+        <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop"></div>
+        <div class="mobile-drawer-card">
+            <nav class="mobile-drawer-nav" aria-label="<?php esc_attr_e('Mobile Navigation', 'sarmadgardezi'); ?>">
+                <ul class="mobile-nav-list">
+                    <?php foreach ($nav_items as $item) : 
+                        $is_active = !empty($item['active']);
+                        $item_class = 'mobile-nav-item' . ($is_active ? ' is-active' : '');
+                    ?>
+                        <li class="<?php echo esc_attr($item_class); ?>">
+                            <a class="mobile-nav-link" href="<?php echo esc_url($item['url']); ?>" target="<?php echo esc_attr($item['target']); ?>">
+                                <?php echo esc_html($item['title']); ?>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </nav>
         </div>
     </div>
 </header>
+
 

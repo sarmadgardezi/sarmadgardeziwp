@@ -1,5 +1,5 @@
 /**
- * Navigation and Header Modal Interactions
+ * Navigation and Mobile Drawer Interactions
  *
  * @package SarmadGardezi
  */
@@ -8,90 +8,113 @@
   'use strict';
 
   document.addEventListener('DOMContentLoaded', function () {
-    var menuToggle = document.getElementById('menu-toggle');
-    var menuModal = document.getElementById('header-menu-modal');
-    var menuBackdrop = document.getElementById('header-menu-backdrop');
-    var modalCloseTrigger = document.getElementById('modal-close-trigger');
+    // ----------------------------------------------------------------------
+    // 1. Mobile Menu Drawer
+    // ----------------------------------------------------------------------
+    var mobileToggle = document.getElementById('mobile-menu-toggle');
+    var mobileDrawer = document.getElementById('header-mobile-drawer');
+    var mobileBackdrop = document.getElementById('mobile-drawer-backdrop');
+    var mobileLinks = document.querySelectorAll('.mobile-nav-link');
 
-    function openMenu() {
-      if (!menuModal) return;
-      if (menuToggle) menuToggle.setAttribute('aria-expanded', 'true');
-      menuModal.classList.remove('hidden');
+    function openMobileMenu() {
+      if (!mobileDrawer) return;
+      if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'true');
+      mobileDrawer.classList.add('is-open');
+      mobileDrawer.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
-      
-      // Focus first link or close button for accessibility
-      var firstLink = menuModal.querySelector('.boxed-nav-link');
+
+      // Focus first link for keyboard accessibility
+      var firstLink = mobileDrawer.querySelector('.mobile-nav-link');
       if (firstLink) {
         firstLink.focus();
       }
     }
 
-    function closeMenu() {
-      if (!menuModal) return;
-      if (menuToggle) {
-        menuToggle.setAttribute('aria-expanded', 'false');
-        menuToggle.focus();
+    function closeMobileMenu() {
+      if (!mobileDrawer) return;
+      if (mobileToggle) {
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        mobileToggle.focus();
       }
-      menuModal.classList.add('hidden');
+      mobileDrawer.classList.remove('is-open');
+      mobileDrawer.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
     }
 
-    function toggleMenu(e) {
+    function toggleMobileMenu(e) {
       if (e) e.stopPropagation();
-      var isExpanded = menuToggle && menuToggle.getAttribute('aria-expanded') === 'true';
+      var isExpanded = mobileToggle && mobileToggle.getAttribute('aria-expanded') === 'true';
       if (isExpanded) {
-        closeMenu();
+        closeMobileMenu();
       } else {
-        openMenu();
+        openMobileMenu();
       }
     }
 
+    if (mobileToggle && mobileDrawer) {
+      mobileToggle.addEventListener('click', toggleMobileMenu);
+
+      if (mobileBackdrop) {
+        mobileBackdrop.addEventListener('click', closeMobileMenu);
+      }
+
+      if (mobileLinks.length > 0) {
+        mobileLinks.forEach(function (link) {
+          link.addEventListener('click', function () {
+            closeMobileMenu();
+          });
+        });
+      }
+
+      // Close mobile menu on Escape key press
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && mobileDrawer.classList.contains('is-open')) {
+          closeMobileMenu();
+        }
+      });
+    }
+
+    // ----------------------------------------------------------------------
+    // 2. Legacy Boxed Modal Navigation (if present)
+    // ----------------------------------------------------------------------
+    var menuToggle = document.getElementById('menu-toggle');
+    var menuModal = document.getElementById('header-menu-modal');
+    var menuBackdrop = document.getElementById('header-menu-backdrop');
+    var modalCloseTrigger = document.getElementById('modal-close-trigger');
+
     if (menuToggle && menuModal) {
-      menuToggle.addEventListener('click', toggleMenu);
+      menuToggle.addEventListener('click', function (e) {
+        if (e) e.stopPropagation();
+        var isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        if (isExpanded) {
+          menuToggle.setAttribute('aria-expanded', 'false');
+          menuModal.classList.add('hidden');
+          document.body.style.overflow = '';
+        } else {
+          menuToggle.setAttribute('aria-expanded', 'true');
+          menuModal.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        }
+      });
 
       if (menuBackdrop) {
-        menuBackdrop.addEventListener('click', closeMenu);
+        menuBackdrop.addEventListener('click', function () {
+          menuModal.classList.add('hidden');
+          document.body.style.overflow = '';
+        });
       }
 
       if (modalCloseTrigger) {
-        modalCloseTrigger.addEventListener('click', closeMenu);
-      }
-
-      // Close on clicking outside card
-      menuModal.addEventListener('click', function (e) {
-        var card = menuModal.querySelector('.header-boxed-card');
-        var closeNotch = menuModal.querySelector('.header-modal-close-notch');
-        if (card && !card.contains(e.target) && (!closeNotch || !closeNotch.contains(e.target))) {
-          closeMenu();
-        }
-      });
-
-      // Close on Escape key press
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && !menuModal.classList.contains('hidden')) {
-          closeMenu();
-        }
-      });
-    }
-
-    // Nav link click handling
-    var boxedNavLinks = document.querySelectorAll('.boxed-nav-link');
-    if (boxedNavLinks.length > 0) {
-      boxedNavLinks.forEach(function (link) {
-        link.addEventListener('click', function () {
-          var href = this.getAttribute('href') || '';
-          if (href.indexOf('#') !== -1) {
-            boxedNavLinks.forEach(function (other) {
-              other.classList.remove('is-active', 'active', 'current-menu-item');
-            });
-            this.classList.add('is-active', 'active', 'current-menu-item');
-          }
-          closeMenu();
+        modalCloseTrigger.addEventListener('click', function () {
+          menuModal.classList.add('hidden');
+          document.body.style.overflow = '';
         });
-      });
+      }
     }
 
-    // Header On-Scroll Background Blur
+    // ----------------------------------------------------------------------
+    // 3. Header On-Scroll Background Effect
+    // ----------------------------------------------------------------------
     var masthead = document.getElementById('masthead');
     if (masthead) {
       var ticking = false;
@@ -111,8 +134,8 @@
         }
       }, { passive: true });
 
-      // Run on initial load
       updateHeaderScroll();
     }
   });
 })();
+
