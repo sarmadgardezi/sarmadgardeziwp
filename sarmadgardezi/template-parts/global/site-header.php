@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying the Minimalist Header aligned with Hero width
+ * Template part for displaying the Minimalist Dark Header
  *
  * @package SarmadGardezi
  */
@@ -11,10 +11,10 @@ $nav_items = sarmadgardezi_get_nav_items();
 ?>
 
 <header class="site-header-custom" id="masthead">
-    <div class="site-container site-header-container">
+    <div class="site-header-container">
         <div class="site-header-inner">
             
-            <!-- Left: Brand Logo (Squircle Lavender Badge) -->
+            <!-- Left: Brand Logo & Name -->
             <div class="header-left">
                 <a class="brand-link" href="<?php echo esc_url(home_url('/')); ?>" rel="home" aria-label="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>">
                     <?php if (has_custom_logo()) : ?>
@@ -25,6 +25,7 @@ $nav_items = sarmadgardezi_get_nav_items();
                                 <path d="M18 6.5C18 4.5 15.5 3 12 3C8.5 3 6 4.5 6 7C6 11.8 18 10.8 18 16.8C18 19.2 15.5 21 12 21C8.5 21 6 19.2 6 17.2"></path>
                             </svg>
                         </span>
+                        <span class="brand-name-text"><?php echo esc_html(get_bloginfo('name')); ?></span>
                     <?php endif; ?>
                 </a>
             </div>
@@ -51,3 +52,4 @@ $nav_items = sarmadgardezi_get_nav_items();
         </div>
     </div>
 </header>
+

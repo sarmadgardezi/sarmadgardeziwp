@@ -1291,22 +1291,24 @@ textarea::placeholder {
 
 .site-header-custom {
   width: 100%;
-  background-color: #ffffff;
-  padding-top: clamp(2rem, 4vw, 3.25rem);
-  padding-bottom: 0.5rem;
+  background-color: #161922;
+  padding-top: clamp(1.75rem, 3.5vw, 2.75rem);
+  padding-bottom: clamp(1rem, 2vw, 1.5rem);
   position: relative;
   z-index: 100;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 .site-header-custom .site-header-container {
   width: 100%;
-  max-width: 980px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 clamp(1.25rem, 5vw, 3rem);
   display: flex;
   justify-content: center;
+  box-sizing: border-box;
 }
 .site-header-custom .site-header-inner {
   width: 100%;
@@ -1315,6 +1317,7 @@ textarea::placeholder {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1.5rem;
 }
 .site-header-custom .header-left {
   display: flex;
@@ -1323,11 +1326,12 @@ textarea::placeholder {
 .site-header-custom .brand-link {
   display: inline-flex;
   align-items: center;
+  gap: 0.85rem;
   text-decoration: none;
   transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .site-header-custom .brand-link:hover {
-  transform: scale(1.06);
+  transform: scale(1.03);
 }
 .site-header-custom .brand-link .brand-badge {
   display: inline-flex;
@@ -1335,16 +1339,30 @@ textarea::placeholder {
   justify-content: center;
   width: 36px;
   height: 36px;
-  border-radius: 9px;
-  background-color: #C3DAFE;
-  color: #111827;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  border-radius: 10px;
+  background-color: #242838;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   flex-shrink: 0;
+  transition: all 0.2s ease;
 }
 .site-header-custom .brand-link .brand-badge .brand-badge-svg {
   display: block;
   width: 19px;
   height: 19px;
+}
+.site-header-custom .brand-link .brand-name-text {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+.site-header-custom .brand-link:hover .brand-badge {
+  border-color: rgba(255, 255, 255, 0.25);
+  background-color: #2e3448;
 }
 .site-header-custom .brand-link .custom-logo {
   max-height: 36px;
@@ -1358,7 +1376,7 @@ textarea::placeholder {
 .site-header-custom .header-nav-list {
   display: flex;
   align-items: center;
-  gap: clamp(1.25rem, 3vw, 2.25rem);
+  gap: clamp(1.25rem, 2.5vw, 2.25rem);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -1372,19 +1390,18 @@ textarea::placeholder {
   font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: 0.9375rem;
   font-weight: 500;
-  color: #000000;
+  color: #94a3b8;
   text-decoration: none;
   letter-spacing: -0.01em;
   line-height: 1.4;
-  transition: color 0.18s ease, opacity 0.18s ease;
+  transition: color 0.18s ease;
 }
 .site-header-custom .header-nav-link:hover {
-  color: #C3DAFE;
-  opacity: 1;
+  color: #ffffff;
 }
 .header-nav-item.is-active .site-header-custom .header-nav-link {
   font-weight: 600;
-  color: #000000;
+  color: #ffffff;
 }
 
 .main-navigation {
@@ -3681,117 +3698,190 @@ textarea::placeholder {
   background-color: #ffffff;
 }
 
-.hero-v2-section {
+.hero-dark-inline-section {
   width: 100%;
-  background-color: #ffffff;
-  padding: clamp(4rem, 6vw, 6rem) 0 clamp(1.5rem, 2.5vw, 2rem);
+  background-color: #161922;
+  color: #ffffff;
+  padding: clamp(5.5rem, 10vw, 9.5rem) 0 clamp(4.5rem, 8vw, 7.5rem);
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-sizing: border-box;
 }
-
-.hero-v2-container {
+.hero-dark-inline-section .hero-dark-container {
   width: 100%;
-  max-width: 1140px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 clamp(1.25rem, 5vw, 3rem);
   display: flex;
   justify-content: center;
+  box-sizing: border-box;
 }
-
-.hero-v2-content-wrap {
+.hero-dark-inline-section .hero-dark-content {
   width: 100%;
-  max-width: 640px;
+  max-width: 980px;
   margin: 0 auto;
-  text-align: left;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
 }
-
-.hero-v2-avatar-wrap {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
+.hero-dark-inline-section .hero-dark-title {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: clamp(2.35rem, 5.8vw, 4.4rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+  color: #ffffff;
+  margin: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45em;
+}
+@media (max-width: 640px) {
+  .hero-dark-inline-section .hero-dark-title {
+    gap: 0.35em;
+  }
+}
+.hero-dark-inline-section .hero-dark-line {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.35em;
+}
+@media (max-width: 640px) {
+  .hero-dark-inline-section .hero-dark-line {
+    gap: 0.25em;
+  }
+}
+.hero-dark-inline-section .hero-dark-text {
+  display: inline;
+  color: #ffffff;
+}
+.hero-dark-inline-section .hero-inline-media {
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: center;
+  background-color: #242838;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
   overflow: hidden;
-  margin-bottom: 2rem;
-  background-color: #f1f5f9;
+  position: relative;
   flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease, box-shadow 0.3s ease;
+  margin: 0 0.15em;
 }
-.hero-v2-avatar-wrap .hero-v2-avatar {
+.hero-dark-inline-section .hero-inline-media:hover {
+  transform: scale(1.08) translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.6);
+}
+.hero-dark-inline-section .hero-avatar-circle {
+  width: clamp(52px, 6.5vw, 78px);
+  height: clamp(52px, 6.5vw, 78px);
+  border-radius: 50%;
+}
+.hero-dark-inline-section .hero-avatar-circle .hero-inline-img.avatar-fit {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 12%;
   display: block;
   border-radius: 50%;
 }
-
-.hero-v2-author {
+.hero-dark-inline-section .hero-thumb-rect {
+  width: clamp(82px, 10vw, 126px);
+  height: clamp(48px, 6vw, 72px);
+  border-radius: 12px;
+}
+.hero-dark-inline-section .hero-thumb-rect .hero-inline-img.thumb-fit {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 10px;
+}
+.hero-dark-inline-section .hero-dark-subtitle {
   font-family: "Wotfard", var(--font-family, sans-serif);
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: #737373;
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  font-weight: 400;
+  color: #94a3b8;
+  line-height: 1.6;
   letter-spacing: -0.01em;
-  line-height: 1.35;
-  margin-bottom: 0.5rem;
+  max-width: 680px;
+  margin: clamp(1.75rem, 3.5vw, 2.5rem) auto 0;
+  text-align: center;
 }
-
-.hero-v2-statement {
-  font-family: "Wotfard", var(--font-family, sans-serif);
-  font-size: clamp(1.35rem, 2.35vw, 1.75rem);
-  font-weight: 500;
-  line-height: 1.375;
-  letter-spacing: -0.025em;
-  color: #171717;
-  margin: 0 0 1.5rem 0;
-  text-transform: none;
-}
-.hero-v2-statement .hero-v2-link {
-  color: #171717;
-  text-decoration: underline;
-  text-decoration-color: #d4d4d4;
-  text-decoration-thickness: 1.5px;
-  text-underline-offset: 4px;
-  transition: text-decoration-color 0.2s ease, color 0.2s ease;
-}
-.hero-v2-statement .hero-v2-link:hover {
-  text-decoration-color: #171717;
-  color: #000000;
-}
-
-.hero-v2-meta {
+.hero-dark-inline-section .hero-dark-actions {
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: clamp(2.25rem, 4vw, 3rem);
   flex-wrap: wrap;
-  gap: 1.25rem;
-  font-family: "Wotfard", var(--font-family, sans-serif);
-  font-size: 0.875rem;
-  font-weight: 400;
-  color: #737373;
-  letter-spacing: -0.005em;
-  line-height: 1.4;
 }
-.hero-v2-meta .hero-v2-location {
+.hero-dark-inline-section .hero-dark-actions .hero-dark-btn-primary {
   display: inline-flex;
   align-items: center;
-  gap: 0.375rem;
-  color: #737373;
-}
-.hero-v2-meta .hero-v2-location .hero-v2-location-icon {
-  width: 14px;
-  height: 14px;
-  color: #737373;
-  flex-shrink: 0;
-}
-.hero-v2-meta .hero-v2-meta-link {
-  color: #737373;
+  gap: 0.65rem;
+  background-color: #ffffff;
+  color: #161922;
+  padding: 0.85rem 1.65rem;
+  border-radius: 9999px;
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 1rem;
+  font-weight: 600;
   text-decoration: none;
-  transition: color 0.2s ease;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.hero-v2-meta .hero-v2-meta-link:hover {
-  color: #171717;
+.hero-dark-inline-section .hero-dark-actions .hero-dark-btn-primary svg {
+  display: block;
+  transition: transform 0.2s ease;
+}
+.hero-dark-inline-section .hero-dark-actions .hero-dark-btn-primary:hover {
+  background-color: #f8fafc;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(255, 255, 255, 0.25);
+  color: #000000;
+}
+.hero-dark-inline-section .hero-dark-actions .hero-dark-btn-primary:hover svg {
+  transform: translateX(3px);
+}
+.hero-dark-inline-section .hero-dark-actions .hero-dark-btn-primary:active {
+  transform: scale(0.97);
+}
+.hero-dark-inline-section .hero-dark-actions .hero-dark-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #232734;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  padding: 0.85rem 1.65rem;
+  border-radius: 9999px;
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.hero-dark-inline-section .hero-dark-actions .hero-dark-btn-secondary:hover {
+  background-color: #2c3244;
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+.hero-dark-inline-section .hero-dark-actions .hero-dark-btn-secondary:active {
+  transform: scale(0.97);
 }
 
 .company-section {

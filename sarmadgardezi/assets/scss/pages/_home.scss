@@ -1971,129 +1971,221 @@
   background-color: #ffffff;
 }
 
-.hero-v2-section {
+// ==========================================================================
+// Dark Inline Hero Section (Reference Design)
+// ==========================================================================
+
+.hero-dark-inline-section {
   width: 100%;
-  background-color: #ffffff;
-  padding: clamp(4rem, 6vw, 6rem) 0 clamp(1.5rem, 2.5vw, 2rem);
+  background-color: #161922;
+  color: #ffffff;
+  padding: clamp(5.5rem, 10vw, 9.5rem) 0 clamp(4.5rem, 8vw, 7.5rem);
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-sizing: border-box;
 
-.hero-v2-container {
-  width: 100%;
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  display: flex;
-  justify-content: center;
-}
-
-.hero-v2-content-wrap {
-  width: 100%;
-  max-width: 640px;
-  margin: 0 auto;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-// Circular Avatar Photo (64x64)
-.hero-v2-avatar-wrap {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-bottom: 2rem;
-  background-color: #f1f5f9;
-  flex-shrink: 0;
-
-  .hero-v2-avatar {
+  .hero-dark-container {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    display: block;
-    border-radius: 50%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 5vw, 3rem);
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
   }
-}
 
-// Author Name / Byline
-.hero-v2-author {
-  font-family: 'Wotfard', var(--font-family, sans-serif);
-  font-size: 1.25rem; // text-xl
-  font-weight: 500;
-  color: #737373; // text-neutral-500
-  letter-spacing: -0.01em;
-  line-height: 1.35;
-  margin-bottom: 0.5rem;
-}
+  .hero-dark-content {
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-// Main Headline / Statement
-.hero-v2-statement {
-  font-family: 'Wotfard', var(--font-family, sans-serif);
-  font-size: clamp(1.35rem, 2.35vw, 1.75rem); // text-2xl sm:text-[1.75rem]
-  font-weight: 500;
-  line-height: 1.375;
-  letter-spacing: -0.025em;
-  color: #171717; // neutral-900
-  margin: 0 0 1.5rem 0;
-  text-transform: none;
+  // Main Headline
+  .hero-dark-title {
+    font-family: 'Wotfard', var(--font-family, sans-serif);
+    font-size: clamp(2.35rem, 5.8vw, 4.4rem);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.035em;
+    color: #ffffff;
+    margin: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45em;
 
-  .hero-v2-link {
-    color: #171717;
-    text-decoration: underline;
-    text-decoration-color: #d4d4d4;
-    text-decoration-thickness: 1.5px;
-    text-underline-offset: 4px;
-    transition: text-decoration-color 0.2s ease, color 0.2s ease;
-
-    &:hover {
-      text-decoration-color: #171717;
-      color: #000000;
+    @media (max-width: 640px) {
+      gap: 0.35em;
     }
   }
-}
 
-// Meta Row: Location & Profile Links
-.hero-v2-meta {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1.25rem; // gap-5
-  font-family: 'Wotfard', var(--font-family, sans-serif);
-  font-size: 0.875rem; // text-sm
-  font-weight: 400;
-  color: #737373; // text-neutral-500
-  letter-spacing: -0.005em;
-  line-height: 1.4;
-
-  .hero-v2-location {
+  .hero-dark-line {
     display: inline-flex;
     align-items: center;
-    gap: 0.375rem;
-    color: #737373;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.35em;
 
-    .hero-v2-location-icon {
-      width: 14px;
-      height: 14px;
-      color: #737373;
-      flex-shrink: 0;
+    @media (max-width: 640px) {
+      gap: 0.25em;
     }
   }
 
-  .hero-v2-meta-link {
-    color: #737373;
-    text-decoration: none;
-    transition: color 0.2s ease;
+  .hero-dark-text {
+    display: inline;
+    color: #ffffff;
+  }
+
+  // Inline Media (Circular Avatar & Rounded Thumbnail)
+  .hero-inline-media {
+    display: inline-flex;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
+    background-color: #242838;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease, box-shadow 0.3s ease;
+    margin: 0 0.15em;
 
     &:hover {
-      color: #171717;
+      transform: scale(1.08) translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.5);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  // Circular Avatar (User Photo)
+  .hero-avatar-circle {
+    width: clamp(52px, 6.5vw, 78px);
+    height: clamp(52px, 6.5vw, 78px);
+    border-radius: 50%;
+
+    .hero-inline-img.avatar-fit {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 12%;
+      display: block;
+      border-radius: 50%;
+    }
+  }
+
+  // Rounded Thumbnail (Workspace/Tech Image)
+  .hero-thumb-rect {
+    width: clamp(82px, 10vw, 126px);
+    height: clamp(48px, 6vw, 72px);
+    border-radius: 12px;
+
+    .hero-inline-img.thumb-fit {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      border-radius: 10px;
+    }
+  }
+
+  // Subtitle Description
+  .hero-dark-subtitle {
+    font-family: 'Wotfard', var(--font-family, sans-serif);
+    font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+    font-weight: 400;
+    color: #94a3b8;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+    max-width: 680px;
+    margin: clamp(1.75rem, 3.5vw, 2.5rem) auto 0;
+    text-align: center;
+  }
+
+  // Action Buttons
+  .hero-dark-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: clamp(2.25rem, 4vw, 3rem);
+    flex-wrap: wrap;
+
+    .hero-dark-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      background-color: #ffffff;
+      color: #161922;
+      padding: 0.85rem 1.65rem;
+      border-radius: 9999px;
+      font-family: 'Wotfard', var(--font-family, sans-serif);
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+      svg {
+        display: block;
+        transition: transform 0.2s ease;
+      }
+
+      &:hover {
+        background-color: #f8fafc;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(255, 255, 255, 0.25);
+        color: #000000;
+
+        svg {
+          transform: translateX(3px);
+        }
+      }
+
+      &:active {
+        transform: scale(0.97);
+      }
+    }
+
+    .hero-dark-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: #232734;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      padding: 0.85rem 1.65rem;
+      border-radius: 9999px;
+      font-family: 'Wotfard', var(--font-family, sans-serif);
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: #2c3244;
+        border-color: rgba(255, 255, 255, 0.25);
+        transform: translateY(-2px);
+        color: #ffffff;
+      }
+
+      &:active {
+        transform: scale(0.97);
+      }
     }
   }
 }
+
 
 // --------------------------------------------------------------------------
 // COMPANY SECTION

@@ -1,13 +1,13 @@
 <?php
 /**
- * Template part for displaying the Minimalist Editorial Hero section
+ * Template part for displaying the Dark Aesthetic Hero section matching reference design
  *
  * @package SarmadGardezi
  */
 
 defined('ABSPATH') || exit;
 
-// Avatar
+// Avatar / Portrait URL
 $portrait_url = get_template_directory_uri() . '/assets/images/sarmad.png';
 if (function_exists('get_field')) {
     $custom_hero_photo = get_field('hero_profile_photo');
@@ -25,6 +25,9 @@ if (function_exists('get_field')) {
     }
 }
 
+// Workspace / Secondary Thumbnail
+$workspace_url = get_template_directory_uri() . '/assets/images/workspace.jpg';
+
 // Author Name
 $hero_name = 'Sarmad Gardezi';
 if (function_exists('get_field')) {
@@ -33,100 +36,62 @@ if (function_exists('get_field')) {
         $hero_name = $acf_name;
     }
 }
-
-// Location
-$hero_location = 'Islamabad, Pakistan';
-if (function_exists('get_field')) {
-    $acf_location = get_field('hero_location');
-    if (!empty($acf_location)) {
-        $hero_location = $acf_location;
-    }
-}
-
-// Social / Profile URLs
-$linkedin_url = 'https://linkedin.com/in/sarmadgardezi';
-if (function_exists('get_field')) {
-    $acf_linkedin = get_field('hero_linkedin_url');
-    if (!empty($acf_linkedin)) {
-        $linkedin_url = $acf_linkedin;
-    }
-}
-
-$github_url = 'https://github.com/sarmadgardezi';
-if (function_exists('get_field')) {
-    $acf_github = get_field('hero_github_url');
-    if (!empty($acf_github)) {
-        $github_url = $acf_github;
-    }
-}
-
-$cobuild_url = 'https://cobuild.com';
-if (function_exists('get_field')) {
-    $acf_cobuild = get_field('hero_company_url');
-    if (!empty($acf_cobuild)) {
-        $cobuild_url = $acf_cobuild;
-    }
-}
 ?>
 
-<section id="hero-v2" class="hero-v2-section">
-    <div class="site-container hero-v2-container">
-        <div class="hero-v2-content-wrap">
+<section id="hero-v2" class="hero-dark-inline-section">
+    <div class="hero-dark-container">
+        <div class="hero-dark-content">
             
-            <!-- Avatar Photo -->
-            <div class="hero-v2-avatar-wrap">
-                <img 
-                    src="<?php echo esc_url($portrait_url); ?>" 
-                    alt="<?php echo esc_attr($hero_name); ?>" 
-                    class="hero-v2-avatar"
-                    width="48"
-                    height="48"
-                    loading="eager"
-                    fetchpriority="high"
-                    decoding="async"
-                />
-            </div>
-
-            <!-- Author / Byline -->
-            <div class="hero-v2-author">
-                <?php echo esc_html($hero_name); ?>
-            </div>
-
-            <!-- Main Headline / Statement -->
-            <h1 class="hero-v2-statement">
-                <?php
-                printf(
-                    /* translators: 1: opening link tag, 2: closing link tag */
-                    esc_html__("I am a product manager turned engineer. I've been building software products for over a decade. Today, I work with startups as a Fractional CTO and AI Product Engineer - mostly through %1\$scobuild%2\$s, a product studio for SaaS founders.", 'sarmadgardezi'),
-                    '<a href="' . esc_url($cobuild_url) . '" target="_blank" rel="noopener noreferrer" class="hero-v2-link">',
-                    '</a>'
-                );
-                ?>
+            <!-- Main Headline with Inline Badges -->
+            <h1 class="hero-dark-title">
+                <span class="hero-dark-line line-1">
+                    <span class="hero-dark-text"><?php esc_html_e("I'm a Cloud Engineer", 'sarmadgardezi'); ?></span>
+                    <span class="hero-inline-media hero-avatar-circle" title="<?php echo esc_attr($hero_name); ?>">
+                        <img 
+                            src="<?php echo esc_url($portrait_url); ?>" 
+                            alt="<?php echo esc_attr($hero_name); ?>" 
+                            class="hero-inline-img avatar-fit"
+                            loading="eager"
+                            fetchpriority="high"
+                            decoding="async"
+                        />
+                    </span>
+                    <span class="hero-dark-text"><?php esc_html_e('and', 'sarmadgardezi'); ?></span>
+                </span>
+                <span class="hero-dark-line line-2">
+                    <span class="hero-inline-media hero-thumb-rect" title="<?php esc_attr_e('Full Stack Development', 'sarmadgardezi'); ?>">
+                        <img 
+                            src="<?php echo esc_url($workspace_url); ?>" 
+                            alt="<?php esc_attr_e('Cloud and Full Stack Development', 'sarmadgardezi'); ?>" 
+                            class="hero-inline-img thumb-fit"
+                            loading="eager"
+                            decoding="async"
+                        />
+                    </span>
+                    <span class="hero-dark-text"><?php esc_html_e('Full Stack Developer', 'sarmadgardezi'); ?></span>
+                </span>
             </h1>
 
-            <!-- Meta Info Row: Location + Social Links -->
-            <div class="hero-v2-meta">
-                <div class="hero-v2-location">
-                    <svg class="hero-v2-location-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <circle cx="12" cy="12" r="9"></circle>
-                        <circle cx="12" cy="12" r="2.5"></circle>
+            <!-- Subtitle Description -->
+            <p class="hero-dark-subtitle">
+                <?php esc_html_e('Architecting scalable cloud infrastructure, high-throughput backend services, and modern interactive digital experiences.', 'sarmadgardezi'); ?>
+            </p>
+
+            <!-- Action / Meta Pills Row -->
+            <div class="hero-dark-actions">
+                <a href="<?php echo esc_url(home_url('/contact')); ?>" class="hero-dark-btn-primary" data-cal-trigger>
+                    <span><?php esc_html_e('Get in touch', 'sarmadgardezi'); ?></span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
                     </svg>
-                    <span><?php echo esc_html($hero_location); ?></span>
-                </div>
-
-                <?php if (!empty($linkedin_url)) : ?>
-                    <a href="<?php echo esc_url($linkedin_url); ?>" target="_blank" rel="noopener noreferrer" class="hero-v2-meta-link">
-                        <?php esc_html_e('LinkedIn', 'sarmadgardezi'); ?>
-                    </a>
-                <?php endif; ?>
-
-                <?php if (!empty($github_url)) : ?>
-                    <a href="<?php echo esc_url($github_url); ?>" target="_blank" rel="noopener noreferrer" class="hero-v2-meta-link">
-                        <?php esc_html_e('GitHub', 'sarmadgardezi'); ?>
-                    </a>
-                <?php endif; ?>
+                </a>
+                <a href="<?php echo esc_url(home_url('/projects')); ?>" class="hero-dark-btn-secondary">
+                    <span><?php esc_html_e('View Projects', 'sarmadgardezi'); ?></span>
+                </a>
             </div>
 
         </div>
     </div>
 </section>
+
