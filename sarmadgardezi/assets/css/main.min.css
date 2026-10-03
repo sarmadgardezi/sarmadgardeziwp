@@ -2476,7 +2476,7 @@ textarea::placeholder {
 .hero-logo-strip-section {
   width: 100%;
   background-color: #161922;
-  padding: clamp(2rem, 3.5vw, 3.25rem) 0 clamp(2.5rem, 4vw, 3.75rem);
+  padding: clamp(1.5rem, 3vw, 2.75rem) 0 clamp(2.5rem, 4vw, 3.5rem);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2494,15 +2494,20 @@ textarea::placeholder {
 
 .hero-logo-strip-wrap {
   width: 100%;
-  max-width: 640px;
+  max-width: 660px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.25rem;
+  background-color: #f4f4f5;
+  border-radius: 9999px;
+  padding: 0.85rem 2rem;
+  box-sizing: border-box;
 }
 @media (max-width: 520px) {
   .hero-logo-strip-wrap {
+    padding: 0.65rem 1.25rem;
     gap: 0.75rem;
   }
 }
@@ -2512,7 +2517,7 @@ textarea::placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 38px;
+  height: 36px;
   position: relative;
   overflow: hidden;
 }
@@ -2558,31 +2563,31 @@ textarea::placeholder {
   text-decoration: none;
 }
 .logo-slot .logo-item .brand-img {
-  max-height: 24px;
-  max-width: 110px;
+  max-height: 22px;
+  max-width: 105px;
   width: auto;
   height: auto;
   object-fit: contain;
   display: block;
-  filter: brightness(0) invert(1);
-  opacity: 0.55;
+  filter: brightness(0);
+  opacity: 0.82;
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 @media (max-width: 520px) {
   .logo-slot .logo-item .brand-img {
-    max-height: 20px;
-    max-width: 85px;
+    max-height: 18px;
+    max-width: 80px;
   }
 }
 .logo-slot .logo-item .brand-img:hover {
-  opacity: 0.95;
-  transform: scale(1.05);
+  opacity: 1;
+  transform: scale(1.06);
 }
 
 .generation-showcase-section {
   width: 100%;
   background-color: #161922;
-  padding: clamp(2rem, 4vw, 3.5rem) 0 clamp(4.5rem, 7vw, 7rem);
+  padding: clamp(1.5rem, 3.5vw, 3rem) 0 clamp(4.5rem, 7vw, 7rem);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2605,8 +2610,8 @@ textarea::placeholder {
   display: flex;
   align-items: center;
   background-color: #11131a;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+  border: none;
 }
 .generation-showcase-section .generation-showcase-bg {
   position: absolute;
@@ -2708,8 +2713,8 @@ textarea::placeholder {
   font-size: 0.9375rem;
   font-weight: 600;
   text-decoration: none;
+  box-shadow: none;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
 }
 .generation-showcase-section .generation-actions .generation-btn-play .generation-play-icon {
   display: block;
@@ -2718,8 +2723,8 @@ textarea::placeholder {
 .generation-showcase-section .generation-actions .generation-btn-play:hover {
   background-color: #f1f5f9;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   color: #000000;
+  box-shadow: none;
 }
 .generation-showcase-section .generation-actions .generation-btn-play:hover .generation-play-icon {
   transform: scale(1.1);
