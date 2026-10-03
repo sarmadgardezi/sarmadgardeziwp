@@ -2,12 +2,17 @@
 // SCSS Abstracts: Variables (Clean & Neutral Base)
 // ==========================================================================
 
-// Color Palette (Clean Minimalist Pure White Foundation)
+// Color Palette (Clean Minimalist Pure White Foundation & Dark Sections)
 $color-bg: #ffffff;
 $color-bg-alt: #ffffff;
 $color-surface: #ffffff;
 $color-surface-hover: #f9f9f9;
 $color-surface-card: #ffffff;
+
+// Unified Dark Theme Color (Header, Hero & Footer)
+$color-dark-bg: #161922;
+$color-dark-surface: #232734;
+$color-dark-border: #282d3d;
 
 $color-primary: #C3DAFE;
 $color-primary-dark: #1c1917;
