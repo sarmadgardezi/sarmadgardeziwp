@@ -211,6 +211,75 @@ function sarmadgardezi_core_register_post_types() {
         ),
     );
     register_post_type('event', $event_args);
+
+    // 5. Featured Series Custom Post Type
+    $featured_labels = array(
+        'name'                  => _x('Featured', 'Post Type General Name', 'sarmadgardezi-core'),
+        'singular_name'         => _x('Featured Series', 'Post Type Singular Name', 'sarmadgardezi-core'),
+        'menu_name'             => __('Featured', 'sarmadgardezi-core'),
+        'name_admin_bar'        => __('Featured Series', 'sarmadgardezi-core'),
+        'archives'              => __('Featured Archives', 'sarmadgardezi-core'),
+        'all_items'             => __('All Featured Series', 'sarmadgardezi-core'),
+        'add_new_item'          => __('Add New Featured Series', 'sarmadgardezi-core'),
+        'add_new'               => __('Add New', 'sarmadgardezi-core'),
+        'edit_item'             => __('Edit Featured Series', 'sarmadgardezi-core'),
+        'view_item'             => __('View Featured Series', 'sarmadgardezi-core'),
+        'search_items'          => __('Search Featured Series', 'sarmadgardezi-core'),
+        'not_found'             => __('No featured series found', 'sarmadgardezi-core'),
+        'not_found_in_trash'    => __('No featured series found in Trash', 'sarmadgardezi-core'),
+        'featured_image'        => __('Cover Image', 'sarmadgardezi-core'),
+        'set_featured_image'    => __('Set cover image', 'sarmadgardezi-core'),
+        'remove_featured_image' => __('Remove cover image', 'sarmadgardezi-core'),
+        'use_featured_image'    => __('Use as cover image', 'sarmadgardezi-core'),
+    );
+
+    // Register featured_category taxonomy
+    register_taxonomy('featured_category', array('featured'), array(
+        'hierarchical'      => true,
+        'labels'            => array(
+            'name'              => _x('Categories', 'taxonomy general name', 'sarmadgardezi-core'),
+            'singular_name'     => _x('Category', 'taxonomy singular name', 'sarmadgardezi-core'),
+            'search_items'      => __('Search Categories', 'sarmadgardezi-core'),
+            'all_items'         => __('All Categories', 'sarmadgardezi-core'),
+            'edit_item'         => __('Edit Category', 'sarmadgardezi-core'),
+            'update_item'       => __('Update Category', 'sarmadgardezi-core'),
+            'add_new_item'      => __('Add New Category', 'sarmadgardezi-core'),
+            'new_item_name'     => __('New Category Name', 'sarmadgardezi-core'),
+            'menu_name'         => __('Categories', 'sarmadgardezi-core'),
+        ),
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'show_in_rest'      => true,
+        'rewrite'           => array('slug' => 'featured-category'),
+    ));
+
+    $featured_args = array(
+        'label'               => __('Featured', 'sarmadgardezi-core'),
+        'description'         => __('Featured series, podcasts, web design, and documentaries', 'sarmadgardezi-core'),
+        'labels'              => $featured_labels,
+        'supports'            => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'page-attributes', 'revisions'),
+        'taxonomies'          => array('featured_category'),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'menu_position'       => 21,
+        'menu_icon'           => 'dashicons-video-alt3',
+        'show_in_admin_bar'   => true,
+        'show_in_nav_menus'   => true,
+        'can_export'          => true,
+        'has_archive'         => 'featured',
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'show_in_rest'        => true,
+        'rewrite'             => array(
+            'slug'       => 'featured',
+            'with_front' => false,
+        ),
+    );
+    register_post_type('featured', $featured_args);
 }
 endif;
 add_action('init', 'sarmadgardezi_core_register_post_types', 0);

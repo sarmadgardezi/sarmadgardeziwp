@@ -191,6 +191,40 @@ function sarmadgardezi_register_event_cpt_fallback() {
             'rewrite'             => array('slug' => 'events', 'with_front' => false),
         ));
     }
+
+    if (!post_type_exists('featured')) {
+        register_taxonomy('featured_category', array('featured'), array(
+            'hierarchical' => true,
+            'labels'       => array(
+                'name'          => __('Categories', 'sarmadgardezi'),
+                'singular_name' => __('Category', 'sarmadgardezi'),
+            ),
+            'show_ui'      => true,
+            'show_in_rest' => true,
+            'rewrite'      => array('slug' => 'featured-category'),
+        ));
+
+        register_post_type('featured', array(
+            'label'               => __('Featured', 'sarmadgardezi'),
+            'labels'              => array(
+                'name'          => __('Featured', 'sarmadgardezi'),
+                'singular_name' => __('Featured Series', 'sarmadgardezi'),
+                'menu_name'     => __('Featured', 'sarmadgardezi'),
+                'all_items'     => __('All Featured Series', 'sarmadgardezi'),
+                'add_new_item'  => __('Add New Featured Series', 'sarmadgardezi'),
+            ),
+            'public'              => true,
+            'show_ui'             => true,
+            'show_in_menu'        => true,
+            'menu_position'       => 21,
+            'menu_icon'           => 'dashicons-video-alt3',
+            'supports'            => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'page-attributes', 'revisions'),
+            'taxonomies'          => array('featured_category'),
+            'has_archive'         => 'featured',
+            'show_in_rest'        => true,
+            'rewrite'             => array('slug' => 'featured', 'with_front' => false),
+        ));
+    }
 }
 
 

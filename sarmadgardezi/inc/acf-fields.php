@@ -1511,6 +1511,138 @@ function sarmadgardezi_save_project_and_event_meta($post_id) {
             update_post_meta($post_id, '_project_live_url', esc_url_raw($_POST['project_live_url']));
         }
     }
+
+    if (isset($_POST['sarmad_featured_meta_nonce']) && wp_verify_nonce($_POST['sarmad_featured_meta_nonce'], 'sarmad_featured_meta_save')) {
+        if (isset($_POST['featured_description'])) {
+            update_post_meta($post_id, 'featured_description', sanitize_textarea_field($_POST['featured_description']));
+            update_post_meta($post_id, '_featured_description', sanitize_textarea_field($_POST['featured_description']));
+        }
+        if (isset($_POST['featured_link'])) {
+            update_post_meta($post_id, 'featured_link', esc_url_raw($_POST['featured_link']));
+            update_post_meta($post_id, '_featured_link', esc_url_raw($_POST['featured_link']));
+        }
+        if (isset($_POST['featured_title_logo'])) {
+            update_post_meta($post_id, 'featured_title_logo', esc_url_raw($_POST['featured_title_logo']));
+            update_post_meta($post_id, '_featured_title_logo', esc_url_raw($_POST['featured_title_logo']));
+        }
+        if (isset($_POST['featured_badge'])) {
+            update_post_meta($post_id, 'featured_badge', sanitize_text_field($_POST['featured_badge']));
+            update_post_meta($post_id, '_featured_badge', sanitize_text_field($_POST['featured_badge']));
+        }
+    }
 }
+
+/**
+ * Register Meta Boxes for Featured Series Custom Post Type
+ */
+add_action('add_meta_boxes', 'sarmadgardezi_register_featured_meta_boxes');
+function sarmadgardezi_register_featured_meta_boxes() {
+    add_meta_box(
+        'sarmad_featured_meta_box',
+        __('Featured Series Details', 'sarmadgardezi'),
+        'sarmadgardezi_render_featured_meta_box',
+        'featured',
+        'normal',
+        'high'
+    );
+}
+
+function sarmadgardezi_render_featured_meta_box($post) {
+    wp_nonce_field('sarmad_featured_meta_save', 'sarmad_featured_meta_nonce');
+    $desc       = get_post_meta($post->ID, 'featured_description', true);
+    if (empty($desc)) $desc = get_post_meta($post->ID, '_featured_description', true);
+    $link       = get_post_meta($post->ID, 'featured_link', true);
+    if (empty($link)) $link = get_post_meta($post->ID, '_featured_link', true);
+    $logo       = get_post_meta($post->ID, 'featured_title_logo', true);
+    if (empty($logo)) $logo = get_post_meta($post->ID, '_featured_title_logo', true);
+    $badge      = get_post_meta($post->ID, 'featured_badge', true);
+    if (empty($badge)) $badge = get_post_meta($post->ID, '_featured_badge', true);
+    ?>
+    <div style="padding: 10px 0;">
+        <p>
+            <label for="featured_description" style="font-weight: 600; display: block; margin-bottom: 5px;">
+                <?php esc_html_e('Series Narrative Description:', 'sarmadgardezi'); ?>
+            </label>
+            <textarea id="featured_description" name="featured_description" rows="4" style="width: 100%;"><?php echo esc_textarea($desc); ?></textarea>
+            <span class="description"><?php esc_html_e('Brief 2-3 sentence overview displayed on the card.', 'sarmadgardezi'); ?></span>
+        </p>
+        <p>
+            <label for="featured_link" style="font-weight: 600; display: block; margin-bottom: 5px;">
+                <?php esc_html_e('Destination Link / URL (Optional):', 'sarmadgardezi'); ?>
+            </label>
+            <input type="url" id="featured_link" name="featured_link" value="<?php echo esc_attr($link); ?>" style="width: 100%;" placeholder="https://..." />
+        </p>
+        <p>
+            <label for="featured_title_logo" style="font-weight: 600; display: block; margin-bottom: 5px;">
+                <?php esc_html_e('Stylized Title / Logo Overlay Image URL (Optional):', 'sarmadgardezi'); ?>
+            </label>
+            <input type="url" id="featured_title_logo" name="featured_title_logo" value="<?php echo esc_attr($logo); ?>" style="width: 80%;" placeholder="https://..." />
+            <button type="button" class="button sarmad-media-btn" data-target="#featured_title_logo"><?php esc_html_e('Upload Logo', 'sarmadgardezi'); ?></button>
+            <span class="description" style="display: block; margin-top: 4px;"><?php esc_html_e('If empty, the Post Title will be stylized cleanly over the card.', 'sarmadgardezi'); ?></span>
+        </p>
+        <p>
+            <label for="featured_badge" style="font-weight: 600; display: block; margin-bottom: 5px;">
+                <?php esc_html_e('Custom Badge / Tag (Optional):', 'sarmadgardezi'); ?>
+            </label>
+            <input type="text" id="featured_badge" name="featured_badge" value="<?php echo esc_attr($badge); ?>" style="width: 100%;" placeholder="e.g. DOCUMENTARY, PODCAST" />
+        </p>
+    </div>
+    <?php
+}
+
+/**
+ * Register ACF Local Field Group for Featured Post Type
+ */
+add_action('acf/init', 'sarmadgardezi_register_featured_acf_fields');
+function sarmadgardezi_register_featured_acf_fields() {
+    if (!function_exists('acf_add_local_field_group')) return;
+
+    acf_add_local_field_group(array(
+        'key' => 'group_sarmad_featured_series',
+        'title' => __('Featured Series Settings', 'sarmadgardezi'),
+        'fields' => array(
+            array(
+                'key' => 'field_featured_desc',
+                'label' => __('Narrative Description', 'sarmadgardezi'),
+                'name' => 'featured_description',
+                'type' => 'textarea',
+                'instructions' => __('Brief overview displayed on the card.', 'sarmadgardezi'),
+                'rows' => 3,
+            ),
+            array(
+                'key' => 'field_featured_url',
+                'label' => __('External Link / Destination URL', 'sarmadgardezi'),
+                'name' => 'featured_link',
+                'type' => 'url',
+            ),
+            array(
+                'key' => 'field_featured_logo',
+                'label' => __('Stylized Title / Logo Overlay', 'sarmadgardezi'),
+                'name' => 'featured_title_logo',
+                'type' => 'image',
+                'return_format' => 'url',
+            ),
+            array(
+                'key' => 'field_featured_badge',
+                'label' => __('Custom Badge / Category Tag', 'sarmadgardezi'),
+                'name' => 'featured_badge',
+                'type' => 'text',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'featured',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+    ));
+}
+
 
 

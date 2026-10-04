@@ -174,6 +174,55 @@
       }
     }
 
+    // 4. Featured Series Carousel & Category Filtering
+    var featuredTrack = document.getElementById('featured-track');
+    var prevBtn = document.getElementById('featured-prev-btn');
+    var nextBtn = document.getElementById('featured-next-btn');
+
+    if (featuredTrack) {
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function () {
+          var cardWidth = featuredTrack.querySelector('.featured-card-item') ? featuredTrack.querySelector('.featured-card-item').offsetWidth + 24 : 340;
+          featuredTrack.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function () {
+          var cardWidth = featuredTrack.querySelector('.featured-card-item') ? featuredTrack.querySelector('.featured-card-item').offsetWidth + 24 : 340;
+          featuredTrack.scrollBy({ left: cardWidth, behavior: 'smooth' });
+        });
+      }
+
+      // Filter pills
+      var filterPills = document.querySelectorAll('.featured-filter-pills .featured-pill');
+      var cards = featuredTrack.querySelectorAll('.featured-card-item');
+
+      filterPills.forEach(function (pill) {
+        pill.addEventListener('click', function () {
+          filterPills.forEach(function (p) {
+            p.classList.remove('is-active');
+            p.setAttribute('aria-selected', 'false');
+          });
+          pill.classList.add('is-active');
+          pill.setAttribute('aria-selected', 'true');
+
+          var filterVal = pill.getAttribute('data-filter');
+
+          cards.forEach(function (card) {
+            var categories = (card.getAttribute('data-categories') || '').split(' ');
+            if (filterVal === 'all' || categories.indexOf(filterVal) !== -1) {
+              card.style.display = '';
+              card.style.opacity = '1';
+              card.style.transform = 'scale(1)';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    }
+
     // Add global CSS helper for generic reveals
     var style = document.createElement('style');
     style.innerHTML = '.glass-card.is-revealed, .section-header.is-revealed, .section-header-flex.is-revealed { opacity: 1 !important; transform: translateY(0) !important; }';

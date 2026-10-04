@@ -683,207 +683,353 @@
 }
 
 // --------------------------------------------------------------------------
-// 2.1 Cinematic Generation Showcase Section (Flat Aesthetic - No Dropshadow/Outline)
+// 2.1 Featured Series & Shows Showcase Carousel (Matching Reference Design)
 // --------------------------------------------------------------------------
 
+.featured-showcase-section,
 .generation-showcase-section {
   width: 100%;
   background-color: #161922;
-  padding: clamp(1.5rem, 3.5vw, 3rem) 0 clamp(4.5rem, 7vw, 7rem);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: clamp(2.5rem, 5vw, 4.5rem) 0 clamp(4rem, 7vw, 6rem);
   position: relative;
   box-sizing: border-box;
 
+  .featured-showcase-container,
   .generation-showcase-outer {
     width: 100%;
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 clamp(1.25rem, 5vw, 3rem);
+    padding: 0 clamp(1.25rem, 4vw, 3rem);
     box-sizing: border-box;
   }
 
-  .generation-showcase-card {
-    position: relative;
-    width: 100%;
-    border-radius: 24px;
-    overflow: hidden;
-    min-height: clamp(480px, 62vh, 600px);
-    display: flex;
-    align-items: center;
-    background-color: #11131a;
-    box-shadow: none; // Drop shadow removed
-    border: none; // Outline removed
+  // Header Block
+  .featured-header-block {
+    margin-bottom: 2rem;
   }
 
-  // Background Image with Gradient Fade
-  .generation-showcase-bg {
+  .featured-main-title {
+    font-family: 'Wotfard', var(--font-family, -apple-system, BlinkMacSystemFont, sans-serif);
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin: 0 0 0.65rem 0;
+  }
+
+  .featured-main-desc {
+    font-family: 'Wotfard', var(--font-family, sans-serif);
+    font-size: clamp(0.95rem, 1.4vw, 1.0625rem);
+    font-weight: 400;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  // Controls Bar (Pills + Navigation Arrows)
+  .featured-controls-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .featured-filter-scroll-wrap {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    flex: 1 1 auto;
+    max-width: calc(100% - 90px);
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .featured-filter-pills {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+  }
+
+  .featured-pill {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background-color: rgba(255, 255, 255, 0.03);
+    color: #94a3b8;
+    font-family: 'Wotfard', var(--font-family, sans-serif);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    user-select: none;
+
+    &:hover {
+      border-color: rgba(255, 255, 255, 0.4);
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    &.is-active {
+      border-color: #ffffff;
+      color: #161922;
+      background-color: #ffffff;
+      font-weight: 700;
+    }
+  }
+
+  // Arrows
+  .featured-carousel-arrows {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+
+    .featured-arrow-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 50%;
+      color: #94a3b8;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        border-color: #ffffff;
+        color: #ffffff;
+        transform: scale(1.08);
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+  }
+
+  // Viewport & Track
+  .featured-carousel-viewport {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.5rem 0 1.5rem;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .featured-carousel-track {
+    display: flex;
+    gap: clamp(1rem, 2vw, 1.75rem);
+    width: max-content;
+  }
+
+  // Card Item
+  .featured-card-item {
+    flex: 0 0 clamp(290px, 28vw, 360px);
+    scroll-snap-align: start;
+    text-decoration: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+    @media (max-width: 520px) {
+      flex: 0 0 280px;
+    }
+  }
+
+  .featured-card-link {
+    text-decoration: none;
+    display: block;
+    color: inherit;
+  }
+
+  .featured-card-inner {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    height: clamp(440px, 56vh, 520px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: #1a1e29;
+    box-shadow: 0 14px 34px -10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+    will-change: transform;
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.6);
+
+      .featured-card-image {
+        transform: scale(1.06);
+      }
+    }
+  }
+
+  .featured-card-bg {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
-
-    .generation-bg-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center right;
-      display: block;
-    }
-
-    .generation-gradient-overlay {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, #161922 0%, #161922 36%, rgba(22, 25, 34, 0.92) 55%, rgba(22, 25, 34, 0.35) 85%, rgba(22, 25, 34, 0.1) 100%);
-
-      @media (max-width: 860px) {
-        background: linear-gradient(180deg, rgba(22, 25, 34, 0.96) 0%, rgba(22, 25, 34, 0.9) 65%, rgba(22, 25, 34, 0.6) 100%);
-      }
-    }
   }
 
-  // Foreground Content Block
-  .generation-showcase-content {
+  .featured-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .featured-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(17, 19, 26, 0.05) 0%,
+      rgba(17, 19, 26, 0.25) 35%,
+      rgba(17, 19, 26, 0.88) 72%,
+      rgba(17, 19, 26, 0.98) 100%
+    );
+  }
+
+  .featured-card-content {
     position: relative;
-    z-index: 2;
-    max-width: 520px;
-    padding: clamp(2.5rem, 5vw, 4.5rem);
+    z-index: 3;
+    padding: clamp(1.25rem, 2.2vw, 1.75rem);
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    justify-content: flex-end;
     text-align: left;
-    box-sizing: border-box;
   }
 
-  // Eyebrow Tag
-  .generation-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.65rem;
+  .featured-card-title-wrap {
+    margin-bottom: 0.35rem;
+  }
+
+  .featured-card-headline {
     color: #ffffff;
-    margin-bottom: 1.5rem;
+    font-size: clamp(1.3rem, 1.9vw, 1.65rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0;
+    letter-spacing: -0.02em;
 
-    .generation-eyebrow-logo {
-      color: #ffffff;
-      flex-shrink: 0;
-    }
-
-    .generation-eyebrow-text {
-      font-family: 'Wotfard', var(--font-family, sans-serif);
-      font-size: 0.875rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
+    &.font-pixel {
+      font-family: 'Wotfard', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.35rem, 2vw, 1.75rem);
+      letter-spacing: -0.01em;
+      line-height: 1.05;
       text-transform: uppercase;
       color: #ffffff;
-    }
-  }
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 
-  // Headline
-  .generation-title {
-    font-family: 'Wotfard', var(--font-family, sans-serif);
-    font-size: clamp(2.4rem, 4.8vw, 3.8rem);
-    font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    color: #ffffff;
-    margin: 0 0 1.5rem 0;
-    text-transform: uppercase;
-
-    .generation-title-line {
-      display: block;
+      span {
+        display: block;
+      }
     }
 
-    .generation-pixel-text {
-      letter-spacing: -0.01em;
+    &.font-script {
+      font-family: 'Wotfard', -apple-system, sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.3rem, 1.8vw, 1.65rem);
+      line-height: 1.05;
       color: #ffffff;
+      font-style: italic;
+      letter-spacing: -0.02em;
+
+      .script-arrow {
+        display: block;
+        font-style: normal;
+        font-size: 0.95rem;
+        font-weight: 600;
+        opacity: 0.9;
+        margin-bottom: 0.15rem;
+      }
+
+      .script-main {
+        display: block;
+      }
+
+      .script-sub {
+        display: block;
+        letter-spacing: 0.06em;
+        font-size: 0.9em;
+      }
+    }
+
+    &.font-serif {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-weight: 700;
+      font-size: clamp(1.4rem, 2vw, 1.8rem);
+      line-height: 1.05;
+      color: #ffffff;
+
+      .serif-sparkle {
+        font-size: 1rem;
+        display: block;
+        font-weight: 400;
+        margin-bottom: 0.1rem;
+      }
+
+      .serif-main {
+        display: block;
+      }
+
+      .serif-circle-w {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #ffffff;
+        color: #161922;
+        font-family: sans-serif;
+        font-size: 0.7rem;
+        font-weight: 800;
+        vertical-align: middle;
+        margin-left: 2px;
+      }
     }
   }
 
-  // Narrative Description
-  .generation-desc {
+  .featured-card-logo-img {
+    max-height: 48px;
+    width: auto;
+    max-width: 85%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .featured-card-description {
     font-family: 'Wotfard', var(--font-family, sans-serif);
-    font-size: clamp(1rem, 1.4vw, 1.125rem);
+    font-size: 0.84375rem;
     font-weight: 400;
     color: #cbd5e1;
-    line-height: 1.6;
-    margin: 0 0 2.25rem 0;
-    max-width: 440px;
-  }
-
-  // Action Buttons
-  .generation-actions {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-
-    .generation-btn-play {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.65rem;
-      background-color: #ffffff;
-      color: #161922;
-      padding: 0.85rem 1.65rem;
-      border-radius: 6px;
-      font-family: 'Wotfard', var(--font-family, sans-serif);
-      font-size: 0.9375rem;
-      font-weight: 600;
-      text-decoration: none;
-      box-shadow: none; // Drop shadow removed
-      transition: all 0.2s ease;
-
-      .generation-play-icon {
-        display: block;
-        transition: transform 0.2s ease;
-      }
-
-      &:hover {
-        background-color: #f1f5f9;
-        transform: translateY(-2px);
-        color: #000000;
-        box-shadow: none;
-
-        .generation-play-icon {
-          transform: scale(1.1);
-        }
-      }
-
-      &:active {
-        transform: scale(0.97);
-      }
-    }
-
-    .generation-btn-notify {
-      display: inline-flex;
-      align-items: center;
-      background-color: rgba(22, 25, 34, 0.6);
-      border: 1.5px solid rgba(255, 255, 255, 0.25);
-      color: #ffffff;
-      padding: 0.85rem 1.65rem;
-      border-radius: 6px;
-      font-family: 'Wotfard', var(--font-family, sans-serif);
-      font-size: 0.9375rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-
-      &:hover {
-        background-color: rgba(255, 255, 255, 0.12);
-        border-color: #ffffff;
-        transform: translateY(-2px);
-        color: #ffffff;
-      }
-
-      &:active {
-        transform: scale(0.97);
-      }
-    }
+    line-height: 1.5;
+    margin: 0.65rem 0 0 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }
 
