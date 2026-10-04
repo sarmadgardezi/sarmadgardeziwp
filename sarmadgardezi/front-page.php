@@ -51,6 +51,7 @@ get_header();
 
     <?php get_template_part('template-parts/home/hero-v2'); ?>
     <?php get_template_part('template-parts/home/brands'); ?>
+    <?php get_template_part('template-parts/home/intensive-showcase'); ?>
     <?php get_template_part('template-parts/home/generation-showcase'); ?>
     <?php get_template_part('template-parts/home/quote-keynote'); ?>
     <?php get_template_part('template-parts/home/events'); ?>

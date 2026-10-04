@@ -5294,6 +5294,210 @@ textarea::placeholder {
   color: #64748b;
 }
 
+.intensive-showcase-section {
+  background-color: #0d0f14;
+  color: #ffffff;
+  padding: clamp(5.5rem, 9vw, 9rem) 0;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.intensive-showcase-section .intensive-showcase-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 3rem);
+}
+.intensive-showcase-section .intensive-header-wrap {
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto clamp(2.5rem, 5vw, 3.75rem) auto;
+}
+.intensive-showcase-section .intensive-eyebrow {
+  display: inline-block;
+  font-family: "Wotfard", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(0.875rem, 1.2vw, 1rem);
+  font-weight: 600;
+  color: #f43f5e;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.25rem;
+}
+.intensive-showcase-section .intensive-main-title {
+  font-family: "Wotfard", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2.25rem, 5.2vw, 4.25rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin: 0;
+}
+.intensive-showcase-section .intensive-narrative-wrap {
+  max-width: 860px;
+  margin: 0 auto clamp(3rem, 5.5vw, 4rem) auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.intensive-showcase-section .intensive-narrative-wrap.intensive-narrative-bottom {
+  margin-top: clamp(3rem, 5.5vw, 4rem);
+  margin-bottom: 0;
+}
+.intensive-showcase-section .intensive-paragraph {
+  font-family: "Wotfard", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(0.9375rem, 1.25vw, 1.0625rem);
+  line-height: 1.7;
+  color: #d1d5db;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.intensive-showcase-section .intensive-video-container {
+  max-width: 980px;
+  margin: 0 auto;
+}
+.intensive-showcase-section .intensive-video-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #090b10;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 25px 65px -15px rgba(0, 0, 0, 0.85);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.intensive-showcase-section .intensive-video-card:hover {
+  transform: translateY(-4px) scale(1.008);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 35px 80px -15px rgba(0, 0, 0, 0.95);
+}
+.intensive-showcase-section .intensive-video-card:hover .intensive-play-btn {
+  transform: scale(1.12);
+}
+.intensive-showcase-section .intensive-video-card:hover .intensive-video-img {
+  transform: scale(1.02);
+}
+.intensive-showcase-section .intensive-video-media-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+.intensive-showcase-section .intensive-video-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.intensive-showcase-section .intensive-video-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0) 65%, rgba(0, 0, 0, 0.75) 100%);
+}
+.intensive-showcase-section .intensive-video-topbar {
+  position: absolute;
+  top: clamp(1rem, 2.5vw, 1.75rem);
+  left: clamp(1rem, 2.5vw, 1.75rem);
+  right: clamp(1rem, 2.5vw, 1.75rem);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 2;
+  pointer-events: none;
+}
+.intensive-showcase-section .intensive-video-logo-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #0066ff;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 102, 255, 0.4);
+}
+.intensive-showcase-section .intensive-video-topbar-title {
+  font-family: "Wotfard", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(0.8125rem, 1.2vw, 0.9375rem);
+  font-weight: 500;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.intensive-showcase-section .intensive-play-btn-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+.intensive-showcase-section .intensive-play-btn {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+  filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.6));
+}
+.intensive-showcase-section .intensive-play-btn svg {
+  display: block;
+  width: clamp(54px, 6.5vw, 76px);
+  height: auto;
+}
+.intensive-showcase-section .intensive-video-bottombar {
+  position: absolute;
+  bottom: clamp(1rem, 2.5vw, 1.75rem);
+  left: clamp(1rem, 2.5vw, 1.75rem);
+  right: clamp(1rem, 2.5vw, 1.75rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  z-index: 2;
+}
+.intensive-showcase-section .intensive-video-partner-logos {
+  display: flex;
+  align-items: center;
+}
+.intensive-showcase-section .intensive-partner-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: "Wotfard", "Inter", sans-serif;
+  font-size: clamp(0.9375rem, 1.3vw, 1.15rem);
+  color: #ffffff;
+}
+.intensive-showcase-section .intensive-partner-brand .partner-name-strong {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.intensive-showcase-section .intensive-partner-brand .partner-divider {
+  opacity: 0.5;
+}
+.intensive-showcase-section .intensive-partner-brand .partner-name-light {
+  font-weight: 500;
+  opacity: 0.9;
+}
+.intensive-showcase-section .intensive-watch-yt-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background-color: rgba(24, 24, 27, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.45rem 0.85rem;
+  border-radius: 8px;
+  font-family: "Wotfard", "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+.intensive-showcase-section .intensive-watch-yt-pill .yt-brand-text {
+  font-weight: 700;
+}
+
 .site-about-main {
   background-color: #ffffff;
   overflow: hidden;

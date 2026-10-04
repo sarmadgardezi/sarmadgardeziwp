@@ -703,6 +703,15 @@ function sarmadgardezi_register_frontpage_meta_boxes() {
         );
 
         add_meta_box(
+            'sarmadgardezi_intensive_meta',
+            __('About the Intensive Section ("Where serious leaders come...")', 'sarmadgardezi'),
+            'sarmadgardezi_render_frontpage_intensive_meta_box',
+            'page',
+            'normal',
+            'high'
+        );
+
+        add_meta_box(
             'sarmadgardezi_keynote_quote_meta',
             __('Keynote Quote Section (White Showcase)', 'sarmadgardezi'),
             'sarmadgardezi_render_frontpage_quote_meta_box',
@@ -711,6 +720,75 @@ function sarmadgardezi_register_frontpage_meta_boxes() {
             'high'
         );
     }
+}
+
+function sarmadgardezi_render_frontpage_intensive_meta_box($post) {
+    wp_nonce_field('sarmad_intensive_meta_save', 'sarmad_intensive_meta_nonce');
+    $badge       = get_post_meta($post->ID, 'intensive_badge', true);
+    if (empty($badge)) $badge = 'About the Intensive';
+    
+    $title       = get_post_meta($post->ID, 'intensive_title', true);
+    if (empty($title)) $title = "Where serious leaders come\nto work on the business";
+    
+    $top_1       = get_post_meta($post->ID, 'intensive_text_top_1', true);
+    if (empty($top_1)) $top_1 = 'Most business owners are stuck inside the daily whirlwind reacting to problems, scrambling for the next sale, and hoping “things will calm down” next quarter. But hope isn’t a growth strategy. This event is built for leaders who are ready to step above the noise and engineer growth on purpose.';
+    
+    $top_2       = get_post_meta($post->ID, 'intensive_text_top_2', true);
+    if (empty($top_2)) $top_2 = 'Across five immersive days, you’ll step back from the daily grind and rebuild your business from the inside out. Together with experienced operators and growth mentors, you’ll stress-test your current model, sharpen your offers, and redesign the systems that drive profit and scale.';
+
+    $video_url   = get_post_meta($post->ID, 'intensive_video_url', true);
+    if (empty($video_url)) $video_url = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+
+    $video_cover = get_post_meta($post->ID, 'intensive_video_cover', true);
+    $video_title = get_post_meta($post->ID, 'intensive_video_title', true);
+    if (empty($video_title)) $video_title = 'Using visual development for professional, scalable sites | Webflow customer story';
+
+    $bot_1       = get_post_meta($post->ID, 'intensive_text_bot_1', true);
+    if (empty($bot_1)) $bot_1 = 'This isn’t a motivational seminar. It’s a working room. You’ll be measuring margins, mapping your value chain, and making real decisions in real time with support, feedback, and accountability.';
+
+    $bot_2       = get_post_meta($post->ID, 'intensive_text_bot_2', true);
+    if (empty($bot_2)) $bot_2 = 'By the end of the experience, you’ll walk away with a clear growth playbook, a stronger leadership mindset, and a business that’s positioned to move faster, with far less friction.';
+    ?>
+    <div style="padding: 12px 0;">
+        <p>
+            <label style="font-weight:600; display:block; margin-bottom:5px;"><?php esc_html_e('Eyebrow / Badge Text:', 'sarmadgardezi'); ?></label>
+            <input type="text" name="intensive_badge" value="<?php echo esc_attr($badge); ?>" style="width: 100%;" />
+        </p>
+        <p>
+            <label style="font-weight:600; display:block; margin-bottom:5px;"><?php esc_html_e('Section Main Heading:', 'sarmadgardezi'); ?></label>
+            <textarea name="intensive_title" rows="2" style="width: 100%;"><?php echo esc_textarea($title); ?></textarea>
+        </p>
+        <p>
+            <label style="font-weight:600; display:block; margin-bottom:5px;"><?php esc_html_e('Top Narrative Paragraph 1:', 'sarmadgardezi'); ?></label>
+            <textarea name="intensive_text_top_1" rows="3" style="width: 100%;"><?php echo esc_textarea($top_1); ?></textarea>
+        </p>
+        <p>
+            <label style="font-weight:600; display:block; margin-bottom:5px;"><?php esc_html_e('Top Narrative Paragraph 2:', 'sarmadgardezi'); ?></label>
+            <textarea name="intensive_text_top_2" rows="3" style="width: 100%;"><?php echo esc_textarea($top_2); ?></textarea>
+        </p>
+        <p>
+            <label style="font-weight:600; display:block; margin-bottom:5px;"><?php esc_html_e('Video Showcase Destination / YouTube URL:', 'sarmadgardezi'); ?></label>
+            <input type="url" name="intensive_video_url" value="<?php echo esc_attr($video_url); ?>" style="width: 100%;" />
+        </p>
+        <p>
+            <label style="font-weight:600; display:block; margin-bottom:5px;"><?php esc_html_e('Video Showcase Overlay Title:', 'sarmadgardezi'); ?></label>
+            <input type="text" name="intensive_video_title" value="<?php echo esc_attr($video_title); ?>" style="width: 100%;" />
+        </p>
+        <p>
+            <label style="font-weight:600; display:block; margin-bottom:5px;"><?php esc_html_e('Video Cover / Thumbnail Image URL:', 'sarmadgardezi'); ?></label>
+            <input type="url" id="intensive_video_cover" name="intensive_video_cover" value="<?php echo esc_attr($video_cover); ?>" style="width: 80%;" />
+            <button type="button" class="button sarmad-media-btn" data-target="#intensive_video_cover"><?php esc_html_e('Upload Cover', 'sarmadgardezi'); ?></button>
+        </p>
+        <p>
+            <label style="font-weight:600; display:block; margin-bottom:5px;"><?php esc_html_e('Bottom Narrative Paragraph 1:', 'sarmadgardezi'); ?></label>
+            <textarea name="intensive_text_bot_1" rows="3" style="width: 100%;"><?php echo esc_textarea($bot_1); ?></textarea>
+        </p>
+        <p>
+            <label style="font-weight:600; display:block; margin-bottom:5px;"><?php esc_html_e('Bottom Narrative Paragraph 2:', 'sarmadgardezi'); ?></label>
+            <textarea name="intensive_text_bot_2" rows="3" style="width: 100%;"><?php echo esc_textarea($bot_2); ?></textarea>
+        </p>
+    </div>
+    <?php
 }
 
 function sarmadgardezi_render_frontpage_quote_meta_box($post) {
@@ -984,6 +1062,87 @@ function sarmadgardezi_register_all_acf_field_groups() {
                         'type' => 'url',
                     ),
                 ),
+            ),
+        ),
+        'location' => $front_page_location,
+        'menu_order' => 6,
+        'position' => 'normal',
+        'style' => 'default',
+    ));
+
+    // 2.2 About the Intensive Section ACF Field Group on Front Page
+    acf_add_local_field_group(array(
+        'key' => 'group_sarmadgardezi_intensive_section',
+        'title' => __('Front Page — About the Intensive Section', 'sarmadgardezi'),
+        'fields' => array(
+            array(
+                'key' => 'field_intensive_badge',
+                'label' => __('Eyebrow / Badge Text', 'sarmadgardezi'),
+                'name' => 'intensive_badge',
+                'type' => 'text',
+                'default_value' => 'About the Intensive',
+            ),
+            array(
+                'key' => 'field_intensive_title',
+                'label' => __('Section Main Heading', 'sarmadgardezi'),
+                'name' => 'intensive_title',
+                'type' => 'textarea',
+                'default_value' => "Where serious leaders come\nto work on the business",
+                'rows' => 2,
+            ),
+            array(
+                'key' => 'field_intensive_text_top_1',
+                'label' => __('Top Narrative Paragraph 1', 'sarmadgardezi'),
+                'name' => 'intensive_text_top_1',
+                'type' => 'textarea',
+                'default_value' => 'Most business owners are stuck inside the daily whirlwind reacting to problems, scrambling for the next sale, and hoping “things will calm down” next quarter. But hope isn’t a growth strategy. This event is built for leaders who are ready to step above the noise and engineer growth on purpose.',
+                'rows' => 3,
+            ),
+            array(
+                'key' => 'field_intensive_text_top_2',
+                'label' => __('Top Narrative Paragraph 2', 'sarmadgardezi'),
+                'name' => 'intensive_text_top_2',
+                'type' => 'textarea',
+                'default_value' => 'Across five immersive days, you’ll step back from the daily grind and rebuild your business from the inside out. Together with experienced operators and growth mentors, you’ll stress-test your current model, sharpen your offers, and redesign the systems that drive profit and scale.',
+                'rows' => 3,
+            ),
+            array(
+                'key' => 'field_intensive_video_url',
+                'label' => __('Video Showcase / YouTube Destination Link', 'sarmadgardezi'),
+                'name' => 'intensive_video_url',
+                'type' => 'url',
+                'default_value' => 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            ),
+            array(
+                'key' => 'field_intensive_video_title',
+                'label' => __('Video Overlay Title', 'sarmadgardezi'),
+                'name' => 'intensive_video_title',
+                'type' => 'text',
+                'default_value' => 'Using visual development for professional, scalable sites | Webflow customer story',
+            ),
+            array(
+                'key' => 'field_intensive_video_cover',
+                'label' => __('Video Cover Thumbnail', 'sarmadgardezi'),
+                'name' => 'intensive_video_cover',
+                'type' => 'image',
+                'return_format' => 'url',
+                'preview_size' => 'medium',
+            ),
+            array(
+                'key' => 'field_intensive_text_bot_1',
+                'label' => __('Bottom Narrative Paragraph 1', 'sarmadgardezi'),
+                'name' => 'intensive_text_bot_1',
+                'type' => 'textarea',
+                'default_value' => 'This isn’t a motivational seminar. It’s a working room. You’ll be measuring margins, mapping your value chain, and making real decisions in real time with support, feedback, and accountability.',
+                'rows' => 3,
+            ),
+            array(
+                'key' => 'field_intensive_text_bot_2',
+                'label' => __('Bottom Narrative Paragraph 2', 'sarmadgardezi'),
+                'name' => 'intensive_text_bot_2',
+                'type' => 'textarea',
+                'default_value' => 'By the end of the experience, you’ll walk away with a clear growth playbook, a stronger leadership mindset, and a business that’s positioned to move faster, with far less friction.',
+                'rows' => 3,
             ),
         ),
         'location' => $front_page_location,
@@ -1650,6 +1809,30 @@ function sarmadgardezi_save_project_and_event_meta($post_id) {
         if (isset($_POST['keynote_quote_photo'])) {
             update_post_meta($post_id, 'keynote_quote_photo', esc_url_raw($_POST['keynote_quote_photo']));
             update_post_meta($post_id, '_keynote_quote_photo', esc_url_raw($_POST['keynote_quote_photo']));
+        }
+    }
+
+    if (isset($_POST['sarmad_intensive_meta_nonce']) && wp_verify_nonce($_POST['sarmad_intensive_meta_nonce'], 'sarmad_intensive_meta_save')) {
+        $text_fields = array('intensive_badge', 'intensive_video_title');
+        foreach ($text_fields as $tf) {
+            if (isset($_POST[$tf])) {
+                update_post_meta($post_id, $tf, sanitize_text_field($_POST[$tf]));
+                update_post_meta($post_id, '_' . $tf, sanitize_text_field($_POST[$tf]));
+            }
+        }
+        $textarea_fields = array('intensive_title', 'intensive_text_top_1', 'intensive_text_top_2', 'intensive_text_bot_1', 'intensive_text_bot_2');
+        foreach ($textarea_fields as $taf) {
+            if (isset($_POST[$taf])) {
+                update_post_meta($post_id, $taf, sanitize_textarea_field($_POST[$taf]));
+                update_post_meta($post_id, '_' . $taf, sanitize_textarea_field($_POST[$taf]));
+            }
+        }
+        $url_fields = array('intensive_video_url', 'intensive_video_cover');
+        foreach ($url_fields as $uf) {
+            if (isset($_POST[$uf])) {
+                update_post_meta($post_id, $uf, esc_url_raw($_POST[$uf]));
+                update_post_meta($post_id, '_' . $uf, esc_url_raw($_POST[$uf]));
+            }
         }
     }
 }
