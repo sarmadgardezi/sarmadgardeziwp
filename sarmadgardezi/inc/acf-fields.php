@@ -1527,31 +1527,39 @@ function sarmadgardezi_render_project_native_meta_box($post) {
 
 function sarmadgardezi_render_event_native_meta_box($post) {
     wp_nonce_field('sarmad_event_meta_save', 'sarmad_event_meta_nonce');
-    $role     = get_post_meta($post->ID, '_event_role', true);
-    if (empty($role)) $role = get_post_meta($post->ID, 'event_role', true);
-    $timeline = get_post_meta($post->ID, '_event_timeline', true);
-    if (empty($timeline)) $timeline = get_post_meta($post->ID, 'event_timeline', true);
-    $url      = get_post_meta($post->ID, '_event_url', true);
+    $speaker     = get_post_meta($post->ID, '_event_speaker', true);
+    if (empty($speaker)) $speaker = get_post_meta($post->ID, 'event_speaker', true);
+    
+    $is_featured = get_post_meta($post->ID, '_event_is_featured', true);
+    if (empty($is_featured)) $is_featured = get_post_meta($post->ID, 'event_is_featured', true);
+
+    $desc        = get_post_meta($post->ID, '_event_description', true);
+    if (empty($desc)) $desc = get_post_meta($post->ID, 'event_description', true);
+
+    $url         = get_post_meta($post->ID, '_event_url', true);
     if (empty($url)) $url = get_post_meta($post->ID, 'event_url', true);
-    $location = get_post_meta($post->ID, '_event_location', true);
-    if (empty($location)) $location = get_post_meta($post->ID, 'event_location', true);
+
+    $role        = get_post_meta($post->ID, '_event_role', true);
+    if (empty($role)) $role = get_post_meta($post->ID, 'event_role', true);
     ?>
     <div style="padding: 10px 0;">
         <p>
-            <label style="font-weight: 600; display:block; margin-bottom: 5px;"><?php esc_html_e('Role / Subtitle / Tagline', 'sarmadgardezi'); ?></label>
-            <input type="text" name="event_role" value="<?php echo esc_attr($role); ?>" placeholder="Fractional CTO & AI Product Engineer" style="width: 100%;" />
+            <label style="font-weight: 600; display:block; margin-bottom: 5px;"><?php esc_html_e('Speaker Name (e.g. TIMOTHY RICKS):', 'sarmadgardezi'); ?></label>
+            <input type="text" name="event_speaker" value="<?php echo esc_attr($speaker); ?>" placeholder="e.g. TIMOTHY RICKS" style="width: 100%;" />
         </p>
         <p>
-            <label style="font-weight: 600; display:block; margin-bottom: 5px;"><?php esc_html_e('Timeline / Dates', 'sarmadgardezi'); ?></label>
-            <input type="text" name="event_timeline" value="<?php echo esc_attr($timeline); ?>" placeholder="2026–Today" style="width: 100%;" />
+            <label style="font-weight: 600; display:inline-flex; align-items:center; gap:8px; cursor:pointer;">
+                <input type="checkbox" name="event_is_featured" value="1" <?php checked($is_featured, '1'); ?> />
+                <?php esc_html_e('Set as Main Featured Keynote (Left Column Spotlight)', 'sarmadgardezi'); ?>
+            </label>
         </p>
         <p>
-            <label style="font-weight: 600; display:block; margin-bottom: 5px;"><?php esc_html_e('External Website / Project Link', 'sarmadgardezi'); ?></label>
-            <input type="url" name="event_url" value="<?php echo esc_attr($url); ?>" placeholder="https://" style="width: 100%;" />
+            <label style="font-weight: 600; display:block; margin-bottom: 5px;"><?php esc_html_e('Session / Keynote Overview & Description:', 'sarmadgardezi'); ?></label>
+            <textarea name="event_description" rows="3" style="width: 100%;"><?php echo esc_textarea($desc); ?></textarea>
         </p>
         <p>
-            <label style="font-weight: 600; display:block; margin-bottom: 5px;"><?php esc_html_e('Location / Venue', 'sarmadgardezi'); ?></label>
-            <input type="text" name="event_location" value="<?php echo esc_attr($location); ?>" placeholder="Remote / Global" style="width: 100%;" />
+            <label style="font-weight: 600; display:block; margin-bottom: 5px;"><?php esc_html_e('Session Destination URL / Link:', 'sarmadgardezi'); ?></label>
+            <input type="url" name="event_url" value="<?php echo esc_attr($url); ?>" placeholder="https://..." style="width: 100%;" />
         </p>
     </div>
     <?php
@@ -1563,21 +1571,21 @@ function sarmadgardezi_save_project_and_event_meta($post_id) {
     if (!current_user_can('edit_post', $post_id)) return;
 
     if (isset($_POST['sarmad_event_meta_nonce']) && wp_verify_nonce($_POST['sarmad_event_meta_nonce'], 'sarmad_event_meta_save')) {
-        if (isset($_POST['event_role'])) {
-            update_post_meta($post_id, 'event_role', sanitize_text_field($_POST['event_role']));
-            update_post_meta($post_id, '_event_role', sanitize_text_field($_POST['event_role']));
+        if (isset($_POST['event_speaker'])) {
+            update_post_meta($post_id, 'event_speaker', sanitize_text_field($_POST['event_speaker']));
+            update_post_meta($post_id, '_event_speaker', sanitize_text_field($_POST['event_speaker']));
         }
-        if (isset($_POST['event_timeline'])) {
-            update_post_meta($post_id, 'event_timeline', sanitize_text_field($_POST['event_timeline']));
-            update_post_meta($post_id, '_event_timeline', sanitize_text_field($_POST['event_timeline']));
+        $is_feat = !empty($_POST['event_is_featured']) ? '1' : '0';
+        update_post_meta($post_id, 'event_is_featured', $is_feat);
+        update_post_meta($post_id, '_event_is_featured', $is_feat);
+
+        if (isset($_POST['event_description'])) {
+            update_post_meta($post_id, 'event_description', sanitize_textarea_field($_POST['event_description']));
+            update_post_meta($post_id, '_event_description', sanitize_textarea_field($_POST['event_description']));
         }
         if (isset($_POST['event_url'])) {
             update_post_meta($post_id, 'event_url', esc_url_raw($_POST['event_url']));
             update_post_meta($post_id, '_event_url', esc_url_raw($_POST['event_url']));
-        }
-        if (isset($_POST['event_location'])) {
-            update_post_meta($post_id, 'event_location', sanitize_text_field($_POST['event_location']));
-            update_post_meta($post_id, '_event_location', sanitize_text_field($_POST['event_location']));
         }
     }
 

@@ -1,242 +1,241 @@
 <?php
 /**
- * Template part for displaying the Products & Experience list section
- * Matching exact grid specification with dynamic ACF support and static fallbacks
+ * Template part for displaying the Events & Sessions Showcase Section
+ *
+ * Matching exact reference design:
+ * - Header: "No code, no limits", subtitle, "See all sessions →" link
+ * - Left: Featured Opening Keynote card with large thumbnail, title & narrative
+ * - Right: Vertical list of session cards with thumbnails, titles & speaker credits
+ * - Dynamic via 'event' Custom Post Type & ACF with full static fallback.
  *
  * @package SarmadGardezi
  */
 
 defined('ABSPATH') || exit;
 
-// Section Label
-$section_label = 'Projects';
+// Retrieve Front Page ID
+$front_id = get_option('page_on_front');
+$target_id = $front_id ? $front_id : get_the_ID();
+
+// Section Header Data
+$section_title = 'No code, no <span class="events-accent-title">limits</span>';
+$section_desc  = "Webflow's annual No-Code Conf features the brightest minds behind the no-code movement. Relive the experience of NCC 2021 on-demand.";
+$see_all_text  = 'See all sessions';
+$see_all_url   = home_url('/events');
+
 if (function_exists('get_field')) {
-    $acf_label = get_field('projects_section_label');
-    if (empty($acf_label)) {
-        $acf_label = get_field('events_section_label');
-    }
-    if (!empty($acf_label)) {
-        $section_label = $acf_label;
-    }
+    $c_title = get_field('events_section_title', $target_id);
+    $c_desc  = get_field('events_section_subtitle', $target_id);
+    $c_ltext = get_field('events_section_link_text', $target_id);
+    $c_lurl  = get_field('events_section_link_url', $target_id);
+
+    if (!empty($c_title)) $section_title = $c_title;
+    if (!empty($c_desc))  $section_desc  = $c_desc;
+    if (!empty($c_ltext)) $see_all_text  = $c_ltext;
+    if (!empty($c_lurl))  $see_all_url   = $c_lurl;
 }
 
-// Query Dynamic Project / Event Posts
-$events_args = array(
-    'post_type'      => array('project', 'event'),
-    'posts_per_page' => -1,
+// 1. Query Dynamic Event Posts
+$events_query = new WP_Query(array(
+    'post_type'      => 'event',
+    'posts_per_page' => 5,
     'post_status'    => 'publish',
     'orderby'        => 'menu_order date',
-    'order'          => 'DESC',
-);
-$events_query = new WP_Query($events_args);
+    'order'          => 'ASC',
+));
+
 $has_dynamic_events = $events_query->have_posts();
 
-// Asset base for fallback logos
-$asset_base = function_exists('sarmadgardezi_asset') 
-    ? sarmadgardezi_asset('') 
-    : get_template_directory_uri() . '/assets/';
-$brand_img_dir = rtrim($asset_base, '/') . '/images/brands/';
+// Assets Directory for Default Fallbacks
+$theme_img_dir = get_template_directory_uri() . '/assets/images/events/';
 
-// Static fallback items from reference specification
-$static_products = array(
+// Static Default Keynote & Sessions (Exact match with reference design)
+$default_keynote = array(
+    'title'       => 'No-Code Conference 2021 - Opening Keynote',
+    'description' => "Webflow's Vlad Magdalin, Bryant Chou, Arquay Harris, Jiaona Zhang, Sara Lundberg, and McGuire Brannon announce new features and updates at Webflow's No-Code Conf 2021.",
+    'image'       => $theme_img_dir . 'opening-keynote.jpg',
+    'link'        => home_url('/talks'),
+);
+
+$default_sessions = array(
     array(
-        'name'     => 'Maya',
-        'role'     => 'Fractional CTO & AI Product Engineer',
-        'timeline' => '2026–Today',
-        'url'      => 'https://myprotectify.org/',
-        'logo_img' => $brand_img_dir . 'maya.svg',
-        'logo_svg' => '',
+        'title'   => 'How to create uncommon microsites with Webflow',
+        'speaker' => 'TIMOTHY RICKS',
+        'image'   => $theme_img_dir . 'session-1.jpg',
+        'link'    => home_url('/talks'),
     ),
     array(
-        'name'     => 'Sevenflow',
-        'role'     => 'Fractional CTO & Product Engineer',
-        'timeline' => '2026–Today',
-        'url'      => 'https://sevenflow.de/',
-        'logo_img' => $brand_img_dir . 'sevenflow.svg',
-        'logo_svg' => '',
+        'title'   => 'Democratizing the web, one no-code tool at a time',
+        'speaker' => 'LACEY KESLER',
+        'image'   => $theme_img_dir . 'session-2.jpg',
+        'link'    => home_url('/talks'),
     ),
     array(
-        'name'     => 'Tuuul',
-        'role'     => 'Fractional CTO & Product Engineer',
-        'timeline' => '2024–Today',
-        'url'      => 'https://tuuul.de/',
-        'logo_img' => $brand_img_dir . 'tuuul.svg',
-        'logo_svg' => '',
+        'title'   => 'How Webflow inspired a career change — and a community for women in no-code',
+        'speaker' => 'CLAUDIA CAFEO',
+        'image'   => $theme_img_dir . 'session-3.jpg',
+        'link'    => home_url('/talks'),
     ),
     array(
-        'name'     => 'medmingle',
-        'role'     => 'Fractional CTO & Product Engineer',
-        'timeline' => '2024–Today',
-        'url'      => 'https://medmingle.de/',
-        'logo_img' => $brand_img_dir . 'medmingle.svg',
-        'logo_svg' => '',
-    ),
-    array(
-        'name'     => 'Akindi',
-        'role'     => 'Product Engineer',
-        'timeline' => '2023–2025',
-        'url'      => 'https://akindi.com/',
-        'logo_img' => $brand_img_dir . 'akindi.svg',
-        'logo_svg' => '',
-    ),
-    array(
-        'name'     => 'vykee',
-        'role'     => 'Product Engineer',
-        'timeline' => '2023–2024',
-        'url'      => 'https://vykee.co/',
-        'logo_img' => $brand_img_dir . 'vykee.svg',
-        'logo_svg' => '',
-    ),
-    array(
-        'name'     => 'dskrpt',
-        'role'     => 'Product Engineer',
-        'timeline' => '2023–2024',
-        'url'      => 'https://dskrpt.de/',
-        'logo_img' => $brand_img_dir . 'dokrypt.svg',
-        'logo_svg' => '',
-    ),
-    array(
-        'name'     => 'Lazy',
-        'role'     => 'AI Product Engineer',
-        'timeline' => '2021–2024',
-        'url'      => 'https://lazy.so/',
-        'logo_img' => $brand_img_dir . 'lazy.svg',
-        'logo_svg' => '',
+        'title'   => 'How to build a successful powerhouse agency from zero in 3 years',
+        'speaker' => 'JOE KRUG',
+        'image'   => $theme_img_dir . 'session-4.jpg',
+        'link'    => home_url('/talks'),
     ),
 );
+
+// Process dynamic items if available
+$featured_item = null;
+$session_items = array();
+
+if ($has_dynamic_events) {
+    $all_posts = $events_query->posts;
+    
+    // Check if any post is marked explicitly as keynote / featured
+    $found_keynote_index = null;
+    foreach ($all_posts as $idx => $p) {
+        $is_feat = get_post_meta($p->ID, 'event_is_featured', true);
+        if (empty($is_feat)) $is_feat = get_post_meta($p->ID, '_event_is_featured', true);
+        if ($is_feat) {
+            $found_keynote_index = $idx;
+            break;
+        }
+    }
+
+    if ($found_keynote_index !== null) {
+        $p = $all_posts[$found_keynote_index];
+        unset($all_posts[$found_keynote_index]);
+        $all_posts = array_values($all_posts);
+    } else {
+        $p = array_shift($all_posts);
+    }
+
+    if ($p) {
+        $k_img = get_the_post_thumbnail_url($p->ID, 'large');
+        if (empty($k_img)) $k_img = $default_keynote['image'];
+        $k_desc = get_post_meta($p->ID, 'event_description', true);
+        if (empty($k_desc)) $k_desc = get_post_meta($p->ID, '_event_description', true);
+        if (empty($k_desc)) $k_desc = get_post_meta($p->ID, 'event_role', true);
+        if (empty($k_desc) && has_excerpt($p->ID)) $k_desc = get_the_excerpt($p->ID);
+
+        $k_link = get_post_meta($p->ID, 'event_url', true);
+        if (empty($k_link)) $k_link = get_post_meta($p->ID, '_event_url', true);
+        if (empty($k_link)) $k_link = get_permalink($p->ID);
+
+        $featured_item = array(
+            'title'       => get_the_title($p->ID),
+            'description' => $k_desc,
+            'image'       => $k_img,
+            'link'        => $k_link,
+        );
+    }
+
+    foreach ($all_posts as $p) {
+        $s_img = get_the_post_thumbnail_url($p->ID, 'medium_large');
+        if (empty($s_img)) $s_img = $default_sessions[count($session_items) % count($default_sessions)]['image'];
+        
+        $s_speaker = get_post_meta($p->ID, 'event_speaker', true);
+        if (empty($s_speaker)) $s_speaker = get_post_meta($p->ID, '_event_speaker', true);
+        if (empty($s_speaker)) $s_speaker = get_post_meta($p->ID, 'event_role', true);
+        if (empty($s_speaker)) $s_speaker = 'SPEAKER';
+
+        $s_link = get_post_meta($p->ID, 'event_url', true);
+        if (empty($s_link)) $s_link = get_post_meta($p->ID, '_event_url', true);
+        if (empty($s_link)) $s_link = get_permalink($p->ID);
+
+        $session_items[] = array(
+            'title'   => get_the_title($p->ID),
+            'speaker' => strtoupper($s_speaker),
+            'image'   => $s_img,
+            'link'    => $s_link,
+        );
+    }
+} else {
+    $featured_item = $default_keynote;
+    $session_items = $default_sessions;
+}
 ?>
 
-<section id="products-experience" class="products-section" aria-label="<?php echo esc_attr($section_label); ?>">
-    <div class="site-container products-container">
+<section id="events-section" class="events-showcase-section" aria-label="<?php esc_attr_e('Events and Sessions', 'sarmadgardezi'); ?>">
+    <div class="events-showcase-container">
         
-        <!-- Section Header Label -->
-        <h2 class="reveal products-section-heading" style="--stagger:4"><?php echo esc_html($section_label); ?></h2>
-
-        <!-- Products List -->
-        <ul class="products-list">
+        <!-- Section Top Header Bar -->
+        <div class="events-header-row">
+            <div class="events-header-info">
+                <h2 class="events-main-title"><?php echo wp_kses_post($section_title); ?></h2>
+                <p class="events-main-desc"><?php echo esc_html($section_desc); ?></p>
+            </div>
             
-            <?php if ($has_dynamic_events) : ?>
-                <?php 
-                $item_idx = 0;
-                while ($events_query->have_posts()) : $events_query->the_post(); 
-                    $p_id      = get_the_ID();
-                    $stagger   = 5 + $item_idx;
-                    $item_idx++;
+            <?php if (!empty($see_all_url)) : ?>
+                <div class="events-header-action">
+                    <a href="<?php echo esc_url($see_all_url); ?>" class="events-see-all-link">
+                        <span><?php echo esc_html($see_all_text); ?></span>
+                        <svg class="events-link-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            <?php endif; ?>
+        </div>
 
-                    $role      = get_post_meta($p_id, '_project_role', true);
-                    if (empty($role)) $role = get_post_meta($p_id, 'project_role', true);
-                    if (empty($role)) $role = get_post_meta($p_id, '_event_role', true);
-                    if (empty($role)) $role = get_post_meta($p_id, 'event_role', true);
-                    if (empty($role)) $role = get_post_meta($p_id, 'project_subtitle', true);
-                    if (empty($role) && has_excerpt()) $role = get_the_excerpt();
-
-                    $timeline  = get_post_meta($p_id, '_project_timeline', true);
-                    if (empty($timeline)) $timeline = get_post_meta($p_id, 'project_timeline', true);
-                    if (empty($timeline)) $timeline = get_post_meta($p_id, '_project_year', true);
-                    if (empty($timeline)) $timeline = get_post_meta($p_id, '_event_timeline', true);
-                    if (empty($timeline)) $timeline = get_post_meta($p_id, 'event_timeline', true);
-                    if (empty($timeline)) $timeline = get_the_date('Y');
-
-                    $logo_url  = get_post_meta($p_id, '_project_logo', true);
-                    if (empty($logo_url)) $logo_url = get_post_meta($p_id, 'project_logo', true);
-                    if (empty($logo_url)) $logo_url = get_post_meta($p_id, '_event_logo', true);
-                    if (empty($logo_url)) $logo_url = get_post_meta($p_id, 'event_logo', true);
-                    if (empty($logo_url) && has_post_thumbnail()) {
-                        $logo_url = get_the_post_thumbnail_url($p_id, 'thumbnail');
-                    }
-
-                    $ext_url   = get_post_meta($p_id, '_project_live_url', true);
-                    if (empty($ext_url)) $ext_url = get_post_meta($p_id, 'project_live_url', true);
-                    if (empty($ext_url)) $ext_url = get_post_meta($p_id, '_project_url', true);
-                    if (empty($ext_url)) $ext_url = get_post_meta($p_id, 'project_url', true);
-                    if (empty($ext_url)) $ext_url = get_post_meta($p_id, '_event_url', true);
-                    if (empty($ext_url)) $ext_url = get_post_meta($p_id, 'event_url', true);
-                    
-                    $item_link   = get_permalink($p_id);
-                    $target_attr = '_self';
-                    $rel_attr    = '';
-                ?>
-                    <li class="reveal products-item" style="--stagger:<?php echo esc_attr($stagger); ?>">
-                        <a href="<?php echo esc_url($item_link); ?>" class="group products-item-link">
-                            
-                            <!-- Logo Column -->
-                            <span class="product-logo-slot">
-                                <?php if (!empty($logo_url)) : ?>
-                                    <img src="<?php echo esc_url($logo_url); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="product-logo-img" loading="lazy" />
-                                <?php else : ?>
-                                    <span class="product-placeholder-logo"><?php echo esc_html(substr(get_the_title(), 0, 1)); ?></span>
-                                <?php endif; ?>
-                            </span>
-
-                            <!-- Brand Name & Hover Arrow -->
-                            <span class="product-name-slot">
-                                <?php the_title(); ?>
-                                <svg viewBox="0 0 16 16" aria-hidden="true" class="product-arrow-pill">
-                                    <rect width="16" height="16" rx="8" fill="#CEAFFA"></rect>
-                                    <path d="M5 8h6M8.2 5 11 8l-2.8 3" fill="none" stroke="#121212" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"></path>
-                                </svg>
-                            </span>
-
-                            <!-- Role / Tagline -->
-                            <span class="product-role-slot">
-                                <?php echo esc_html($role); ?>
-                            </span>
-
-                            <!-- Timeline -->
-                            <span class="product-timeline-slot">
-                                <?php echo esc_html($timeline); ?>
-                            </span>
-
-                        </a>
-                    </li>
-                <?php endwhile; wp_reset_postdata(); ?>
-
-            <?php else : ?>
-
-                <!-- Static Reference Fallbacks -->
-                <?php foreach ($static_products as $i => $prod) : 
-                    $stagger = 5 + $i;
-                ?>
-                    <li class="reveal products-item" style="--stagger:<?php echo esc_attr($stagger); ?>">
-                        <a href="<?php echo esc_url($prod['url']); ?>" target="_blank" rel="noopener noreferrer" class="group products-item-link">
-                            
-                            <!-- Logo Column -->
-                            <span class="product-logo-slot">
-                                <?php if (!empty($prod['logo_img'])) : ?>
-                                    <img src="<?php echo esc_url($prod['logo_img']); ?>" alt="<?php echo esc_attr($prod['name']); ?>" class="product-logo-img" loading="lazy" />
-                                <?php elseif (!empty($prod['logo_svg'])) : ?>
-                                    <?php echo $prod['logo_svg']; ?>
-                                <?php else : ?>
-                                    <span class="product-placeholder-logo"><?php echo esc_html(substr($prod['name'], 0, 1)); ?></span>
-                                <?php endif; ?>
-                            </span>
-
-                            <!-- Brand Name & Hover Arrow -->
-                            <span class="product-name-slot">
-                                <?php echo esc_html($prod['name']); ?>
-                                <svg viewBox="0 0 16 16" aria-hidden="true" class="product-arrow-pill">
-                                    <rect width="16" height="16" rx="8" fill="#CEAFFA"></rect>
-                                    <path d="M5 8h6M8.2 5 11 8l-2.8 3" fill="none" stroke="#121212" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"></path>
-                                </svg>
-                            </span>
-
-                            <!-- Role / Tagline -->
-                            <span class="product-role-slot">
-                                <?php echo esc_html($prod['role']); ?>
-                            </span>
-
-                            <!-- Timeline -->
-                            <span class="product-timeline-slot">
-                                <?php echo esc_html($prod['timeline']); ?>
-                            </span>
-
-                        </a>
-                    </li>
-                <?php endforeach; ?>
-
+        <!-- Section 2-Column Grid -->
+        <div class="events-grid-layout">
+            
+            <!-- Left Column: Featured Opening Keynote -->
+            <?php if (!empty($featured_item)) : ?>
+                <div class="events-keynote-col">
+                    <a href="<?php echo esc_url($featured_item['link']); ?>" class="events-keynote-card" aria-label="<?php echo esc_attr($featured_item['title']); ?>">
+                        <div class="events-keynote-media-box">
+                            <img 
+                                src="<?php echo esc_url($featured_item['image']); ?>" 
+                                alt="<?php echo esc_attr($featured_item['title']); ?>" 
+                                class="events-keynote-img"
+                                loading="lazy"
+                                width="720"
+                                height="405"
+                            />
+                            <div class="events-keynote-media-overlay"></div>
+                        </div>
+                        
+                        <div class="events-keynote-content">
+                            <h3 class="events-keynote-title"><?php echo esc_html($featured_item['title']); ?></h3>
+                            <?php if (!empty($featured_item['description'])) : ?>
+                                <p class="events-keynote-desc"><?php echo esc_html($featured_item['description']); ?></p>
+                            <?php endif; ?>
+                        </div>
+                    </a>
+                </div>
             <?php endif; ?>
 
-        </ul>
+            <!-- Right Column: Vertical Session Cards List -->
+            <div class="events-sessions-col">
+                <div class="events-sessions-list">
+                    <?php foreach ($session_items as $session) : ?>
+                        <a href="<?php echo esc_url($session['link']); ?>" class="events-session-item" aria-label="<?php echo esc_attr($session['title']); ?>">
+                            
+                            <div class="events-session-thumb-box">
+                                <img 
+                                    src="<?php echo esc_url($session['image']); ?>" 
+                                    alt="<?php echo esc_attr($session['title']); ?>" 
+                                    class="events-session-thumb"
+                                    loading="lazy"
+                                    width="240"
+                                    height="135"
+                                />
+                            </div>
+
+                            <div class="events-session-details">
+                                <h4 class="events-session-title"><?php echo esc_html($session['title']); ?></h4>
+                                <span class="events-session-speaker"><?php echo esc_html($session['speaker']); ?></span>
+                            </div>
+
+                        </a>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+
+        </div>
 
     </div>
 </section>
