@@ -123,6 +123,9 @@ $initial_brands = array_slice($brand_items, 0, $slot_count);
                     </div>
                 </div>
             <?php endforeach; ?>
+            <div class="hero-logo-strip-label">
+                <span><?php esc_html_e('My clients', 'sarmadgardezi'); ?></span>
+            </div>
         </div>
     </div>
 </section>
