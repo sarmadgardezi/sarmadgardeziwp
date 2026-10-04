@@ -110,6 +110,9 @@ $initial_brands = array_slice($brand_items, 0, $slot_count);
 <section id="hero-brands" class="hero-logo-strip-section" aria-label="<?php esc_attr_e('Client Logos', 'sarmadgardezi'); ?>">
     <div class="site-container hero-logo-strip-container">
         <div class="hero-logo-strip-wrap" id="dynamic-logo-strip" data-brands="<?php echo esc_attr(wp_json_encode($brand_items)); ?>">
+            <div class="hero-logo-strip-label">
+                <span><?php esc_html_e('My clients', 'sarmadgardezi'); ?></span>
+            </div>
             <?php foreach ($initial_brands as $index => $brand) : ?>
                 <div class="logo-slot" data-slot-index="<?php echo esc_attr($index); ?>" data-current-brand="<?php echo esc_attr($index); ?>">
                     <div class="logo-item current-logo">
@@ -123,9 +126,6 @@ $initial_brands = array_slice($brand_items, 0, $slot_count);
                     </div>
                 </div>
             <?php endforeach; ?>
-            <div class="hero-logo-strip-label">
-                <span><?php esc_html_e('My clients', 'sarmadgardezi'); ?></span>
-            </div>
         </div>
     </div>
 </section>

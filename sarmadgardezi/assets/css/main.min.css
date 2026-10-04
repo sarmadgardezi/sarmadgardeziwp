@@ -1603,9 +1603,9 @@ textarea::placeholder {
 }
 
 .site-footer {
-  background-color: #ffffff;
-  color: #64748b;
-  border-top: 1px solid #e2e8f0;
+  background-color: #161922;
+  color: #94a3b8;
+  border-top: 1px solid #282d3d;
   padding: clamp(5rem, 9vw, 10rem) 0 clamp(3.5rem, 5vw, 5rem);
   margin-top: auto;
   font-family: "Wotfard", var(--font-family, sans-serif);
@@ -1658,23 +1658,23 @@ textarea::placeholder {
 .site-footer .footer-brand-title {
   font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: clamp(1.35rem, 2.2vw, 1.625rem);
-  font-weight: 600;
-  color: #0f172a;
+  font-weight: 500;
+  color: #ffffff;
   text-decoration: none;
   display: inline-block;
   letter-spacing: -0.01em;
   line-height: 1.2;
-  transition: opacity 0.2s ease, color 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 .site-footer .footer-brand-title:hover {
-  opacity: 0.85;
-  color: #0f172a;
+  opacity: 0.9;
+  color: #ffffff;
 }
 .site-footer .footer-brand-bio {
   font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: clamp(1.25rem, 1.8vw, 1.5rem);
   font-weight: 400;
-  color: #64748b;
+  color: #94a3b8;
   line-height: 1.35;
   margin: 1.5rem 0 1.75rem 0;
   max-width: 380px;
@@ -1685,7 +1685,7 @@ textarea::placeholder {
   justify-content: space-between;
   gap: 1.5rem;
   margin-top: 1.5rem;
-  color: #64748b;
+  color: #94a3b8;
 }
 @media (min-width: 1180px) {
   .site-footer .footer-social-signature-wrap {
@@ -1703,7 +1703,7 @@ textarea::placeholder {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #64748b;
+  color: #94a3b8;
   text-decoration: none;
   transition: color 0.2s ease, transform 0.2s ease;
 }
@@ -1713,11 +1713,11 @@ textarea::placeholder {
   height: 32px;
 }
 .site-footer .footer-social-row .footer-social-link:hover {
-  color: #0f172a;
+  color: #ffffff;
   transform: translateY(-2px);
 }
 .site-footer .footer-social-row .footer-social-link:focus-visible {
-  outline: 2px solid #0f172a;
+  outline: 2px solid #ffffff;
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -1725,7 +1725,7 @@ textarea::placeholder {
   display: flex;
   align-items: center;
   width: 6rem;
-  color: #475569;
+  color: #94a3b8;
   position: relative;
 }
 @media (min-width: 1180px) {
@@ -1741,7 +1741,7 @@ textarea::placeholder {
   transition: color 0.2s ease;
 }
 .site-footer .footer-signature-wrap .footer-signature-svg:hover {
-  color: #0f172a;
+  color: #ffffff;
 }
 .site-footer .footer-col-nav {
   display: flex;
@@ -1788,8 +1788,8 @@ textarea::placeholder {
 .site-footer .footer-nav-heading {
   font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: 1.125rem;
-  font-weight: 600;
-  color: #0f172a;
+  font-weight: 500;
+  color: #ffffff;
   margin: 0 0 1rem 0;
   line-height: 1.4;
 }
@@ -1808,19 +1808,19 @@ textarea::placeholder {
   font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: 1.125rem;
   font-weight: 400;
-  color: #64748b;
+  color: #94a3b8;
   text-decoration: none;
   display: inline-block;
   white-space: nowrap;
   transition: color 0.15s ease;
 }
 .site-footer .footer-nav-links li a:hover {
-  color: #0f172a;
+  color: #ffffff;
   text-decoration: underline;
   text-underline-offset: 4px;
 }
 .site-footer .footer-nav-links li a:focus-visible {
-  outline: 2px solid #0f172a;
+  outline: 2px solid #ffffff;
   outline-offset: 2px;
   border-radius: 2px;
 }
@@ -1847,7 +1847,7 @@ textarea::placeholder {
 .site-footer .footer-newsletter-desc {
   font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: 1.125rem;
-  color: #64748b;
+  color: #94a3b8;
   line-height: 1.5;
   margin: 0 0 0.25rem 0;
 }
@@ -1855,7 +1855,7 @@ textarea::placeholder {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  color: #64748b;
+  color: #94a3b8;
   font-size: 1.125rem;
   text-decoration: underline;
   text-underline-offset: 4px;
@@ -1868,13 +1868,13 @@ textarea::placeholder {
   transition: transform 0.2s ease;
 }
 .site-footer .footer-newsletter-learn-more:hover {
-  color: #0f172a;
+  color: #ffffff;
 }
 .site-footer .footer-newsletter-learn-more:hover .footer-diagonal-arrow {
   transform: rotate(-135deg) translate(2px, 2px);
 }
 .site-footer .footer-newsletter-learn-more:focus-visible {
-  outline: 2px solid #0f172a;
+  outline: 2px solid #ffffff;
   outline-offset: 2px;
   border-radius: 2px;
 }
@@ -1893,34 +1893,33 @@ textarea::placeholder {
 .site-footer .footer-field-label {
   font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: 1.125rem;
-  font-weight: 500;
-  color: #334155;
+  font-weight: 400;
+  color: #94a3b8;
 }
 .site-footer .footer-field-input {
   width: 100%;
   padding: 1.25rem 1.35rem;
-  background-color: #f8fafc;
-  border: 1.5px solid #e2e8f0;
+  background-color: #232734;
+  border: 1.5px solid transparent;
   border-radius: 8px;
   font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: 1.125rem;
   font-weight: 500;
-  color: #0f172a;
+  color: #ffffff;
   outline: none;
   box-sizing: border-box;
   transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .site-footer .footer-field-input::placeholder {
-  color: #94a3b8;
+  color: #64748b;
 }
 .site-footer .footer-field-input:focus {
-  background-color: #ffffff;
-  border-color: #0f172a;
-  box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.08);
+  background-color: #272c3d;
+  border-color: #475569;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08);
 }
 .site-footer .footer-field-input:disabled {
-  color: #94a3b8;
-  background-color: #f1f5f9;
+  color: #64748b;
   opacity: 0.7;
 }
 .site-footer .footer-submit-btn {
@@ -1933,14 +1932,14 @@ textarea::placeholder {
   cursor: pointer;
   text-align: left;
   width: fit-content;
-  color: #0f172a;
+  color: #ffffff;
   transition: color 0.2s ease;
 }
 .site-footer .footer-submit-btn .footer-submit-text {
   font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: 1.25rem;
   font-weight: 500;
-  color: #0f172a;
+  color: #ffffff;
   transition: color 0.2s ease;
 }
 .site-footer .footer-submit-btn .footer-submit-circle-wrap {
@@ -1954,11 +1953,11 @@ textarea::placeholder {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  border: 1.5px solid #cbd5e1;
+  border: 1.5px solid #374151;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #0f172a;
+  color: #ffffff;
   background: transparent;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -1968,8 +1967,8 @@ textarea::placeholder {
   transition: transform 0.2s ease;
 }
 .site-footer .footer-submit-btn:hover .footer-submit-circle {
-  border-color: #0f172a;
-  background-color: rgba(15, 23, 42, 0.06);
+  border-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
   transform: scale(1.05);
 }
 .site-footer .footer-submit-btn:hover .footer-submit-circle .footer-submit-arrow-icon {
@@ -1982,8 +1981,8 @@ textarea::placeholder {
   outline: none;
 }
 .site-footer .footer-submit-btn:focus-visible .footer-submit-circle {
-  border-color: #0f172a;
-  box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.15);
+  border-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
 }
 .site-footer .footer-col-copyright {
   grid-column: 1/-1;
@@ -1993,12 +1992,12 @@ textarea::placeholder {
   gap: 0.5rem;
   flex-wrap: wrap;
   font-size: 1.125rem;
-  color: #94a3b8;
+  color: #64748b;
 }
 .site-footer .footer-col-copyright .footer-cr-text {
   font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: 1.125rem;
-  color: #94a3b8;
+  color: #64748b;
 }
 
 .hero-section {
@@ -2613,9 +2612,9 @@ textarea::placeholder {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  padding-left: 1.75rem;
-  margin-left: 0.25rem;
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  padding-right: 1.75rem;
+  margin-right: 0.25rem;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
   height: 32px;
 }
 .hero-logo-strip-label span {
@@ -2629,7 +2628,7 @@ textarea::placeholder {
 }
 @media (max-width: 768px) {
   .hero-logo-strip-label {
-    padding-left: 1.15rem;
+    padding-right: 1.15rem;
   }
   .hero-logo-strip-label span {
     font-size: 0.75rem;
@@ -2637,7 +2636,7 @@ textarea::placeholder {
 }
 @media (max-width: 520px) {
   .hero-logo-strip-label {
-    padding-left: 0.65rem;
+    padding-right: 0.65rem;
     height: 24px;
   }
   .hero-logo-strip-label span {

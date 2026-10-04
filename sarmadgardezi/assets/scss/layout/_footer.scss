@@ -1,11 +1,11 @@
 // ==========================================================================
-// SCSS Layout: Modern Footer Matching Main Website Background (#ffffff)
+// SCSS Layout: Modern Dark Footer (Kent C. Dodds Reference Design)
 // ==========================================================================
 
 .site-footer {
-  background-color: #ffffff;
-  color: #64748b;
-  border-top: 1px solid #e2e8f0;
+  background-color: #161922;
+  color: #94a3b8;
+  border-top: 1px solid #282d3d;
   padding: clamp(5rem, 9vw, 10rem) 0 clamp(3.5rem, 5vw, 5rem);
   margin-top: auto;
   font-family: 'Wotfard', var(--font-family, sans-serif);
@@ -61,17 +61,17 @@
   .footer-brand-title {
     font-family: 'Wotfard', var(--font-family, sans-serif);
     font-size: clamp(1.35rem, 2.2vw, 1.625rem);
-    font-weight: 600;
-    color: #0f172a;
+    font-weight: 500;
+    color: #ffffff;
     text-decoration: none;
     display: inline-block;
     letter-spacing: -0.01em;
     line-height: 1.2;
-    transition: opacity 0.2s ease, color 0.2s ease;
+    transition: opacity 0.2s ease;
 
     &:hover {
-      opacity: 0.85;
-      color: #0f172a;
+      opacity: 0.9;
+      color: #ffffff;
     }
   }
 
@@ -79,7 +79,7 @@
     font-family: 'Wotfard', var(--font-family, sans-serif);
     font-size: clamp(1.25rem, 1.8vw, 1.5rem);
     font-weight: 400;
-    color: #64748b;
+    color: #94a3b8;
     line-height: 1.35;
     margin: 1.5rem 0 1.75rem 0;
     max-width: 380px;
@@ -91,7 +91,7 @@
     justify-content: space-between;
     gap: 1.5rem;
     margin-top: 1.5rem;
-    color: #64748b;
+    color: #94a3b8;
 
     @media (min-width: 1180px) {
       flex-direction: column;
@@ -109,7 +109,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      color: #64748b;
+      color: #94a3b8;
       text-decoration: none;
       transition: color 0.2s ease, transform 0.2s ease;
 
@@ -120,12 +120,12 @@
       }
 
       &:hover {
-        color: #0f172a;
+        color: #ffffff;
         transform: translateY(-2px);
       }
 
       &:focus-visible {
-        outline: 2px solid #0f172a;
+        outline: 2px solid #ffffff;
         outline-offset: 2px;
         border-radius: 4px;
       }
@@ -136,7 +136,7 @@
     display: flex;
     align-items: center;
     width: 6rem;
-    color: #475569;
+    color: #94a3b8;
     position: relative;
 
     @media (min-width: 1180px) {
@@ -151,7 +151,7 @@
       transition: color 0.2s ease;
 
       &:hover {
-        color: #0f172a;
+        color: #ffffff;
       }
     }
   }
@@ -203,8 +203,8 @@
   .footer-nav-heading {
     font-family: 'Wotfard', var(--font-family, sans-serif);
     font-size: 1.125rem;
-    font-weight: 600;
-    color: #0f172a;
+    font-weight: 500;
+    color: #ffffff;
     margin: 0 0 1rem 0;
     line-height: 1.4;
   }
@@ -225,20 +225,20 @@
       font-family: 'Wotfard', var(--font-family, sans-serif);
       font-size: 1.125rem;
       font-weight: 400;
-      color: #64748b;
+      color: #94a3b8;
       text-decoration: none;
       display: inline-block;
       white-space: nowrap;
       transition: color 0.15s ease;
 
       &:hover {
-        color: #0f172a;
+        color: #ffffff;
         text-decoration: underline;
         text-underline-offset: 4px;
       }
 
       &:focus-visible {
-        outline: 2px solid #0f172a;
+        outline: 2px solid #ffffff;
         outline-offset: 2px;
         border-radius: 2px;
       }
@@ -271,7 +271,7 @@
   .footer-newsletter-desc {
     font-family: 'Wotfard', var(--font-family, sans-serif);
     font-size: 1.125rem;
-    color: #64748b;
+    color: #94a3b8;
     line-height: 1.5;
     margin: 0 0 0.25rem 0;
   }
@@ -280,7 +280,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    color: #64748b;
+    color: #94a3b8;
     font-size: 1.125rem;
     text-decoration: underline;
     text-underline-offset: 4px;
@@ -294,7 +294,7 @@
     }
 
     &:hover {
-      color: #0f172a;
+      color: #ffffff;
 
       .footer-diagonal-arrow {
         transform: rotate(-135deg) translate(2px, 2px);
@@ -302,7 +302,7 @@
     }
 
     &:focus-visible {
-      outline: 2px solid #0f172a;
+      outline: 2px solid #ffffff;
       outline-offset: 2px;
       border-radius: 2px;
     }
@@ -326,37 +326,36 @@
   .footer-field-label {
     font-family: 'Wotfard', var(--font-family, sans-serif);
     font-size: 1.125rem;
-    font-weight: 500;
-    color: #334155;
+    font-weight: 400;
+    color: #94a3b8;
   }
 
   .footer-field-input {
     width: 100%;
     padding: 1.25rem 1.35rem;
-    background-color: #f8fafc;
-    border: 1.5px solid #e2e8f0;
+    background-color: #232734;
+    border: 1.5px solid transparent;
     border-radius: 8px;
     font-family: 'Wotfard', var(--font-family, sans-serif);
     font-size: 1.125rem;
     font-weight: 500;
-    color: #0f172a;
+    color: #ffffff;
     outline: none;
     box-sizing: border-box;
     transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 
     &::placeholder {
-      color: #94a3b8;
+      color: #64748b;
     }
 
     &:focus {
-      background-color: #ffffff;
-      border-color: #0f172a;
-      box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.08);
+      background-color: #272c3d;
+      border-color: #475569;
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08);
     }
 
     &:disabled {
-      color: #94a3b8;
-      background-color: #f1f5f9;
+      color: #64748b;
       opacity: 0.7;
     }
   }
@@ -372,14 +371,14 @@
     cursor: pointer;
     text-align: left;
     width: fit-content;
-    color: #0f172a;
+    color: #ffffff;
     transition: color 0.2s ease;
 
     .footer-submit-text {
       font-family: 'Wotfard', var(--font-family, sans-serif);
       font-size: 1.25rem;
       font-weight: 500;
-      color: #0f172a;
+      color: #ffffff;
       transition: color 0.2s ease;
     }
 
@@ -395,11 +394,11 @@
       width: 56px;
       height: 56px;
       border-radius: 50%;
-      border: 1.5px solid #cbd5e1;
+      border: 1.5px solid #374151;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      color: #0f172a;
+      color: #ffffff;
       background: transparent;
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 
@@ -412,8 +411,8 @@
 
     &:hover {
       .footer-submit-circle {
-        border-color: #0f172a;
-        background-color: rgba(15, 23, 42, 0.06);
+        border-color: #ffffff;
+        background-color: rgba(255, 255, 255, 0.1);
         transform: scale(1.05);
 
         .footer-submit-arrow-icon {
@@ -430,8 +429,8 @@
       outline: none;
 
       .footer-submit-circle {
-        border-color: #0f172a;
-        box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.15);
+        border-color: #ffffff;
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
       }
     }
   }
@@ -447,12 +446,12 @@
     gap: 0.5rem;
     flex-wrap: wrap;
     font-size: 1.125rem;
-    color: #94a3b8;
+    color: #64748b;
 
     .footer-cr-text {
       font-family: 'Wotfard', var(--font-family, sans-serif);
       font-size: 1.125rem;
-      color: #94a3b8;
+      color: #64748b;
     }
   }
 }
