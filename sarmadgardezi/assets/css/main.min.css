@@ -2000,8 +2000,13 @@ textarea::placeholder {
   color: #64748b;
 }
 
+.site-home-main {
+  background-color: #161922;
+  width: 100%;
+}
+
 .hero-section {
-  background-color: #ffffff;
+  background-color: #161922;
   text-align: center;
   width: 100%;
   padding: 4.5rem 1.25rem 2.25rem;
@@ -2056,9 +2061,9 @@ textarea::placeholder {
   margin-bottom: 1.15rem;
   margin-left: -12px;
   border-radius: 50%;
-  background-color: #ffffff;
+  background-color: #232734;
   padding: 3px;
-  box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.12), 0 4px 8px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.4), 0 4px 8px -2px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   will-change: transform;
 }
@@ -2082,7 +2087,7 @@ textarea::placeholder {
   position: absolute;
   bottom: -18px;
   right: -14px;
-  color: #557086;
+  color: #94a3b8;
   transform: rotate(0deg);
   pointer-events: none;
   z-index: 20;
@@ -2119,7 +2124,7 @@ textarea::placeholder {
   height: 100%;
   border-radius: 50%;
   overflow: hidden;
-  background: linear-gradient(180deg, #f8fafc 0%, #edf2f7 100%);
+  background: linear-gradient(180deg, #282d3d 0%, #1f232f 100%);
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -2150,15 +2155,15 @@ textarea::placeholder {
 .hero-badge-pill {
   display: inline-flex;
   align-items: center;
-  border: 1px solid #e2e8f0;
-  background-color: #ffffff;
+  border: 1px solid #282d3d;
+  background-color: #232734;
   padding: 6px 16px;
   border-radius: 9999px;
   font-family: var(--framer-font-family, "Google Sans Flex", sans-serif);
   font-size: 0.8125rem;
   font-weight: 600;
-  color: #1e293b;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  color: #f1f5f9;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   letter-spacing: -0.01em;
   text-align: center;
 }
@@ -2186,7 +2191,7 @@ textarea::placeholder {
   letter-spacing: -0.04em;
   text-transform: uppercase;
   line-height: 0.98;
-  color: #111111;
+  color: #ffffff;
   margin: 0;
 }
 .hero-main-heading .hero-heading-line {
@@ -2234,7 +2239,7 @@ textarea::placeholder {
   font-family: var(--framer-font-family-bold, "Google Sans Flex", sans-serif);
   font-size: clamp(1.05rem, 1.8vw, 1.25rem);
   font-weight: 700;
-  color: #0f172a;
+  color: #f1f5f9;
   margin: 1.25rem 0 0.5rem;
   letter-spacing: -0.015em;
 }
@@ -2243,7 +2248,7 @@ textarea::placeholder {
   font-family: var(--framer-font-family, "Google Sans Flex", sans-serif);
   font-size: 1.05rem;
   line-height: 1.65;
-  color: #64748b;
+  color: #94a3b8;
   max-width: 660px;
   margin: 0.4rem auto 2.25rem;
 }
@@ -2257,22 +2262,22 @@ textarea::placeholder {
   display: inline-flex;
   align-items: center;
   gap: 11px;
-  background-color: #0d0d0d;
-  color: #ffffff;
+  background-color: #f1f5f9;
+  color: #0f172a;
   border-radius: 9999px;
   padding: 5px 24px 5px 6px;
   text-decoration: none;
   font-family: var(--framer-font-family, "Google Sans Flex", sans-serif);
   font-size: 0.9375rem;
   font-weight: 600;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .hero-start-cta:hover {
-  background-color: #1f1f1f;
+  background-color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
-  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  color: #0f172a;
 }
 .hero-start-cta:hover .cta-arrow-circle {
   transform: translateX(2px);
@@ -2284,8 +2289,8 @@ textarea::placeholder {
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background-color: #ffffff;
-  color: #111111;
+  background-color: #0f172a;
+  color: #ffffff;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -2296,7 +2301,7 @@ textarea::placeholder {
   height: 15px;
 }
 .hero-start-cta .cta-text {
-  color: #ffffff;
+  color: #0f172a;
   font-weight: 600;
   font-size: 0.9375rem;
   line-height: 1;
@@ -2320,7 +2325,7 @@ textarea::placeholder {
   font-family: var(--framer-font-family, "Google Sans Flex", sans-serif);
   font-size: 0.9375rem;
   font-weight: 600;
-  color: #4b5563;
+  color: #94a3b8;
   margin: 0 0 1rem;
   letter-spacing: -0.01em;
 }
@@ -2348,7 +2353,8 @@ textarea::placeholder {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  background-color: #f0f0f2;
+  background-color: #232734;
+  border: 1px solid #282d3d;
   border-radius: 9999px;
   padding: 4px 16px 4px 5px;
   height: 38px;
@@ -2356,9 +2362,9 @@ textarea::placeholder {
   font-family: var(--framer-font-family, "Google Sans Flex", sans-serif);
   font-size: 0.875rem;
   font-weight: 500;
-  color: #111827;
+  color: #f1f5f9;
   letter-spacing: -0.01em;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
   user-select: none;
   white-space: nowrap;
@@ -2397,14 +2403,15 @@ textarea::placeholder {
   background-color: #FF0000;
 }
 .social-pill-btn .social-pill-text {
-  color: #111827;
+  color: #f1f5f9;
   font-weight: 500;
   line-height: 1;
 }
 .social-pill-btn:hover {
-  background-color: #e5e7eb;
+  background-color: #2b3040;
+  border-color: #3b4256;
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
 .social-pill-btn:hover .social-pill-icon {
   transform: scale(1.08);
@@ -2614,14 +2621,14 @@ textarea::placeholder {
   flex-shrink: 0;
   padding-right: 1.75rem;
   margin-right: 0.25rem;
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.12);
   height: 32px;
 }
 .hero-logo-strip-label span {
   font-family: "Wotfard", var(--font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
   font-size: 0.8125rem;
-  font-weight: 600;
-  color: #64748b;
+  font-weight: 800;
+  color: #18181b;
   letter-spacing: -0.01em;
   white-space: nowrap;
   line-height: 1;
@@ -4472,7 +4479,7 @@ textarea::placeholder {
 
 .home-reservation-section {
   width: 100%;
-  background-color: #ffffff;
+  background-color: #161922;
   padding: clamp(3rem, 6vw, 5rem) 0 clamp(2rem, 4vw, 3.5rem);
   display: flex;
   justify-content: center;
@@ -4493,14 +4500,14 @@ textarea::placeholder {
   font-size: clamp(2rem, 4.5vw, 2.75rem);
   font-weight: 700;
   letter-spacing: -0.03em;
-  color: #111827;
+  color: #ffffff;
   margin: 0 0 0.5rem 0;
   line-height: 1.15;
 }
 .home-reservation-section .home-reservation-header .home-reservation-subtitle {
   font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: clamp(0.95rem, 1.8vw, 1.1rem);
-  color: #71717a;
+  color: #94a3b8;
   max-width: 540px;
   margin: 0 auto;
   line-height: 1.5;
@@ -4511,7 +4518,7 @@ textarea::placeholder {
 
 .booking-cta-section {
   width: 100%;
-  background-color: #ffffff;
+  background-color: #161922;
   padding: clamp(2rem, 4vw, 3.5rem) 0 clamp(4.5rem, 7vw, 6.5rem);
   display: flex;
   justify-content: center;
@@ -4526,8 +4533,8 @@ textarea::placeholder {
 .booking-cta-section .booking-cta-card {
   position: relative;
   width: 100%;
-  background-color: #fbfbfd;
-  border: 1px solid #edf0f5;
+  background-color: #1a1e29;
+  border: 1px solid #282d3d;
   border-radius: 28px;
   padding: clamp(3.75rem, 6.5vw, 5.5rem) clamp(1.5rem, 4.5vw, 3.5rem);
   overflow: hidden;
@@ -4535,7 +4542,7 @@ textarea::placeholder {
   justify-content: center;
   align-items: center;
   text-align: center;
-  box-shadow: 0 20px 48px -16px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 20px 48px -16px rgba(0, 0, 0, 0.4);
 }
 @media (min-width: 768px) {
   .booking-cta-section .booking-cta-card {
@@ -4647,7 +4654,7 @@ textarea::placeholder {
   font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: clamp(1.85rem, 3.8vw, 3.25rem);
   font-weight: 700;
-  color: #111827;
+  color: #ffffff;
   letter-spacing: -0.035em;
   line-height: 1.18;
   margin: 0 0 1.15rem 0;
@@ -4665,7 +4672,7 @@ textarea::placeholder {
   font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: clamp(0.95rem, 1.5vw, 1.0625rem);
   font-weight: 400;
-  color: #52525b;
+  color: #94a3b8;
   line-height: 1.58;
   letter-spacing: -0.01em;
   max-width: 540px;
@@ -4684,9 +4691,9 @@ textarea::placeholder {
   height: 44px;
   border-radius: 50%;
   overflow: hidden;
-  background-color: #f4f4f5;
-  border: 2.5px solid #ffffff;
-  box-shadow: 0 6px 16px -2px rgba(0, 0, 0, 0.12), 0 2px 6px -1px rgba(0, 0, 0, 0.06);
+  background-color: #232734;
+  border: 2.5px solid #282d3d;
+  box-shadow: 0 6px 16px -2px rgba(0, 0, 0, 0.3);
   flex-shrink: 0;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -4704,8 +4711,9 @@ textarea::placeholder {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  background-color: #09090b;
+  background-color: #232734;
   color: #ffffff;
+  border: 1px solid #3b4256;
   font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: 0.9375rem;
   font-weight: 600;
@@ -4713,7 +4721,7 @@ textarea::placeholder {
   padding: 0.8rem 1.45rem;
   border-radius: 12px;
   text-decoration: none;
-  box-shadow: 0 10px 26px -6px rgba(9, 9, 11, 0.28), 0 4px 10px -2px rgba(9, 9, 11, 0.12);
+  box-shadow: 0 10px 26px -6px rgba(0, 0, 0, 0.3);
   transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   white-space: nowrap;
 }
@@ -4723,16 +4731,16 @@ textarea::placeholder {
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .booking-cta-section .booking-submit-btn:hover {
-  background-color: #27272a;
+  background-color: #2b3040;
+  border-color: #4b5568;
   transform: translateY(-2px);
-  box-shadow: 0 14px 32px -6px rgba(9, 9, 11, 0.35), 0 6px 14px -2px rgba(9, 9, 11, 0.16);
+  box-shadow: 0 14px 32px -6px rgba(0, 0, 0, 0.4);
 }
 .booking-cta-section .booking-submit-btn:hover .btn-arrow-icon {
   transform: translateX(3px);
 }
 .booking-cta-section .booking-submit-btn:active {
   transform: translateY(0);
-  box-shadow: 0 6px 18px -4px rgba(9, 9, 11, 0.2);
 }
 .booking-cta-section .booking-cta-features-row {
   display: flex;
@@ -4748,7 +4756,7 @@ textarea::placeholder {
   font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: clamp(0.8125rem, 1.2vw, 0.875rem);
   font-weight: 500;
-  color: #27272a;
+  color: #e2e8f0;
   letter-spacing: -0.01em;
 }
 .booking-cta-section .booking-feature-badge .feature-check-icon {
@@ -7638,16 +7646,12 @@ body.page-template-page-blog,
 
 .products-section {
   width: 100%;
-  margin-top: 4rem;
+  background-color: #161922;
+  padding: 4.5rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-}
-@media (min-width: 640px) {
-  .products-section {
-    margin-top: 5rem;
-  }
 }
 .products-section .products-container {
   width: 100%;
@@ -7659,21 +7663,21 @@ body.page-template-page-blog,
   font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: 0.875rem;
   font-weight: 400;
-  color: #737373;
+  color: #94a3b8;
   margin: 0;
   letter-spacing: -0.01em;
   line-height: 1.4;
 }
 .products-section .products-list {
   margin-top: 1rem;
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid #282d3d;
   list-style: none;
   padding: 0;
   margin-bottom: 0;
   width: 100%;
 }
 .products-section .products-item {
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid #282d3d;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -7695,6 +7699,9 @@ body.page-template-page-blog,
     grid-template-columns: 2.5rem minmax(0, 0.8fr) minmax(0, 1.3fr) auto;
     row-gap: 0;
   }
+}
+.products-section .products-item-link:hover {
+  opacity: 0.85;
 }
 .products-section .products-item-link:hover .product-arrow-pill {
   transform: translateX(0);
@@ -7722,18 +7729,20 @@ body.page-template-page-blog,
   max-width: 100%;
   object-fit: contain;
   display: block;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
 }
 .products-section .products-item-link .product-logo-slot .product-placeholder-logo {
   width: 24px;
   height: 24px;
   border-radius: 4px;
-  background-color: #f4f4f5;
+  background-color: #232734;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.75rem;
   font-weight: 700;
-  color: #18181b;
+  color: #f1f5f9;
 }
 .products-section .products-item-link .product-name-slot {
   grid-column-start: 2;
@@ -7744,7 +7753,7 @@ body.page-template-page-blog,
   font-family: "Wotfard", var(--font-family, sans-serif);
   font-weight: 500;
   font-size: 0.9375rem;
-  color: #171717;
+  color: #f8fafc;
   letter-spacing: -0.015em;
   line-height: 1.3;
 }
@@ -7783,7 +7792,7 @@ body.page-template-page-blog,
   grid-row-start: 2;
   font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: 0.875rem;
-  color: #737373;
+  color: #94a3b8;
   line-height: 1.4;
   letter-spacing: -0.01em;
 }
@@ -7800,7 +7809,7 @@ body.page-template-page-blog,
   justify-self: end;
   font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: 0.875rem;
-  color: #737373;
+  color: #64748b;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.01em;
   white-space: nowrap;
