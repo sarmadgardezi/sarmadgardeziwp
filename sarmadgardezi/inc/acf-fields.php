@@ -701,7 +701,60 @@ function sarmadgardezi_register_frontpage_meta_boxes() {
             'normal',
             'high'
         );
+
+        add_meta_box(
+            'sarmadgardezi_keynote_quote_meta',
+            __('Keynote Quote Section (White Showcase)', 'sarmadgardezi'),
+            'sarmadgardezi_render_frontpage_quote_meta_box',
+            'page',
+            'normal',
+            'high'
+        );
     }
+}
+
+function sarmadgardezi_render_frontpage_quote_meta_box($post) {
+    wp_nonce_field('sarmad_keynote_quote_meta_save', 'sarmad_keynote_quote_meta_nonce');
+    $quote_text    = get_post_meta($post->ID, 'keynote_quote_text', true);
+    if (empty($quote_text)) $quote_text = '“Nothing changes until you commit to a different way of operating. Once you decide, the rest is execution.”';
+    
+    $quote_pre     = get_post_meta($post->ID, 'keynote_quote_pre_attr', true);
+    if (empty($quote_pre)) $quote_pre = 'You can attribute this to:';
+    
+    $quote_author  = get_post_meta($post->ID, 'keynote_quote_author', true);
+    if (empty($quote_author)) $quote_author = 'Tomy Robin – Event Host';
+    
+    $quote_photo   = get_post_meta($post->ID, 'keynote_quote_photo', true);
+    ?>
+    <div style="padding: 12px 0;">
+        <p>
+            <label for="keynote_quote_text" style="font-weight: 600; display: block; margin-bottom: 5px;">
+                <?php esc_html_e('Keynote Quote Text:', 'sarmadgardezi'); ?>
+            </label>
+            <textarea id="keynote_quote_text" name="keynote_quote_text" rows="3" style="width: 100%;"><?php echo esc_textarea($quote_text); ?></textarea>
+        </p>
+        <p>
+            <label for="keynote_quote_pre_attr" style="font-weight: 600; display: block; margin-bottom: 5px;">
+                <?php esc_html_e('Attribution Prefix:', 'sarmadgardezi'); ?>
+            </label>
+            <input type="text" id="keynote_quote_pre_attr" name="keynote_quote_pre_attr" value="<?php echo esc_attr($quote_pre); ?>" style="width: 100%;" />
+        </p>
+        <p>
+            <label for="keynote_quote_author" style="font-weight: 600; display: block; margin-bottom: 5px;">
+                <?php esc_html_e('Author / Speaker Name & Title:', 'sarmadgardezi'); ?>
+            </label>
+            <input type="text" id="keynote_quote_author" name="keynote_quote_author" value="<?php echo esc_attr($quote_author); ?>" style="width: 100%;" />
+        </p>
+        <p>
+            <label for="keynote_quote_photo" style="font-weight: 600; display: block; margin-bottom: 5px;">
+                <?php esc_html_e('Speaker / Keynote Photo URL:', 'sarmadgardezi'); ?>
+            </label>
+            <input type="url" id="keynote_quote_photo" name="keynote_quote_photo" value="<?php echo esc_attr($quote_photo); ?>" style="width: 80%;" placeholder="https://..." />
+            <button type="button" class="button sarmad-media-btn" data-target="#keynote_quote_photo"><?php esc_html_e('Upload Photo', 'sarmadgardezi'); ?></button>
+            <span class="description" style="display: block; margin-top: 4px;"><?php esc_html_e('If empty, defaults to your conference keynote stage photo.', 'sarmadgardezi'); ?></span>
+        </p>
+    </div>
+    <?php
 }
 
 function sarmadgardezi_render_frontpage_portfolio_meta_box($post) {
@@ -935,6 +988,48 @@ function sarmadgardezi_register_all_acf_field_groups() {
         ),
         'location' => $front_page_location,
         'menu_order' => 6,
+        'position' => 'normal',
+        'style' => 'default',
+    ));
+
+    // 2.5 Keynote Quote Section ACF Field Group on Front Page
+    acf_add_local_field_group(array(
+        'key' => 'group_sarmadgardezi_keynote_quote',
+        'title' => __('Front Page — Keynote Quote Section', 'sarmadgardezi'),
+        'fields' => array(
+            array(
+                'key' => 'field_keynote_quote_text',
+                'label' => __('Quote Text', 'sarmadgardezi'),
+                'name' => 'keynote_quote_text',
+                'type' => 'textarea',
+                'default_value' => '“Nothing changes until you commit to a different way of operating. Once you decide, the rest is execution.”',
+                'rows' => 3,
+            ),
+            array(
+                'key' => 'field_keynote_quote_pre_attr',
+                'label' => __('Attribution Prefix', 'sarmadgardezi'),
+                'name' => 'keynote_quote_pre_attr',
+                'type' => 'text',
+                'default_value' => 'You can attribute this to:',
+            ),
+            array(
+                'key' => 'field_keynote_quote_author',
+                'label' => __('Author / Speaker Name & Title', 'sarmadgardezi'),
+                'name' => 'keynote_quote_author',
+                'type' => 'text',
+                'default_value' => 'Tomy Robin – Event Host',
+            ),
+            array(
+                'key' => 'field_keynote_quote_photo',
+                'label' => __('Speaker / Keynote Photo', 'sarmadgardezi'),
+                'name' => 'keynote_quote_photo',
+                'type' => 'image',
+                'return_format' => 'url',
+                'preview_size' => 'medium',
+            ),
+        ),
+        'location' => $front_page_location,
+        'menu_order' => 7,
         'position' => 'normal',
         'style' => 'default',
     ));
@@ -1528,6 +1623,25 @@ function sarmadgardezi_save_project_and_event_meta($post_id) {
         if (isset($_POST['featured_badge'])) {
             update_post_meta($post_id, 'featured_badge', sanitize_text_field($_POST['featured_badge']));
             update_post_meta($post_id, '_featured_badge', sanitize_text_field($_POST['featured_badge']));
+        }
+    }
+
+    if (isset($_POST['sarmad_keynote_quote_meta_nonce']) && wp_verify_nonce($_POST['sarmad_keynote_quote_meta_nonce'], 'sarmad_keynote_quote_meta_save')) {
+        if (isset($_POST['keynote_quote_text'])) {
+            update_post_meta($post_id, 'keynote_quote_text', sanitize_textarea_field($_POST['keynote_quote_text']));
+            update_post_meta($post_id, '_keynote_quote_text', sanitize_textarea_field($_POST['keynote_quote_text']));
+        }
+        if (isset($_POST['keynote_quote_pre_attr'])) {
+            update_post_meta($post_id, 'keynote_quote_pre_attr', sanitize_text_field($_POST['keynote_quote_pre_attr']));
+            update_post_meta($post_id, '_keynote_quote_pre_attr', sanitize_text_field($_POST['keynote_quote_pre_attr']));
+        }
+        if (isset($_POST['keynote_quote_author'])) {
+            update_post_meta($post_id, 'keynote_quote_author', sanitize_text_field($_POST['keynote_quote_author']));
+            update_post_meta($post_id, '_keynote_quote_author', sanitize_text_field($_POST['keynote_quote_author']));
+        }
+        if (isset($_POST['keynote_quote_photo'])) {
+            update_post_meta($post_id, 'keynote_quote_photo', esc_url_raw($_POST['keynote_quote_photo']));
+            update_post_meta($post_id, '_keynote_quote_photo', esc_url_raw($_POST['keynote_quote_photo']));
         }
     }
 }
