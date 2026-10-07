@@ -17,7 +17,7 @@
 
   // Direct <a> links (matching user's exact snippet)
   > a {
-    font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+    font-family: 'Wotfard', var(--font-family, sans-serif);
     font-size: 0.875rem; // text-sm
     font-weight: 500; // font-medium
     color: #a1a1aa; // text-zinc-400
@@ -30,6 +30,8 @@
     &:hover,
     &:focus {
       color: #ffffff; // hover:text-white
+      text-decoration: underline;
+      text-underline-offset: 4px;
     }
 
     // Active link
@@ -74,7 +76,7 @@
       position: relative;
 
       a {
-        font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+        font-family: 'Wotfard', var(--font-family, sans-serif);
         font-size: 0.875rem;
         font-weight: 500;
         color: #a1a1aa;
@@ -87,6 +89,8 @@
         &:hover,
         &:focus {
           color: #ffffff;
+          text-decoration: underline;
+          text-underline-offset: 4px;
         }
       }
 

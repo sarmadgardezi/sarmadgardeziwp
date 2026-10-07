@@ -368,9 +368,9 @@ body.page-template-page-blog,
   }
 
   .page-title {
-    font-family: 'Lora', 'Playfair Display', serif;
+    font-family: 'Wotfard', var(--font-family, sans-serif);
     font-size: clamp(2.15rem, 6vw, 4.5rem);
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.25;
     margin-bottom: 0.75rem;
     color: #1a1b26;
@@ -428,9 +428,9 @@ body.page-template-page-blog,
     }
 
     .article-title {
-      font-family: 'Lora', 'Playfair Display', serif;
+      font-family: 'Wotfard', var(--font-family, sans-serif);
       font-size: clamp(2.15rem, 6vw, 4.5rem);
-      font-weight: 400;
+      font-weight: 500;
       line-height: 1.25;
       color: #1a1b26;
       margin-bottom: 1.25rem;
@@ -1127,13 +1127,14 @@ body.page-template-page-blog,
     background-color: #E6E4D9;
     border-radius: 12px;
     padding: 0.6rem 1.25rem;
-    font-family: 'Lora', 'Playfair Display', serif;
+    font-family: 'Wotfard', var(--font-family, sans-serif);
     font-size: 1.25rem;
+    font-weight: 500;
     color: #111827;
     margin-bottom: 2.5rem;
     
     .serif {
-      font-weight: 400;
+      font-weight: 500;
     }
   }
 
@@ -1153,9 +1154,9 @@ body.page-template-page-blog,
       }
 
       .list-rank {
-        font-family: 'Instrument Serif', 'Playfair Display', serif;
+        font-family: 'Wotfard', var(--font-family, sans-serif);
         font-size: 2.5rem;
-        font-weight: 900;
+        font-weight: 700;
         color: #111827;
         line-height: 1;
         width: 2rem;
@@ -1169,9 +1170,9 @@ body.page-template-page-blog,
       }
 
       .list-title {
-        font-family: var(--framer-font-family, 'Google Sans Flex', sans-serif);
+        font-family: 'Wotfard', var(--font-family, sans-serif);
         font-size: 1.125rem;
-        font-weight: 700;
+        font-weight: 600;
         color: #111827;
         text-decoration: none;
         line-height: 1.4;

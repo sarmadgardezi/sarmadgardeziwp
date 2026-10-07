@@ -1,3 +1,4 @@
+@import url("https://fonts.cdnfonts.com/css/wotfard");
 *,
 *::before,
 *::after {
@@ -67,12 +68,12 @@ table {
 @font-face {
   font-family: "Wotfard";
   font-style: normal;
-  font-weight: 400 700;
+  font-weight: 300 800;
   font-display: swap;
   src: local("Wotfard"), url("https://fonts.cdnfonts.com/s/83722/Wotfard-Regular.woff") format("woff");
 }
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Wotfard", Futura, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: "Wotfard", var(--font-family, Wotfard, Futura, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif);
   font-weight: 700;
   line-height: 1.2;
   color: #1c1917;
@@ -98,8 +99,19 @@ h4 {
 }
 
 p {
+  font-family: "Wotfard", var(--font-family, Wotfard, Futura, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif);
   color: #4b5563;
   line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s ease, text-decoration 0.15s ease;
+}
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .lead-paragraph {
@@ -1374,7 +1386,7 @@ textarea::placeholder {
 .site-header-custom .header-nav-link {
   font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: 0.9375rem;
-  font-weight: 600;
+  font-weight: 500;
   color: #94a3b8;
   text-decoration: none;
   letter-spacing: -0.01em;
@@ -1383,10 +1395,14 @@ textarea::placeholder {
 }
 .site-header-custom .header-nav-link:hover {
   color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 .header-nav-item.is-active .site-header-custom .header-nav-link {
-  font-weight: 700;
+  font-weight: 600;
   color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 .site-header-custom .header-mobile-toggle {
   display: inline-flex;
@@ -1495,7 +1511,7 @@ textarea::placeholder {
   padding: 0.85rem 1rem;
   font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: 1.15rem;
-  font-weight: 700;
+  font-weight: 500;
   color: #94a3b8;
   text-decoration: none;
   border-radius: 8px;
@@ -1504,11 +1520,15 @@ textarea::placeholder {
 .site-header-custom .header-mobile-drawer .mobile-nav-link:hover, .site-header-custom .header-mobile-drawer .mobile-nav-link:focus {
   color: #ffffff;
   background-color: #232734;
+  text-decoration: underline;
+  text-underline-offset: 4px;
   padding-left: 1.25rem;
 }
 .mobile-nav-item.is-active .site-header-custom .header-mobile-drawer .mobile-nav-link {
   color: #ffffff;
   background-color: #232734;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .main-navigation {
@@ -1527,7 +1547,7 @@ textarea::placeholder {
   }
 }
 .main-navigation > a {
-  font-family: var(--framer-font-family, "Google Sans Flex", sans-serif);
+  font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: 0.875rem;
   font-weight: 500;
   color: #a1a1aa;
@@ -1539,6 +1559,8 @@ textarea::placeholder {
 }
 .main-navigation > a:hover, .main-navigation > a:focus {
   color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 .main-navigation > a.active, .main-navigation > a.current-menu-item, .main-navigation > a.text-white {
   color: #ffffff;
@@ -1575,7 +1597,7 @@ textarea::placeholder {
   position: relative;
 }
 .main-navigation .nav-menu li a {
-  font-family: var(--framer-font-family, "Google Sans Flex", sans-serif);
+  font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: 0.875rem;
   font-weight: 500;
   color: #a1a1aa;
@@ -1587,6 +1609,8 @@ textarea::placeholder {
 }
 .main-navigation .nav-menu li a:hover, .main-navigation .nav-menu li a:focus {
   color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 .main-navigation .nav-menu li.current-menu-item > a, .main-navigation .nav-menu li.current_page_item > a, .main-navigation .nav-menu li.current-menu-ancestor > a, .main-navigation .nav-menu li.current-page-ancestor > a, .main-navigation .nav-menu li.active > a {
   color: #ffffff;
@@ -3851,9 +3875,9 @@ textarea::placeholder {
   letter-spacing: -0.01em;
 }
 .mission-showcase-section .mission-heading {
-  font-family: "Lora", "Playfair Display", serif;
+  font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: clamp(2.15rem, 6vw, 4.5rem);
-  font-weight: 400;
+  font-weight: 500;
   text-transform: none;
   letter-spacing: -0.01em;
   line-height: 1.25;
@@ -3959,9 +3983,9 @@ textarea::placeholder {
 }
 
 .portfolio-main-title {
-  font-family: "Lora", "Playfair Display", serif;
+  font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: clamp(2.15rem, 6vw, 4.5rem);
-  font-weight: 400;
+  font-weight: 500;
   text-transform: none;
   letter-spacing: -0.01em;
   line-height: 1.25;
@@ -4157,9 +4181,9 @@ textarea::placeholder {
   }
 }
 .stack-card-title.serif-title {
-  font-family: "Lora", "Playfair Display", serif;
+  font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: clamp(1.6rem, 3.2vw, 2.5rem);
-  font-weight: 400;
+  font-weight: 500;
   color: #1a1b26;
   line-height: 1.2;
   letter-spacing: -0.01em;
@@ -4167,7 +4191,7 @@ textarea::placeholder {
 }
 
 .stack-card-desc {
-  font-family: var(--framer-font-family, "Plus Jakarta Sans", sans-serif);
+  font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: 0.95rem;
   line-height: 1.6;
   color: #4b5563;
@@ -6488,9 +6512,9 @@ body.page-template-page-blog,
 .case-studies-header .page-title,
 .archive-header .page-title,
 .search-header .page-title {
-  font-family: "Lora", "Playfair Display", serif;
+  font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: clamp(2.15rem, 6vw, 4.5rem);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.25;
   margin-bottom: 0.75rem;
   color: #1a1b26;
@@ -6548,9 +6572,9 @@ body.page-template-page-blog,
   color: #ffffff;
 }
 .single-article .article-header .article-title {
-  font-family: "Lora", "Playfair Display", serif;
+  font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: clamp(2.15rem, 6vw, 4.5rem);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.25;
   color: #1a1b26;
   margin-bottom: 1.25rem;
@@ -7151,13 +7175,14 @@ body.page-template-page-blog,
   background-color: #E6E4D9;
   border-radius: 12px;
   padding: 0.6rem 1.25rem;
-  font-family: "Lora", "Playfair Display", serif;
+  font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: 1.25rem;
+  font-weight: 500;
   color: #111827;
   margin-bottom: 2.5rem;
 }
 .post-related-list-widget .related-badge .serif {
-  font-weight: 400;
+  font-weight: 500;
 }
 .post-related-list-widget .related-numbered-list {
   list-style: none;
@@ -7176,9 +7201,9 @@ body.page-template-page-blog,
   }
 }
 .post-related-list-widget .related-numbered-list .related-list-item .list-rank {
-  font-family: "Instrument Serif", "Playfair Display", serif;
+  font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: 2.5rem;
-  font-weight: 900;
+  font-weight: 700;
   color: #111827;
   line-height: 1;
   width: 2rem;
@@ -7192,9 +7217,9 @@ body.page-template-page-blog,
   }
 }
 .post-related-list-widget .related-numbered-list .related-list-item .list-title {
-  font-family: var(--framer-font-family, "Google Sans Flex", sans-serif);
+  font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: 1.125rem;
-  font-weight: 700;
+  font-weight: 600;
   color: #111827;
   text-decoration: none;
   line-height: 1.4;
@@ -7287,6 +7312,7 @@ body.page-template-page-blog,
 .project-card .project-card-title a:hover {
   color: #000000;
   text-decoration: underline;
+  text-underline-offset: 4px;
 }
 .project-card .project-card-excerpt {
   font-size: 0.9375rem;
@@ -7748,6 +7774,7 @@ body.page-template-page-blog,
 .talk-card .talk-card-title a:hover {
   color: #000000;
   text-decoration: underline;
+  text-underline-offset: 4px;
 }
 .talk-card .talk-card-excerpt {
   font-size: 0.9375rem;
@@ -8797,9 +8824,9 @@ body.page-template-page-blog,
   margin-bottom: 2.5rem;
 }
 .page-article .page-header .page-title {
-  font-family: "Lora", "Playfair Display", serif;
+  font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: clamp(2.15rem, 6vw, 4.5rem);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.25;
   color: #1a1b26;
   letter-spacing: -0.01em;
@@ -8929,9 +8956,9 @@ body.page-template-page-blog,
   letter-spacing: -0.04em;
 }
 .error-404 .page-title {
-  font-family: "Lora", "Playfair Display", serif;
+  font-family: "Wotfard", var(--font-family, sans-serif);
   font-size: clamp(2.15rem, 6vw, 4.5rem);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.25;
   color: #1a1b26;
   margin-bottom: 1rem;
