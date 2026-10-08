@@ -3,7 +3,7 @@
 // --------------------------------------------------------------------------
 
 .site-home-main {
-  background-color: #161922;
+  background-color: #ffffff;
   width: 100%;
 }
 
@@ -2408,8 +2408,8 @@
 .hero-showcase-section,
 .hero-dark-inline-section {
   width: 100%;
-  background-color: #12141c; // Deep outer canvas
-  padding: clamp(1.5rem, 3.5vw, 3rem) clamp(1rem, 3vw, 2.5rem) clamp(2.5rem, 5vw, 4.5rem);
+  background-color: #ffffff; // Clean white outer ground
+  padding: clamp(0.75rem, 2vw, 1.5rem) clamp(1rem, 3vw, 2.5rem) clamp(3rem, 5.5vw, 5rem);
   display: flex;
   justify-content: center;
   align-items: center;
