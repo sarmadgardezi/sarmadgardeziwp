@@ -2405,467 +2405,541 @@
   40%, 80% { transform: rotate(-14deg); }
 }
 
-.hero-showcase-section,
-.hero-dark-inline-section {
+// ==========================================================================
+// CREATIVE WHITE HERO SECTION (MATCHING REFERENCE EXACTLY)
+// Features: "Grow [Badge] [Badge] a team together [Badge]", UI/UX copy,
+// Dark pill CTA + text link, Subject with floating badges: Dual-fan anchor,
+// "Uishyed" card, Sparkle stars, Globe circle, Baseline & Yellow arrow badge.
+// ==========================================================================
+
+.hero-creative-section,
+.hero-showcase-section {
   width: 100%;
-  background-color: #ffffff; // Clean white outer ground
-  padding: clamp(0.75rem, 2vw, 1.5rem) clamp(1rem, 3vw, 2.5rem) clamp(3rem, 5.5vw, 5rem);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: #ffffff;
+  padding: clamp(2.5rem, 5vw, 4.5rem) 0 clamp(4rem, 6vw, 6rem);
   position: relative;
+  overflow: hidden;
   box-sizing: border-box;
 
-  .hero-showcase-container,
-  .hero-dark-container {
+  .hero-creative-container,
+  .hero-showcase-container {
     width: 100%;
-    max-width: 1260px;
+    max-width: 1240px;
     margin: 0 auto;
-    box-sizing: border-box;
-  }
-
-  // Main Rounded Dark Card Container
-  .hero-showcase-card {
-    position: relative;
-    width: 100%;
-    min-height: 660px;
-    background-color: #08090b; // Deep black/graphite ground
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: clamp(24px, 4vw, 36px);
-    overflow: hidden;
-    padding: clamp(2.25rem, 5vw, 3.75rem) clamp(1.75rem, 5vw, 4rem);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    box-sizing: border-box;
-
-    @media (max-width: 991px) {
-      min-height: auto;
-      padding: 2.25rem 1.5rem;
-    }
-  }
-
-  // Subtle Ambient Lighting Glow
-  .hero-card-glow {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-45%, -10%);
-    width: clamp(350px, 50vw, 750px);
-    height: clamp(350px, 45vw, 650px);
-    background: radial-gradient(circle, rgba(50, 58, 75, 0.35) 0%, rgba(20, 24, 32, 0.15) 55%, transparent 75%);
-    filter: blur(55px);
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  // --------------------------------------------------------------------------
-  // Center AI Portrait Subject
-  // --------------------------------------------------------------------------
-  .hero-portrait-stage {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-38%);
-    width: clamp(360px, 46vw, 580px);
-    height: 94%;
-    max-height: 720px;
-    z-index: 2;
-    pointer-events: none;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-
-    @media (max-width: 1200px) {
-      transform: translateX(-32%);
-      width: clamp(320px, 42vw, 480px);
-      height: 88%;
-    }
-
-    @media (max-width: 991px) {
-      position: relative;
-      left: auto;
-      transform: none;
-      width: 100%;
-      max-width: 380px;
-      height: 380px;
-      margin: 1.5rem auto 1rem;
-      order: 2;
-    }
-
-    .hero-portrait-frame {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-    }
-
-    .hero-portrait-image {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center bottom;
-      display: block;
-      mask-image: linear-gradient(to bottom, #000000 0%, #000000 70%, rgba(0, 0, 0, 0.8) 85%, transparent 100%);
-      -webkit-mask-image: linear-gradient(to bottom, #000000 0%, #000000 70%, rgba(0, 0, 0, 0.8) 85%, transparent 100%);
-      filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.7));
-    }
-
-    .hero-portrait-fade {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 90px;
-      background: linear-gradient(to top, #08090b 0%, transparent 100%);
-      pointer-events: none;
-    }
-  }
-
-  // --------------------------------------------------------------------------
-  // Content Overlay & Layout Grid
-  // --------------------------------------------------------------------------
-  .hero-content-grid {
-    position: relative;
-    z-index: 5;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: clamp(2.5rem, 5vw, 4.5rem);
-    box-sizing: border-box;
-  }
-
-  // TOP ROW: Left Headline + Right Glass Tech Card
-  .hero-grid-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 2rem;
-    width: 100%;
-    box-sizing: border-box;
-
-    @media (max-width: 991px) {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1.75rem;
-    }
-  }
-
-  .hero-heading-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    max-width: 650px;
-  }
-
-  // Greeting: "Hey 👋 I'm Sarmad"
-  .hero-greeting-line {
-    display: inline-flex;
+    padding: 0 clamp(1.25rem, 3.5vw, 2.5rem);
+    display: grid;
+    grid-template-columns: 1.08fr 0.92fr;
     align-items: center;
-    gap: 0.45rem;
-    font-family: 'Wotfard', var(--font-family, sans-serif);
-    font-size: clamp(1.15rem, 1.8vw, 1.35rem);
-    font-weight: 700;
-    margin-bottom: clamp(1rem, 2vw, 1.35rem);
-    letter-spacing: -0.015em;
-    user-select: none;
+    gap: clamp(2rem, 4vw, 4rem);
+    box-sizing: border-box;
 
-    .greeting-accent {
-      color: #ccff00; // Neon lime green
-    }
-
-    .greeting-wave {
-      display: inline-block;
-      animation: heroWaveHand 2.5s infinite ease-in-out;
-      transform-origin: 70% 70%;
-      margin: 0 0.1em;
-    }
-
-    .greeting-name {
-      color: #ccff00;
+    @media (max-width: 991px) {
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
     }
   }
 
-  // Massive Headline: "Cloud &\nFull Stack\nEngineer"
-  .hero-display-title {
+  // ------------------------------------------------------------------------
+  // Left Column: Headline, Badges, Copy & CTAs
+  // ------------------------------------------------------------------------
+  .hero-creative-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 10;
+  }
+
+  .hero-creative-title {
     font-family: 'Wotfard', var(--font-family, sans-serif);
-    font-size: clamp(2.75rem, 5.8vw, 4.85rem);
+    font-size: clamp(2.8rem, 5.6vw, 4.6rem);
     font-weight: 800;
-    line-height: 1.02;
-    letter-spacing: -0.04em;
-    color: #ffffff;
-    margin: 0 0 clamp(1.5rem, 2.5vw, 2.25rem);
+    color: #18181b;
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+    margin: 0 0 1.5rem 0;
+    padding: 0;
+  }
+
+  .hero-title-line {
     display: flex;
-    flex-direction: column;
-    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.65rem 0.85rem;
+    margin-bottom: 0.25rem;
 
-    .title-line {
-      display: block;
-      white-space: nowrap;
-
-      @media (max-width: 480px) {
-        white-space: normal;
-      }
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 
-  // Neon Lime Pill CTA Button: "Hire Me"
-  .hero-cta-action {
-    display: inline-flex;
+  .title-word {
+    display: inline-block;
+    color: #18181b;
   }
 
-  .hero-lime-btn {
+  // Row 1 Badge: Green circle attached to royal blue capsule with arrow
+  .badge-capsule-arrow {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    background-color: #ccff00; // Electric Lime Green matching reference
-    color: #08090b;
-    font-family: 'Wotfard', var(--font-family, sans-serif);
-    font-size: 0.9375rem;
-    font-weight: 700;
-    padding: 0.75rem 2.15rem;
+    height: clamp(44px, 4.8vw, 56px);
     border-radius: 9999px;
-    text-decoration: none;
-    letter-spacing: -0.01em;
-    box-shadow: 0 4px 20px rgba(204, 255, 0, 0.32);
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    cursor: pointer;
+    overflow: hidden;
+    vertical-align: middle;
+    user-select: none;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
 
-    &:hover {
-      background-color: #dcff33;
-      color: #000000;
-      transform: translateY(-2px) scale(1.03);
-      box-shadow: 0 8px 30px rgba(204, 255, 0, 0.5);
-    }
-
-    &:active {
-      transform: scale(0.97);
-    }
-  }
-
-  // --------------------------------------------------------------------------
-  // Floating "Experienced in" Glass Card (Top Right)
-  // --------------------------------------------------------------------------
-  .hero-exp-card-wrapper {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-
-    @media (max-width: 991px) {
-      justify-content: flex-start;
-      width: 100%;
-    }
-  }
-
-  .hero-exp-card {
-    background: rgba(22, 25, 33, 0.78);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.09);
-    border-radius: 20px;
-    padding: 1.15rem 1.45rem;
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
-    display: flex;
-    flex-direction: column;
-    gap: 0.9rem;
-    transition: border-color 0.2s ease, transform 0.2s ease;
-
-    &:hover {
-      border-color: rgba(255, 255, 255, 0.18);
-      transform: translateY(-2px);
-    }
-
-    .exp-card-heading {
-      font-family: 'Wotfard', var(--font-family, sans-serif);
-      font-size: 0.8125rem;
-      font-weight: 600;
-      color: #f1f5f9;
-      opacity: 0.9;
-      letter-spacing: -0.01em;
-    }
-
-    .exp-icons-list {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-    }
-
-    .exp-icon-pill {
-      width: 38px;
-      height: 38px;
+    .badge-circle-green {
+      width: clamp(44px, 4.8vw, 56px);
+      height: 100%;
+      background-color: #5bbd6f;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #cbd5e1;
-      transition: all 0.22s ease;
-      cursor: pointer;
-
-      svg {
-        display: block;
-        transition: transform 0.2s ease;
-      }
-
-      &:hover {
-        background: rgba(255, 255, 255, 0.15);
-        border-color: #ccff00;
-        color: #ccff00;
-        transform: translateY(-3px) scale(1.08);
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-
-        svg {
-          transform: scale(1.1);
-        }
-      }
-    }
-  }
-
-  // --------------------------------------------------------------------------
-  // BOTTOM ROW: Left Bio & Socials + Right 3-Column Stats
-  // --------------------------------------------------------------------------
-  .hero-grid-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 2.5rem;
-    width: 100%;
-    margin-top: auto;
-    box-sizing: border-box;
-
-    @media (max-width: 991px) {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 2rem;
-    }
-  }
-
-  .hero-bio-group {
-    max-width: 360px;
-    display: flex;
-    flex-direction: column;
-    gap: 1.15rem;
-
-    .hero-bio-paragraph {
-      font-family: 'Wotfard', var(--font-family, sans-serif);
-      font-size: clamp(0.9375rem, 1.25vw, 1.05rem);
-      font-weight: 400;
-      color: #94a3b8;
-      line-height: 1.55;
-      letter-spacing: -0.01em;
-      margin: 0;
+      display: inline-block;
+      flex-shrink: 0;
+      margin-right: -1px;
     }
 
-    .hero-social-links {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-    }
-
-    .hero-social-btn {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #cbd5e1;
+    .badge-body-blue {
+      height: 100%;
+      background-color: #2563eb;
+      padding: 0 clamp(0.9rem, 1.4vw, 1.35rem);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      text-decoration: none;
-      transition: all 0.22s ease;
+      border-radius: 0 9999px 9999px 0;
 
       svg {
-        width: 17px;
-        height: 17px;
         display: block;
       }
+    }
+  }
 
-      &:hover {
-        background-color: #ccff00;
-        border-color: #ccff00;
-        color: #08090b;
-        transform: translateY(-2px) scale(1.06);
-        box-shadow: 0 6px 18px rgba(204, 255, 0, 0.35);
+  // Row 2 Badge: Light blue circle with black ring inside
+  .badge-circle-dot {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(42px, 4.5vw, 52px);
+    height: clamp(42px, 4.5vw, 52px);
+    border-radius: 50%;
+    background-color: #93c5fd;
+    vertical-align: middle;
+    flex-shrink: 0;
+    user-select: none;
+
+    .inner-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 2.8px solid #18181b;
+      background-color: transparent;
+      display: inline-block;
+    }
+  }
+
+  // Row 2 Badge: Black outline capsule with horizontal bar inside
+  .badge-capsule-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: clamp(40px, 4.4vw, 50px);
+    width: clamp(75px, 8vw, 105px);
+    border-radius: 9999px;
+    border: 2.8px solid #18181b;
+    background-color: transparent;
+    vertical-align: middle;
+    flex-shrink: 0;
+    user-select: none;
+
+    .inner-bar {
+      width: 34px;
+      height: 3.5px;
+      background-color: #18181b;
+      border-radius: 9999px;
+      display: inline-block;
+    }
+  }
+
+  // Row 3 Badge: Yellow circle + dark navy circle connected by horizontal line
+  .badge-duo-circles {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    height: clamp(44px, 4.8vw, 54px);
+    vertical-align: middle;
+    user-select: none;
+
+    .circle-yellow {
+      width: clamp(44px, 4.8vw, 54px);
+      height: clamp(44px, 4.8vw, 54px);
+      border-radius: 50%;
+      background-color: #facc15;
+      display: inline-block;
+      flex-shrink: 0;
+      z-index: 1;
+    }
+
+    .circle-dark {
+      width: clamp(44px, 4.8vw, 54px);
+      height: clamp(44px, 4.8vw, 54px);
+      border-radius: 50%;
+      background-color: #0f172a;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-left: -12px;
+      position: relative;
+      z-index: 2;
+
+      .connecting-line {
+        position: absolute;
+        width: 26px;
+        height: 2.5px;
+        background-color: #ffffff;
+        border-radius: 2px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
       }
-
-      &:active {
-        transform: scale(0.95);
-      }
     }
   }
 
-  // 3-Column Stats with Underscore Divider
-  .hero-stats-group {
+  // Description Copy
+  .hero-creative-desc {
+    font-family: 'Wotfard', var(--font-family, sans-serif);
+    font-size: clamp(1rem, 1.25vw, 1.15rem);
+    font-weight: 400;
+    color: #4b5563;
+    line-height: 1.65;
+    letter-spacing: -0.01em;
+    max-width: 480px;
+    margin: 0 0 2.25rem 0;
+
+    .hero-accent-green {
+      color: #10b981;
+      font-weight: 500;
+    }
+  }
+
+  // Action Buttons
+  .hero-creative-actions {
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    gap: 1.75rem;
+  }
 
-    @media (max-width: 991px) {
-      width: 100%;
-      justify-content: flex-start;
+  .hero-btn-dark {
+    font-family: 'Wotfard', var(--font-family, sans-serif);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #18191f;
+    border-radius: 9999px;
+    padding: 0.9rem 2.2rem;
+    text-decoration: none !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(24, 25, 31, 0.18);
+    transition: all 0.22s ease;
+
+    &:hover {
+      background-color: #000000;
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      text-decoration: none !important;
     }
   }
 
-  .hero-stats-row {
-    display: flex;
-    align-items: flex-start;
-    gap: clamp(1.75rem, 3.5vw, 3.5rem);
+  .hero-btn-text {
+    font-family: 'Wotfard', var(--font-family, sans-serif);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #18191f;
+    text-decoration: none !important;
+    transition: opacity 0.2s ease, transform 0.2s ease;
 
-    @media (max-width: 640px) {
-      gap: 1.25rem;
-      width: 100%;
-      justify-content: space-between;
+    &:hover {
+      opacity: 0.7;
+      text-decoration: none !important;
+      transform: translateX(2px);
     }
   }
 
-  .hero-stat-col {
+  // ------------------------------------------------------------------------
+  // Right Column: Subject & Floating Graphics
+  // ------------------------------------------------------------------------
+  .hero-creative-stage {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    min-width: 90px;
+    align-items: center;
+  }
+
+  // Portrait Wrap & Image
+  .hero-portrait-wrap {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .hero-portrait-img {
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    position: relative;
+    z-index: 2;
+  }
+
+  // Horizontal Baseline Under Subject
+  .hero-stage-baseline {
+    width: 100%;
+    height: 1.5px;
+    background-color: #18181b;
+    position: relative;
+    z-index: 1;
+    margin-top: -1px;
+  }
+
+  // Floating Sparkle Stars (Top Right)
+  .hero-sparkle-stars {
+    position: absolute;
+    top: 2%;
+    right: 12%;
+    z-index: 1;
+    display: flex;
+    pointer-events: none;
+
+    .star {
+      position: absolute;
+      animation: floatStar 3s ease-in-out infinite alternate;
+    }
+
+    .star-top {
+      top: 0;
+      left: 0;
+    }
+
+    .star-mid {
+      top: 18px;
+      left: 28px;
+      animation-delay: 0.6s;
+    }
+
+    .star-bottom {
+      top: 48px;
+      left: 36px;
+      animation-delay: 1.2s;
+    }
+  }
+
+  @keyframes floatStar {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-4px) scale(1.08); }
+  }
+
+  // Floating "Uishyed" Badge with Dual-Fan Top
+  .hero-float-uishyed {
+    position: absolute;
+    top: 18%;
+    left: -4%;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     @media (max-width: 640px) {
-      min-width: 0;
-      flex: 1;
+      left: 2%;
+      top: 24%;
+      transform: scale(0.85);
+      transform-origin: top left;
     }
 
-    .stat-value {
-      font-family: 'Wotfard', var(--font-family, sans-serif);
-      font-size: clamp(1.9rem, 3vw, 2.65rem);
-      font-weight: 800;
-      color: #ffffff;
-      line-height: 1;
-      letter-spacing: -0.035em;
-      margin-bottom: 0.35rem;
+    // Top Dual Fan Wing Shape
+    .uishyed-fan-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: -4px;
     }
 
-    .stat-name {
-      font-family: 'Wotfard', var(--font-family, sans-serif);
-      font-size: 0.8125rem;
-      font-weight: 500;
-      color: #94a3b8;
-      letter-spacing: -0.01em;
-      text-transform: capitalize;
-      margin-bottom: 0.75rem;
-      white-space: nowrap;
+    .fan-wings {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      height: 56px;
+    }
 
-      @media (max-width: 640px) {
-        white-space: normal;
-        font-size: 0.75rem;
+    .wing {
+      width: 28px;
+      height: 56px;
+      display: block;
+    }
+
+    .wing-blue {
+      background-color: #2563eb;
+      border-radius: 56px 0 0 56px;
+    }
+
+    .wing-sky {
+      background-color: #93c5fd;
+      border-radius: 0 56px 56px 0;
+    }
+
+    // Anchor Stem & Orange Arrow Circle
+    .fan-anchor {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: -6px;
+      position: relative;
+      z-index: 2;
+
+      .anchor-ring {
+        width: 10px;
+        height: 10px;
+        border: 2px solid #18181b;
+        border-radius: 50%;
+        background-color: #ffffff;
+      }
+
+      .anchor-stem {
+        width: 2px;
+        height: 14px;
+        background-color: #18181b;
+      }
+
+      .anchor-arrow-circle {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #ea580c;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 6px rgba(234, 88, 12, 0.4);
+
+        svg {
+          display: block;
+        }
       }
     }
 
-    .stat-divider {
-      width: 100%;
-      height: 1px;
-      background-color: rgba(255, 255, 255, 0.18);
+    // Floating White Card: Green Dot + "Uishyed"
+    .uishyed-card {
+      background-color: #ffffff;
+      border-radius: 18px;
+      padding: 0.7rem 1.4rem 0.7rem 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+      margin-top: 4px;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+
+      .uishyed-green-dot {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: #5bbd6f;
+        display: inline-block;
+        flex-shrink: 0;
+      }
+
+      .uishyed-label {
+        font-family: 'Wotfard', var(--font-family, sans-serif);
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #18181b;
+        letter-spacing: -0.01em;
+        line-height: 1;
+      }
+    }
+  }
+
+  // Floating Wireframe Globe Badge (Right Side)
+  .hero-float-globe {
+    position: absolute;
+    top: 32%;
+    right: -2%;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 1.5px solid #18181b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    z-index: 4;
+
+    @media (max-width: 640px) {
+      right: 2%;
+      top: 36%;
+      width: 48px;
+      height: 48px;
+    }
+
+    svg {
+      display: block;
+    }
+  }
+
+  // Large Floating Yellow Diagonal Arrow Button (Bottom-Right)
+  .hero-float-arrow {
+    position: absolute;
+    bottom: -32px;
+    right: 6%;
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    background-color: #facc15;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(250, 204, 21, 0.45);
+    z-index: 5;
+    text-decoration: none !important;
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease;
+
+    @media (max-width: 640px) {
+      width: 60px;
+      height: 60px;
+      bottom: -25px;
+      right: 8%;
+
+      svg {
+        width: 26px;
+        height: 26px;
+      }
+    }
+
+    svg {
+      display: block;
+      transition: transform 0.2s ease;
+    }
+
+    &:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 12px 30px rgba(250, 204, 21, 0.6);
+      text-decoration: none !important;
+
+      svg {
+        transform: translate(2px, -2px);
+      }
     }
   }
 }
+
 
 
 // --------------------------------------------------------------------------
@@ -4133,4 +4207,4 @@
 }
 
 
-
+

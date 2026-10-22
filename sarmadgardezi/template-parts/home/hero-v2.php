@@ -1,196 +1,160 @@
 <?php
 /**
- * Template part for displaying the Dark Aesthetic Showcase Hero section
- * Replicating reference layout: "Hey 👋 I'm Sarmad", "Cloud & Full Stack Engineer",
- * Neon Lime "Hire Me" button, AI Portrait, "Experienced in" glass card,
- * bottom-left bio & socials, and bottom-right 3-column stats with underline.
+ * Template part for displaying the Creative White Hero Section
+ * Matching Reference: "Grow [Badge] [Badge] a team together [Badge]",
+ * UI/UX copy, "Get for free" & "How its Work", Subject Portrait with
+ * Dual-fan Anchor, "Uishyed" Card, Sparkle Stars, Globe Badge & Yellow Arrow.
  *
  * @package SarmadGardezi
  */
 
 defined('ABSPATH') || exit;
 
-// Avatar / Portrait URL (defaulting to the AI photo sarmad-hero.jpg)
-$portrait_url = get_template_directory_uri() . '/assets/images/sarmad-hero.jpg';
-if (function_exists('get_field')) {
-    $custom_hero_photo = get_field('hero_profile_photo');
-    if (!empty($custom_hero_photo)) {
-        if (is_array($custom_hero_photo) && !empty($custom_hero_photo['url'])) {
-            $portrait_url = $custom_hero_photo['url'];
-        } elseif (is_numeric($custom_hero_photo)) {
-            $img_src = wp_get_attachment_image_src($custom_hero_photo, 'full');
-            if ($img_src) {
-                $portrait_url = $img_src[0];
-            }
-        } elseif (is_string($custom_hero_photo)) {
-            $portrait_url = $custom_hero_photo;
-        }
-    }
-}
-
-// User details
-$hero_greeting = 'Hey';
-$hero_name = 'Sarmad';
-$hero_full_name = 'Sarmad Gardezi';
-$hero_title_line1 = 'Cloud &';
-$hero_title_line2 = 'Full Stack';
-$hero_title_line3 = 'Engineer';
-$hero_cta_text = 'Hire Me';
-$hero_cta_url = home_url('/#contact');
-
-// ACF overrides if present
-if (function_exists('get_field')) {
-    $acf_name = get_field('hero_name');
-    if (!empty($acf_name)) {
-        $hero_full_name = $acf_name;
-    }
-}
+// Image URL requested by user
+$hero_img_url = home_url('/wp-content/uploads/2026/10/sarmadgardezihero.png');
+$fallback_img_url = get_template_directory_uri() . '/assets/images/sarmad-hero.jpg';
 ?>
 
-<section id="hero" class="hero-showcase-section">
-    <div class="hero-showcase-container">
-        <div class="hero-showcase-card">
+<section id="hero" class="hero-creative-section">
+    <div class="hero-creative-container">
+        
+        <!-- Left Column: Creative Typography & Copy -->
+        <div class="hero-creative-content">
             
-            <!-- Background Radial Glow -->
-            <div class="hero-card-glow" aria-hidden="true"></div>
+            <h1 class="hero-creative-title">
+                
+                <!-- Line 1: "Grow" + Capsule Arrow Badge -->
+                <span class="hero-title-line">
+                    <span class="title-word">Grow</span>
+                    <span class="badge-capsule-arrow" aria-hidden="true">
+                        <span class="badge-circle-green"></span>
+                        <span class="badge-body-blue">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </span>
+                    </span>
+                </span>
 
-            <!-- Subject: AI Generated Portrait in Center -->
-            <div class="hero-portrait-stage" aria-hidden="true">
-                <div class="hero-portrait-frame">
-                    <img 
-                        src="<?php echo esc_url($portrait_url); ?>" 
-                        alt="<?php echo esc_attr($hero_full_name); ?> - Cloud & Full Stack Engineer"
-                        class="hero-portrait-image"
-                        loading="eager"
-                        fetchpriority="high"
-                        decoding="async"
-                    />
-                    <div class="hero-portrait-fade"></div>
-                </div>
-            </div>
+                <!-- Line 2: Circle Dot + Outline Capsule + "a team" -->
+                <span class="hero-title-line">
+                    <span class="badge-circle-dot" aria-hidden="true">
+                        <span class="inner-dot"></span>
+                    </span>
+                    <span class="badge-capsule-outline" aria-hidden="true">
+                        <span class="inner-bar"></span>
+                    </span>
+                    <span class="title-word">a team</span>
+                </span>
 
-            <!-- Main Interactive Content Overlay -->
-            <div class="hero-content-grid">
+                <!-- Line 3: "together" + Duo Circles Badge -->
+                <span class="hero-title-line">
+                    <span class="title-word">together</span>
+                    <span class="badge-duo-circles" aria-hidden="true">
+                        <span class="circle-yellow"></span>
+                        <span class="circle-dark">
+                            <span class="connecting-line"></span>
+                        </span>
+                    </span>
+                </span>
 
-                <!-- TOP ROW -->
-                <div class="hero-grid-top">
-                    <!-- Top-Left: Greeting, Massive Headline, CTA -->
-                    <div class="hero-heading-group">
-                        <div class="hero-greeting-line">
-                            <span class="greeting-accent"><?php echo esc_html($hero_greeting); ?></span>
-                            <span class="greeting-wave" role="img" aria-label="waving hand">👋</span>
-                            <span class="greeting-name"><?php echo esc_html(sprintf("I'm %s", $hero_name)); ?></span>
-                        </div>
+            </h1>
 
-                        <h1 class="hero-display-title">
-                            <span class="title-line title-cloud"><?php echo esc_html($hero_title_line1); ?></span>
-                            <span class="title-line title-fullstack"><?php echo esc_html($hero_title_line2); ?></span>
-                            <span class="title-line title-engineer"><?php echo esc_html($hero_title_line3); ?></span>
-                        </h1>
+            <p class="hero-creative-desc">
+                <?php esc_html_e('UI UX designers create the user interface for an app, website, or other', 'sarmadgardezi'); ?>
+                <span class="hero-accent-green"><?php esc_html_e('interactive media', 'sarmadgardezi'); ?></span>.
+                <?php esc_html_e('Their work includes collaborating with product ...', 'sarmadgardezi'); ?>
+            </p>
 
-                        <div class="hero-cta-action">
-                            <a href="<?php echo esc_url($hero_cta_url); ?>" class="hero-lime-btn" data-cal-trigger>
-                                <span><?php echo esc_html($hero_cta_text); ?></span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Top-Right: "Experienced in" Glass Floating Card -->
-                    <div class="hero-exp-card-wrapper">
-                        <div class="hero-exp-card">
-                            <span class="exp-card-heading"><?php esc_html_e('Experienced in', 'sarmadgardezi'); ?></span>
-                            <div class="exp-icons-list">
-                                <!-- Google Cloud Platform -->
-                                <div class="exp-icon-pill" title="Google Cloud Platform (GCP)" data-tooltip="Google Cloud">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                        <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" fill="#4285F4"/>
-                                        <path d="M19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11c1.6.1 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3z" fill="#ffffff" fill-opacity="0.25"/>
-                                    </svg>
-                                </div>
-                                <!-- Kubernetes & Containers -->
-                                <div class="exp-icon-pill" title="Kubernetes &amp; Containers" data-tooltip="Kubernetes">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M12 2L3.5 6.9v9.8L12 21.6l8.5-4.9V6.9L12 2zm0 2.3l6.5 3.8v7.5L12 19.3l-6.5-3.8V8.1L12 4.3zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"/>
-                                    </svg>
-                                </div>
-                                <!-- React / Next.js -->
-                                <div class="exp-icon-pill" title="React &amp; Next.js" data-tooltip="React / Next.js">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                                        <ellipse cx="12" cy="12" rx="10" ry="4.2"></ellipse>
-                                        <ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(60 12 12)"></ellipse>
-                                        <ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(120 12 12)"></ellipse>
-                                        <circle cx="12" cy="12" r="1.8" fill="currentColor"></circle>
-                                    </svg>
-                                </div>
-                                <!-- Node.js & TypeScript -->
-                                <div class="exp-icon-pill" title="TypeScript &amp; Node.js" data-tooltip="TypeScript">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M3 3h18v18H3V3zm11.2 13.8c1.6 0 2.8-.8 3.5-2.1l-1.8-1.1c-.4.7-.9 1.1-1.7 1.1-.9 0-1.5-.5-1.5-1.3 0-.9.6-1.3 1.9-1.8 2.2-.9 3.2-1.8 3.2-3.4 0-2-1.6-3.3-3.8-3.3-1.8 0-3.1.8-3.8 2.2l1.7 1c.4-.7.9-1.1 1.7-1.1.9 0 1.4.5 1.4 1.1 0 .7-.5 1.1-1.7 1.6-2.2.9-3.4 1.8-3.4 3.6 0 2.2 1.7 3.2 4.4 3.2zm-7.6-.2h2.4V8.9h2.8V6.8H4.2v2.1H7v7.7z"/>
-                                    </svg>
-                                </div>
-                                <!-- Python & AI Architecture -->
-                                <div class="exp-icon-pill" title="Python, AI &amp; Cloud Architecture" data-tooltip="Python &amp; AI">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M11.9 2c-3.1 0-5.2.4-5.2 2.3v2.8h5.3v.8H4.7C2.8 7.9 1 9.9 1 12.8c0 3 1.8 4.7 4.1 4.7h2.4v-2.3c0-1.8 1.5-3.3 3.3-3.3h5.2V9.6c0-1.9-2.1-2.3-5.2-2.3H11.9zm-2.4 1.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm2.6 18.5c3.1 0 5.2-.4 5.2-2.3v-2.8h-5.3v-.8h7.3c1.9 0 3.7-2 3.7-4.9 0-3-1.8-4.7-4.1-4.7h-2.4v2.3c0 1.8-1.5 3.3-3.3 3.3H8.3v2.3c0 1.9 2.1 2.3 5.2 2.3h-1.4zm2.4-1.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- BOTTOM ROW -->
-                <div class="hero-grid-bottom">
-                    <!-- Bottom-Left: Bio text + Socials -->
-                    <div class="hero-bio-group">
-                        <p class="hero-bio-paragraph">
-                            <?php esc_html_e('Lead Cloud Architect & Full Stack Engineer based in Islamabad, building high-scale distributed systems, AI solutions, and modern web products.', 'sarmadgardezi'); ?>
-                        </p>
-                        
-                        <!-- Social Icons Row -->
-                        <div class="hero-social-links">
-                            <a href="https://github.com/sarmadgardezi" target="_blank" rel="noopener noreferrer" class="hero-social-btn" aria-label="GitHub" title="GitHub">
-                                <?php echo sarmadgardezi_get_icon('github'); ?>
-                            </a>
-                            <a href="https://linkedin.com/in/sarmadgardezi" target="_blank" rel="noopener noreferrer" class="hero-social-btn" aria-label="LinkedIn" title="LinkedIn">
-                                <?php echo sarmadgardezi_get_icon('linkedin'); ?>
-                            </a>
-                            <a href="https://twitter.com/sarmadgardezi" target="_blank" rel="noopener noreferrer" class="hero-social-btn" aria-label="Twitter / X" title="Twitter / X">
-                                <?php echo sarmadgardezi_get_icon('x'); ?>
-                            </a>
-                            <a href="mailto:contact@sarmadgardezi.com" class="hero-social-btn" aria-label="Email" title="Email">
-                                <?php echo sarmadgardezi_get_icon('mail'); ?>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Bottom-Right: 3-Column Stats with Underscores -->
-                    <div class="hero-stats-group">
-                        <div class="hero-stats-row">
-                            <!-- Stat 1 -->
-                            <div class="hero-stat-col">
-                                <span class="stat-value">8+</span>
-                                <span class="stat-name"><?php esc_html_e('Years of experience', 'sarmadgardezi'); ?></span>
-                                <div class="stat-divider"></div>
-                            </div>
-                            <!-- Stat 2 -->
-                            <div class="hero-stat-col">
-                                <span class="stat-value">50+</span>
-                                <span class="stat-name"><?php esc_html_e('Happy clients', 'sarmadgardezi'); ?></span>
-                                <div class="stat-divider"></div>
-                            </div>
-                            <!-- Stat 3 -->
-                            <div class="hero-stat-col">
-                                <span class="stat-value">15+</span>
-                                <span class="stat-name"><?php esc_html_e('Countries served', 'sarmadgardezi'); ?></span>
-                                <div class="stat-divider"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="hero-creative-actions">
+                <a href="<?php echo esc_url(home_url('/#contact')); ?>" class="hero-btn-dark">
+                    <?php esc_html_e('Get for free', 'sarmadgardezi'); ?>
+                </a>
+                <a href="<?php echo esc_url(home_url('/#about')); ?>" class="hero-btn-text">
+                    <?php esc_html_e('How its Work', 'sarmadgardezi'); ?>
+                </a>
             </div>
 
         </div>
+
+        <!-- Right Column: Subject Portrait with Floating Badges -->
+        <div class="hero-creative-stage">
+            
+            <!-- Floating Sparkle Stars (Top-Right) -->
+            <div class="hero-sparkle-stars" aria-hidden="true">
+                <svg class="star star-top" width="28" height="28" viewBox="0 0 24 24" fill="#fde047">
+                    <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                </svg>
+                <svg class="star star-mid" width="20" height="20" viewBox="0 0 24 24" fill="#facc15">
+                    <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                </svg>
+                <svg class="star star-bottom" width="14" height="14" viewBox="0 0 24 24" fill="#fef08a">
+                    <path d="M12 0L14.6 9.4L24 12L14.6 14.6L12 24L9.4 14.6L0 12L9.4 9.4L12 0Z" />
+                </svg>
+            </div>
+
+            <!-- Floating Dual Fan + Anchor + "Uishyed" Badge (Left Side) -->
+            <div class="hero-float-uishyed" aria-hidden="true">
+                <!-- Top Dual Fan Shape with Stem & Orange Arrow -->
+                <div class="uishyed-fan-group">
+                    <div class="fan-wings">
+                        <span class="wing wing-blue"></span>
+                        <span class="wing wing-sky"></span>
+                    </div>
+                    <div class="fan-anchor">
+                        <span class="anchor-ring"></span>
+                        <span class="anchor-stem"></span>
+                        <span class="anchor-arrow-circle">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <polyline points="19 12 12 19 5 12"></polyline>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Floating Card: Green Circle + Text "Uishyed" -->
+                <div class="uishyed-card">
+                    <span class="uishyed-green-dot"></span>
+                    <span class="uishyed-label"><?php esc_html_e('Uishyed', 'sarmadgardezi'); ?></span>
+                </div>
+            </div>
+
+            <!-- Floating Globe Badge (Right Side) -->
+            <div class="hero-float-globe" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#18181b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+            </div>
+
+            <!-- Main Subject Portrait -->
+            <div class="hero-portrait-wrap">
+                <img 
+                    src="<?php echo esc_url($hero_img_url); ?>" 
+                    alt="<?php esc_attr_e('Sarmad Gardezi', 'sarmadgardezi'); ?>"
+                    class="hero-portrait-img"
+                    loading="eager"
+                    fetchpriority="high"
+                    decoding="async"
+                    onerror="this.onerror=null; this.src='<?php echo esc_url($fallback_img_url); ?>';"
+                />
+            </div>
+
+            <!-- Bottom Horizontal Baseline -->
+            <div class="hero-stage-baseline" aria-hidden="true"></div>
+
+            <!-- Floating Yellow Diagonal Arrow Button (Bottom-Right) -->
+            <a href="<?php echo esc_url(home_url('/#contact')); ?>" class="hero-float-arrow" aria-label="<?php esc_attr_e('Get Started', 'sarmadgardezi'); ?>">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#18181b" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+            </a>
+
+        </div>
+
     </div>
 </section>

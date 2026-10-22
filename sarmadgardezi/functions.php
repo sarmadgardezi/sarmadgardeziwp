@@ -3,13 +3,13 @@
  * Sarmad Gardezi Theme Bootstrap
  *
  * @package SarmadGardezi
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 defined('ABSPATH') || exit;
 
 // Theme constants.
-define('SARMADGARDEZI_VERSION', '1.0.0');
+define('SARMADGARDEZI_VERSION', '1.0.1');
 define('SARMADGARDEZI_DIR', get_template_directory());
 define('SARMADGARDEZI_URI', get_template_directory_uri());
 
