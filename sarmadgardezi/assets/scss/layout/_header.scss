@@ -1,47 +1,42 @@
 // ==========================================================================
-// SCSS Layout: Minimalist Floating Dark Header on White Ground
+// SCSS Layout: Minimalist White Header with Centered Menu & Auth Actions
+// Matching Reference (Clean White Ground, Centered Navigation, Sign up & Pill Button)
 // ==========================================================================
 
 .site-header-custom {
   width: 100%;
-  background-color: #ffffff; // White header background
-  padding-top: clamp(1rem, 2vw, 1.5rem);
-  padding-bottom: clamp(0.75rem, 1.5vw, 1rem);
+  background-color: #ffffff;
+  padding-top: clamp(1rem, 2vw, 1.4rem);
+  padding-bottom: clamp(1rem, 2vw, 1.4rem);
   position: relative;
   z-index: 200;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   box-sizing: border-box;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+
+  &.is-scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  }
 
   .site-header-container {
     width: 100%;
-    max-width: 1260px; // Aligned with the hero section card
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 0 clamp(1rem, 3vw, 2.5rem);
-    display: flex;
-    justify-content: center;
+    padding: 0 clamp(1.25rem, 3.5vw, 2.5rem);
     box-sizing: border-box;
   }
 
-  // Floating Black Capsule Navigation Island
   .site-header-inner {
     width: 100%;
-    background-color: #08090b; // Deep black ground for logo & menu
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 9999px; // Sleek rounded pill
-    padding: 0.65rem clamp(1.25rem, 2.5vw, 2rem);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1.5rem;
-    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.18), 0 2px 6px rgba(0, 0, 0, 0.08);
     box-sizing: border-box;
-    transition: box-shadow 0.25s ease, border-color 0.25s ease;
 
-    &:hover {
-      border-color: rgba(255, 255, 255, 0.15);
-      box-shadow: 0 14px 36px -4px rgba(0, 0, 0, 0.25);
+    @media (min-width: 860px) {
+      display: grid;
+      grid-template-columns: minmax(140px, 1fr) auto minmax(140px, 1fr);
+      align-items: center;
     }
   }
 
@@ -51,28 +46,29 @@
   .header-left {
     display: flex;
     align-items: center;
+    justify-self: start;
   }
 
   .brand-link {
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
-    text-decoration: none;
+    text-decoration: none !important;
     transition: opacity 0.2s ease, transform 0.2s ease;
 
     &:hover {
-      opacity: 0.92;
-      transform: translateY(-1px);
+      opacity: 0.85;
+      text-decoration: none !important;
     }
 
     .brand-logo-wrap {
       display: inline-flex;
       align-items: center;
-      max-height: 32px;
+      max-height: 36px;
     }
 
     .custom-logo {
-      max-height: 32px;
+      max-height: 36px;
       width: auto;
       display: block;
       object-fit: contain;
@@ -80,31 +76,34 @@
 
     .brand-name-text {
       font-family: 'Wotfard', var(--font-family, sans-serif);
-      font-size: clamp(1.05rem, 1.8vw, 1.25rem);
-      font-weight: 700; // Bold brand name in crisp white
-      color: #ffffff;
+      font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+      font-weight: 700;
+      color: #09090b;
       letter-spacing: -0.025em;
       line-height: 1.2;
       white-space: nowrap;
+      text-decoration: none !important;
     }
   }
 
   // ========================================================================
-  // Right: Desktop Navigation Links (Clean & Refined)
+  // Center: Desktop Navigation Links (Centered, Wotfard Font)
   // ========================================================================
   .header-desktop-nav {
     display: none;
+    justify-self: center;
 
-    @media (min-width: 769px) {
+    @media (min-width: 860px) {
       display: flex;
       align-items: center;
+      justify-content: center;
     }
   }
 
   .header-nav-list {
     display: flex;
     align-items: center;
-    gap: clamp(1rem, 2vw, 2rem);
+    gap: clamp(1.25rem, 2.2vw, 2.25rem);
     list-style: none;
     margin: 0;
     padding: 0;
@@ -117,25 +116,91 @@
 
   .header-nav-link {
     font-family: 'Wotfard', var(--font-family, sans-serif);
-    font-size: 0.90625rem;
+    font-size: 0.95rem;
     font-weight: 500;
-    color: #94a3b8;
-    text-decoration: none;
+    color: #18181b;
+    text-decoration: none !important;
     letter-spacing: -0.01em;
     line-height: 1.4;
-    padding: 0.35rem 0.65rem;
-    border-radius: 9999px;
-    transition: color 0.18s ease, background-color 0.18s ease;
+    padding: 0.35rem 0.25rem;
+    transition: color 0.18s ease;
 
     &:hover {
-      color: #ffffff;
-      background-color: rgba(255, 255, 255, 0.06);
+      color: #000000;
+      text-decoration: none !important;
     }
 
     .header-nav-item.is-active & {
       font-weight: 600;
+      color: #000000;
+      text-decoration: none !important;
+    }
+  }
+
+  // ========================================================================
+  // Right: Action Links & Pill Button + Mobile Toggle
+  // ========================================================================
+  .header-right {
+    display: flex;
+    align-items: center;
+    justify-self: end;
+    gap: 1.25rem;
+  }
+
+  .header-auth-actions {
+    display: none;
+    align-items: center;
+    gap: clamp(1.25rem, 2vw, 1.75rem);
+
+    @media (min-width: 860px) {
+      display: flex;
+    }
+  }
+
+  .header-auth-link {
+    font-family: 'Wotfard', var(--font-family, sans-serif);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #18181b;
+    text-decoration: none !important;
+    letter-spacing: -0.01em;
+    padding: 0.4rem 0.25rem;
+    white-space: nowrap;
+    transition: color 0.18s ease, opacity 0.18s ease;
+
+    &:hover {
+      color: #000000;
+      opacity: 0.75;
+      text-decoration: none !important;
+    }
+  }
+
+  .header-auth-btn {
+    font-family: 'Wotfard', var(--font-family, sans-serif);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: #18181b;
+    text-decoration: none !important;
+    background-color: transparent;
+    border: 1.5px solid #27272a;
+    border-radius: 9999px;
+    padding: 0.45rem 1.45rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+    box-sizing: border-box;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &:hover {
+      background-color: #18181b;
       color: #ffffff;
-      background-color: rgba(255, 255, 255, 0.1);
+      border-color: #18181b;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      text-decoration: none !important;
     }
   }
 
@@ -148,21 +213,21 @@
     justify-content: center;
     width: 38px;
     height: 38px;
-    background-color: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: #f4f4f5;
+    border: 1px solid #e4e4e7;
     border-radius: 50%;
     cursor: pointer;
     padding: 0;
-    color: #ffffff;
+    color: #18181b;
     transition: background-color 0.2s ease, border-color 0.2s ease;
 
-    @media (min-width: 769px) {
+    @media (min-width: 860px) {
       display: none;
     }
 
     &:hover {
-      background-color: rgba(255, 255, 255, 0.15);
-      border-color: rgba(255, 255, 255, 0.25);
+      background-color: #e4e4e7;
+      border-color: #d4d4d8;
     }
 
     .hamburger-box {
@@ -177,7 +242,7 @@
     .hamburger-bar {
       width: 100%;
       height: 2px;
-      background-color: #ffffff;
+      background-color: #18181b;
       border-radius: 2px;
       transition: transform 0.25s ease, opacity 0.25s ease;
       transform-origin: center;
@@ -219,9 +284,9 @@
     .mobile-drawer-backdrop {
       position: absolute;
       inset: 0;
-      background-color: rgba(10, 12, 18, 0.65);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      background-color: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
       opacity: 0;
       transition: opacity 0.25s ease;
     }
@@ -231,10 +296,10 @@
       top: 0;
       left: 0;
       width: 100%;
-      background-color: #08090b;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-      padding: 5.5rem 1.5rem 2.5rem;
+      background-color: #ffffff;
+      border-bottom: 1px solid #e4e4e7;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      padding: 5rem 1.5rem 2rem;
       transform: translateY(-100%);
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       box-sizing: border-box;
@@ -252,10 +317,10 @@
     .mobile-nav-list {
       list-style: none;
       padding: 0;
-      margin: 0;
+      margin: 0 0 1.5rem 0;
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 0.35rem;
     }
 
     .mobile-nav-item {
@@ -264,25 +329,64 @@
 
     .mobile-nav-link {
       display: block;
-      padding: 0.85rem 1rem;
+      padding: 0.75rem 0.85rem;
       font-family: 'Wotfard', var(--font-family, sans-serif);
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: #94a3b8;
-      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #18181b;
+      text-decoration: none !important;
       border-radius: 8px;
       transition: all 0.2s ease;
 
       &:hover,
       &:focus {
-        color: #ffffff;
-        background-color: #1a1d24;
-        padding-left: 1.25rem;
+        color: #000000;
+        background-color: #f4f4f5;
+        padding-left: 1.15rem;
+        text-decoration: none !important;
       }
 
       .mobile-nav-item.is-active & {
-        color: #ffffff;
-        background-color: #1a1d24;
+        font-weight: 600;
+        color: #000000;
+        background-color: #f4f4f5;
+        text-decoration: none !important;
+      }
+    }
+
+    .mobile-drawer-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid #f4f4f5;
+
+      .mobile-auth-link {
+        font-family: 'Wotfard', var(--font-family, sans-serif);
+        font-size: 1rem;
+        font-weight: 500;
+        color: #18181b;
+        text-decoration: none !important;
+        padding: 0.5rem 0.75rem;
+      }
+
+      .mobile-auth-btn {
+        flex: 1;
+        font-family: 'Wotfard', var(--font-family, sans-serif);
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: #18181b;
+        text-decoration: none !important;
+        border: 1.5px solid #27272a;
+        border-radius: 9999px;
+        padding: 0.5rem 1.25rem;
+        text-align: center;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background-color: #18181b;
+          color: #ffffff;
+        }
       }
     }
   }
