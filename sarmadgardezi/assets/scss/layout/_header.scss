@@ -117,7 +117,7 @@
   .header-nav-link {
     font-family: 'Wotfard', var(--font-family, sans-serif);
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 700;
     color: #18181b;
     text-decoration: none !important;
     letter-spacing: -0.01em;
@@ -131,7 +131,7 @@
     }
 
     .header-nav-item.is-active & {
-      font-weight: 600;
+      font-weight: 700;
       color: #000000;
       text-decoration: none !important;
     }
@@ -160,7 +160,7 @@
   .header-auth-link {
     font-family: 'Wotfard', var(--font-family, sans-serif);
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 700;
     color: #18181b;
     text-decoration: none !important;
     letter-spacing: -0.01em;
@@ -178,7 +178,7 @@
   .header-auth-btn {
     font-family: 'Wotfard', var(--font-family, sans-serif);
     font-size: 0.9375rem;
-    font-weight: 500;
+    font-weight: 700;
     color: #18181b;
     text-decoration: none !important;
     background-color: transparent;
@@ -332,7 +332,7 @@
       padding: 0.75rem 0.85rem;
       font-family: 'Wotfard', var(--font-family, sans-serif);
       font-size: 1.1rem;
-      font-weight: 500;
+      font-weight: 700;
       color: #18181b;
       text-decoration: none !important;
       border-radius: 8px;
@@ -347,7 +347,7 @@
       }
 
       .mobile-nav-item.is-active & {
-        font-weight: 600;
+        font-weight: 700;
         color: #000000;
         background-color: #f4f4f5;
         text-decoration: none !important;
@@ -364,7 +364,7 @@
       .mobile-auth-link {
         font-family: 'Wotfard', var(--font-family, sans-serif);
         font-size: 1rem;
-        font-weight: 500;
+        font-weight: 700;
         color: #18181b;
         text-decoration: none !important;
         padding: 0.5rem 0.75rem;
@@ -374,7 +374,7 @@
         flex: 1;
         font-family: 'Wotfard', var(--font-family, sans-serif);
         font-size: 0.95rem;
-        font-weight: 500;
+        font-weight: 700;
         color: #18181b;
         text-decoration: none !important;
         border: 1.5px solid #27272a;
