@@ -11,7 +11,7 @@
 defined('ABSPATH') || exit;
 
 // Image URL requested by user
-$hero_img_url = home_url('/wp-content/uploads/2026/10/sarmadgardezihero.png');
+$hero_img_url = home_url('/wp-content/uploads/2026/10/sarmadgardezihero2.png');
 $fallback_img_url = get_template_directory_uri() . '/assets/images/sarmad-hero.jpg';
 ?>
 
