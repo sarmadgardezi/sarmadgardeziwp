@@ -15,7 +15,7 @@ $brand_text_override = get_theme_mod('sarmadgardezi_brand_text', '');
 $brand_title = !empty($brand_text_override) ? $brand_text_override : get_bloginfo('name');
 ?>
 
-<header class="site-header-custom" id="masthead">
+<header class="site-header-custom site-header-boxed" id="masthead">
     <div class="site-header-container">
         <div class="site-header-inner">
             
@@ -37,30 +37,56 @@ $brand_title = !empty($brand_text_override) ? $brand_text_override : get_bloginf
                 </a>
             </div>
 
-            <!-- Center: Primary Navigation Menu -->
+            <!-- Center: Primary Navigation Menu with Dropdown Support -->
             <nav class="header-nav header-desktop-nav" aria-label="<?php esc_attr_e('Primary Navigation', 'sarmadgardezi'); ?>">
                 <ul class="header-nav-list">
                     <?php foreach ($nav_items as $item) : 
                         $is_active = !empty($item['active']);
-                        $item_class = 'header-nav-item' . ($is_active ? ' is-active' : '');
+                        $has_children = !empty($item['children']);
+                        $item_class = 'header-nav-item' . ($is_active ? ' is-active' : '') . ($has_children ? ' has-dropdown' : '');
                     ?>
                         <li class="<?php echo esc_attr($item_class); ?>">
-                            <a class="header-nav-link" href="<?php echo esc_url($item['url']); ?>" target="<?php echo esc_attr($item['target']); ?>">
-                                <span><?php echo esc_html($item['title']); ?></span>
-                            </a>
+                            <?php if ($has_children) : ?>
+                                <a class="header-nav-link dropdown-toggle" href="<?php echo esc_url($item['url']); ?>" target="<?php echo esc_attr($item['target']); ?>" aria-expanded="false" aria-haspopup="true">
+                                    <span><?php echo esc_html($item['title']); ?></span>
+                                    <svg class="dropdown-caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </a>
+                                <div class="header-dropdown-menu" role="menu">
+                                    <ul class="dropdown-menu-list">
+                                        <?php foreach ($item['children'] as $child) : 
+                                            $child_active = !empty($child['active']);
+                                        ?>
+                                            <li class="dropdown-item<?php echo $child_active ? ' is-active' : ''; ?>" role="none">
+                                                <a class="dropdown-link" href="<?php echo esc_url($child['url']); ?>" target="<?php echo esc_attr(!empty($child['target']) ? $child['target'] : '_self'); ?>" role="menuitem">
+                                                    <span class="dropdown-link-title"><?php echo esc_html($child['title']); ?></span>
+                                                    <?php if (!empty($child['description'])) : ?>
+                                                        <span class="dropdown-link-desc"><?php echo esc_html($child['description']); ?></span>
+                                                    <?php endif; ?>
+                                                </a>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                            <?php else : ?>
+                                <a class="header-nav-link" href="<?php echo esc_url($item['url']); ?>" target="<?php echo esc_attr($item['target']); ?>">
+                                    <span><?php echo esc_html($item['title']); ?></span>
+                                </a>
+                            <?php endif; ?>
                         </li>
                     <?php endforeach; ?>
                 </ul>
             </nav>
 
-            <!-- Right: Sign up Link and Pill Outline Button -->
+            <!-- Right: Log in Link and Color-filled Bold Sign up Button -->
             <div class="header-right">
                 <div class="header-auth-actions">
                     <a class="header-auth-link" href="#">
-                        <?php esc_html_e('Sign up', 'sarmadgardezi'); ?>
-                    </a>
-                    <a class="header-auth-btn" href="#">
                         <?php esc_html_e('Log in', 'sarmadgardezi'); ?>
+                    </a>
+                    <a class="header-auth-btn header-auth-btn-filled" href="#">
+                        <?php esc_html_e('Sign up', 'sarmadgardezi'); ?>
                     </a>
                 </div>
 
@@ -85,19 +111,47 @@ $brand_title = !empty($brand_text_override) ? $brand_text_override : get_bloginf
                 <ul class="mobile-nav-list">
                     <?php foreach ($nav_items as $item) : 
                         $is_active = !empty($item['active']);
-                        $item_class = 'mobile-nav-item' . ($is_active ? ' is-active' : '');
+                        $has_children = !empty($item['children']);
+                        $item_class = 'mobile-nav-item' . ($is_active ? ' is-active' : '') . ($has_children ? ' mobile-has-dropdown' : '');
                     ?>
                         <li class="<?php echo esc_attr($item_class); ?>">
-                            <a class="mobile-nav-link" href="<?php echo esc_url($item['url']); ?>" target="<?php echo esc_attr($item['target']); ?>">
-                                <?php echo esc_html($item['title']); ?>
-                            </a>
+                            <?php if ($has_children) : ?>
+                                <div class="mobile-dropdown-header">
+                                    <a class="mobile-nav-link" href="<?php echo esc_url($item['url']); ?>" target="<?php echo esc_attr($item['target']); ?>">
+                                        <?php echo esc_html($item['title']); ?>
+                                    </a>
+                                    <button type="button" class="mobile-dropdown-toggle" aria-expanded="false" aria-label="<?php esc_attr_e('Toggle submenu', 'sarmadgardezi'); ?>">
+                                        <svg class="dropdown-caret" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <ul class="mobile-submenu-list" hidden>
+                                    <?php foreach ($item['children'] as $child) : 
+                                        $child_active = !empty($child['active']);
+                                    ?>
+                                        <li class="mobile-submenu-item<?php echo $child_active ? ' is-active' : ''; ?>">
+                                            <a class="mobile-submenu-link" href="<?php echo esc_url($child['url']); ?>" target="<?php echo esc_attr(!empty($child['target']) ? $child['target'] : '_self'); ?>">
+                                                <span class="mobile-submenu-title"><?php echo esc_html($child['title']); ?></span>
+                                                <?php if (!empty($child['description'])) : ?>
+                                                    <span class="mobile-submenu-desc"><?php echo esc_html($child['description']); ?></span>
+                                                <?php endif; ?>
+                                            </a>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php else : ?>
+                                <a class="mobile-nav-link" href="<?php echo esc_url($item['url']); ?>" target="<?php echo esc_attr($item['target']); ?>">
+                                    <?php echo esc_html($item['title']); ?>
+                                </a>
+                            <?php endif; ?>
                         </li>
                     <?php endforeach; ?>
                 </ul>
             </nav>
             <div class="mobile-drawer-actions">
-                <a class="mobile-auth-link" href="#"><?php esc_html_e('Sign up', 'sarmadgardezi'); ?></a>
-                <a class="mobile-auth-btn" href="#"><?php esc_html_e('Log in', 'sarmadgardezi'); ?></a>
+                <a class="mobile-auth-link" href="#"><?php esc_html_e('Log in', 'sarmadgardezi'); ?></a>
+                <a class="mobile-auth-btn mobile-auth-btn-filled" href="#"><?php esc_html_e('Sign up', 'sarmadgardezi'); ?></a>
             </div>
         </div>
     </div>

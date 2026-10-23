@@ -73,12 +73,11 @@ function sarmadgardezi_get_nav_items() {
                 $current_url = trailingslashit((is_ssl() ? 'https://' : 'http://') . ($_SERVER['HTTP_HOST'] ?? '') . strtok($_SERVER['REQUEST_URI'] ?? '/', '?'));
                 $home_url    = trailingslashit(home_url('/'));
 
-                foreach ($raw_items as $item) {
-                    // Only top-level items for the navigation
-                    if (!empty($item->menu_item_parent)) {
-                        continue;
-                    }
+                // First pass: index by ID and record parent relationships
+                $items_by_id = array();
+                $child_map   = array();
 
+                foreach ($raw_items as $item) {
                     $item_url  = trailingslashit($item->url);
                     $is_active = false;
 
@@ -88,18 +87,48 @@ function sarmadgardezi_get_nav_items() {
                         $is_active = ($item_url === $current_url) || !empty($item->current);
                     }
 
-                    $menu_items[] = array(
-                        'title'  => $item->title,
-                        'url'    => $item->url,
-                        'target' => !empty($item->target) ? $item->target : '_self',
-                        'active' => $is_active,
+                    $items_by_id[$item->ID] = array(
+                        'id'          => $item->ID,
+                        'title'       => $item->title,
+                        'url'         => $item->url,
+                        'target'      => !empty($item->target) ? $item->target : '_self',
+                        'description' => !empty($item->description) ? $item->description : '',
+                        'active'      => $is_active,
+                        'children'    => array(),
                     );
+
+                    $parent_id = !empty($item->menu_item_parent) ? (int)$item->menu_item_parent : 0;
+                    if ($parent_id > 0) {
+                        $child_map[$parent_id][] = $item->ID;
+                    }
+                }
+
+                // Second pass: attach children to parents
+                foreach ($items_by_id as $id => &$node) {
+                    if (isset($child_map[$id])) {
+                        foreach ($child_map[$id] as $child_id) {
+                            if (isset($items_by_id[$child_id])) {
+                                $node['children'][] = $items_by_id[$child_id];
+                                if (!empty($items_by_id[$child_id]['active'])) {
+                                    $node['active'] = true;
+                                }
+                            }
+                        }
+                    }
+                }
+                unset($node);
+
+                // Build top-level menu list
+                foreach ($raw_items as $item) {
+                    if (empty($item->menu_item_parent) && isset($items_by_id[$item->ID])) {
+                        $menu_items[] = $items_by_id[$item->ID];
+                    }
                 }
             }
         }
     }
 
-    // Default fallback matching exact custom specification (HOME, ABOUT, CASE STUDIES, BLOG, FAQS, CONTACT)
+    // Default fallback with interactive dropdown support
     if (empty($menu_items)) {
         $req_path = strtok($_SERVER['REQUEST_URI'] ?? '/', '?');
         $clean_path = '/' . trim($req_path, '/');
@@ -110,7 +139,31 @@ function sarmadgardezi_get_nav_items() {
         $defaults = array(
             array('title' => __('Home', 'sarmadgardezi'), 'url' => home_url('/'), 'path' => '/'),
             array('title' => __('About', 'sarmadgardezi'), 'url' => home_url('/about'), 'path' => '/about'),
-            array('title' => __('Projects', 'sarmadgardezi'), 'url' => home_url('/projects/'), 'path' => '/projects'),
+            array(
+                'title' => __('Projects', 'sarmadgardezi'),
+                'url' => home_url('/projects/'),
+                'path' => '/projects',
+                'children' => array(
+                    array(
+                        'title'       => __('Case Studies', 'sarmadgardezi'),
+                        'url'         => home_url('/case-studies'),
+                        'description' => __('In-depth architectural analysis & business outcomes', 'sarmadgardezi'),
+                        'path'        => '/case-studies',
+                    ),
+                    array(
+                        'title'       => __('Featured Work', 'sarmadgardezi'),
+                        'url'         => home_url('/projects/'),
+                        'description' => __('Full-stack, cloud & agentic AI systems', 'sarmadgardezi'),
+                        'path'        => '/projects',
+                    ),
+                    array(
+                        'title'       => __('Open Source', 'sarmadgardezi'),
+                        'url'         => home_url('/#open-source'),
+                        'description' => __('Developer utilities & public contributions', 'sarmadgardezi'),
+                        'path'        => '/#open-source',
+                    ),
+                ),
+            ),
             array('title' => __('Blog', 'sarmadgardezi'), 'url' => home_url('/blog'), 'path' => '/blog'),
             array('title' => __('Contact', 'sarmadgardezi'), 'url' => home_url('/#contact'), 'path' => '/#contact'),
         );
@@ -123,11 +176,29 @@ function sarmadgardezi_get_nav_items() {
                 $is_active = (strpos($clean_path, $def['path']) === 0);
             }
 
+            $children = array();
+            if (!empty($def['children'])) {
+                foreach ($def['children'] as $child_def) {
+                    $child_active = (strpos($clean_path, $child_def['path']) === 0);
+                    if ($child_active) {
+                        $is_active = true;
+                    }
+                    $children[] = array(
+                        'title'       => $child_def['title'],
+                        'url'         => $child_def['url'],
+                        'target'      => '_self',
+                        'description' => !empty($child_def['description']) ? $child_def['description'] : '',
+                        'active'      => $child_active,
+                    );
+                }
+            }
+
             $menu_items[] = array(
-                'title'  => $def['title'],
-                'url'    => $def['url'],
-                'target' => '_self',
-                'active' => $is_active,
+                'title'    => $def['title'],
+                'url'      => $def['url'],
+                'target'   => '_self',
+                'active'   => $is_active,
+                'children' => $children,
             );
         }
     }

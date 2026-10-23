@@ -8,7 +8,7 @@
 }
 
 .hero-section {
-  background-color: #161922;
+  background-color: #ffffff;
   text-align: center;
   width: 100%;
   padding: 4.5rem 1.25rem 2.25rem;
@@ -510,8 +510,8 @@
 
 .hero-logo-strip-section {
   width: 100%;
-  background-color: #161922;
-  padding: clamp(1.5rem, 3vw, 2.75rem) 0 clamp(2.5rem, 4vw, 3.5rem);
+  background-color: #ffffff;
+  padding: clamp(1rem, 2.5vw, 2.25rem) 0 clamp(2rem, 3.5vw, 3rem);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -689,7 +689,7 @@
 .featured-showcase-section,
 .generation-showcase-section {
   width: 100%;
-  background-color: #161922;
+  background-color: #ffffff;
   padding: clamp(2.5rem, 5vw, 4.5rem) 0 clamp(4rem, 7vw, 6rem);
   position: relative;
   box-sizing: border-box;
@@ -712,7 +712,7 @@
     font-family: 'Wotfard', var(--font-family, -apple-system, BlinkMacSystemFont, sans-serif);
     font-size: clamp(2.25rem, 4.5vw, 3.5rem);
     font-weight: 700;
-    color: #ffffff;
+    color: #09090b;
     letter-spacing: -0.03em;
     line-height: 1.1;
     margin: 0 0 0.65rem 0;
@@ -722,7 +722,7 @@
     font-family: 'Wotfard', var(--font-family, sans-serif);
     font-size: clamp(0.95rem, 1.4vw, 1.0625rem);
     font-weight: 400;
-    color: #94a3b8;
+    color: #64748b;
     line-height: 1.5;
     margin: 0;
   }
@@ -756,9 +756,9 @@
   }
 
   .featured-pill {
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    background-color: rgba(255, 255, 255, 0.03);
-    color: #94a3b8;
+    border: 1px solid #e4e4e7;
+    background-color: #f4f4f5;
+    color: #52525b;
     font-family: 'Wotfard', var(--font-family, sans-serif);
     font-size: 0.6875rem;
     font-weight: 600;
@@ -772,15 +772,15 @@
     user-select: none;
 
     &:hover {
-      border-color: rgba(255, 255, 255, 0.4);
-      color: #ffffff;
-      background-color: rgba(255, 255, 255, 0.08);
+      border-color: #d4d4d8;
+      color: #09090b;
+      background-color: #e4e4e7;
     }
 
     &.is-active {
-      border-color: #ffffff;
-      color: #161922;
-      background-color: #ffffff;
+      border-color: #09090b;
+      color: #ffffff;
+      background-color: #09090b;
       font-weight: 700;
     }
   }
@@ -798,16 +798,18 @@
       justify-content: center;
       width: 38px;
       height: 38px;
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: #ffffff;
+      border: 1px solid #e4e4e7;
       border-radius: 50%;
-      color: #94a3b8;
+      color: #18181b;
       cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
       transition: all 0.2s ease;
 
       &:hover {
-        border-color: #ffffff;
-        color: #ffffff;
+        border-color: #09090b;
+        color: #000000;
+        background-color: #f4f4f5;
         transform: scale(1.08);
       }
 
@@ -3024,8 +3026,8 @@
 
 .booking-cta-section {
   width: 100%;
-  background-color: #161922;
-  padding: clamp(2rem, 4vw, 3.5rem) 0 clamp(4.5rem, 7vw, 6.5rem);
+  background-color: #ffffff;
+  padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(4.5rem, 7vw, 6.5rem);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -3436,11 +3438,11 @@
 }
 
 // -----------------------------------------------------------------------------
-// EVENTS & SESSIONS SHOWCASE SECTION (DARK BACKGROUND #161922)
+// EVENTS & SESSIONS SHOWCASE SECTION (LIGHT THEME)
 // -----------------------------------------------------------------------------
 .events-showcase-section {
-  background-color: #161922;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #09090b;
   padding: clamp(5rem, 8vw, 8rem) 0;
   width: 100%;
   position: relative;
@@ -3476,15 +3478,15 @@
     font-weight: 700;
     line-height: 1.1;
     letter-spacing: -0.03em;
-    color: #ffffff;
+    color: #09090b;
     margin: 0 0 1rem 0;
 
     .events-accent-title {
       font-family: 'Playfair Display', Georgia, serif;
       font-style: italic;
       font-weight: 400;
-      color: #f472b6;
-      background: linear-gradient(135deg, #f472b6 20%, #fb7185 80%);
+      color: #e11d48;
+      background: linear-gradient(135deg, #e11d48 20%, #f43f5e 80%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       padding-right: 0.1em;
@@ -3495,7 +3497,7 @@
     font-family: 'Wotfard', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: clamp(0.9375rem, 1.2vw, 1.0625rem);
     line-height: 1.6;
-    color: #94a3b8;
+    color: #64748b;
     margin: 0;
   }
 
@@ -3513,8 +3515,8 @@
     gap: 0.5rem;
     font-family: 'Wotfard', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 0.9375rem;
-    font-weight: 500;
-    color: #cbd5e1;
+    font-weight: 600;
+    color: #18181b;
     text-decoration: none;
     transition: color 0.2s ease;
 
@@ -3523,7 +3525,7 @@
     }
 
     &:hover {
-      color: #ffffff;
+      color: #2563eb;
 
       .events-link-arrow {
         transform: translateX(4px);
@@ -3557,8 +3559,8 @@
 
     &:hover {
       .events-keynote-media-box {
-        border-color: rgba(255, 255, 255, 0.2);
-        box-shadow: 0 28px 60px -15px rgba(0, 0, 0, 0.7);
+        border-color: #cbd5e1;
+        box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.16);
         transform: translateY(-3px);
       }
 
@@ -3567,7 +3569,7 @@
       }
 
       .events-keynote-title {
-        color: #60a5fa;
+        color: #2563eb;
       }
     }
   }
@@ -3578,9 +3580,9 @@
     aspect-ratio: 16 / 9;
     border-radius: 18px;
     overflow: hidden;
-    background-color: #1e2230;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.55);
+    background-color: #f4f4f5;
+    border: 1px solid #e4e4e7;
+    box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.1);
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
@@ -3596,7 +3598,7 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.4) 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.35) 100%);
   }
 
   .events-keynote-content {
@@ -3609,7 +3611,7 @@
     font-weight: 700;
     line-height: 1.25;
     letter-spacing: -0.02em;
-    color: #ffffff;
+    color: #09090b;
     margin: 0 0 0.75rem 0;
     transition: color 0.2s ease;
   }
@@ -3618,7 +3620,7 @@
     font-family: 'Wotfard', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 0.9375rem;
     line-height: 1.6;
-    color: #94a3b8;
+    color: #4b5563;
     margin: 0;
   }
 
@@ -3645,11 +3647,11 @@
     transition: background-color 0.2s ease, transform 0.2s ease;
 
     &:hover {
-      background-color: rgba(255, 255, 255, 0.04);
+      background-color: #f4f4f5;
       transform: translateX(4px);
 
       .events-session-thumb-box {
-        border-color: rgba(255, 255, 255, 0.22);
+        border-color: #cbd5e1;
       }
 
       .events-session-thumb {
@@ -3657,7 +3659,7 @@
       }
 
       .events-session-title {
-        color: #60a5fa;
+        color: #2563eb;
       }
     }
 
@@ -3674,8 +3676,9 @@
     border-radius: 10px;
     overflow: hidden;
     flex-shrink: 0;
-    background-color: #1e2230;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background-color: #f4f4f5;
+    border: 1px solid #e4e4e7;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
     transition: border-color 0.2s ease;
 
     @media (max-width: 480px) {
@@ -3704,7 +3707,7 @@
     font-weight: 600;
     line-height: 1.35;
     letter-spacing: -0.01em;
-    color: #ffffff;
+    color: #09090b;
     margin: 0;
     transition: color 0.2s ease;
   }
@@ -3715,16 +3718,16 @@
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: #64748b;
+    color: #71717a;
   }
 }
 
 // -----------------------------------------------------------------------------
-// ABOUT THE INTENSIVE SHOWCASE SECTION (DARK BACKGROUND #161922)
+// ABOUT THE INTENSIVE SHOWCASE SECTION (LIGHT THEME)
 // -----------------------------------------------------------------------------
 .intensive-showcase-section {
-  background-color: #161922;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #09090b;
   padding: clamp(5.5rem, 9vw, 9rem) 0;
   width: 100%;
   position: relative;
@@ -3747,8 +3750,8 @@
     display: inline-block;
     font-family: 'Wotfard', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: clamp(0.875rem, 1.2vw, 1rem);
-    font-weight: 600;
-    color: #f43f5e;
+    font-weight: 700;
+    color: #e11d48;
     letter-spacing: 0.02em;
     margin-bottom: 1.25rem;
   }
@@ -3759,7 +3762,7 @@
     font-weight: 700;
     line-height: 1.12;
     letter-spacing: -0.03em;
-    color: #ffffff;
+    color: #09090b;
     margin: 0;
   }
 
@@ -3780,8 +3783,8 @@
   .intensive-paragraph {
     font-family: 'Wotfard', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: clamp(0.9375rem, 1.25vw, 1.0625rem);
-    line-height: 1.7;
-    color: #d1d5db;
+    line-height: 1.75;
+    color: #4b5563;
     margin: 0;
     letter-spacing: -0.01em;
   }
@@ -3799,15 +3802,15 @@
     position: relative;
     border-radius: 20px;
     overflow: hidden;
-    background-color: #1e2230;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 25px 65px -15px rgba(0, 0, 0, 0.85);
+    background-color: #09090b;
+    border: 1px solid #e4e4e7;
+    box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.14), 0 0 0 1px rgba(0, 0, 0, 0.04);
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 
     &:hover {
       transform: translateY(-4px) scale(1.008);
-      border-color: rgba(255, 255, 255, 0.25);
-      box-shadow: 0 35px 80px -15px rgba(0, 0, 0, 0.95);
+      border-color: #d4d4d8;
+      box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.22);
 
       .intensive-play-btn {
         transform: scale(1.12);
