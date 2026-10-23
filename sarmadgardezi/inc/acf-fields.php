@@ -704,7 +704,7 @@ function sarmadgardezi_register_frontpage_meta_boxes() {
 
         add_meta_box(
             'sarmadgardezi_intensive_meta',
-            __('About the Intensive Section ("Where serious leaders come...")', 'sarmadgardezi'),
+            __('About Me Section ("Turning Ideas Into Powerful Digital Products")', 'sarmadgardezi'),
             'sarmadgardezi_render_frontpage_intensive_meta_box',
             'page',
             'normal',
@@ -725,29 +725,31 @@ function sarmadgardezi_register_frontpage_meta_boxes() {
 function sarmadgardezi_render_frontpage_intensive_meta_box($post) {
     wp_nonce_field('sarmad_intensive_meta_save', 'sarmad_intensive_meta_nonce');
     $badge       = get_post_meta($post->ID, 'intensive_badge', true);
-    if (empty($badge)) $badge = 'About the Intensive';
+    if (empty($badge) || $badge === 'About the Intensive') $badge = 'About Me';
     
     $title       = get_post_meta($post->ID, 'intensive_title', true);
-    if (empty($title)) $title = "Where serious leaders come\nto work on the business";
+    if (empty($title) || strpos($title, 'Where serious leaders come') !== false) $title = "Turning Ideas Into Powerful Digital Products";
     
     $top_1       = get_post_meta($post->ID, 'intensive_text_top_1', true);
-    if (empty($top_1)) $top_1 = 'Most business owners are stuck inside the daily whirlwind reacting to problems, scrambling for the next sale, and hoping “things will calm down” next quarter. But hope isn’t a growth strategy. This event is built for leaders who are ready to step above the noise and engineer growth on purpose.';
+    if (empty($top_1) || strpos($top_1, 'Most business owners are stuck') !== false) $top_1 = 'I help businesses turn their ideas into modern web applications and reliable cloud solutions. As a Cloud App Developer and Cloud Engineer, I build fast, secure, and scalable products using Google Cloud, Firebase, and modern web technologies.';
     
     $top_2       = get_post_meta($post->ID, 'intensive_text_top_2', true);
-    if (empty($top_2)) $top_2 = 'Across five immersive days, you’ll step back from the daily grind and rebuild your business from the inside out. Together with experienced operators and growth mentors, you’ll stress-test your current model, sharpen your offers, and redesign the systems that drive profit and scale.';
+    if (empty($top_2) || strpos($top_2, 'Across five immersive days') !== false) $top_2 = 'From building websites and web applications to developing cloud systems and AI-powered tools, I focus on creating practical solutions that solve real problems, improve efficiency, and help businesses grow.';
 
     $video_url   = get_post_meta($post->ID, 'intensive_video_url', true);
-    if (empty($video_url)) $video_url = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+    if (empty($video_url) || strpos($video_url, 'dQw4w9WgXcQ') !== false) $video_url = 'https://www.youtube.com/watch?v=LAjvWf7dMYA';
 
     $video_cover = get_post_meta($post->ID, 'intensive_video_cover', true);
+    if (empty($video_cover)) $video_cover = 'https://img.youtube.com/vi/LAjvWf7dMYA/maxresdefault.jpg';
+
     $video_title = get_post_meta($post->ID, 'intensive_video_title', true);
-    if (empty($video_title)) $video_title = 'Using visual development for professional, scalable sites | Webflow customer story';
+    if (empty($video_title) || strpos($video_title, 'Webflow customer story') !== false) $video_title = 'How to Start Blog in Pakistan Step by Step Guide';
 
     $bot_1       = get_post_meta($post->ID, 'intensive_text_bot_1', true);
-    if (empty($bot_1)) $bot_1 = 'This isn’t a motivational seminar. It’s a working room. You’ll be measuring margins, mapping your value chain, and making real decisions in real time with support, feedback, and accountability.';
+    if (empty($bot_1) || strpos($bot_1, 'This isn’t a motivational seminar') !== false) $bot_1 = 'I started my YouTube channel 8 years ago to share practical web development guides, cloud architecture breakdowns, and tech tutorials with builders and creators worldwide.';
 
     $bot_2       = get_post_meta($post->ID, 'intensive_text_bot_2', true);
-    if (empty($bot_2)) $bot_2 = 'By the end of the experience, you’ll walk away with a clear growth playbook, a stronger leadership mindset, and a business that’s positioned to move faster, with far less friction.';
+    if (strpos($bot_2, 'By the end of the experience') !== false) $bot_2 = '';
     ?>
     <div style="padding: 12px 0;">
         <p>
@@ -1070,24 +1072,24 @@ function sarmadgardezi_register_all_acf_field_groups() {
         'style' => 'default',
     ));
 
-    // 2.2 About the Intensive Section ACF Field Group on Front Page
+    // 2.2 About Me Section ACF Field Group on Front Page
     acf_add_local_field_group(array(
         'key' => 'group_sarmadgardezi_intensive_section',
-        'title' => __('Front Page — About the Intensive Section', 'sarmadgardezi'),
+        'title' => __('Front Page — About Me Section', 'sarmadgardezi'),
         'fields' => array(
             array(
                 'key' => 'field_intensive_badge',
                 'label' => __('Eyebrow / Badge Text', 'sarmadgardezi'),
                 'name' => 'intensive_badge',
                 'type' => 'text',
-                'default_value' => 'About the Intensive',
+                'default_value' => 'About Me',
             ),
             array(
                 'key' => 'field_intensive_title',
                 'label' => __('Section Main Heading', 'sarmadgardezi'),
                 'name' => 'intensive_title',
                 'type' => 'textarea',
-                'default_value' => "Where serious leaders come\nto work on the business",
+                'default_value' => 'Turning Ideas Into Powerful Digital Products',
                 'rows' => 2,
             ),
             array(
@@ -1095,7 +1097,7 @@ function sarmadgardezi_register_all_acf_field_groups() {
                 'label' => __('Top Narrative Paragraph 1', 'sarmadgardezi'),
                 'name' => 'intensive_text_top_1',
                 'type' => 'textarea',
-                'default_value' => 'Most business owners are stuck inside the daily whirlwind reacting to problems, scrambling for the next sale, and hoping “things will calm down” next quarter. But hope isn’t a growth strategy. This event is built for leaders who are ready to step above the noise and engineer growth on purpose.',
+                'default_value' => 'I help businesses turn their ideas into modern web applications and reliable cloud solutions. As a Cloud App Developer and Cloud Engineer, I build fast, secure, and scalable products using Google Cloud, Firebase, and modern web technologies.',
                 'rows' => 3,
             ),
             array(
@@ -1103,7 +1105,7 @@ function sarmadgardezi_register_all_acf_field_groups() {
                 'label' => __('Top Narrative Paragraph 2', 'sarmadgardezi'),
                 'name' => 'intensive_text_top_2',
                 'type' => 'textarea',
-                'default_value' => 'Across five immersive days, you’ll step back from the daily grind and rebuild your business from the inside out. Together with experienced operators and growth mentors, you’ll stress-test your current model, sharpen your offers, and redesign the systems that drive profit and scale.',
+                'default_value' => 'From building websites and web applications to developing cloud systems and AI-powered tools, I focus on creating practical solutions that solve real problems, improve efficiency, and help businesses grow.',
                 'rows' => 3,
             ),
             array(
@@ -1111,14 +1113,14 @@ function sarmadgardezi_register_all_acf_field_groups() {
                 'label' => __('Video Showcase / YouTube Destination Link', 'sarmadgardezi'),
                 'name' => 'intensive_video_url',
                 'type' => 'url',
-                'default_value' => 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+                'default_value' => 'https://www.youtube.com/watch?v=LAjvWf7dMYA',
             ),
             array(
                 'key' => 'field_intensive_video_title',
                 'label' => __('Video Overlay Title', 'sarmadgardezi'),
                 'name' => 'intensive_video_title',
                 'type' => 'text',
-                'default_value' => 'Using visual development for professional, scalable sites | Webflow customer story',
+                'default_value' => 'How to Start Blog in Pakistan Step by Step Guide',
             ),
             array(
                 'key' => 'field_intensive_video_cover',
@@ -1129,19 +1131,26 @@ function sarmadgardezi_register_all_acf_field_groups() {
                 'preview_size' => 'medium',
             ),
             array(
+                'key' => 'field_about_youtube_channel_url',
+                'label' => __('YouTube Channel URL', 'sarmadgardezi'),
+                'name' => 'about_youtube_channel_url',
+                'type' => 'url',
+                'default_value' => 'https://www.youtube.com/@SarmadGardezi',
+            ),
+            array(
                 'key' => 'field_intensive_text_bot_1',
-                'label' => __('Bottom Narrative Paragraph 1', 'sarmadgardezi'),
+                'label' => __('YouTube Story / Bottom Narrative', 'sarmadgardezi'),
                 'name' => 'intensive_text_bot_1',
                 'type' => 'textarea',
-                'default_value' => 'This isn’t a motivational seminar. It’s a working room. You’ll be measuring margins, mapping your value chain, and making real decisions in real time with support, feedback, and accountability.',
+                'default_value' => 'I started my YouTube channel 8 years ago to share practical web development guides, cloud architecture breakdowns, and tech tutorials with builders and creators worldwide.',
                 'rows' => 3,
             ),
             array(
                 'key' => 'field_intensive_text_bot_2',
-                'label' => __('Bottom Narrative Paragraph 2', 'sarmadgardezi'),
+                'label' => __('Bottom Narrative Paragraph 2 (Optional)', 'sarmadgardezi'),
                 'name' => 'intensive_text_bot_2',
                 'type' => 'textarea',
-                'default_value' => 'By the end of the experience, you’ll walk away with a clear growth playbook, a stronger leadership mindset, and a business that’s positioned to move faster, with far less friction.',
+                'default_value' => '',
                 'rows' => 3,
             ),
         ),
@@ -1827,7 +1836,7 @@ function sarmadgardezi_save_project_and_event_meta($post_id) {
                 update_post_meta($post_id, '_' . $taf, sanitize_textarea_field($_POST[$taf]));
             }
         }
-        $url_fields = array('intensive_video_url', 'intensive_video_cover');
+        $url_fields = array('intensive_video_url', 'intensive_video_cover', 'about_youtube_channel_url');
         foreach ($url_fields as $uf) {
             if (isset($_POST[$uf])) {
                 update_post_meta($post_id, $uf, esc_url_raw($_POST[$uf]));

@@ -122,11 +122,9 @@
       if (!toggle) return;
 
       toggle.addEventListener('click', function (e) {
-        // If clicking on touch or navigating via keyboard/click, prevent jump if href is '#' or toggle
-        var href = toggle.getAttribute('href');
-        if (href === '#' || window.innerWidth < 860) {
-          e.preventDefault();
-        }
+        e.preventDefault();
+        e.stopPropagation();
+
         var isOpen = item.classList.contains('is-open');
 
         // Close other dropdowns

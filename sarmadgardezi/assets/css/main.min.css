@@ -1406,42 +1406,42 @@ textarea::placeholder {
 }
 .site-header-custom .header-nav-item .header-nav-link {
   font-family: "Wotfard", var(--font-family, sans-serif);
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #18181b;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #09090b;
   text-decoration: none !important;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
   line-height: 1.4;
-  padding: 0.35rem 0.25rem;
+  padding: 0.35rem 0.35rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.4rem;
   transition: color 0.18s ease;
 }
 .site-header-custom .header-nav-item .header-nav-link:hover {
-  color: #000000;
+  color: #2563eb;
   text-decoration: none !important;
 }
 .site-header-custom .header-nav-item.is-active > .header-nav-link {
-  font-weight: 700;
+  font-weight: 800;
   color: #000000;
   text-decoration: none !important;
 }
 .site-header-custom .header-nav-item.has-dropdown .dropdown-caret {
-  width: 11px;
-  height: 11px;
-  stroke: #71717a;
+  width: 12px;
+  height: 12px;
+  stroke: #3f3f46;
   transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.18s ease;
 }
 .site-header-custom .header-nav-item.has-dropdown:hover .dropdown-caret,
 .site-header-custom .header-nav-item.has-dropdown .dropdown-toggle:focus .dropdown-caret {
-  stroke: #000000;
+  stroke: #2563eb;
 }
-.site-header-custom .header-nav-item.has-dropdown:hover .dropdown-caret, .site-header-custom .header-nav-item.has-dropdown.is-open .dropdown-caret {
+.site-header-custom .header-nav-item.has-dropdown.is-open .dropdown-caret {
   transform: rotate(180deg);
-  stroke: #000000;
+  stroke: #2563eb;
 }
-.site-header-custom .header-nav-item.has-dropdown:hover .header-dropdown-menu, .site-header-custom .header-nav-item.has-dropdown.is-open .header-dropdown-menu {
+.site-header-custom .header-nav-item.has-dropdown.is-open .header-dropdown-menu {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -1449,21 +1449,21 @@ textarea::placeholder {
 }
 .site-header-custom .header-dropdown-menu {
   position: absolute;
-  top: calc(100% + 0.65rem);
+  top: calc(100% + 0.75rem);
   left: 50%;
   transform: translateX(-50%) translateY(8px);
   background-color: #ffffff;
-  border: 1px solid #e4e4e7;
-  border-radius: 16px;
-  box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.12), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
-  min-width: 260px;
-  padding: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 18px;
+  box-shadow: 0 20px 48px -4px rgba(0, 0, 0, 0.2), 0 10px 24px -3px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  min-width: 280px;
+  padding: 0.65rem;
   z-index: 350;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   box-sizing: border-box;
-  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s;
+  transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s;
 }
 .site-header-custom .header-dropdown-menu::before {
   content: "";
@@ -1491,9 +1491,9 @@ textarea::placeholder {
 .site-header-custom .header-dropdown-menu .dropdown-link {
   display: flex;
   flex-direction: column;
-  gap: 0.15rem;
-  padding: 0.65rem 0.85rem;
-  border-radius: 10px;
+  gap: 0.2rem;
+  padding: 0.75rem 0.95rem;
+  border-radius: 12px;
   text-decoration: none !important;
   transition: background-color 0.15s ease, transform 0.15s ease;
 }
@@ -1503,21 +1503,21 @@ textarea::placeholder {
   transform: translateX(2px);
 }
 .site-header-custom .header-dropdown-menu .dropdown-link:hover .dropdown-link-title, .site-header-custom .header-dropdown-menu .dropdown-link:focus .dropdown-link-title {
-  color: #000000;
+  color: #2563eb;
 }
 .site-header-custom .header-dropdown-menu .dropdown-link .dropdown-link-title {
   font-family: "Wotfard", var(--font-family, sans-serif);
-  font-size: 0.925rem;
-  font-weight: 700;
-  color: #18181b;
-  letter-spacing: -0.01em;
+  font-size: 1.025rem;
+  font-weight: 800;
+  color: #09090b;
+  letter-spacing: -0.015em;
   line-height: 1.3;
 }
 .site-header-custom .header-dropdown-menu .dropdown-link .dropdown-link-desc {
   font-family: "Wotfard", var(--font-family, sans-serif);
-  font-size: 0.775rem;
-  font-weight: 400;
-  color: #71717a;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #64748b;
   line-height: 1.35;
 }
 .site-header-custom .header-right {
@@ -5641,8 +5641,8 @@ textarea::placeholder {
   font-family: "Playfair Display", Georgia, serif;
   font-style: italic;
   font-weight: 400;
-  color: #e11d48;
-  background: linear-gradient(135deg, #e11d48 20%, #f43f5e 80%);
+  color: #2563eb;
+  background: linear-gradient(135deg, #2563eb 20%, #3b82f6 80%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   padding-right: 0.1em;
@@ -5868,18 +5868,121 @@ textarea::placeholder {
   font-family: "Wotfard", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(0.875rem, 1.2vw, 1rem);
   font-weight: 700;
-  color: #e11d48;
+  color: #2563eb;
   letter-spacing: 0.02em;
   margin-bottom: 1.25rem;
 }
 .intensive-showcase-section .intensive-main-title {
   font-family: "Wotfard", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(2.25rem, 5.2vw, 4.25rem);
-  font-weight: 700;
-  line-height: 1.12;
+  font-size: clamp(2rem, 4.4vw, 3.85rem);
+  font-weight: 800;
+  line-height: 1.18;
   letter-spacing: -0.03em;
   color: #09090b;
   margin: 0;
+}
+.intensive-showcase-section .intensive-main-title .about-title-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.45rem, 0.9vw, 0.85rem);
+  margin-bottom: 0.4rem;
+}
+.intensive-showcase-section .intensive-main-title .about-title-line:last-child {
+  margin-bottom: 0;
+}
+.intensive-showcase-section .intensive-main-title .title-word {
+  display: inline-block;
+  color: #09090b;
+}
+.intensive-showcase-section .badge-capsule-arrow {
+  display: inline-flex;
+  align-items: center;
+  height: clamp(34px, 3.2vw, 44px);
+  border-radius: 9999px;
+  overflow: hidden;
+  vertical-align: middle;
+  user-select: none;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+}
+.intensive-showcase-section .badge-capsule-arrow .badge-circle-green {
+  width: clamp(34px, 3.2vw, 44px);
+  height: 100%;
+  background-color: #5bbd6f;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+  margin-right: -1px;
+}
+.intensive-showcase-section .badge-capsule-arrow .badge-body-blue {
+  height: 100%;
+  background-color: #2563eb;
+  padding: 0 clamp(0.75rem, 1.1vw, 1.15rem);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 9999px 9999px 0;
+}
+.intensive-showcase-section .badge-capsule-arrow .badge-body-blue svg {
+  display: block;
+  width: clamp(18px, 1.8vw, 22px);
+  height: clamp(18px, 1.8vw, 22px);
+}
+.intensive-showcase-section .badge-circle-code {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(32px, 3vw, 40px);
+  height: clamp(32px, 3vw, 40px);
+  border-radius: 50%;
+  background-color: #93c5fd;
+  vertical-align: middle;
+  flex-shrink: 0;
+  user-select: none;
+}
+.intensive-showcase-section .badge-circle-code .code-symbol {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: clamp(0.8rem, 1vw, 0.95rem);
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.intensive-showcase-section .badge-duo-circles {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  height: clamp(34px, 3.2vw, 42px);
+  vertical-align: middle;
+  user-select: none;
+}
+.intensive-showcase-section .badge-duo-circles .circle-yellow {
+  width: clamp(34px, 3.2vw, 42px);
+  height: clamp(34px, 3.2vw, 42px);
+  border-radius: 50%;
+  background-color: #facc15;
+  display: inline-block;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.intensive-showcase-section .badge-duo-circles .circle-dark {
+  width: clamp(34px, 3.2vw, 42px);
+  height: clamp(34px, 3.2vw, 42px);
+  border-radius: 50%;
+  background-color: #0f172a;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: -10px;
+  position: relative;
+  z-index: 2;
+}
+.intensive-showcase-section .badge-duo-circles .circle-dark svg {
+  display: block;
+  width: clamp(16px, 1.6vw, 19px);
+  height: clamp(16px, 1.6vw, 19px);
 }
 .intensive-showcase-section .intensive-narrative-wrap {
   max-width: 860px;
@@ -5969,6 +6072,10 @@ textarea::placeholder {
   flex-shrink: 0;
   box-shadow: 0 4px 12px rgba(0, 102, 255, 0.4);
 }
+.intensive-showcase-section .intensive-video-logo-badge.yt-badge {
+  background-color: #ff0000;
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.45);
+}
 .intensive-showcase-section .intensive-video-topbar-title {
   font-family: "Wotfard", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(0.8125rem, 1.2vw, 0.9375rem);
@@ -6047,6 +6154,76 @@ textarea::placeholder {
 }
 .intensive-showcase-section .intensive-watch-yt-pill .yt-brand-text {
   font-weight: 700;
+}
+.intensive-showcase-section .about-youtube-callout-wrap {
+  max-width: 860px;
+  margin: clamp(2.5rem, 5vw, 3.5rem) auto 0 auto;
+}
+.intensive-showcase-section .about-youtube-callout-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: clamp(1.75rem, 3.5vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.15rem;
+  box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.intensive-showcase-section .about-youtube-callout-card:hover {
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+  box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.08);
+}
+.intensive-showcase-section .about-youtube-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+.intensive-showcase-section .about-youtube-desc {
+  font-family: "Wotfard", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(0.9375rem, 1.25vw, 1.0625rem);
+  line-height: 1.75;
+  color: #4b5563;
+  margin: 0;
+  max-width: 700px;
+}
+.intensive-showcase-section .about-youtube-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background-color: #ef4444;
+  color: #ffffff !important;
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.75rem 1.6rem;
+  border-radius: 12px;
+  text-decoration: none !important;
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.3);
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.intensive-showcase-section .about-youtube-btn:hover {
+  background-color: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(220, 38, 38, 0.4);
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+.intensive-showcase-section .about-youtube-btn svg {
+  flex-shrink: 0;
 }
 
 .site-about-main {

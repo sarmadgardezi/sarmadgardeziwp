@@ -3584,8 +3584,8 @@
       font-family: 'Playfair Display', Georgia, serif;
       font-style: italic;
       font-weight: 400;
-      color: #e11d48;
-      background: linear-gradient(135deg, #e11d48 20%, #f43f5e 80%);
+      color: #2563eb;
+      background: linear-gradient(135deg, #2563eb 20%, #3b82f6 80%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       padding-right: 0.1em;
@@ -3850,19 +3850,136 @@
     font-family: 'Wotfard', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: clamp(0.875rem, 1.2vw, 1rem);
     font-weight: 700;
-    color: #e11d48;
+    color: #2563eb;
     letter-spacing: 0.02em;
     margin-bottom: 1.25rem;
   }
 
   .intensive-main-title {
     font-family: 'Wotfard', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: clamp(2.25rem, 5.2vw, 4.25rem);
-    font-weight: 700;
-    line-height: 1.12;
+    font-size: clamp(2rem, 4.4vw, 3.85rem);
+    font-weight: 800;
+    line-height: 1.18;
     letter-spacing: -0.03em;
     color: #09090b;
     margin: 0;
+
+    .about-title-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(0.45rem, 0.9vw, 0.85rem);
+      margin-bottom: 0.4rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .title-word {
+      display: inline-block;
+      color: #09090b;
+    }
+  }
+
+  // Badges in About Me Heading (matching Hero creative styling)
+  .badge-capsule-arrow {
+    display: inline-flex;
+    align-items: center;
+    height: clamp(34px, 3.2vw, 44px);
+    border-radius: 9999px;
+    overflow: hidden;
+    vertical-align: middle;
+    user-select: none;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+
+    .badge-circle-green {
+      width: clamp(34px, 3.2vw, 44px);
+      height: 100%;
+      background-color: #5bbd6f;
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+      margin-right: -1px;
+    }
+
+    .badge-body-blue {
+      height: 100%;
+      background-color: #2563eb;
+      padding: 0 clamp(0.75rem, 1.1vw, 1.15rem);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0 9999px 9999px 0;
+
+      svg {
+        display: block;
+        width: clamp(18px, 1.8vw, 22px);
+        height: clamp(18px, 1.8vw, 22px);
+      }
+    }
+  }
+
+  .badge-circle-code {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(32px, 3vw, 40px);
+    height: clamp(32px, 3vw, 40px);
+    border-radius: 50%;
+    background-color: #93c5fd;
+    vertical-align: middle;
+    flex-shrink: 0;
+    user-select: none;
+
+    .code-symbol {
+      font-family: 'Wotfard', var(--font-family, sans-serif);
+      font-size: clamp(0.8rem, 1vw, 0.95rem);
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+  }
+
+  .badge-duo-circles {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    height: clamp(34px, 3.2vw, 42px);
+    vertical-align: middle;
+    user-select: none;
+
+    .circle-yellow {
+      width: clamp(34px, 3.2vw, 42px);
+      height: clamp(34px, 3.2vw, 42px);
+      border-radius: 50%;
+      background-color: #facc15;
+      display: inline-block;
+      flex-shrink: 0;
+      z-index: 1;
+    }
+
+    .circle-dark {
+      width: clamp(34px, 3.2vw, 42px);
+      height: clamp(34px, 3.2vw, 42px);
+      border-radius: 50%;
+      background-color: #0f172a;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-left: -10px;
+      position: relative;
+      z-index: 2;
+
+      svg {
+        display: block;
+        width: clamp(16px, 1.6vw, 19px);
+        height: clamp(16px, 1.6vw, 19px);
+      }
+    }
   }
 
   // Narrative Text Block
@@ -3973,6 +4090,11 @@
     justify-content: center;
     flex-shrink: 0;
     box-shadow: 0 4px 12px rgba(0, 102, 255, 0.4);
+
+    &.yt-badge {
+      background-color: #ff0000;
+      box-shadow: 0 4px 12px rgba(255, 0, 0, 0.45);
+    }
   }
 
   .intensive-video-topbar-title {
@@ -4065,6 +4187,85 @@
 
     .yt-brand-text {
       font-weight: 700;
+    }
+  }
+
+  // YouTube Channel Showcase Highlight (Started 8 Years Ago)
+  .about-youtube-callout-wrap {
+    max-width: 860px;
+    margin: clamp(2.5rem, 5vw, 3.5rem) auto 0 auto;
+  }
+
+  .about-youtube-callout-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: clamp(1.75rem, 3.5vw, 2.5rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.15rem;
+    box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      border-color: #cbd5e1;
+      box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  .about-youtube-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 0.45rem 1rem;
+    border-radius: 9999px;
+    font-family: 'Wotfard', var(--font-family, sans-serif);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: -0.01em;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  }
+
+  .about-youtube-desc {
+    font-family: 'Wotfard', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(0.9375rem, 1.25vw, 1.0625rem);
+    line-height: 1.75;
+    color: #4b5563;
+    margin: 0;
+    max-width: 700px;
+  }
+
+  .about-youtube-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    background-color: #ef4444;
+    color: #ffffff !important;
+    font-family: 'Wotfard', var(--font-family, sans-serif);
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 0.75rem 1.6rem;
+    border-radius: 12px;
+    text-decoration: none !important;
+    box-shadow: 0 4px 14px rgba(239, 68, 68, 0.3);
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      background-color: #dc2626;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(220, 38, 38, 0.4);
+      color: #ffffff !important;
+      text-decoration: none !important;
+    }
+
+    svg {
+      flex-shrink: 0;
     }
   }
 }
