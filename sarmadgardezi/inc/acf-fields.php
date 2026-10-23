@@ -746,10 +746,13 @@ function sarmadgardezi_render_frontpage_intensive_meta_box($post) {
     if (empty($video_title) || strpos($video_title, 'Webflow customer story') !== false) $video_title = 'How to Start Blog in Pakistan Step by Step Guide';
 
     $bot_1       = get_post_meta($post->ID, 'intensive_text_bot_1', true);
-    if (empty($bot_1) || strpos($bot_1, 'This isn’t a motivational seminar') !== false) $bot_1 = 'I started my YouTube channel 8 years ago to share practical web development guides, cloud architecture breakdowns, and tech tutorials with builders and creators worldwide.';
+    if (empty($bot_1) || strpos($bot_1, 'This isn’t a motivational seminar') !== false) $bot_1 = 'I started my YouTube channel 8 years ago to document my journey, teach cloud engineering, and share practical web development guides with builders around the world.';
 
     $bot_2       = get_post_meta($post->ID, 'intensive_text_bot_2', true);
-    if (strpos($bot_2, 'By the end of the experience') !== false) $bot_2 = '';
+    if (empty($bot_2) || strpos($bot_2, 'By the end of the experience') !== false) $bot_2 = 'Through real-world code breakdowns, tutorials, and cloud architecture deep dives, I help businesses and creators turn ideas into reliable, scalable digital products.';
+
+    $bot_3       = get_post_meta($post->ID, 'intensive_text_bot_3', true);
+    if (empty($bot_3)) $bot_3 = 'Explore hands-on guides on my <a href="https://www.youtube.com/@SarmadGardezi" target="_blank" rel="noopener noreferrer">YouTube channel (@SarmadGardezi)</a>, or connect with me directly to build your next web application.';
     ?>
     <div style="padding: 12px 0;">
         <p>
@@ -782,13 +785,73 @@ function sarmadgardezi_render_frontpage_intensive_meta_box($post) {
             <button type="button" class="button sarmad-media-btn" data-target="#intensive_video_cover"><?php esc_html_e('Upload Cover', 'sarmadgardezi'); ?></button>
         </p>
         <p>
-            <label style="font-weight:600; display:block; margin-bottom:5px;"><?php esc_html_e('Bottom Narrative Paragraph 1:', 'sarmadgardezi'); ?></label>
+            <label style="font-weight:600; display:block; margin-bottom:5px;"><?php esc_html_e('Bottom Narrative Line 1:', 'sarmadgardezi'); ?></label>
             <textarea name="intensive_text_bot_1" rows="3" style="width: 100%;"><?php echo esc_textarea($bot_1); ?></textarea>
         </p>
         <p>
-            <label style="font-weight:600; display:block; margin-bottom:5px;"><?php esc_html_e('Bottom Narrative Paragraph 2:', 'sarmadgardezi'); ?></label>
+            <label style="font-weight:600; display:block; margin-bottom:5px;"><?php esc_html_e('Bottom Narrative Line 2:', 'sarmadgardezi'); ?></label>
             <textarea name="intensive_text_bot_2" rows="3" style="width: 100%;"><?php echo esc_textarea($bot_2); ?></textarea>
         </p>
+        <p>
+            <label style="font-weight:600; display:block; margin-bottom:5px;"><?php esc_html_e('Bottom Narrative Line 3:', 'sarmadgardezi'); ?></label>
+            <textarea name="intensive_text_bot_3" rows="3" style="width: 100%;"><?php echo esc_textarea($bot_3); ?></textarea>
+        </p>
+        
+        <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+        <h4 style="margin: 0 0 10px 0;"><?php esc_html_e('3 Framed Milestone Photos', 'sarmadgardezi'); ?></h4>
+
+        <?php
+        $p1_img = get_post_meta($post->ID, 'about_photo_1_img', true);
+        if (empty($p1_img)) $p1_img = 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&h=700&fit=crop&q=80';
+        $p1_cap = get_post_meta($post->ID, 'about_photo_1_caption', true);
+        if (empty($p1_cap)) $p1_cap = 'tuuul Planning – 2024';
+
+        $p2_img = get_post_meta($post->ID, 'about_photo_2_img', true);
+        if (empty($p2_img)) $p2_img = 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=700&h=700&fit=crop&q=80';
+        $p2_cap = get_post_meta($post->ID, 'about_photo_2_caption', true);
+        if (empty($p2_cap)) $p2_cap = 'tuuul Launch – 2025';
+
+        $p3_img = get_post_meta($post->ID, 'about_photo_3_img', true);
+        if (empty($p3_img)) $p3_img = 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=700&h=700&fit=crop&q=80';
+        $p3_cap = get_post_meta($post->ID, 'about_photo_3_caption', true);
+        if (empty($p3_cap)) $p3_cap = 'Cursor Hackathon – 2026';
+        ?>
+
+        <div style="background: #f9f9f9; padding: 12px; border-radius: 6px; margin-bottom: 12px;">
+            <strong><?php esc_html_e('Photo 1 (Left Tilt):', 'sarmadgardezi'); ?></strong>
+            <p>
+                <input type="url" id="about_photo_1_img" name="about_photo_1_img" value="<?php echo esc_attr($p1_img); ?>" style="width: 75%;" />
+                <button type="button" class="button sarmad-media-btn" data-target="#about_photo_1_img"><?php esc_html_e('Upload Photo 1', 'sarmadgardezi'); ?></button>
+            </p>
+            <p>
+                <label style="font-size: 12px; display:block;"><?php esc_html_e('Caption 1:', 'sarmadgardezi'); ?></label>
+                <input type="text" name="about_photo_1_caption" value="<?php echo esc_attr($p1_cap); ?>" style="width: 100%;" />
+            </p>
+        </div>
+
+        <div style="background: #f9f9f9; padding: 12px; border-radius: 6px; margin-bottom: 12px;">
+            <strong><?php esc_html_e('Photo 2 (Center Tilt):', 'sarmadgardezi'); ?></strong>
+            <p>
+                <input type="url" id="about_photo_2_img" name="about_photo_2_img" value="<?php echo esc_attr($p2_img); ?>" style="width: 75%;" />
+                <button type="button" class="button sarmad-media-btn" data-target="#about_photo_2_img"><?php esc_html_e('Upload Photo 2', 'sarmadgardezi'); ?></button>
+            </p>
+            <p>
+                <label style="font-size: 12px; display:block;"><?php esc_html_e('Caption 2:', 'sarmadgardezi'); ?></label>
+                <input type="text" name="about_photo_2_caption" value="<?php echo esc_attr($p2_cap); ?>" style="width: 100%;" />
+            </p>
+        </div>
+
+        <div style="background: #f9f9f9; padding: 12px; border-radius: 6px;">
+            <strong><?php esc_html_e('Photo 3 (Right Tilt):', 'sarmadgardezi'); ?></strong>
+            <p>
+                <input type="url" id="about_photo_3_img" name="about_photo_3_img" value="<?php echo esc_attr($p3_img); ?>" style="width: 75%;" />
+                <button type="button" class="button sarmad-media-btn" data-target="#about_photo_3_img"><?php esc_html_e('Upload Photo 3', 'sarmadgardezi'); ?></button>
+            </p>
+            <p>
+                <label style="font-size: 12px; display:block;"><?php esc_html_e('Caption 3:', 'sarmadgardezi'); ?></label>
+                <input type="text" name="about_photo_3_caption" value="<?php echo esc_attr($p3_cap); ?>" style="width: 100%;" />
+            </p>
+        </div>
     </div>
     <?php
 }
@@ -1139,18 +1202,26 @@ function sarmadgardezi_register_all_acf_field_groups() {
             ),
             array(
                 'key' => 'field_intensive_text_bot_1',
-                'label' => __('YouTube Story / Bottom Narrative', 'sarmadgardezi'),
+                'label' => __('Bottom Narrative Line 1', 'sarmadgardezi'),
                 'name' => 'intensive_text_bot_1',
                 'type' => 'textarea',
-                'default_value' => 'I started my YouTube channel 8 years ago to share practical web development guides, cloud architecture breakdowns, and tech tutorials with builders and creators worldwide.',
+                'default_value' => 'I started my YouTube channel 8 years ago to document my journey, teach cloud engineering, and share practical web development guides with builders around the world.',
                 'rows' => 3,
             ),
             array(
                 'key' => 'field_intensive_text_bot_2',
-                'label' => __('Bottom Narrative Paragraph 2 (Optional)', 'sarmadgardezi'),
+                'label' => __('Bottom Narrative Line 2', 'sarmadgardezi'),
                 'name' => 'intensive_text_bot_2',
                 'type' => 'textarea',
-                'default_value' => '',
+                'default_value' => 'Through real-world code breakdowns, tutorials, and cloud architecture deep dives, I help businesses and creators turn ideas into reliable, scalable digital products.',
+                'rows' => 3,
+            ),
+            array(
+                'key' => 'field_intensive_text_bot_3',
+                'label' => __('Bottom Narrative Line 3', 'sarmadgardezi'),
+                'name' => 'intensive_text_bot_3',
+                'type' => 'textarea',
+                'default_value' => 'Explore hands-on guides on my <a href="https://www.youtube.com/@SarmadGardezi" target="_blank" rel="noopener noreferrer">YouTube channel (@SarmadGardezi)</a>, or connect with me directly to build your next web application.',
                 'rows' => 3,
             ),
         ),
@@ -1822,21 +1893,21 @@ function sarmadgardezi_save_project_and_event_meta($post_id) {
     }
 
     if (isset($_POST['sarmad_intensive_meta_nonce']) && wp_verify_nonce($_POST['sarmad_intensive_meta_nonce'], 'sarmad_intensive_meta_save')) {
-        $text_fields = array('intensive_badge', 'intensive_video_title');
+        $text_fields = array('intensive_badge', 'intensive_video_title', 'about_photo_1_caption', 'about_photo_2_caption', 'about_photo_3_caption');
         foreach ($text_fields as $tf) {
             if (isset($_POST[$tf])) {
                 update_post_meta($post_id, $tf, sanitize_text_field($_POST[$tf]));
                 update_post_meta($post_id, '_' . $tf, sanitize_text_field($_POST[$tf]));
             }
         }
-        $textarea_fields = array('intensive_title', 'intensive_text_top_1', 'intensive_text_top_2', 'intensive_text_bot_1', 'intensive_text_bot_2');
+        $textarea_fields = array('intensive_title', 'intensive_text_top_1', 'intensive_text_top_2', 'intensive_text_bot_1', 'intensive_text_bot_2', 'intensive_text_bot_3');
         foreach ($textarea_fields as $taf) {
             if (isset($_POST[$taf])) {
-                update_post_meta($post_id, $taf, sanitize_textarea_field($_POST[$taf]));
-                update_post_meta($post_id, '_' . $taf, sanitize_textarea_field($_POST[$taf]));
+                update_post_meta($post_id, $taf, wp_kses_post($_POST[$taf]));
+                update_post_meta($post_id, '_' . $taf, wp_kses_post($_POST[$taf]));
             }
         }
-        $url_fields = array('intensive_video_url', 'intensive_video_cover', 'about_youtube_channel_url');
+        $url_fields = array('intensive_video_url', 'intensive_video_cover', 'about_youtube_channel_url', 'about_photo_1_img', 'about_photo_2_img', 'about_photo_3_img');
         foreach ($url_fields as $uf) {
             if (isset($_POST[$uf])) {
                 update_post_meta($post_id, $uf, esc_url_raw($_POST[$uf]));

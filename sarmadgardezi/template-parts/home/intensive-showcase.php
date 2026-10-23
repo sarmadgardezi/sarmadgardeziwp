@@ -31,8 +31,9 @@ $default_video_cover = 'https://img.youtube.com/vi/LAjvWf7dMYA/maxresdefault.jpg
 $default_video_title = 'How to Start Blog in Pakistan Step by Step Guide';
 $default_channel_url = 'https://www.youtube.com/@SarmadGardezi';
 
-$default_text_bot_1 = 'I started my YouTube channel 8 years ago to share practical web development guides, cloud architecture breakdowns, and tech tutorials with builders and creators worldwide.';
-$default_text_bot_2 = '';
+$default_text_bot_1 = 'I started my YouTube channel 8 years ago to document my journey, teach cloud engineering, and share practical web development guides with builders around the world.';
+$default_text_bot_2 = 'Through real-world code breakdowns, tutorials, and cloud architecture deep dives, I help businesses and creators turn ideas into reliable, scalable digital products.';
+$default_text_bot_3 = 'Explore hands-on guides on my <a href="https://www.youtube.com/@SarmadGardezi" target="_blank" rel="noopener noreferrer">YouTube channel (@SarmadGardezi)</a>, or connect with me directly to build your next web application.';
 
 // Dynamic ACF / Meta extraction
 $badge       = '';
@@ -44,6 +45,7 @@ $video_title = '';
 $video_url   = '';
 $text_bot_1  = '';
 $text_bot_2  = '';
+$text_bot_3  = '';
 $channel_url = '';
 
 if (function_exists('get_field')) {
@@ -56,6 +58,7 @@ if (function_exists('get_field')) {
     $raw_vurl       = get_field('intensive_video_url', $target_id);
     $raw_bot_1      = get_field('intensive_text_bot_1', $target_id);
     $raw_bot_2      = get_field('intensive_text_bot_2', $target_id);
+    $raw_bot_3      = get_field('intensive_text_bot_3', $target_id);
     $raw_churl      = get_field('about_youtube_channel_url', $target_id);
 
     if (!empty($raw_badge))  $badge      = $raw_badge;
@@ -66,6 +69,7 @@ if (function_exists('get_field')) {
     if (!empty($raw_vurl))   $video_url  = $raw_vurl;
     if (!empty($raw_bot_1))  $text_bot_1 = $raw_bot_1;
     if (!empty($raw_bot_2))  $text_bot_2 = $raw_bot_2;
+    if (!empty($raw_bot_3))  $text_bot_3 = $raw_bot_3;
     if (!empty($raw_churl))  $channel_url= $raw_churl;
 
     if (!empty($raw_cover)) {
@@ -87,6 +91,7 @@ if (empty($video_title)) $video_title = get_post_meta($target_id, 'intensive_vid
 if (empty($video_url))   $video_url   = get_post_meta($target_id, 'intensive_video_url', true);
 if (empty($text_bot_1))  $text_bot_1  = get_post_meta($target_id, 'intensive_text_bot_1', true);
 if (empty($text_bot_2))  $text_bot_2  = get_post_meta($target_id, 'intensive_text_bot_2', true);
+if (empty($text_bot_3))  $text_bot_3  = get_post_meta($target_id, 'intensive_text_bot_3', true);
 if (empty($channel_url)) $channel_url = get_post_meta($target_id, 'about_youtube_channel_url', true);
 
 // Clean out legacy "Intensive" content if migrated/saved previously
@@ -109,7 +114,49 @@ if (empty($video_title)) $video_title = $default_video_title;
 if (empty($video_url))   $video_url   = $default_video_url;
 if (empty($text_bot_1))  $text_bot_1  = $default_text_bot_1;
 if (empty($text_bot_2))  $text_bot_2  = $default_text_bot_2;
+if (empty($text_bot_3))  $text_bot_3  = $default_text_bot_3;
 if (empty($channel_url)) $channel_url = $default_channel_url;
+
+// Milestone Photos Defaults (3 Framed Polaroid-Style Photos Matching Reference)
+$default_photos = array(
+    array(
+        'img'     => 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&h=700&fit=crop&q=80',
+        'caption' => 'tuuul Planning – 2024',
+        'tilt'    => 'tilt-left',
+    ),
+    array(
+        'img'     => 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=700&h=700&fit=crop&q=80',
+        'caption' => 'tuuul Launch – 2025',
+        'tilt'    => 'tilt-center',
+    ),
+    array(
+        'img'     => 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=700&h=700&fit=crop&q=80',
+        'caption' => 'Cursor Hackathon – 2026',
+        'tilt'    => 'tilt-right',
+    ),
+);
+
+$milestone_photos = array();
+for ($i = 1; $i <= 3; $i++) {
+    $c_img = '';
+    $c_cap = '';
+    if (function_exists('get_field')) {
+        $c_img = get_field('about_photo_' . $i . '_img', $target_id);
+        $c_cap = get_field('about_photo_' . $i . '_caption', $target_id);
+    }
+    if (empty($c_img)) $c_img = get_post_meta($target_id, 'about_photo_' . $i . '_img', true);
+    if (empty($c_cap)) $c_cap = get_post_meta($target_id, 'about_photo_' . $i . '_caption', true);
+
+    if (is_array($c_img) && !empty($c_img['url'])) {
+        $c_img = $c_img['url'];
+    }
+
+    $milestone_photos[] = array(
+        'img'     => !empty($c_img) ? $c_img : $default_photos[$i - 1]['img'],
+        'caption' => !empty($c_cap) ? $c_cap : $default_photos[$i - 1]['caption'],
+        'tilt'    => $default_photos[$i - 1]['tilt'],
+    );
+}
 
 // Determine whether we render the default rich headline with 3 creative icons
 $is_default_title = empty($title) || trim($title) === $default_title || strip_tags($title) === $default_title;
@@ -230,36 +277,39 @@ $is_default_title = empty($title) || trim($title) === $default_title || strip_ta
             </a>
         </div>
 
-        <!-- YouTube Channel Highlight Card (Started 8 Years Ago) -->
-        <div class="about-youtube-callout-wrap">
-            <div class="about-youtube-callout-card">
-                <div class="about-youtube-badge">
-                    <svg width="18" height="13" viewBox="0 0 24 17" fill="#ef4444" aria-hidden="true">
-                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                    </svg>
-                    <span><?php esc_html_e('YouTube Creator • Started Channel 8 Years Ago', 'sarmadgardezi'); ?></span>
-                </div>
-                
-                <p class="about-youtube-desc">
-                    <?php echo esc_html($text_bot_1); ?>
-                </p>
+        <!-- Narrative Content Block (Bottom: 3 Lines) -->
+        <div class="intensive-narrative-wrap intensive-narrative-bottom">
+            <?php if (!empty($text_bot_1)) : ?>
+                <p class="intensive-paragraph"><?php echo wp_kses_post($text_bot_1); ?></p>
+            <?php endif; ?>
+            <?php if (!empty($text_bot_2)) : ?>
+                <p class="intensive-paragraph"><?php echo wp_kses_post($text_bot_2); ?></p>
+            <?php endif; ?>
+            <?php if (!empty($text_bot_3)) : ?>
+                <p class="intensive-paragraph"><?php echo wp_kses_post($text_bot_3); ?></p>
+            <?php endif; ?>
+        </div>
 
-                <?php if (!empty($text_bot_2)) : ?>
-                    <p class="about-youtube-desc">
-                        <?php echo esc_html($text_bot_2); ?>
-                    </p>
-                <?php endif; ?>
-
-                <a href="<?php echo esc_url($channel_url); ?>" target="_blank" rel="noopener noreferrer" class="about-youtube-btn" aria-label="<?php esc_attr_e('Visit Sarmad Gardezi YouTube Channel', 'sarmadgardezi'); ?>">
-                    <svg width="20" height="15" viewBox="0 0 24 17" fill="currentColor" aria-hidden="true">
-                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                    </svg>
-                    <span><?php esc_html_e('Explore YouTube Channel (@SarmadGardezi)', 'sarmadgardezi'); ?></span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                </a>
+        <!-- 3 Framed Polaroid-Style Milestone Photos -->
+        <div class="about-photo-milestones-wrap" aria-label="<?php esc_attr_e('Milestones and team moments', 'sarmadgardezi'); ?>">
+            <div class="about-photo-milestones-grid">
+                <?php foreach ($milestone_photos as $p) : ?>
+                    <div class="photo-milestone-item <?php echo esc_attr($p['tilt']); ?>">
+                        <div class="photo-milestone-card">
+                            <div class="photo-milestone-img-wrap">
+                                <img 
+                                    src="<?php echo esc_url($p['img']); ?>" 
+                                    alt="<?php echo esc_attr($p['caption']); ?>" 
+                                    class="photo-milestone-img"
+                                    loading="lazy"
+                                    width="500"
+                                    height="500"
+                                />
+                            </div>
+                        </div>
+                        <span class="photo-milestone-caption"><?php echo esc_html($p['caption']); ?></span>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
 
