@@ -4574,7 +4574,7 @@ textarea::placeholder {
   margin: 0 auto;
   padding: 0 clamp(1.25rem, 3.5vw, 2.5rem);
   display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
+  grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
   gap: clamp(1.5rem, 3.5vw, 3.5rem);
   box-sizing: border-box;
@@ -4598,10 +4598,10 @@ textarea::placeholder {
 .hero-creative-section .hero-creative-title,
 .hero-showcase-section .hero-creative-title {
   font-family: "Wotfard", var(--font-family, sans-serif);
-  font-size: clamp(2.8rem, 5.6vw, 4.6rem);
+  font-size: clamp(1.85rem, 3.4vw, 2.75rem);
   font-weight: 800;
   color: #18181b;
-  line-height: 1.15;
+  line-height: 1.18;
   letter-spacing: -0.035em;
   margin: 0 0 1.5rem 0;
   padding: 0;
@@ -4610,13 +4610,21 @@ textarea::placeholder {
 .hero-showcase-section .hero-title-line {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 0.65rem 0.85rem;
-  margin-bottom: 0.25rem;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  gap: clamp(0.45rem, 0.85vw, 0.75rem);
+  margin-bottom: 0.35rem;
 }
 .hero-creative-section .hero-title-line:last-child,
 .hero-showcase-section .hero-title-line:last-child {
   margin-bottom: 0;
+}
+@media (max-width: 540px) {
+  .hero-creative-section .hero-title-line,
+  .hero-showcase-section .hero-title-line {
+    flex-wrap: wrap;
+    white-space: normal;
+  }
 }
 .hero-creative-section .title-word,
 .hero-showcase-section .title-word {
@@ -4627,7 +4635,7 @@ textarea::placeholder {
 .hero-showcase-section .badge-capsule-arrow {
   display: inline-flex;
   align-items: center;
-  height: clamp(44px, 4.8vw, 56px);
+  height: clamp(34px, 3.2vw, 44px);
   border-radius: 9999px;
   overflow: hidden;
   vertical-align: middle;
@@ -4636,7 +4644,7 @@ textarea::placeholder {
 }
 .hero-creative-section .badge-capsule-arrow .badge-circle-green,
 .hero-showcase-section .badge-capsule-arrow .badge-circle-green {
-  width: clamp(44px, 4.8vw, 56px);
+  width: clamp(34px, 3.2vw, 44px);
   height: 100%;
   background-color: #5bbd6f;
   border-radius: 50%;
@@ -4648,7 +4656,7 @@ textarea::placeholder {
 .hero-showcase-section .badge-capsule-arrow .badge-body-blue {
   height: 100%;
   background-color: #2563eb;
-  padding: 0 clamp(0.9rem, 1.4vw, 1.35rem);
+  padding: 0 clamp(0.75rem, 1.1vw, 1.15rem);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -4657,6 +4665,8 @@ textarea::placeholder {
 .hero-creative-section .badge-capsule-arrow .badge-body-blue svg,
 .hero-showcase-section .badge-capsule-arrow .badge-body-blue svg {
   display: block;
+  width: clamp(18px, 1.8vw, 22px);
+  height: clamp(18px, 1.8vw, 22px);
 }
 .hero-creative-section .badge-circle-code,
 .hero-creative-section .badge-circle-dot,
@@ -4665,8 +4675,8 @@ textarea::placeholder {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: clamp(42px, 4.5vw, 52px);
-  height: clamp(42px, 4.5vw, 52px);
+  width: clamp(32px, 3vw, 40px);
+  height: clamp(32px, 3vw, 40px);
   border-radius: 50%;
   background-color: #93c5fd;
   vertical-align: middle;
@@ -4678,7 +4688,7 @@ textarea::placeholder {
 .hero-showcase-section .badge-circle-code .code-symbol,
 .hero-showcase-section .badge-circle-dot .code-symbol {
   font-family: "Wotfard", var(--font-family, sans-serif);
-  font-size: clamp(0.95rem, 1.3vw, 1.25rem);
+  font-size: clamp(0.8rem, 1vw, 0.95rem);
   font-weight: 800;
   color: #0f172a;
   letter-spacing: -0.04em;
@@ -4702,10 +4712,10 @@ textarea::placeholder {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: clamp(40px, 4.4vw, 50px);
-  padding: 0 clamp(0.85rem, 1.4vw, 1.25rem);
+  height: clamp(32px, 3vw, 40px);
+  padding: 0 clamp(0.65rem, 1vw, 0.95rem);
   border-radius: 9999px;
-  border: 2.2px solid #18181b;
+  border: 2px solid #18181b;
   background-color: transparent;
   vertical-align: middle;
   flex-shrink: 0;
@@ -4716,7 +4726,7 @@ textarea::placeholder {
 .hero-showcase-section .badge-pill-outline .badge-pill-text,
 .hero-showcase-section .badge-capsule-outline .badge-pill-text {
   font-family: "Wotfard", var(--font-family, sans-serif);
-  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+  font-size: clamp(0.95rem, 1.3vw, 1.25rem);
   font-weight: 700;
   color: #18181b;
   line-height: 1;
@@ -4737,14 +4747,14 @@ textarea::placeholder {
   display: inline-flex;
   align-items: center;
   position: relative;
-  height: clamp(44px, 4.8vw, 54px);
+  height: clamp(34px, 3.2vw, 42px);
   vertical-align: middle;
   user-select: none;
 }
 .hero-creative-section .badge-duo-circles .circle-yellow,
 .hero-showcase-section .badge-duo-circles .circle-yellow {
-  width: clamp(44px, 4.8vw, 54px);
-  height: clamp(44px, 4.8vw, 54px);
+  width: clamp(34px, 3.2vw, 42px);
+  height: clamp(34px, 3.2vw, 42px);
   border-radius: 50%;
   background-color: #facc15;
   display: inline-block;
@@ -4753,21 +4763,23 @@ textarea::placeholder {
 }
 .hero-creative-section .badge-duo-circles .circle-dark,
 .hero-showcase-section .badge-duo-circles .circle-dark {
-  width: clamp(44px, 4.8vw, 54px);
-  height: clamp(44px, 4.8vw, 54px);
+  width: clamp(34px, 3.2vw, 42px);
+  height: clamp(34px, 3.2vw, 42px);
   border-radius: 50%;
   background-color: #0f172a;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-left: -12px;
+  margin-left: -10px;
   position: relative;
   z-index: 2;
 }
 .hero-creative-section .badge-duo-circles .circle-dark svg,
 .hero-showcase-section .badge-duo-circles .circle-dark svg {
   display: block;
+  width: clamp(16px, 1.6vw, 19px);
+  height: clamp(16px, 1.6vw, 19px);
 }
 .hero-creative-section .badge-duo-circles .circle-dark .connecting-line,
 .hero-showcase-section .badge-duo-circles .circle-dark .connecting-line {
