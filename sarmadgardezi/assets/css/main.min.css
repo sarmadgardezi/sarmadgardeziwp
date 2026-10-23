@@ -4658,7 +4658,9 @@ textarea::placeholder {
 .hero-showcase-section .badge-capsule-arrow .badge-body-blue svg {
   display: block;
 }
+.hero-creative-section .badge-circle-code,
 .hero-creative-section .badge-circle-dot,
+.hero-showcase-section .badge-circle-code,
 .hero-showcase-section .badge-circle-dot {
   display: inline-flex;
   align-items: center;
@@ -4671,7 +4673,20 @@ textarea::placeholder {
   flex-shrink: 0;
   user-select: none;
 }
+.hero-creative-section .badge-circle-code .code-symbol,
+.hero-creative-section .badge-circle-dot .code-symbol,
+.hero-showcase-section .badge-circle-code .code-symbol,
+.hero-showcase-section .badge-circle-dot .code-symbol {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: clamp(0.95rem, 1.3vw, 1.25rem);
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.hero-creative-section .badge-circle-code .inner-dot,
 .hero-creative-section .badge-circle-dot .inner-dot,
+.hero-showcase-section .badge-circle-code .inner-dot,
 .hero-showcase-section .badge-circle-dot .inner-dot {
   width: 14px;
   height: 14px;
@@ -4680,21 +4695,36 @@ textarea::placeholder {
   background-color: transparent;
   display: inline-block;
 }
+.hero-creative-section .badge-pill-outline,
 .hero-creative-section .badge-capsule-outline,
+.hero-showcase-section .badge-pill-outline,
 .hero-showcase-section .badge-capsule-outline {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   height: clamp(40px, 4.4vw, 50px);
-  width: clamp(75px, 8vw, 105px);
+  padding: 0 clamp(0.85rem, 1.4vw, 1.25rem);
   border-radius: 9999px;
-  border: 2.8px solid #18181b;
+  border: 2.2px solid #18181b;
   background-color: transparent;
   vertical-align: middle;
   flex-shrink: 0;
   user-select: none;
 }
+.hero-creative-section .badge-pill-outline .badge-pill-text,
+.hero-creative-section .badge-capsule-outline .badge-pill-text,
+.hero-showcase-section .badge-pill-outline .badge-pill-text,
+.hero-showcase-section .badge-capsule-outline .badge-pill-text {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+  font-weight: 700;
+  color: #18181b;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.hero-creative-section .badge-pill-outline .inner-bar,
 .hero-creative-section .badge-capsule-outline .inner-bar,
+.hero-showcase-section .badge-pill-outline .inner-bar,
 .hero-showcase-section .badge-capsule-outline .inner-bar {
   width: 34px;
   height: 3.5px;
@@ -4735,6 +4765,10 @@ textarea::placeholder {
   position: relative;
   z-index: 2;
 }
+.hero-creative-section .badge-duo-circles .circle-dark svg,
+.hero-showcase-section .badge-duo-circles .circle-dark svg {
+  display: block;
+}
 .hero-creative-section .badge-duo-circles .circle-dark .connecting-line,
 .hero-showcase-section .badge-duo-circles .circle-dark .connecting-line {
   position: absolute;
@@ -4754,8 +4788,13 @@ textarea::placeholder {
   color: #4b5563;
   line-height: 1.65;
   letter-spacing: -0.01em;
-  max-width: 480px;
+  max-width: 520px;
   margin: 0 0 2.25rem 0;
+}
+.hero-creative-section .hero-creative-desc .hero-accent-blue,
+.hero-showcase-section .hero-creative-desc .hero-accent-blue {
+  color: #2563eb;
+  font-weight: 600;
 }
 .hero-creative-section .hero-creative-desc .hero-accent-green,
 .hero-showcase-section .hero-creative-desc .hero-accent-green {
@@ -4766,7 +4805,67 @@ textarea::placeholder {
 .hero-showcase-section .hero-creative-actions {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 1.75rem;
+}
+.hero-creative-section .hero-btn-blue,
+.hero-showcase-section .hero-btn-blue {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 0.975rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #2563eb;
+  border-radius: 9999px;
+  padding: 0.85rem 2rem;
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.32);
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hero-creative-section .hero-btn-blue svg,
+.hero-showcase-section .hero-btn-blue svg {
+  transition: transform 0.2s ease;
+}
+.hero-creative-section .hero-btn-blue:hover,
+.hero-showcase-section .hero-btn-blue:hover {
+  background-color: #1d4ed8;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.42);
+  text-decoration: none !important;
+}
+.hero-creative-section .hero-btn-blue:hover svg,
+.hero-showcase-section .hero-btn-blue:hover svg {
+  transform: translateX(3px);
+}
+.hero-creative-section .hero-btn-text-blue,
+.hero-showcase-section .hero-btn-text-blue {
+  font-family: "Wotfard", var(--font-family, sans-serif);
+  font-size: 0.975rem;
+  font-weight: 600;
+  color: #2563eb;
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.hero-creative-section .hero-btn-text-blue svg,
+.hero-showcase-section .hero-btn-text-blue svg {
+  transition: transform 0.2s ease;
+}
+.hero-creative-section .hero-btn-text-blue:hover,
+.hero-showcase-section .hero-btn-text-blue:hover {
+  color: #1d4ed8;
+  text-decoration: none !important;
+  transform: translateX(3px);
+}
+.hero-creative-section .hero-btn-text-blue:hover svg,
+.hero-showcase-section .hero-btn-text-blue:hover svg {
+  transform: translateX(2px);
 }
 .hero-creative-section .hero-btn-dark,
 .hero-showcase-section .hero-btn-dark {
