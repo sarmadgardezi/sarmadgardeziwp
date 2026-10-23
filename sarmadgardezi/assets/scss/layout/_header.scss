@@ -4,12 +4,11 @@
 // ==========================================================================
 
 .site-header-custom {
-  position: sticky;
-  top: clamp(0.75rem, 1.5vw, 1.25rem);
-  z-index: 200;
-  width: calc(100% - clamp(1.25rem, 3.5vw, 2.5rem));
-  max-width: 1240px;
-  margin: clamp(0.75rem, 1.5vw, 1.25rem) auto 0;
+  position: relative;
+  z-index: 100;
+  width: calc(100% - clamp(1.25rem, 3vw, 2.5rem));
+  max-width: 940px;
+  margin: clamp(0.85rem, 2vw, 1.5rem) auto 0;
   background-color: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -21,7 +20,7 @@
 
   &.is-scrolled {
     background-color: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.06), 0 2px 8px -2px rgba(0, 0, 0, 0.02);
     border-color: #d4d4d8;
   }
 
@@ -34,7 +33,7 @@
 
   .site-header-inner {
     width: 100%;
-    padding: clamp(0.55rem, 1.1vw, 0.8rem) clamp(1rem, 2vw, 1.5rem);
+    padding: clamp(0.5rem, 1vw, 0.75rem) clamp(1rem, 2vw, 1.4rem);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -42,8 +41,9 @@
 
     @media (min-width: 860px) {
       display: grid;
-      grid-template-columns: minmax(140px, 1fr) auto minmax(140px, 1fr);
+      grid-template-columns: auto 1fr auto;
       align-items: center;
+      gap: 1rem;
     }
   }
 
@@ -110,7 +110,7 @@
   .header-nav-list {
     display: flex;
     align-items: center;
-    gap: clamp(1.1rem, 2vw, 2rem);
+    gap: clamp(0.85rem, 1.5vw, 1.5rem);
     list-style: none;
     margin: 0;
     padding: 0;
