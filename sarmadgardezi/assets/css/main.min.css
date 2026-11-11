@@ -2511,7 +2511,7 @@ textarea::placeholder {
 
 .hero-main-heading {
   font-family: var(--framer-font-family-bold, "Google Sans Flex", -apple-system, sans-serif);
-  font-size: clamp(2.15rem, 5.2vw, 4.4rem);
+  font-size: clamp(1.85rem, 3.4vw, 2.75rem);
   font-weight: 900;
   letter-spacing: -0.04em;
   text-transform: uppercase;
@@ -3001,11 +3001,11 @@ textarea::placeholder {
 .featured-showcase-section .featured-main-title,
 .generation-showcase-section .featured-main-title {
   font-family: "Wotfard", var(--font-family, -apple-system, BlinkMacSystemFont, sans-serif);
-  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  font-size: clamp(1.85rem, 3.4vw, 2.75rem);
   font-weight: 700;
   color: #09090b;
   letter-spacing: -0.03em;
-  line-height: 1.1;
+  line-height: 1.18;
   margin: 0 0 0.65rem 0;
 }
 .featured-showcase-section .featured-main-desc,
@@ -3348,7 +3348,7 @@ textarea::placeholder {
 }
 .about-intro-split-section .about-intro-heading {
   font-family: "Wotfard", var(--font-family, sans-serif);
-  font-size: clamp(2rem, 3.2vw, 2.65rem);
+  font-size: clamp(1.85rem, 3.4vw, 2.75rem);
   font-weight: 700;
   color: #111827;
   letter-spacing: -0.03em;
@@ -4181,11 +4181,11 @@ textarea::placeholder {
 }
 .mission-showcase-section .mission-heading {
   font-family: "Wotfard", var(--font-family, sans-serif);
-  font-size: clamp(2.15rem, 6vw, 4.5rem);
+  font-size: clamp(1.85rem, 3.4vw, 2.75rem);
   font-weight: 500;
   text-transform: none;
   letter-spacing: -0.01em;
-  line-height: 1.25;
+  line-height: 1.18;
   color: #1a1b26;
   margin: 0 0 1.35rem;
 }
@@ -4289,11 +4289,11 @@ textarea::placeholder {
 
 .portfolio-main-title {
   font-family: "Wotfard", var(--font-family, sans-serif);
-  font-size: clamp(2.15rem, 6vw, 4.5rem);
+  font-size: clamp(1.85rem, 3.4vw, 2.75rem);
   font-weight: 500;
   text-transform: none;
   letter-spacing: -0.01em;
-  line-height: 1.25;
+  line-height: 1.18;
   color: #1a1b26;
   margin: 0;
 }
@@ -5214,12 +5214,12 @@ textarea::placeholder {
 }
 .home-reservation-section .home-reservation-header .home-reservation-title {
   font-family: "Wotfard", var(--font-family, sans-serif);
-  font-size: clamp(2rem, 4.5vw, 2.75rem);
+  font-size: clamp(1.85rem, 3.4vw, 2.75rem);
   font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.035em;
   color: #ffffff;
   margin: 0 0 0.5rem 0;
-  line-height: 1.15;
+  line-height: 1.18;
 }
 .home-reservation-section .home-reservation-header .home-reservation-subtitle {
   font-family: "Wotfard", var(--font-family, sans-serif);
@@ -5369,7 +5369,7 @@ textarea::placeholder {
 }
 .booking-cta-section .booking-cta-heading {
   font-family: "Wotfard", var(--font-family, sans-serif);
-  font-size: clamp(1.85rem, 3.8vw, 3.25rem);
+  font-size: clamp(1.85rem, 3.4vw, 2.75rem);
   font-weight: 700;
   color: #ffffff;
   letter-spacing: -0.035em;
@@ -5632,10 +5632,10 @@ textarea::placeholder {
 }
 .events-showcase-section .events-main-title {
   font-family: "Wotfard", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(2.2rem, 4.5vw, 3.75rem);
+  font-size: clamp(1.85rem, 3.4vw, 2.75rem);
   font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
+  line-height: 1.18;
+  letter-spacing: -0.035em;
   color: #09090b;
   margin: 0 0 1rem 0;
 }
@@ -5876,10 +5876,10 @@ textarea::placeholder {
 }
 .intensive-showcase-section .intensive-main-title {
   font-family: "Wotfard", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(2rem, 4.4vw, 3.85rem);
+  font-size: clamp(1.85rem, 3.4vw, 2.75rem);
   font-weight: 800;
   line-height: 1.18;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.035em;
   color: #09090b;
   margin: 0;
 }
